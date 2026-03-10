@@ -11,7 +11,7 @@ public class Note : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.down * (speed * Time.deltaTime), Space.World);
 
         IsOutOfScreen();
     }
@@ -41,22 +41,18 @@ public class Note : MonoBehaviour
         //判定区内的时机判定
         if (baseY - speed * BarJudger.BarJudgerInstance.perfect < y && y < baseY + speed * BarJudger.BarJudgerInstance.perfect)
         {
-            Debug.Log("Perfect!");
             BarJudger.BarJudgerInstance.ShowText(barIndex, "Perfect!", Color.yellow);
         }
         else if (baseY - speed * BarJudger.BarJudgerInstance.good < y && y < baseY + speed * BarJudger.BarJudgerInstance.good)
         {
-            Debug.Log("Good!");
             BarJudger.BarJudgerInstance.ShowText(barIndex, "Good!", Color.green);
         }
         else if (baseY - speed * BarJudger.BarJudgerInstance.soso < y && y < baseY + speed * BarJudger.BarJudgerInstance.soso)
         {
-            Debug.Log("So-so!");
             BarJudger.BarJudgerInstance.ShowText(barIndex, "So-so!", Color.gray);
         }
         else if (baseY - speed * BarJudger.BarJudgerInstance.miss < y && y < baseY + speed * BarJudger.BarJudgerInstance.miss)
         {
-            Debug.Log("Miss!");
             BarJudger.BarJudgerInstance.ShowText(barIndex, "Miss!", Color.red);
         }
         DestroyNote();
