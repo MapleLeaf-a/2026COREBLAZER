@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+using TMPro;
 using UnityEngine;
 
 public class BarJudger : MonoBehaviour
 {
+    //音轨数组
     public Transform[] barList;     
 
     public GameObject notePrefab;      
@@ -25,6 +26,9 @@ public class BarJudger : MonoBehaviour
     public List<List<Note>> noteList;
 
     private float timer = 0f;
+
+    //跳字文本text数组
+    public PopUpText[] textMeshList;
 
     //单例
     public static BarJudger BarJudgerInstance { get; private set; }
@@ -112,5 +116,10 @@ public class BarJudger : MonoBehaviour
             Debug.LogWarning("此路已无音符！");
             return null;
         }
+    }
+
+    public void ShowText(int barIndex, string message, Color color, float duration = 0.1f)
+    {
+        textMeshList[barIndex].ShowText(message, color, duration);
     }
 }
