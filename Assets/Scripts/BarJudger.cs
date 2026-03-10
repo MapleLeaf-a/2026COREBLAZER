@@ -22,7 +22,7 @@ public class BarJudger : MonoBehaviour
     public float miss = 0.18f; //<180ms
 
 
-    private List<List<GameObject>> noteList;
+    public List<List<Note>> noteList;
 
     private float timer = 0f;
 
@@ -31,10 +31,10 @@ public class BarJudger : MonoBehaviour
 
     void Awake()
     {
-        noteList = new List<List<GameObject>>(barList.Length);
+        noteList = new List<List<Note>>();
         for (int i = 0; i < barList.Length; i++)
         {
-            noteList.Add(new List<GameObject>()); // 为每个轨道创建一个空的 Note 列表
+            noteList.Add(new List<Note>()); // 为每个轨道创建一个空的 Note 列表
         }
 
         if (BarJudgerInstance == null)
@@ -60,19 +60,27 @@ public class BarJudger : MonoBehaviour
         //
         if (Input.GetKeyDown(KeyCode.A))
         {
-            JudgeTime(0);
+            Note note = GetNote(0);
+            if (note != null)
+                note.JudgeTime();
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            JudgeTime(1);
+            Note note = GetNote(1);
+            if (note != null)
+                note.JudgeTime();
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
-            JudgeTime(2);
+            Note note = GetNote(2);
+            if (note != null)
+                note.JudgeTime();
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            JudgeTime(3);
+            Note note = GetNote(3);
+            if (note != null)
+                note.JudgeTime();
         }
     }
 
@@ -88,76 +96,21 @@ public class BarJudger : MonoBehaviour
 
         Note note = noteObj.GetComponent<Note>();
         note.speed = noteSpeed;
+        note.barIndex = index;
 
-        noteList[index].Add(noteObj); //入队
+        noteList[index].Add(note); //入队
     }
 
-    //判断时机
-    public void JudgeTime(int barIndex)
+    public Note GetNote(int barIndex)
     {
-        Transform bar = barList[barIndex];
-        float baseY = bar.position.y;
-
         if (noteList[barIndex].Count != 0)
         {
-            GameObject noteObj = noteList[barIndex][0];
-            Note note = noteObj.GetComponent<Note>();
-            float y = note.transform.position.y;
-
-            if (baseY + note.speed * miss < y)  //还未到判定区
-            {
-                return;
-            }
-            else if (baseY - note.speed * miss > y) //已过判定区
-            {
-                noteList[barIndex].RemoveAt(0);
-                Destroy(noteObj);
-                while (noteList[barIndex].Count != 0) //如果还有剩下的块
-                {
-                    noteObj = noteList[barIndex][0];
-                    note = noteObj.GetComponent<Note>();
-                    y = note.transform.position.y;
-                    if (baseY - note.speed * miss < y && y < baseY + note.speed * miss) //剩下的块如果在判定区里
-                    {
-                        break;
-                    }
-                    else if (baseY + note.speed * miss < y) //剩下的块如果未到
-                    {
-                        return;
-                    }
-                    else //剩下的块也超过了
-                    {
-                        noteList[barIndex].RemoveAt(0);
-                        Destroy(noteObj);
-                    }
-                }
-                if (noteList[barIndex].Count == 0)
-                {
-                    return;
-                }
-            }
-
-            if (baseY - note.speed * perfect < y && y < baseY + note.speed * perfect)
-            {
-                Debug.Log("Perfect!");
-            }
-            else if (baseY - note.speed * good < y && y < baseY + note.speed * good)
-            {
-                Debug.Log("Good!");
-            }
-            else if (baseY - note.speed * soso < y && y < baseY + note.speed * soso)
-            {
-                Debug.Log("So-so!");
-            }
-            else if (baseY - note.speed * miss < y && y < baseY + note.speed * miss)
-            {
-                Debug.Log("Miss!");
-            }
-
-
-            noteList[barIndex].RemoveAt(0); //出队
-            Destroy(noteObj);
-            
+            return noteList[barIndex][0];
+        }
+        else
+        {
+            Debug.LogWarning("此路已无音符！");
+            return null;
         }
     }
 }
