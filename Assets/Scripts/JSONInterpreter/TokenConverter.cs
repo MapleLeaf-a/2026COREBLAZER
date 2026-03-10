@@ -42,6 +42,12 @@ namespace JSONInterpreter
                             continue;
                         }
 
+                        if (json[i] == '-' || (json[i] >= '0' && json[i] <= '9'))
+                        {
+                            tokens.Add(NumberConverter(json, ref i));
+                            continue;
+                        }
+
                         if (json[i] == 't' && json.Substring(i, 4) == "true")
                         {
                             tokens.Add(new TBool(true));
@@ -142,7 +148,28 @@ namespace JSONInterpreter
 
         private static IToken NumberConverter(string json, ref int index)
         {
-            return new TInt(0);
+            string numStr="";
+            bool isFloat = false;
+            while ((json[++index] >= '0' && json[index] <= '9') || json[index] == '.')
+            {
+                numStr+=json[index];
+                if (json[index] == '.')
+                {
+                    if (!isFloat)
+                    {
+                        isFloat = true;
+                    }
+                    else
+                    {
+                        throw new UnityException("A number shouldn't have two or more points! Token conversion failed!");
+                    }
+                }
+            }
+            if (isFloat)
+            {
+                return new TFloat(float.Parse(numStr));
+            }
+            return new TInt(int.Parse(numStr));
         }
     }
 }
