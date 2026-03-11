@@ -51,18 +51,22 @@ namespace JSONInterpreter
                         if (json[i] == 't' && json.Substring(i, 4) == "true")
                         {
                             tokens.Add(new TBool(true));
+                            i += 3;
                             continue;
                         }
 
                         if (json[i] == 'f' && json.Substring(i, 5) == "false")
                         {
                             tokens.Add(new TBool(false));
+                            i += 4;
                             continue;
                         }
 
                         if (json[i] == 'n' && json.Substring(i, 4) == "null")
                         {
                             tokens.Add(new TNull());
+                            i += 3;
+                            continue;
                         }
                         
                         throw new UnityException("Unexpected character '" + json[i]+"' ! Token conversion failed!");
@@ -129,7 +133,7 @@ namespace JSONInterpreter
                             str += c;
                             break;
                         default:
-                            throw new UnityException("Character '\\' continue with an unexcepted character"+json[index]+"! Token conversion failed!");
+                            throw new UnityException("Character '\\' continue with an unexcepted character '"+json[index]+"' ! Token conversion failed!");
                     }
                 }
                 str += json[index];
@@ -148,7 +152,7 @@ namespace JSONInterpreter
 
         private static IToken NumberConverter(string json, ref int index)
         {
-            string numStr="";
+            string numStr=json[index].ToString();
             bool isFloat = false;
             while ((json[++index] >= '0' && json[index] <= '9') || json[index] == '.')
             {
