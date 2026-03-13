@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using JSONInterpreter.Interface;
 using JSONInterpreter.Tokens.Implement;
 using JSONInterpreter.Tokens.Interface;
@@ -22,7 +23,7 @@ namespace JSONInterpreter
             }
 
             index++;
-            PairAnalyzer<T>(tokens,ref index, result);
+            PairAnalyzer<T>(tokens,ref index, MemberDict.GetMemberDict(typeof(T)),result);
             
             while (tokens[++index] is not TRightBracket)
             {
@@ -31,7 +32,7 @@ namespace JSONInterpreter
                     throw new UnityException("Unexpected token: " + tokens[index].ToString());
                 }
                 index++;
-                PairAnalyzer<T>(tokens,ref index, result);
+                PairAnalyzer<T>(tokens,ref index, MemberDict.GetMemberDict(typeof(T)),result);
                 if (index + 1 == tokens.Count)
                 {
                     throw new UnityException("Not enough tokens in array");
@@ -56,7 +57,7 @@ namespace JSONInterpreter
             TObj result = new TObj();
 
             index++;
-            PairAnalyzer<TObj>(tokens,ref index, result);
+            PairAnalyzer<TObj>(tokens,ref index, MemberDict.GetMemberDict(typeof(TObj)),result);
             
             while (tokens[++index] is not TRightBracket)
             {
@@ -65,7 +66,7 @@ namespace JSONInterpreter
                     throw new UnityException("Unexpected token: " + tokens[index].ToString());
                 }
                 index++;
-                PairAnalyzer<TObj>(tokens,ref index, result);
+                PairAnalyzer<TObj>(tokens,ref index, MemberDict.GetMemberDict(typeof(TObj)),result);
                 if (index + 1 == tokens.Count)
                 {
                     throw new UnityException("Not enough tokens in array");
@@ -75,7 +76,8 @@ namespace JSONInterpreter
             return result;
         }
 
-        private void PairAnalyzer<TObj>(List<IToken> tokens,ref int index,TObj result) where TObj : IBaseJsonInstance, new()
+        private void PairAnalyzer<TObj>(List<IToken> tokens,ref int index,Dictionary<string,MemberInfo> dict,TObj result) 
+            where TObj : IBaseJsonInstance, new()
         {
             if (index + 2 >= tokens.Count)
             {
@@ -86,21 +88,50 @@ namespace JSONInterpreter
             {
                 throw new UnityException("Unexpected token for pair");
             }
-
-            var type = typeof(TObj);
+            
+            MemberInfo memberInfo = dict[((TString)tokens[index]).value];
+            if (memberInfo is FieldInfo)
+            {
+                
+            }
+            else if (memberInfo is PropertyInfo)
+            {
+                
+            }
             
             index += 2;
             
         }
 
-        private System.Object ValueAnalyzer<TVar>(List<IToken> tokens, ref int index)
+        private object ValueAnalyzer<TVar>(List<IToken> tokens, ref int index) 
         {
-            if (typeof(TVar) == typeof(bool) && tokens[index] is TBool)
+            if (typeof(TVar) == typeof(bool)&&tokens[index] is TBool)
             {
                 return ((TBool)tokens[index]).value;
             }
 
-            return new System.Object();
+            if (typeof(TVar) == typeof(int) && tokens[index] is TInt)
+            {
+                return ((TInt)tokens[index]).value;
+            }
+
+            if (typeof(TVar) == typeof(float) && tokens[index] is TFloat)
+            {
+                return ((TFloat)tokens[index]).value;
+            }
+
+            /*if (typeof(TVar) == typeof(IBaseJsonInstance))
+            {
+                if (tokens[index] is TNull)
+                {
+                    return null;
+                }
+                return ObjectAnalyzer<TVar>(tokens, ref index);
+            }*/
+
+            throw new UnityException("Unexpected value type: " + tokens[index].ToString());
         }
+
+        
     }
 }
