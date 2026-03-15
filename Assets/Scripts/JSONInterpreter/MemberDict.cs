@@ -21,7 +21,6 @@ namespace JSONInterpreter
             Dictionary<string, MemberInfo> memberInfoDict = new Dictionary<string, MemberInfo>();
             foreach (var member in memberInfos)
             {
-                Debug.Log(member.MemberType);
 
                 if (member is FieldInfo or PropertyInfo)
                 {

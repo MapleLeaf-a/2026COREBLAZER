@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using JSONInterpreter.Interface;
+using JSONInterpreter.Tokens;
 using JSONInterpreter.Tokens.Implement;
 using JSONInterpreter.Tokens.Interface;
 using UnityEngine;
@@ -10,9 +11,9 @@ using Object = UnityEngine.Object;
 
 namespace JSONInterpreter
 {
-    public class JsonInterpreter<T> where T : IBaseJsonInstance, new()
+    public static class JsonInterpreter 
     {
-        public T Interpret(string json)
+        public static T Interpret<T>(string json) where T : IBaseJsonInstance, new()
         {
             List<IToken> tokens = TokenConverter.GetToken(json);
 
@@ -43,13 +44,51 @@ namespace JSONInterpreter
 
             if (index != tokens.Count - 1)
             {
+                throw new UnityException("Token should be end with a right brace");
+            }
+            
+            return result;
+        }
+
+        public static List<T> InterpretList<T>(string json) where T : IBaseJsonInstance, new()
+        {
+            List<IToken> tokens = TokenConverter.GetToken(json);
+            
+            List<T> result = new List<T>();
+            int index = 0;
+            
+            if (tokens[index] is not TLeftBracket)
+            {
+                throw new UnityException("Unexpected token: " + tokens[index].ToString());
+            }
+            
+            index++;
+            result.Add( (T)ValueAnalyzer(tokens, ref index, typeof(T)) );
+            
+            while (tokens[++index] is not TRightBracket){
+                if (tokens[index] is not TComma)
+                {
+                    throw new UnityException("Unexpected token: " + tokens[index].ToString());
+                }
+                
+                index++;
+                result.Add( (T)ValueAnalyzer(tokens, ref index, typeof(T)) );
+                
+                if (index + 1 == tokens.Count)
+                {
+                    throw new UnityException("Not enough tokens in array");
+                }
+            }
+            
+            if (index != tokens.Count - 1)
+            {
                 throw new UnityException("Token should be end with a right bracket");
             }
             
             return result;
         }
 
-        private object ObjectAnalyzer(List<IToken> tokens,ref int index,Type classType) 
+        private static object ObjectAnalyzer(List<IToken> tokens,ref int index,Type classType) 
         {
             if (tokens[index] is not TLeftBrace)
             {
@@ -78,7 +117,7 @@ namespace JSONInterpreter
             return result;
         }
 
-        private void PairAnalyzer(List<IToken> tokens,ref int index,Dictionary<string,MemberInfo> dict,object result) 
+        private static void PairAnalyzer(List<IToken> tokens,ref int index,Dictionary<string,MemberInfo> dict,object result) 
         {
             
             if (index + 2 >= tokens.Count)
@@ -106,7 +145,7 @@ namespace JSONInterpreter
             
         }
 
-        private object ValueAnalyzer(List<IToken> tokens, ref int index,Type valueType) 
+        private static object ValueAnalyzer(List<IToken> tokens, ref int index,Type valueType) 
         {
             
             if (valueType == typeof(bool)&&tokens[index] is TBool)
@@ -153,14 +192,15 @@ namespace JSONInterpreter
                 {
                     return null;
                 }
+                Type[] genericArgs = valueType.GetGenericArguments();
+                return DictionaryAnalyzer(tokens, ref index,valueType ,genericArgs[0],genericArgs[1]);
             }
 
             throw new UnityException("Unexpected value type: " + tokens[index].ToString());
         }
 
-        private object ListAnalyzer(List<IToken> tokens, ref int index,Type listType, Type listValueType)
+        private static object ListAnalyzer(List<IToken> tokens, ref int index,Type listType, Type listValueType)
         {
-            Debug.Log(tokens[index]+","+index);
             if (tokens[index] is not TLeftBracket)
             {
                 throw new UnityException("Unexpected token: " + tokens[index].ToString());
@@ -170,17 +210,16 @@ namespace JSONInterpreter
             IList result = list as IList;
             
             index++;
-            result.Add(ValueAnalyzer(tokens, ref index, listValueType) );
+            result?.Add(ValueAnalyzer(tokens, ref index, listValueType) );
             
             while (tokens[++index] is not TRightBracket){
-                Debug.Log(tokens[index]+","+index);
                 if (tokens[index] is not TComma)
                 {
                     throw new UnityException("Unexpected token: " + tokens[index].ToString());
                 }
                 
                 index++;
-                result.Add(ValueAnalyzer(tokens, ref index, listValueType) );
+                result?.Add(ValueAnalyzer(tokens, ref index, listValueType) );
                 
                 if (index + 1 == tokens.Count)
                 {
@@ -189,6 +228,65 @@ namespace JSONInterpreter
             }
             
             return result;
-        } 
+        }
+
+        private static object DictionaryAnalyzer(List<IToken> tokens, ref int index,Type dictionaryType ,Type keyType, Type valueType)
+        {
+            if (tokens[index] is not TLeftBrace)
+            {
+                throw new UnityException("Unexpected token: " + tokens[index].ToString());
+            }
+            
+            object dict=Activator.CreateInstance(dictionaryType);
+            IDictionary result=dict as IDictionary;
+            
+            index++;
+            DictionaryPairAnalyzer(tokens, ref index, keyType, valueType,ref result);
+
+            while (tokens[++index] is not TRightBrace)
+            {
+                if (tokens[index] is not TComma)
+                {
+                    throw new UnityException("Unexpected token: " + tokens[index].ToString());
+                }
+                index++;
+                DictionaryPairAnalyzer(tokens, ref index, keyType, valueType,ref result);
+                
+                if (index + 1 == tokens.Count)
+                {
+                    throw new UnityException("Not enough tokens in array");
+                }
+            }
+
+            return result;
+        }
+
+        private static void DictionaryPairAnalyzer(List<IToken> tokens, ref int index, Type keyType, Type valueType,ref IDictionary dict)
+        {
+            if (tokens[index] is not TLeftBrace)
+            {
+                throw new UnityException("Unexpected token: " + tokens[index].ToString());
+            }
+            
+            index++;
+            object key=ValueAnalyzer(tokens, ref index, keyType);
+            
+            index++;
+            if (tokens[index] is not TComma)
+            {
+                throw new UnityException("Unexpected token: " + tokens[index].ToString());
+            }
+            
+            index++;
+            object value=ValueAnalyzer(tokens, ref index, valueType);
+            
+            dict.Add(key,value);
+            
+            index++;
+            if (tokens[index] is not TRightBrace)
+            {
+                throw new UnityException("Unexpected token: " + tokens[index].ToString());
+            }
+        }
     }
 }
