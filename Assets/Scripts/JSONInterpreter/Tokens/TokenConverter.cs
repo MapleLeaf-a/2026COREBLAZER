@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 using JSONInterpreter.Tokens.Implement;
 using JSONInterpreter.Tokens.Interface;
 using UnityEngine;
 
-namespace JSONInterpreter
+namespace JSONInterpreter.Tokens
 {
     public static class TokenConverter
     {
@@ -109,21 +108,21 @@ namespace JSONInterpreter
                             str += '\r';
                             break;
                         case 'u':
-                            char c=(char)0;
+                            short c=0;
                             for (int m = 1; m <= 4; m++)
                             {
                                 index++;
                                 if (json[index] >= '0' && json[index] <= '9')
                                 {
-                                    c+=(char)((json[index]-'0')<<((4-m)*2));
+                                    c|=(short)((json[index]-'0')<<((4-m)*2));
                                 }
                                 else if (json[index] >= 'A' && json[index] <= 'F')
                                 {
-                                    c+=(char)((json[index]+10-'A')<<((4-m)*2));
+                                    c|=(short)((json[index]+10-'A')<<((4-m)*2));
                                 }
                                 else if (json[index] >= 'a' && json[index] <= 'f')
                                 {
-                                    c+=(char)((json[index]+10-'a')<<((4-m)*2));
+                                    c|=(short)((json[index]+10-'a')<<((4-m)*2));
                                 }
                                 else
                                 {

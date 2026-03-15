@@ -1,0 +1,10 @@
+﻿{
+  "spritePath1": "/sprite1",
+  "spritePath2": "/sprite2",
+  "spritePath3": "/sprite3",
+  "spritePath4": "/sprite4",
+  "track1": [0,0,0,0,0,0],
+  "track2": [0,1,0,1,0,0],
+  "track3": [0,0,0,0,1,0],
+  "track4": [0,1,0,1,0,0]
+}
