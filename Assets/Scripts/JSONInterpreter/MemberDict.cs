@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace JSONInterpreter
 {
-    public class MemberDict
+    public static class MemberDict
     {
         private static Dictionary<Type, Dictionary<string, MemberInfo>> _typeDict =
             new Dictionary<Type, Dictionary<string, MemberInfo>>(); 
@@ -21,10 +21,7 @@ namespace JSONInterpreter
             Dictionary<string, MemberInfo> memberInfoDict = new Dictionary<string, MemberInfo>();
             foreach (var member in memberInfos)
             {
-                if (member is MethodInfo)
-                {
-                    throw new UnityException("Methods are not supported");
-                }
+                Debug.Log(member.MemberType);
 
                 if (member is FieldInfo or PropertyInfo)
                 {

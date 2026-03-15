@@ -135,6 +135,7 @@ namespace JSONInterpreter
                         default:
                             throw new UnityException("Character '\\' continue with an unexcepted character '"+json[index]+"' ! Token conversion failed!");
                     }
+                    continue;
                 }
                 str += json[index];
                 if (json[index] == '\n' || json[index] == '\t' || json[index] == '\r' || json[index] == '\b' ||
@@ -169,6 +170,8 @@ namespace JSONInterpreter
                     }
                 }
             }
+            
+            index--;
             if (isFloat)
             {
                 return new TFloat(float.Parse(numStr));
