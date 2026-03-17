@@ -63,7 +63,7 @@ namespace JSONInterpreter
             }
             
             index++;
-            result.Add( (T)ValueAnalyzer(tokens, ref index, typeof(T)) );
+            result.Add( (T)ObjectAnalyzer(tokens, ref index, typeof(T)) );
             
             while (tokens[++index] is not TRightBracket){
                 if (tokens[index] is not TComma)
@@ -72,7 +72,7 @@ namespace JSONInterpreter
                 }
                 
                 index++;
-                result.Add( (T)ValueAnalyzer(tokens, ref index, typeof(T)) );
+                result.Add( (T)ObjectAnalyzer(tokens, ref index, typeof(T)) );
                 
                 if (index + 1 == tokens.Count)
                 {
