@@ -27,11 +27,19 @@ public class BarJudger : MonoBehaviour
     //跳字文本text数组
     public PopUpText[] textMeshList;
 
-    //每个食谱的预设音符列表
-    List<MealNotes> mealNotesList;
-
-    //遍历MealNotes的index
+    //需要打谱的音符表
+    List<MealNotes> currentMealNotesList;
+    //是否已经结束所有的打谱
+    bool over;
+    //最大能同时进行的谱子数量
+    const int maxMealQuantity = 2;
+    //遍历currentMealNotesList的index
+    int indexOfMealNotesList;
+    //遍历每个MealNotes的index
     int indexOfMealNotes;
+
+    //需要打谱的音符表对应的mealNotesIndex的List
+    List<int> mealNotesIndexList = new List<int>();
 
     //画布父物体
     public Canvas canvas;
@@ -58,27 +66,25 @@ public class BarJudger : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        mealNotesList = JsonTest.GetMealNotes();
-        for (int i = 0; i < mealNotesList.Count; i++)
-        {
-            MealNotes mealNotes = mealNotesList[i];
-            if (mealNotes.track1.Count != mealNotes.track2.Count || mealNotes.track1.Count != mealNotes.track3.Count || mealNotes.track1.Count != mealNotes.track4.Count)
-            {
-                throw new UnityException("MealNote各轨道的长度不同！");
-            }
-        }
-
-        mealScores = new List<Score>(mealNotesList.Count);
-        for (int i = 0; i < mealNotesList.Count; i++)
-        {
-            mealScores.Add(new Score(i));
-        }
     }
 
     void Start()
     {
-       
+        MealCreator.mealCreatorInstance.AddMealNotes(1);
+        MealCreator.mealCreatorInstance.AddMealNotes(1);
+        MealCreator.mealCreatorInstance.AddMealNotes(3);
+        MealCreator.mealCreatorInstance.AddMealNotes(2);
+        mealNotesIndexList.Add(1);
+        mealNotesIndexList.Add(1);
+        mealNotesIndexList.Add(3);
+        mealNotesIndexList.Add(2);
+        currentMealNotesList = MealCreator.mealCreatorInstance.GetCurrentMealNotesList();
+
+        mealScores = new List<Score>();
+        for (int i = 0; i < currentMealNotesList.Count; i++)
+        {
+            mealScores.Add(new Score(i));
+        }
     }
 
     void Update()
@@ -87,42 +93,81 @@ public class BarJudger : MonoBehaviour
         if (timer >= spawnInterval)
         {
             timer = 0f;
-            for (int i = 0; i < mealNotesList.Count; i++)
+
+            if (indexOfMealNotesList < currentMealNotesList.Count)
             {
-                MealNotes mealNotes = mealNotesList[i];
-                if (indexOfMealNotes < mealNotes.track1.Count)
+                //indexOfMealNotesList + i，每次遍历的谱子的index
+                for (int i = 0; i < maxMealQuantity; i++)
                 {
-                    if (mealNotes.track1[indexOfMealNotes] == 1)
+                    int index = indexOfMealNotesList + i;
+                    if (index >= currentMealNotesList.Count)
                     {
-                        SpawnNote(0, i);
-                        mealScores[i].AddNoteCount();
+                        over = true;
+                        break;
                     }
-                    if (mealNotes.track2[indexOfMealNotes] == 1)
+                    else
                     {
-                        SpawnNote(1, i);
-                        mealScores[i].AddNoteCount();
-                    }
-                    if (mealNotes.track3[indexOfMealNotes] == 1)
-                    {
-                        SpawnNote(2, i);
-                        mealScores[i].AddNoteCount();
-                    }
-                    if (mealNotes.track4[indexOfMealNotes] == 1)
-                    {
-                        SpawnNote(3, i);
-                        mealScores[i].AddNoteCount();
+                        MealNotes mealNotes = currentMealNotesList[index];
+                        if (indexOfMealNotes < mealNotes.track1.Count)
+                        {
+                            if (mealNotes.track1[indexOfMealNotes] == 1)
+                            {
+                                SpawnNote(0, index);
+                                mealScores[index].AddNoteCount();
+                            }
+                            if (mealNotes.track2[indexOfMealNotes] == 1)
+                            {
+                                SpawnNote(1, index);
+                                mealScores[index].AddNoteCount();
+                            }
+                            if (mealNotes.track3[indexOfMealNotes] == 1)
+                            {
+                                SpawnNote(2, index);
+                                mealScores[index].AddNoteCount();
+                            }
+                            if (mealNotes.track4[indexOfMealNotes] == 1)
+                            {
+                                SpawnNote(3, index);
+                                mealScores[index].AddNoteCount();
+                            }
+                        }
+                        else
+                        {
+                            if (mealScores[index].GetFinalRate() == 0 && NoNotesOfMealXPending(index))
+                            {
+                                mealScores[index].ComputeFinalRate();
+                                Debug.Log("菜品" + mealNotesIndexList[index] + "的最终perfect率为：" + mealScores[index].GetFinalRate());
+                            }
+                        }
                     }
                 }
-                else 
-                {
-                    if (mealScores[i].GetFinalRate() == 0 && NoNotesOfMealXPending(i))
-                    {
-                        mealScores[i].ComputeFinalRate();
-                        Debug.Log("菜品" + i + "的最终perfect率为：" + mealScores[i].GetFinalRate());
+
+                int x;
+                for (x = 0; x < maxMealQuantity; x++)
+                { 
+                    if (!NoNotesOfMealXPending(indexOfMealNotesList + x)) 
+                    { 
+                        break; 
                     }
+                }
+
+                indexOfMealNotes++;
+
+                if (x == maxMealQuantity)
+                {
+                    indexOfMealNotesList += maxMealQuantity;
+                    indexOfMealNotes = 0;
                 }
             }
-            indexOfMealNotes++;
+            else
+            {
+                over = true;
+            }
+
+            //if (over)
+            //{
+            //    InitState();
+            //}
         }
 
         //
