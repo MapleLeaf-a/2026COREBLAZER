@@ -70,6 +70,10 @@ namespace JSONInterpreter
             {
                 result.Append('"'+element.ToString()+'"');
             }
+            else if (element==null)
+            {
+                result.Append("null");
+            }
             else if (valueType == typeof(IBaseJsonInstance))
             {
                 ObjectSerializer((IBaseJsonInstance)element,result);
@@ -132,13 +136,23 @@ namespace JSONInterpreter
             result.Append("{\n");
             _tabnum++;
 
+            int len=0;
+            
             foreach (var member in dict.Keys)
             {
                 AddTab(result);
+                result.Append('{');
                 ValueSerializer(keyType,result,member);
-                result.Append(",");
+                result.Append(',');
                 ValueSerializer(valueType,result,dict[member]);
-                result.Append("}\n");
+                result.Append('}');
+
+                len++;
+                if (len != dict.Count)
+                {
+                    result.Append(',');
+                }
+                result.Append('\n');
             }
             
             _tabnum--;
