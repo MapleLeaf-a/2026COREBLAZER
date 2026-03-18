@@ -4,18 +4,15 @@ using System.Collections.Generic;
 using Test;
 using UnityEngine;
 
-public class MealCreator : MonoBehaviour
+public class MealCreator
 {
     //每个食谱的预设音符列表
-    List<MealNotes> mealNotesList;
+    public static List<MealNotes> mealNotesList;
 
     //需要进行打击的谱子的音符列表
     public List<MealNotes> currentMealNotesList = new List<MealNotes>();
 
-    //单例
-    public static MealCreator mealCreatorInstance;
-
-    void Awake()
+    public MealCreator()
     {
         mealNotesList = JsonTest.GetMealNotes();
         for (int i = 0; i < mealNotesList.Count; i++)
@@ -26,15 +23,6 @@ public class MealCreator : MonoBehaviour
                 throw new UnityException("MealNote各轨道的长度不同！");
             }
         }
-
-        if (mealCreatorInstance == null)
-        {
-            mealCreatorInstance = this;
-        }
-        else 
-        {
-            Destroy(gameObject);
-        }
     }
 
     public List<MealNotes> GetCurrentMealNotesList()
@@ -44,7 +32,7 @@ public class MealCreator : MonoBehaviour
 
     public void AddMealNotes(int mealIndex)
     {
-        if (mealIndex > mealNotesList.Count)
+        if (mealIndex >= mealNotesList.Count)
         {
             throw new UnityException("超出了给定菜谱的index范围！");
         }
