@@ -7,11 +7,6 @@ public class NumberInputReader : MonoBehaviour
     private StringBuilder numberBuffer = new StringBuilder();
     private bool isReading = false;
 
-    private void Start()
-    {
-        StartNumberInput();
-    }
-
     void Update()
     {
         if (!isReading) return;
@@ -88,5 +83,6 @@ public class NumberInputReader : MonoBehaviour
         }
 
         BarJudger.BarJudgerInstance.CreateMealNotesList(indexs);
+        InputManager.InputManagerInstance.SetContext(InputManager.InputContext.MUSICGAME);
     }
 }

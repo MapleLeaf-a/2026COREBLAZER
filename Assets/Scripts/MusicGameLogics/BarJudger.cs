@@ -151,23 +151,27 @@ public class BarJudger : MonoBehaviour
                 if (over && NoNotesPending())
                 {
                     InitState();
+                    Debug.Log("当前谱子已全部结束");
+                    canvas.gameObject.SetActive(false);
+                    InputManager.InputManagerInstance.SetContext(InputManager.InputContext.CHARACTER);
+                    return;
                 }
             }
 
             //
-            if (Input.GetKeyDown(KeyCode.A))
+            if (InputManager.InputManagerInstance.GetKeyDown("bar1"))
             {
                 JudgeNoteAt(0);
             }
-            if (Input.GetKeyDown(KeyCode.D))
+            if (InputManager.InputManagerInstance.GetKeyDown("bar2"))
             {
                 JudgeNoteAt(1);
             }
-            if (Input.GetKeyDown(KeyCode.J))
+            if (InputManager.InputManagerInstance.GetKeyDown("bar3"))
             {
                 JudgeNoteAt(2);
             }
-            if (Input.GetKeyDown(KeyCode.L))
+            if (InputManager.InputManagerInstance.GetKeyDown("bar4"))
             {
                 JudgeNoteAt(3);
             }
@@ -278,12 +282,16 @@ public class BarJudger : MonoBehaviour
     //重置状态
     void InitState()
     {
-        currentMealNotesList = new List<MealNotes>();
+        currentMealNotesList = null; 
         mealScores = new List<Score>();
+        over = false;
+        indexOfMealNotesList = 0;
     }
 
     public void CreateMealNotesList(List<int> indexsOfMealNotes)
     {
+        canvas.gameObject.SetActive(true);
+
         MealCreator mealCreatorInstance = new MealCreator();
         for (int i = 0; i < indexsOfMealNotes.Count; i++)
         {
