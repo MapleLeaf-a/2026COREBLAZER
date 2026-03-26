@@ -52,6 +52,9 @@ public class InputManager : MonoBehaviour
         AddMapping("MoveDown", KeyCode.S, InputContext.CHARACTER);
         AddMapping("MoveLeft", KeyCode.A, InputContext.CHARACTER);
         AddMapping("MoveRight", KeyCode.D, InputContext.CHARACTER);
+
+        //交互对应按键
+        AddMapping("InteractF", KeyCode.F, InputContext.CHARACTER);
     }
 
     void AddMapping(string actionName, KeyCode key, InputContext? inputContext) //可空值类型inputContext
