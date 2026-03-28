@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 public class Score
 {
@@ -10,6 +11,9 @@ public class Score
 
     //最终perfect率
     private float finalRate;
+
+    //当前perfect率
+    private float currentRate;
 
 
     public void AddScore(float score)
@@ -49,15 +53,22 @@ public class Score
         noteCount++;
     }
 
+    public void UpdateCurrentRate()
+    { 
+        if (noteCount == 0) return;
+        currentRate = score / noteCount;
+    }
+
+    public float GetCurrentRate()
+    { 
+        return currentRate;
+    }
+
     public void ComputeFinalRate()
     {
         if (noteCount == 0)
         {
             return;
-        }
-        if (finalRate != 0)
-        {
-            throw new System.Exception("重复计算，已经有最终率的值了！");
         }
         finalRate = score / noteCount;
     }
@@ -72,5 +83,11 @@ public class Score
         score = 0f;
         noteCount = 0;
         finalRate = 0f;
+        currentRate = 0f;
+    }
+
+    public int GetNoteCount()
+    { 
+        return noteCount;
     }
 }

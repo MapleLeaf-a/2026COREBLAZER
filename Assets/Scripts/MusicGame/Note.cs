@@ -84,6 +84,7 @@ public class Note : MonoBehaviour
         {
             BarJudger.ShowText("Miss!", Color.red);
         }
+        
         DestroyNote();
         isJugded = true;
         return true;

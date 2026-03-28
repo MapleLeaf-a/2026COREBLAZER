@@ -19,7 +19,7 @@ public class InputManager : MonoBehaviour
     public InputContext currenContext = InputContext.CHARACTER;
 
     //动作名->按键的映射
-    private Dictionary<string, KeyCode> keyMapping = new Dictionary<string, KeyCode>();
+    private Dictionary<string, List<KeyCode>> keyMapping = new Dictionary<string, List<KeyCode>>();
 
     //动作名属于哪个上下文
     private Dictionary<string, InputContext> contextMapping = new Dictionary<string, InputContext>();
@@ -42,16 +42,17 @@ public class InputManager : MonoBehaviour
     void InitMappings()
     {
         //音游轨道对应按键
-        AddMapping("bar1", KeyCode.A, InputContext.MUSICGAME);
-        AddMapping("bar2", KeyCode.D, InputContext.MUSICGAME);
-        AddMapping("bar3", KeyCode.J, InputContext.MUSICGAME);
-        AddMapping("bar4", KeyCode.L, InputContext.MUSICGAME);
+        AddMapping("Judge", KeyCode.Space, InputContext.MUSICGAME);
 
         //角色操控对应按键
         AddMapping("MoveUp", KeyCode.W, InputContext.CHARACTER);
         AddMapping("MoveDown", KeyCode.S, InputContext.CHARACTER);
         AddMapping("MoveLeft", KeyCode.A, InputContext.CHARACTER);
         AddMapping("MoveRight", KeyCode.D, InputContext.CHARACTER);
+        AddMapping("MoveUp", KeyCode.UpArrow, InputContext.CHARACTER);
+        AddMapping("MoveDown", KeyCode.DownArrow, InputContext.CHARACTER);
+        AddMapping("MoveLeft", KeyCode.LeftArrow, InputContext.CHARACTER);
+        AddMapping("MoveRight", KeyCode.RightArrow, InputContext.CHARACTER);
 
         //交互对应按键
         AddMapping("InteractF", KeyCode.F, InputContext.CHARACTER);
@@ -59,12 +60,20 @@ public class InputManager : MonoBehaviour
 
     void AddMapping(string actionName, KeyCode key, InputContext? inputContext) //可空值类型inputContext
     {
-        keyMapping[actionName] = key;
+        if (keyMapping.ContainsKey(actionName))
+        {
+            keyMapping[actionName].Add(key);
+        }
+        else
+        {
+            keyMapping[actionName] = new List<KeyCode> { key };
+        }
+
         if (inputContext.HasValue) //如果不为null
         {
             contextMapping[actionName] = inputContext.Value;
         }
-        else 
+        else
         {
             //null表示全局可用,不加入context映射
         }
@@ -89,62 +98,51 @@ public class InputManager : MonoBehaviour
     }
 
     //判断actionName对应按键是否按下
-    public bool GetKeyDown(string actionName)
-    { 
-        //若当前上下文不可以此action
-        if (!IsActionAvailable(actionName)) return false;
-
-        if (keyMapping.ContainsKey(actionName))
-        {
-            return Input.GetKeyDown(keyMapping[actionName]);
-        }
-        return false;
-    }
+    public bool GetKeyDown(string actionName) => ProcessKey(actionName, Input.GetKeyDown);
 
     //判断actionName对应按键是否持续按下
-    public bool GetKey(string action)
-    {
-        if (!IsActionAvailable(action)) return false;
-
-        if (keyMapping.ContainsKey(action))
-        {
-            return Input.GetKey(keyMapping[action]);
-        }
-        return false;
-    }
+    public bool GetKey(string actionName) => ProcessKey(actionName, Input.GetKey);
 
     //判断actionName对应按键是否抬起
-    public bool GetKeyUp(string action)
+    public bool GetKeyUp(string actionName) => ProcessKey(actionName, Input.GetKeyUp);
+
+    private bool ProcessKey(string action, System.Func<KeyCode, bool> keyCheck) //定义委托,处理不同的情况对应的按键检查,简化上面几个方法的逻辑
     {
         if (!IsActionAvailable(action)) return false;
 
         if (keyMapping.ContainsKey(action))
         {
-            return Input.GetKeyUp(keyMapping[action]);
+            bool res = false;
+            foreach (var keyCodes in keyMapping[action])
+            {
+                res |= keyCheck(keyCodes); //使用委托判断
+            }
+            return res;
         }
         return false;
     }
 
-    //运行时修改映射(保存到PlayerPrefs)
-    public void RemapKey(string action, KeyCode newKey)
-    {
-        if (keyMapping.ContainsKey(action))
-        {
-            keyMapping[action] = newKey;
-            PlayerPrefs.SetInt($"Key_{action}", (int)newKey);
-            PlayerPrefs.Save();
-        }
-    }
 
-    public void LoadSavedMappings()
-    {
-        foreach (var action in new List<string>(keyMapping.Keys))
-        {
-            if (PlayerPrefs.HasKey($"Key_{action}"))
-            {
-                KeyCode savedKey = (KeyCode)PlayerPrefs.GetInt($"Key_{action}");
-                keyMapping[action] = savedKey;
-            }
-        }
-    }
+    ////运行时修改映射(保存到PlayerPrefs)
+    //public void RemapKey(string action, KeyCode newKey)
+    //{
+    //    if (keyMapping.ContainsKey(action))
+    //    {
+    //        keyMapping[action] = newKey;
+    //        PlayerPrefs.SetInt($"Key_{action}", (int)newKey);
+    //        PlayerPrefs.Save();
+    //    }
+    //}
+
+    //public void LoadSavedMappings()
+    //{
+    //    foreach (var action in new List<string>(keyMapping.Keys))
+    //    {
+    //        if (PlayerPrefs.HasKey($"Key_{action}"))
+    //        {
+    //            KeyCode savedKey = (KeyCode)PlayerPrefs.GetInt($"Key_{action}");
+    //            keyMapping[action] = savedKey;
+    //        }
+    //    }
+    //}
 }
