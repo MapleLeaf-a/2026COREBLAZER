@@ -38,6 +38,8 @@ public class NoteManager : MonoBehaviour
     void OnEnable()
     {
         CanvasManager.canvasManagerInstance.canvasStack.Push(canvas);
+
+        InputManager.InputManagerInstance.SetContext(InputManager.InputContext.MUSICGAME);
     }
 
     void OnDisable()
@@ -95,7 +97,7 @@ public class NoteManager : MonoBehaviour
 
         AddNote(note);
 
-        ScoreManager.ScoreManagerInstance.score.AddNoteCount();
+        //ScoreManager.ScoreManagerInstance.score.AddNoteCount();
     }
 
     //Ìí¼ÓÒ»¸öÒô·û

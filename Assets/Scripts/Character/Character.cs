@@ -5,7 +5,7 @@ public class Character : MonoBehaviour
     public Rigidbody2D rb;
 
     //ÒÆ¶¯ËÙ¶È
-    float moveSpeed = 5f;
+    float moveSpeed = 7f;
 
     void Awake()
     {

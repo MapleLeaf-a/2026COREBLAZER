@@ -20,12 +20,17 @@ public class BarJudger : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (InputManager.InputManagerInstance.GetKeyDown("Judge"))
         {
             if (NoteManager.NoteManagerInstance.NoteListCount > 0)
             {
                 Note note = NoteManager.NoteManagerInstance.PeekFirstNote();
-                note.JudgeTime();
+                if (note.JudgeTime()) //假如音符判定了
+                {
+                    ScoreManager.ScoreManagerInstance.score.AddNoteCount(); //增加音符计数
+                    ScoreManager.ScoreManagerInstance.score.UpdateCurrentRate(); //更新目前的perfect率
+                    ScoreManager.ScoreManagerInstance.UpdateCurrentScoreText(); //更新文本
+                }
             }
             else
             {
