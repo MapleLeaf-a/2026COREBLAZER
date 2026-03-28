@@ -35,7 +35,7 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateCurrentScoreText()
     {
-        currentScoreText.text = (score.GetCurrentRate() * 100).ToString("F2") + "%";
+        currentScoreText.text = Mathf.Round(ScoreManager.ScoreManagerInstance.score.GetCurrentRate() * 100).ToString() + "%";
         Debug.Log("NoteCount = " + score.GetNoteCount());
     }
 }
