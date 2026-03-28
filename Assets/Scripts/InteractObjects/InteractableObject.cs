@@ -10,7 +10,9 @@ public abstract class InteractableObject : MonoBehaviour
     protected bool hasBlockZone = false;       //是否有阻挡区
     protected bool isPlayerInRange = false;    //玩家是否在触发区
 
+    [Header("触发区")]
     public Collider2D triggerCollider;
+    [Header("阻挡区")]
     public Collider2D blockCollider;
 
     //交互文本提示
@@ -18,7 +20,7 @@ public abstract class InteractableObject : MonoBehaviour
     protected string actionName = "InteractF"; //KeyCode.F;
     //UI
     public TextMeshProUGUI promptText;
-    public GameObject promptPanel;
+    public Canvas promptPanel;
 
     //交互逻辑
     public abstract void InteractLogics();
@@ -46,6 +48,7 @@ public abstract class InteractableObject : MonoBehaviour
                 isPlayerInRange = true;
                 //显示提示文本
                 ShowPrompt();
+                CanvasManager.canvasManagerInstance.canvasStack.Push(promptPanel);
                 Debug.Log("Trigger!" + collision.name);
             }
         }
@@ -61,6 +64,7 @@ public abstract class InteractableObject : MonoBehaviour
                 isPlayerInRange = false;
                 //隐藏文本
                 HidePrompt();
+                CanvasManager.canvasManagerInstance.canvasStack.PopTo(promptPanel);
                 Debug.Log("TriggerExit!" + collision.name);
             }
         }
@@ -71,7 +75,7 @@ public abstract class InteractableObject : MonoBehaviour
     {
         if (promptPanel != null)
         {
-            promptPanel.SetActive(true);
+            promptPanel.gameObject.SetActive(true);
             if (promptText != null)
             {
                 promptText.text = interactPrompt;
@@ -91,7 +95,7 @@ public abstract class InteractableObject : MonoBehaviour
     {
         if (promptPanel != null)
         {
-            promptPanel.SetActive(false);
+            promptPanel.gameObject.SetActive(false);
         }
     }
 }
