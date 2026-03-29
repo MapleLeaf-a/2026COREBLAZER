@@ -1,10 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Editor/ClassGenerator/ClassGenerator.uss?fileID=7433441132597879392&amp;guid=de1b6066279b55c439e27af18b590359&amp;type=3#ClassGenerator" />
     <ui:Label text="数据类生成器" name="Title" enable-rich-text="false" style="font-size: 28px;" />
-    <ui:ScrollView>
-        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" />
-        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" />
-    </ui:ScrollView>
-    <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 341px; height: 21px;" />
+    <ui:TextField picking-mode="Ignore" label="类名" value="example.cs" name="NameText" />
+    <ui:GroupBox>
+        <ui:TextField picking-mode="Ignore" label="存储位置" value="filler text" />
+    </ui:GroupBox>
+    <ui:GroupBox>
+        <ui:Label tabindex="-1" text="变量详细信息" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+        <ui:ListView />
+        <ui:VisualElement style="flex-grow: 1;">
+            <ui:Button text="增加变量" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 63px;" />
+            <ui:Button text="删除变量" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 59px; align-items: stretch; position: absolute; top: 0; left: 69px;" />
+        </ui:VisualElement>
+    </ui:GroupBox>
     <ui:Button text="生成" parse-escape-sequences="true" display-tooltip-when-elided="true" name="GenerateBtn" style="height: 17px;" />
 </ui:UXML>

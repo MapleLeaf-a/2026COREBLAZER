@@ -26,5 +26,7 @@ public class ClassGenerator : EditorWindow
         // Instantiate UXML
         VisualElement labelFromUXML = m_VisualTreeAsset.Instantiate();
         root.Add(labelFromUXML);
+
+        ListView listView = root.Q<ListView>();
     }
 }
