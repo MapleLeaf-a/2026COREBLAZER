@@ -1,3 +1,6 @@
+using JSONInterpreter.Interface;
+using StaticTemplates.Food;
+
 namespace StaticTemplates.MusicGame
 {
     public class Material:IBaseJsonInstance
