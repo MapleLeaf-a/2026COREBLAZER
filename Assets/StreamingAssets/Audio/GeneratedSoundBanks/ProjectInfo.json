@@ -1,0 +1,29 @@
+{
+ "ProjectInfo": {
+  "Project": {
+   "Name": "KaiTuoXin2026",
+   "GUID": "{53D8A7EA-48E1-4D80-9D31-3D7FE97F82B3}",
+   "Generator": "2025.1.3.9039"
+  },
+  "CacheRoot": "D:/Users/Sleepwalker/Documents/WwiseProjects/KaiTuoXin2026/.cache",
+  "Platforms": [
+   {
+    "Name": "Windows",
+    "GUID": "{E14FD4E2-F6D5-49D4-994F-AB03E413C2F4}",
+    "BasePlatform": "Windows",
+    "BasePlatformGUID": "{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}",
+    "Path": "../../GeneratedSoundBanks/Windows"
+   }
+  ],
+  "Languages": [
+   {
+    "Name": "English(US)",
+    "Id": "684519430",
+    "GUID": "{39F5F212-67CA-4D94-AF12-D8FA36CBCAC3}",
+    "Default": "true",
+    "UseAsStandIn": "true"
+   }
+  ],
+  "FileHash": "{36401149-B8B3-57EC-740F-71BE7FB7058D}"
+ }
+}
