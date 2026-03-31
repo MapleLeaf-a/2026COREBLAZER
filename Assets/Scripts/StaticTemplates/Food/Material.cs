@@ -1,9 +1,11 @@
 namespace StaticTemplates.MusicGame
 {
-    public class Food:IBaseJsonInstance
+    public class Material:IBaseJsonInstance
     {
+        public string id;
         public string name;
         public string spritePath;
         public string description;
+        public MaterialType type;
     }
 }
