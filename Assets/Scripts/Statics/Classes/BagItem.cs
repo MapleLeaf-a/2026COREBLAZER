@@ -1,13 +1,14 @@
-﻿using UnityEngine;
+﻿using StaticTemplates.MusicGame;
+using StaticTemplates.Food;
 
 namespace Statics.Classes
 {
     public class BagItem
     {
-        public Material material;
+        public FoodMaterial material;
         public int num;
         
-        public BagItem(Material _material,int _num){
+        public BagItem(FoodMaterial _material,int _num){
             material=_material;
             num=_num;
         }
@@ -19,8 +20,14 @@ namespace Statics.Classes
         public void DecreaseNum(int decr){
             num-=decr;
             if(num<0){
-                throw new UnityException("The number of bag item now less than 0.");
+                throw new UnityEngine.UnityException("The number of bag item now less than 0.");
             }
-        } 
+        }
+
+        public string ID => material.id;
+        public string Name => material.name;
+        public string SpritePath => material.spritePath;
+        public string Description => material.description;
+        public MaterialType MaterialType => material.type;
     }
 }
