@@ -273,7 +273,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetImage: {fileID: 3674798285113151989}
-  pGameObject: {fileID: 8342044548370968841, guid: 9e0ed3a1a745be3408e0b45053d24474, type: 3}
+  dragIconScale: 1.2
+  dragAlpha: 0.8
+  dragCanvas: {fileID: 0}
 --- !u!1 &4288914645668482365
 GameObject:
   m_ObjectHideFlags: 0

@@ -172,36 +172,33 @@ public class BackpackView : MonoBehaviour
     }
 
 
-
-
+    //拖拽相关(由Drag Handler调用,这种设计使得视图和拖拽逻辑分离)
     private int draggingIndex = -1;
-    private List<GameObject> slotHighlights = new List<GameObject>();
-
-    // ========== 拖拽相关（纯 UI 表现）==========
 
     public void OnDragStart(int index)
     {
-        draggingIndex = index;
+        draggingIndex = index;  //记录开始拖拽的槽位
     }
 
     public void OnDragEnd()
     {
-        draggingIndex = -1;
+        draggingIndex = -1; //拖拽结束清空记录
     }
 
     public void OnDrop(int targetIndex)
     {
+        //如果有正在拖拽的物品，且不是拖到同一个槽位
         if (draggingIndex != -1 && draggingIndex != targetIndex)
         {
+            //尝试移动物品
             bool success = backpackViewModel.TryMoveItem(draggingIndex, targetIndex);
 
             if (success)
             {
                 backpackViewModel.SelectItem(targetIndex);
-                RefreshUI();
+                RefreshUI(); //刷新界面
             }
         }
-
-        OnDragEnd();
+        OnDragEnd(); //清空拖拽状态
     }
 }
