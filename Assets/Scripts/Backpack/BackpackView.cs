@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Profiling.HierarchyFrameDataView;
 
 public class BackpackView : MonoBehaviour
 {
@@ -46,6 +45,7 @@ public class BackpackView : MonoBehaviour
             throw new UnityException("背包初始化出错！");
         }
         backpackModel = TestBackpack.instance.backpackModel;
+        capacity = backpackModel.Capacity;
         backpackViewModel = new BackpackViewModel(backpackModel,itemsPerPage);
 
         //创建物品槽

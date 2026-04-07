@@ -53,6 +53,20 @@ public class BackpackViewModel : INotifyPropertyChanged
     }
 
     /// <summary>
+    /// 获取当前页指定index的物品
+    /// </summary>
+    /// <returns></returns>
+    public BagItem GetItemAt(int index)
+    { 
+        List<BagItem> bagItems = CurrentPageItems;
+        if (0 <= index && index < bagItems.Count)
+        { 
+            return bagItems[index];
+        }
+        return null;
+    }
+
+    /// <summary>
     /// 当前选中的物品
     /// </summary>
     public BagItem SelectedItem
@@ -110,9 +124,10 @@ public class BackpackViewModel : INotifyPropertyChanged
     /// <summary>
     /// 删除物品
     /// </summary>
-    public void DeleteItem(int itemID, int quantity = 1)
+    public void DeleteItem(int itemIndexInCurrentPage, int quantity = 1)
     {
-        if (backpack.RemoveItemAt(itemID, quantity)) //若删除成功
+        int indexInBackpack = currentPage * totalPages + itemIndexInCurrentPage;
+        if (backpack.RemoveItemAt(indexInBackpack, quantity)) //若删除成功
         {
             OnPropertyChanged(nameof(CurrentPageItems));
             OnPropertyChanged(nameof(TotalCount));
@@ -190,6 +205,40 @@ public class BackpackViewModel : INotifyPropertyChanged
             OnPropertyChanged(nameof(CurrentPageNumber));
             OnPropertyChanged(nameof(SelectedItem));
         }
+    }
+
+
+
+    /// <summary>
+    /// 尝试移动物品(同一页内),返回是否成功
+    /// </summary>
+    /// <param name="from"></param>
+    /// <param name="to"></param>
+    /// <returns></returns>
+    public bool TryMoveItem(int from, int to)
+    {
+        BagItem fromItem = GetItemAt(from);
+        BagItem toItem = GetItemAt(to);
+
+        if (fromItem == null) return false;
+
+        if (toItem != null && fromItem.ID == toItem.ID) //目标处有物品且可堆叠
+        {
+            toItem.IncreaseNum(fromItem.num);
+            DeleteItem(from, fromItem.num);
+        }
+        else if (toItem != null) //不可堆叠
+        {
+            backpack.SwapItem(currentPage * itemsPerPage + from, currentPage * itemsPerPage + to);
+        }
+        else //目标位置为空 
+        {
+            backpack.MoveItem(currentPage * itemsPerPage + from, currentPage * itemsPerPage + to);
+        }
+
+        OnPropertyChanged(nameof(CurrentPageItems));
+    
+        return true;
     }
 
     private void RefreshAll()
