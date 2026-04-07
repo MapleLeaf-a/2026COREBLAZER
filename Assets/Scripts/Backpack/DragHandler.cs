@@ -3,6 +3,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+/*IBeginDragHandler - 开始拖拽时触发
+IDragHandler - 拖拽过程中持续触发
+IEndDragHandler - 结束拖拽时触发
+IDropHandler - 在目标上放下时触发*/
 {
     public Image targetImage;
     public float dragIconScale = 1.2f;
@@ -11,25 +15,30 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private BackpackView backpackView;
     private int slotIndex;
     private GameObject dragObject;
-    private Canvas dragCanvas;  // 独立的拖拽 Canvas
+    private Canvas dragCanvas;
 
-    void Start()
+    private GameObject canvasObj;
+
+    void OnEnable()
     {
         backpackView = GetComponentInParent<BackpackView>();
         slotIndex = transform.GetSiblingIndex();
 
-        // 创建独立的拖拽 Canvas（只创建一次）
+        // 创建拖拽Canvas
         if (dragCanvas == null)
         {
-            GameObject canvasObj = new GameObject("DragCanvas");
+            Canvas mainCanvas = GetComponentInParent<Canvas>().rootCanvas;
+
+            canvasObj = new GameObject("DragCanvas");
+            canvasObj.transform.SetParent(mainCanvas.transform.parent);
+            canvasObj.transform.SetSiblingIndex(mainCanvas.transform.GetSiblingIndex() + 1);
+
             dragCanvas = canvasObj.AddComponent<Canvas>();
-            dragCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            dragCanvas.sortingOrder = 9999;  // 最上层
+            dragCanvas.renderMode = RenderMode.ScreenSpaceOverlay;  // 用Overlay最简单
+            dragCanvas.sortingOrder = 9999;
 
             canvasObj.AddComponent<CanvasScaler>();
             canvasObj.AddComponent<GraphicRaycaster>();
-
-            DontDestroyOnLoad(canvasObj);
         }
 
         if (targetImage == null)
@@ -57,10 +66,10 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         dragRect.sizeDelta = sourceRect.sizeDelta * dragIconScale;
         dragRect.pivot = new Vector2(0.5f, 0.5f);
 
-        // 独立 Canvas 直接用屏幕坐标
+        // 直接使用鼠标位置（因为DragCanvas是Overlay模式）
         dragRect.position = eventData.position;
 
-        backpackView.OnDragStart(slotIndex);
+        backpackView.OnDragStart(slotIndex); //通知BackpackView:开始拖拽,槽位是slotIndex
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -76,11 +85,17 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         if (dragObject != null)
             Destroy(dragObject);
 
-        backpackView.OnDragEnd();
+        backpackView.OnDragEnd();  //通知BackpackView:拖拽结束
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        backpackView.OnDrop(slotIndex);
+        backpackView.OnDrop(slotIndex); //通知BackpackView:在slotIndex这个槽位上放下了物品
+                                        //(并非同一个脚本内调用这个方法,比如说开始拖拽时在0,0会调用OnDragStart,鼠标在3处松开,那么对应的3就会调用OnDrop)
+    }
+
+    void OnDisable()
+    {
+        Destroy(canvasObj);
     }
 }
