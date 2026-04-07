@@ -53,7 +53,7 @@ public class BackpackModel
     }
 
     /// <summary>
-    /// 在指定位置移除quantity个物品
+    /// 在指定绝对位置移除quantity个物品
     /// </summary>
     /// <param name="index"></param>
     /// <param name="quantity"></param>
@@ -74,13 +74,48 @@ public class BackpackModel
     }
 
     /// <summary>
-    /// 获取指定位置的物品
+    /// 获取指定绝对位置的物品
     /// </summary>
     public BagItem GetItemAt(int index)
     {
         if (index < 0 || index >= Count) return null;
         return bagItems[index];
     }
+
+    /// <summary>
+    /// 交换两个绝对位置的物品
+    /// </summary>
+    /// <param name="indexA"></param>
+    /// <param name="indexB"></param>
+    /// <returns></returns>
+    public bool SwapItem(int indexA, int indexB)
+    {
+        if (indexA < 0 || indexA >= bagItems.Count
+         || indexB < 0 || indexB >= bagItems.Count) return false;
+
+        var temp = bagItems[indexA];
+        bagItems[indexA] = bagItems[indexB];
+        bagItems[indexB] = temp;
+        return true;
+    }
+
+    /// <summary>
+    /// 将物品从from移动到to(to必须可堆叠或空)
+    /// </summary>
+    /// <param name="from">绝对开始位置</param>
+    /// <param name="to">绝对目标位置</param>
+    /// <returns></returns>
+    public bool MoveItem(int from, int to)
+    {
+        if (from < 0 || from >= bagItems.Count
+         || to < 0 || to >= bagItems.Count) return false;
+
+        bagItems[to].IncreaseNum(bagItems[from].num);
+        bagItems[from] = null;
+
+        return SwapItem(from, to);
+    }
+
 
     /// <summary>
     /// 排序
@@ -101,8 +136,8 @@ public class BackpackModel
     /// <summary>
     /// 获取start到end的物品，闭区间
     /// </summary>
-    /// <param name="start"></param>
-    /// <param name="end"></param>
+    /// <param name="start">绝对开始位置</param>
+    /// <param name="end">绝对结束位置</param>
     /// <returns></returns>
     public List<BagItem> GetItemRange(int start, int end)
     {
