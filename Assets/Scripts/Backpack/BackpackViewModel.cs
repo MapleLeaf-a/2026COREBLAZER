@@ -33,6 +33,7 @@ public class BackpackViewModel : INotifyPropertyChanged
         //初始化读取BagItem的图片
         foreach (var bagItem in backpackModel.BagItems)
         {
+            if (bagItem == null) continue;
             AddPairToSprites(bagItem.SpritePath);
         }
     }
@@ -41,7 +42,7 @@ public class BackpackViewModel : INotifyPropertyChanged
     /// 获取当前页的所有物品
     /// </summary>
     /// <returns></returns>
-    public List<BagItem> CurrentPageItems
+    public BagItem[] CurrentPageItems
     {
         get
         {
@@ -58,8 +59,8 @@ public class BackpackViewModel : INotifyPropertyChanged
     /// <returns></returns>
     public BagItem GetItemAt(int index)
     { 
-        List<BagItem> bagItems = CurrentPageItems;
-        if (0 <= index && index < bagItems.Count)
+        BagItem[] bagItems = CurrentPageItems;
+        if (0 <= index && index < bagItems.Length)
         { 
             return bagItems[index];
         }
@@ -73,8 +74,8 @@ public class BackpackViewModel : INotifyPropertyChanged
     {
         get
         {
-            List<BagItem> currenPageItems = CurrentPageItems;
-            if (selectecIndex >= 0 && selectecIndex < currenPageItems.Count)
+            BagItem[] currenPageItems = CurrentPageItems;
+            if (selectecIndex >= 0 && selectecIndex < currenPageItems.Length)
             { return currenPageItems[selectecIndex]; }
             return null;
         }
@@ -227,13 +228,9 @@ public class BackpackViewModel : INotifyPropertyChanged
             toItem.IncreaseNum(fromItem.num);
             DeleteItem(from, fromItem.num);
         }
-        else if (toItem != null) //不可堆叠
+        else
         {
             backpack.SwapItem(currentPage * itemsPerPage + from, currentPage * itemsPerPage + to);
-        }
-        else //目标位置为空 
-        {
-            backpack.MoveItem(currentPage * itemsPerPage + from, currentPage * itemsPerPage + to);
         }
 
         OnPropertyChanged(nameof(CurrentPageItems));

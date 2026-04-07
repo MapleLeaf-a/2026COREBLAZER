@@ -120,10 +120,10 @@ public class BackpackView : MonoBehaviour
     //刷新物品列表
     void RefreshItems()
     {
-        List<BagItem> items = backpackViewModel.CurrentPageItems;
+        BagItem[] items = backpackViewModel.CurrentPageItems;
         for (int i = 0; i < slots.Count; i++)
         {
-            if (i < items.Count)
+            if (i < items.Length && items[i] != null)
             {
                 bool isSelected = (backpackViewModel.SelectedItem == items[i]);
                 slots[i].SetUp(items[i], backpackViewModel.GetSprite(items[i].SpritePath), i, isSelected);
@@ -197,6 +197,7 @@ public class BackpackView : MonoBehaviour
 
             if (success)
             {
+                backpackViewModel.SelectItem(targetIndex);
                 RefreshUI();
             }
         }
