@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 5532002040032361007}
   - component: {fileID: 7463995926497800958}
   - component: {fileID: 412775758084869440}
+  - component: {fileID: 3459645837511679920}
   m_Layer: 5
   m_Name: PackageUIItemBG
   m_TagString: Untagged
@@ -259,6 +260,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3459645837511679920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298940152564239801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2db04858912b549affbbe7cbb3cf3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 3674798285113151989}
+  pGameObject: {fileID: 8342044548370968841, guid: 9e0ed3a1a745be3408e0b45053d24474, type: 3}
 --- !u!1 &4288914645668482365
 GameObject:
   m_ObjectHideFlags: 0

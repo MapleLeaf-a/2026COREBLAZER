@@ -170,4 +170,37 @@ public class BackpackView : MonoBehaviour
         //取消订阅防止内存泄漏
         backpackViewModel.PropertyChanged -= OnViewModelChanged;
     }
+
+
+
+
+    private int draggingIndex = -1;
+    private List<GameObject> slotHighlights = new List<GameObject>();
+
+    // ========== 拖拽相关（纯 UI 表现）==========
+
+    public void OnDragStart(int index)
+    {
+        draggingIndex = index;
+    }
+
+    public void OnDragEnd()
+    {
+        draggingIndex = -1;
+    }
+
+    public void OnDrop(int targetIndex)
+    {
+        if (draggingIndex != -1 && draggingIndex != targetIndex)
+        {
+            bool success = backpackViewModel.TryMoveItem(draggingIndex, targetIndex);
+
+            if (success)
+            {
+                RefreshUI();
+            }
+        }
+
+        OnDragEnd();
+    }
 }
