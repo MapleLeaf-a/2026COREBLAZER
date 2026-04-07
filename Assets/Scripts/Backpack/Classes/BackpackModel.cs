@@ -1,4 +1,5 @@
 using Statics.Classes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,14 +7,16 @@ using UnityEngine;
 public class BackpackModel
 {
     //背包数组
-    private List<BagItem> bagItems;
+    private BagItem[] bagItems;
     //背包容量
     int capacity;
+    //背包中非空物品的数量
+    int count;
 
     /// <summary>
     /// 获取Count
     /// </summary>
-    public int Count => bagItems.Count;
+    public int Count => count;
     /// <summary>
     /// 获取Capacity
     /// </summary>
@@ -21,13 +24,14 @@ public class BackpackModel
     /// <summary>
     /// 获取只读列表
     /// </summary>
-    public IReadOnlyList<BagItem> BagItems => bagItems.AsReadOnly();
+    public BagItem[] BagItems => bagItems;
 
 
     public BackpackModel(int capacity)
     {
-        bagItems = new List<BagItem>(capacity);
+        bagItems = new BagItem[capacity];
         this.capacity = capacity;
+        this.count = 0;
     }
 
     /// <summary>
@@ -37,18 +41,53 @@ public class BackpackModel
     /// <returns></returns>
     public bool AddItem(BagItem bagItem)
     { 
-        if (Count >= capacity) return false;
+        if (count >= capacity) return false;
 
-        foreach (var item in bagItems)
+        for (int i = 0; i < capacity; i++)
         {
-            if (item.material.id == bagItem.material.id)
+            BagItem item = bagItems[i];
+            if (item == null)
+            {
+                bagItems[i] = bagItem;
+                break;
+            }
+            else if (item.material.id == bagItem.material.id)
             {
                 item.IncreaseNum(bagItem.num);
-                return true;
+                break;
             }
         }
 
-        bagItems.Add(bagItem);
+        count++;
+
+        return true;
+    }
+
+    /// <summary>
+    /// 在指定位置加物品入背包
+    /// </summary>
+    /// <param name="bagItem"></param>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public bool AddItemAt(BagItem bagItem, int index)
+    { 
+        if (count >= capacity || index >= capacity || index < 0) return false;
+
+        BagItem item = bagItems[index];
+        if (item == null)
+        {
+            bagItems[index] = bagItem;
+            count++;
+        }
+        else if (item.material.id == bagItem.material.id)
+        {
+            item.IncreaseNum(bagItem.num);
+        }
+        else //不可堆叠,增加失败
+        { 
+            return false; 
+        }
+        
         return true;
     }
 
@@ -60,7 +99,7 @@ public class BackpackModel
     /// <returns></returns>
     public bool RemoveItemAt(int index, int quantity = 1)
     {
-        if (index >= Count) return false;
+        if (index >= capacity) return false;
 
         if (bagItems[index].num > quantity)
         {
@@ -68,8 +107,11 @@ public class BackpackModel
         }
         else
         { 
-            bagItems.RemoveAt(index);
+            bagItems[index] = null;
         }
+        
+        count--;
+
         return true;
     }
 
@@ -78,7 +120,7 @@ public class BackpackModel
     /// </summary>
     public BagItem GetItemAt(int index)
     {
-        if (index < 0 || index >= Count) return null;
+        if (index < 0 || index >= capacity) return null;
         return bagItems[index];
     }
 
@@ -90,8 +132,8 @@ public class BackpackModel
     /// <returns></returns>
     public bool SwapItem(int indexA, int indexB)
     {
-        if (indexA < 0 || indexA >= bagItems.Count
-         || indexB < 0 || indexB >= bagItems.Count) return false;
+        if (indexA < 0 || indexA >= capacity
+         || indexB < 0 || indexB >= capacity) return false;
 
         var temp = bagItems[indexA];
         bagItems[indexA] = bagItems[indexB];
@@ -100,53 +142,21 @@ public class BackpackModel
     }
 
     /// <summary>
-    /// 将物品从from移动到to(to必须可堆叠或空)
-    /// </summary>
-    /// <param name="from">绝对开始位置</param>
-    /// <param name="to">绝对目标位置</param>
-    /// <returns></returns>
-    public bool MoveItem(int from, int to)
-    {
-        if (from < 0 || from >= bagItems.Count
-         || to < 0 || to >= bagItems.Count) return false;
-
-        bagItems[to].IncreaseNum(bagItems[from].num);
-        bagItems[from] = null;
-
-        return SwapItem(from, to);
-    }
-
-
-    /// <summary>
-    /// 排序
-    /// </summary>
-    public void Sort(System.Comparison<BagItem> comparison)
-    {
-        bagItems.Sort(comparison);
-    }
-
-    /// <summary>
-    /// 清空背包
-    /// </summary>
-    public void Clear()
-    {
-        bagItems.Clear();
-    }
-
-    /// <summary>
     /// 获取start到end的物品，闭区间
     /// </summary>
     /// <param name="start">绝对开始位置</param>
     /// <param name="end">绝对结束位置</param>
     /// <returns></returns>
-    public List<BagItem> GetItemRange(int start, int end)
+    public BagItem[] GetItemRange(int start, int end)
     {
-        if (start >= bagItems.Count) return new List<BagItem>();
+        if (start >= capacity) return new BagItem[0];
 
-        int actualCount = Mathf.Min(end - start + 1, bagItems.Count - start); //实际有BagItem的Count数
-        if (actualCount <= 0) return new List<BagItem>();
+        int actualCount = Mathf.Min(end - start + 1, capacity - start);
+        if (actualCount <= 0) return new BagItem[0];
 
-        return bagItems.GetRange(start, actualCount);
+        BagItem[] result = new BagItem[actualCount];
+        Array.Copy(bagItems, start, result, 0, actualCount);
+        return result;
     }
 }
 
