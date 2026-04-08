@@ -100,6 +100,7 @@ public class BagUI:MonoBehavoiur
 * M：Model，指数据。既可以是游戏运行时的全局数据，也可以是JSON存储的数据；
 * VM：ViewModel，这一层主要负责对数据的处理并提供对应的接口给UI层；
 * V：View，指UI层。这一层只专心处理UI自己的逻辑，包括：用户的输入、UI的显示等等，并将该层数据发给ViewModel层。
+* C: Controller, 协调 Model 和 View
 
 *P.S. MVC架构及其变体是一种极其重要的设计模式，甚至连一些大厂的大项目都用的这一类架构哟^^*
 
