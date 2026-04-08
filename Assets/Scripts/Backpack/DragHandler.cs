@@ -70,6 +70,10 @@ IDropHandler - 在目标上放下时触发*/
         dragRect.position = eventData.position;
 
         backpackView.OnDragStart(slotIndex); //通知BackpackView:开始拖拽,槽位是slotIndex
+
+
+        DragState.FromIndex = slotIndex;
+        DragState.SourceView = backpackView;   //在DragHandler中设置开始拖拽时静态类状态,保证View不做业务逻辑
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -86,6 +90,8 @@ IDropHandler - 在目标上放下时触发*/
             Destroy(dragObject);
 
         backpackView.OnDragEnd();  //通知BackpackView:拖拽结束
+
+        DragState.Reset();                    //结束,清空状态
     }
 
     public void OnDrop(PointerEventData eventData)

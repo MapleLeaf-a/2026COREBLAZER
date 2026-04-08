@@ -9,6 +9,10 @@ public class TestBackpack : MonoBehaviour
     public static TestBackpack instance;
 
     public BackpackModel backpackModel;
+    public BackpackModel backpackMode2;
+
+    public BackpackView backpackView1;
+    public BackpackView backpackView2;
 
     void Awake()
     {
@@ -31,6 +35,13 @@ public class TestBackpack : MonoBehaviour
         backpackModel.AddItem(bagItem);
         backpackModel.AddItem(bagItem2);
         backpackModel.AddItemAt(bagItem3, 3);
+        backpackMode2 = new BackpackModel(20);
+        backpackMode2.AddItem(bagItem);
+        backpackMode2.AddItem(bagItem2);
+        backpackMode2.AddItemAt(bagItem3, 3);
+
+        backpackView1.InitBackpackView(backpackModel);
+        backpackView2.InitBackpackView(backpackMode2);
     }
 
     void Update()
