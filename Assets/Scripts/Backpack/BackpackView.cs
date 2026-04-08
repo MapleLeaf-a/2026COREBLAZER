@@ -37,16 +37,11 @@ public class BackpackView : MonoBehaviour
 
     private List<PackageUIItem> slots = new List<PackageUIItem>();
 
+    private BackpackView sourceView;  //记录拖拽源头的背包视图
 
     void Start()
     {
-        if (capacity <= 0 || itemsPerPage <= 0)
-        {
-            throw new UnityException("背包初始化出错！");
-        }
-        backpackModel = TestBackpack.instance.backpackModel;
-        capacity = backpackModel.Capacity;
-        backpackViewModel = new BackpackViewModel(backpackModel,itemsPerPage);
+        //InitBackpackView();
 
         //创建物品槽
         CreateSlots();
@@ -64,8 +59,18 @@ public class BackpackView : MonoBehaviour
     void Update()
     {
         
-    } 
+    }
 
+    public void InitBackpackView(BackpackModel backpackModel)
+    {
+        if (capacity <= 0 || itemsPerPage <= 0)
+        {
+            throw new UnityException("背包初始化出错！");
+        }
+        this.backpackModel = backpackModel;
+        capacity = backpackModel.Capacity;
+        this.backpackViewModel = new BackpackViewModel(backpackModel, itemsPerPage);
+    }
 
 
     void CreateSlots()
@@ -178,27 +183,89 @@ public class BackpackView : MonoBehaviour
     public void OnDragStart(int index)
     {
         draggingIndex = index;  //记录开始拖拽的槽位
+
+        sourceView = this; //记录源头是自己
+
+        Debug.Log($"拖拽开始: 索引={index}, 源背包={name}");
     }
 
     public void OnDragEnd()
     {
         draggingIndex = -1; //拖拽结束清空记录
+
+        Debug.Log("拖拽结束");
     }
 
     public void OnDrop(int targetIndex)
     {
-        //如果有正在拖拽的物品，且不是拖到同一个槽位
-        if (draggingIndex != -1 && draggingIndex != targetIndex)
+        if (DragState.FromIndex == -1)
         {
-            //尝试移动物品
-            bool success = backpackViewModel.TryMoveItem(draggingIndex, targetIndex);
+            return; //如果没有正在拖拽的物品,返回
+        }
+
+        if (DragState.SourceView == this) //若是同一个背包
+        {
+            //不是拖到同一个槽位
+            if (draggingIndex != targetIndex)
+            {
+                //尝试移动物品
+                bool success = backpackViewModel.TryMoveItem(draggingIndex, targetIndex);
+
+                if (success)
+                {
+                    //backpackViewModel.SelectItem(targetIndex);
+                    RefreshUI(); //刷新界面
+                }
+            }
+        }
+        else //不是同一个背包
+        {
+            //尝试移动,注意是从源背包到目前背包
+            bool success = DragState.SourceView.backpackViewModel.TryTransferTo(backpackViewModel, DragState.FromIndex, targetIndex);
 
             if (success)
             {
-                backpackViewModel.SelectItem(targetIndex);
-                RefreshUI(); //刷新界面
+                //刷新两个背包的页面
+                DragState.SourceView.RefreshUI();
+                RefreshUI();
             }
         }
-        OnDragEnd(); //清空拖拽状态
+
+        DragState.Reset();  //清空拖拽状态
+
+    //    if (draggingIndex == -1)
+    //    {
+    //        return; //如果没有正在拖拽的物品,返回
+    //    }
+
+    //    if (sourceView == this) //若是同一个背包
+    //    {
+    //        //不是拖到同一个槽位
+    //        if (draggingIndex != targetIndex)
+    //        {
+    //            //尝试移动物品
+    //            bool success = backpackViewModel.TryMoveItem(draggingIndex, targetIndex);
+
+    //            if (success)
+    //            {
+    //                backpackViewModel.SelectItem(targetIndex);
+    //                RefreshUI(); //刷新界面
+    //            }
+    //        }
+    //    }
+    //    else //不是同一个背包
+    //    {
+    //        //尝试移动,注意是从源背包到目前背包
+    //        bool success = sourceView.backpackViewModel.TryTransferTo(this.backpackViewModel, draggingIndex, targetIndex);
+
+    //        if (success)
+    //        { 
+    //            //刷新两个背包的状态
+    //            sourceView.RefreshUI();
+    //            this.RefreshUI();
+    //        }
+    //    }
+        
+    //    //OnDragEnd(); //清空拖拽状态
     }
 }

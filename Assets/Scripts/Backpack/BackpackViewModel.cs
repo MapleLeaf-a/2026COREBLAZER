@@ -54,20 +54,6 @@ public class BackpackViewModel : INotifyPropertyChanged
     }
 
     /// <summary>
-    /// 获取当前页指定index的物品
-    /// </summary>
-    /// <returns></returns>
-    public BagItem GetItemAt(int index)
-    { 
-        BagItem[] bagItems = CurrentPageItems;
-        if (0 <= index && index < bagItems.Length)
-        { 
-            return bagItems[index];
-        }
-        return null;
-    }
-
-    /// <summary>
     /// 当前选中的物品
     /// </summary>
     public BagItem SelectedItem
@@ -114,6 +100,23 @@ public class BackpackViewModel : INotifyPropertyChanged
     public void AddItem(BagItem bagItem)
     {
         if (backpack.AddItem(bagItem)) //若添加成功
+        {
+            AddPairToSprites(bagItem.SpritePath);
+
+            OnPropertyChanged(nameof(CurrentPageItems));
+            OnPropertyChanged(nameof(TotalCount));
+        }
+    }
+
+    /// <summary>
+    /// 在指定绝对位置添加物品
+    /// </summary>
+    /// <param name="bagItem"></param>
+    /// <param name="index"></param>
+    /// <returns></returns>
+    public void AddItemAt(BagItem bagItem, int index)
+    { 
+        if (backpack.AddItemAt(bagItem, index))
         {
             AddPairToSprites(bagItem.SpritePath);
 
@@ -208,14 +211,26 @@ public class BackpackViewModel : INotifyPropertyChanged
         }
     }
 
-
+    /// <summary>
+    /// 获取当前页指定index的物品
+    /// </summary>
+    /// <returns></returns>
+    public BagItem GetItemAt(int index)
+    {
+        BagItem[] bagItems = CurrentPageItems;
+        if (0 <= index && index < bagItems.Length)
+        {
+            return bagItems[index];
+        }
+        return null;
+    }
 
     /// <summary>
-    /// 尝试移动物品(同一页内),返回是否成功
+    /// 尝试移动物品(同一页内)
     /// </summary>
     /// <param name="from"></param>
     /// <param name="to"></param>
-    /// <returns></returns>
+    /// <returns>是否成功</returns>
     public bool TryMoveItem(int from, int to)
     {
         BagItem fromItem = GetItemAt(from);
@@ -235,6 +250,37 @@ public class BackpackViewModel : INotifyPropertyChanged
 
         OnPropertyChanged(nameof(CurrentPageItems));
     
+        return true;
+    }
+
+    /// <summary>
+    ///尝试向另一背包移动物品
+    /// </summary>
+    /// <returns>是否成功</returns>
+    public bool TryTransferTo(BackpackViewModel anotherBackpack, int fromInCurrent, int toInTarget)
+    { 
+        if (anotherBackpack == null) return false;
+
+        BagItem fromItem = GetItemAt(fromInCurrent);
+        BagItem toItem = anotherBackpack.GetItemAt(toInTarget);
+
+        if (fromItem == null) return false;
+
+        if (toItem != null && fromItem.ID == toItem.ID) //目标处有物品且可堆叠
+        {
+            toItem.IncreaseNum(fromItem.num);
+        }
+        else if (toItem == null) 
+        {
+            anotherBackpack.AddItemAt(fromItem, toInTarget);
+        }
+        else //不同类认为不可移动
+        {
+            return false;
+        }
+
+        DeleteItem(fromInCurrent, fromItem.num); //对前两种情况的原背包的更新
+
         return true;
     }
 
