@@ -161,8 +161,8 @@ GameObject:
   - component: {fileID: 4557912930850322192}
   - component: {fileID: 5532002040032361007}
   - component: {fileID: 7463995926497800958}
+  - component: {fileID: -759432484386901468}
   - component: {fileID: 412775758084869440}
-  - component: {fileID: 3459645837511679920}
   m_Layer: 5
   m_Name: PackageUIItemBG
   m_TagString: Untagged
@@ -216,6 +216,21 @@ MonoBehaviour:
   itemImage: {fileID: 3674798285113151989}
   quantityText: {fileID: 187881362764180633}
   selectedImage: {fileID: 1135393039283235406}
+--- !u!114 &-759432484386901468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298940152564239801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f901ebb1bf9a8e54e96bbff7495a4e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 3674798285113151989}
+  dragIconScale: 1.2
+  dragAlpha: 0.8
 --- !u!114 &412775758084869440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,22 +275,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3459645837511679920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298940152564239801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c2db04858912b549affbbe7cbb3cf3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetImage: {fileID: 3674798285113151989}
-  dragIconScale: 1.2
-  dragAlpha: 0.8
-  dragCanvas: {fileID: 0}
 --- !u!1 &4288914645668482365
 GameObject:
   m_ObjectHideFlags: 0

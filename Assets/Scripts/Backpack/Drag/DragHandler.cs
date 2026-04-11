@@ -8,11 +8,13 @@ IDragHandler - 拖拽过程中持续触发
 IEndDragHandler - 结束拖拽时触发
 IDropHandler - 在目标上放下时触发*/
 {
+    [Tooltip("要被拖拽的图片组件")]
     public Image targetImage;
     public float dragIconScale = 1.2f;
     public float dragAlpha = 0.8f;
 
-    private BackpackView<BackpackViewModel> backpackView;
+    private BackpackView backpackView;
+    
     private int slotIndex;
     private GameObject dragObject;
     private Canvas dragCanvas;
@@ -21,7 +23,8 @@ IDropHandler - 在目标上放下时触发*/
 
     void OnEnable()
     {
-        backpackView = GetComponentInParent<BackpackView<BackpackViewModel>>();
+        backpackView = GetComponentInParent<BackpackView>();
+
         slotIndex = transform.GetSiblingIndex();
 
         // 创建拖拽Canvas
@@ -34,7 +37,7 @@ IDropHandler - 在目标上放下时触发*/
             canvasObj.transform.SetSiblingIndex(mainCanvas.transform.GetSiblingIndex() + 1);
 
             dragCanvas = canvasObj.AddComponent<Canvas>();
-            dragCanvas.renderMode = RenderMode.ScreenSpaceOverlay;  // 用Overlay最简单
+            dragCanvas.renderMode = RenderMode.ScreenSpaceOverlay;  
             dragCanvas.sortingOrder = 9999;
 
             canvasObj.AddComponent<CanvasScaler>();

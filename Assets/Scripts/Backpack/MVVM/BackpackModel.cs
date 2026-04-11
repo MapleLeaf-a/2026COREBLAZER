@@ -2,6 +2,9 @@ using Statics.Classes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
@@ -11,13 +14,8 @@ public class BackpackModel
     private BagItem[] bagItems;
     //背包容量
     int capacity;
-    //背包中非空物品的数量
-    int count;
 
-    /// <summary>
-    /// 获取Count
-    /// </summary>
-    public int Count => count;
+
     /// <summary>
     /// 获取Capacity
     /// </summary>
@@ -25,14 +23,13 @@ public class BackpackModel
     /// <summary>
     /// 获取只读列表
     /// </summary>
-    public BagItem[] BagItems => bagItems;
+    public ReadOnlyCollection<BagItem> BagItems => Array.AsReadOnly(bagItems);
 
 
     public BackpackModel(int capacity)
     {
         bagItems = new BagItem[capacity];
         this.capacity = capacity;
-        this.count = 0;
     }
 
     /// <summary>
@@ -41,10 +38,9 @@ public class BackpackModel
     /// <param name="bagItem"></param>
     /// <returns></returns>
     public bool AddItem(BagItem bagItem)
-    { 
-        if (count >= capacity) return false;
-
-        for (int i = 0; i < capacity; i++)
+    {
+        int i;
+        for (i = 0; i < capacity; i++)
         {
             BagItem item = bagItems[i];
             if (item == null)
@@ -59,7 +55,7 @@ public class BackpackModel
             }
         }
 
-        count++;
+        if (i == capacity) return false;
 
         return true;
     }
@@ -72,13 +68,12 @@ public class BackpackModel
     /// <returns></returns>
     public bool AddItemAt(BagItem bagItem, int index)
     { 
-        if (count >= capacity || index >= capacity || index < 0) return false;
+        if (index >= capacity || index < 0) return false;
 
         BagItem item = bagItems[index];
         if (item == null)
         {
             bagItems[index] = bagItem;
-            count++;
         }
         else if (item.material.id == bagItem.material.id)
         {
@@ -110,8 +105,6 @@ public class BackpackModel
         { 
             bagItems[index] = null;
         }
-        
-        count--;
 
         return true;
     }
@@ -161,27 +154,59 @@ public class BackpackModel
     }
 
 
-    /// <summary>
-    /// 将所有物品排序,主关键词是数量，副关键词是ID
-    /// </summary>
-    public bool SortItems()
+    public bool TransferAllTo(BackpackModel target)
     {
-        for (int i = 0; i < bagItems.Length - 1; i++)
+        if (target == null) return false;
+
+        for (int i = 0; i < bagItems.Length; i++)
         {
-            for (int j = 0; j < bagItems.Length - 1 - i; j++)
+            BagItem bagItem = bagItems[i];
+            if (bagItem != null)
             {
-                //比较是否需要交换
-                var a = bagItems[j];
-                var b = bagItems[j + 1];
-                if ((a == null && b != null) || (a != null && b != null && a.num < b.num)
-                    || (a != null && b != null && ( a.ID.CompareTo(b.ID)) < 0 ) ) //a.ID < b.ID
+                target.AddItem(bagItem);
+                RemoveItemAt(i, bagItem.num);
+            }
+        }
+
+        target.Organize();
+
+        return true;
+    }
+
+    /// <summary>
+    /// 整理背包，主关键词是数量(大到小)，副关键词是ID(字典序小到大)，会合并同类物
+    /// </summary>
+    /// <returns></returns>
+    public bool Organize()
+    { 
+        Dictionary<string, BagItem> mergedItems = new Dictionary<string, BagItem>();
+
+        foreach (var bagItem in bagItems)
+        {
+            if (bagItem != null)
+            {
+                if (mergedItems.ContainsKey(bagItem.ID))
                 {
-                    var temp = bagItems[j];
-                    bagItems[j] = bagItems[j + 1];
-                    bagItems[j + 1] = temp;
+                    mergedItems[bagItem.ID].IncreaseNum(bagItem.num);
+                }
+                else
+                {
+                    mergedItems[bagItem.ID] = new BagItem(bagItem.material, bagItem.num); //深拷贝防止出问题
                 }
             }
         }
+
+        List<BagItem> sortedItems = mergedItems.Values
+                                               .OrderByDescending(bagItem => bagItem.num)
+                                               .ThenBy(bagItem => bagItem.ID)
+                                               .ToList();
+
+        //写回原数组
+        for (int i = 0; i < bagItems.Length; i++)
+        {
+            bagItems[i] = i < sortedItems.Count ? sortedItems[i] : null;
+        }
+
         return true;
     }
 }

@@ -23,16 +23,10 @@ public class UAVBackpackViewModel : BackpackViewModel
     /// <param name="target"></param>
     public void TransferAllTo(BackpackViewModel target)
     {
-        BagItem[] bagItems = backpack.BagItems;
-        for (int i = 0; i < bagItems.Length; i++)
+        if (backpack.TransferAllTo(target.backpack))
         {
-            BagItem bagItem = bagItems[i];
-            if (bagItem != null)
-            {
-                target.AddItem(bagItem);
-                target.SortItems();
-                RemoveItemAt(i, bagItem.num);
-            }
+            RefreshAll();
+            target.RefreshAll();
         }
     }
 }

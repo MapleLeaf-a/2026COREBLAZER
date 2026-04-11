@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Profiling.HierarchyFrameDataView;
 
-public class UAVBackpackView : BackpackView<UAVBackpackViewModel>
+public class UAVBackpackView : BackpackView
 {
     [Header("")]
     [Tooltip("丢弃按钮")]
@@ -14,7 +13,7 @@ public class UAVBackpackView : BackpackView<UAVBackpackViewModel>
     public Button transferAllButton;
 
     [Tooltip("冰箱View")]
-    public BackpackView<BackpackViewModel> freezerView;
+    public FreezerView freezerView;
 
     protected override void BindOtherButtons()
     {
@@ -23,9 +22,14 @@ public class UAVBackpackView : BackpackView<UAVBackpackViewModel>
         transferAllButton.onClick.AddListener(OnTransferAllClick);
     }
 
-    protected override UAVBackpackViewModel CreateViewModel(BackpackModel model, int itemsPerPage)
+    public override void InitBackpackView(BackpackModel backpackModel)
     {
-        return new UAVBackpackViewModel(model, itemsPerPage);
+        if (capacity <= 0 || itemsPerPage <= 0)
+        {
+            throw new UnityException("背包初始化出错！");
+        }
+        capacity = backpackModel.Capacity;
+        this.backpackViewModel = new UAVBackpackViewModel(backpackModel, itemsPerPage);  //向上造型(UAVbackpackVM -> BackpackVM)
     }
 
     void OnDropItemClick()

@@ -5,9 +5,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class BackpackView<T> : MonoBehaviour where T : BackpackViewModel
+public abstract class BackpackView: MonoBehaviour
 {
-    public T backpackViewModel;
+    public BackpackViewModel backpackViewModel;
 
     [Header("背包初始属性")]
     [Tooltip("背包容量")]
@@ -36,7 +36,7 @@ public abstract class BackpackView<T> : MonoBehaviour where T : BackpackViewMode
 
     private List<PackageUIItem> slots = new List<PackageUIItem>();
 
-    private BackpackView<T> sourceView;  //记录拖拽源头的背包视图
+    private BackpackView sourceView;  //记录拖拽源头的背包视图
 
     void Start()
     {
@@ -64,20 +64,18 @@ public abstract class BackpackView<T> : MonoBehaviour where T : BackpackViewMode
     }
 
     /// <summary>
-    /// 子类实现该抽象方法,用于创建ViewModel
+    /// 初始化背包View层，子类最好重写这个方法
     /// </summary>
     /// <param name="backpackModel"></param>
-    /// <param name="itemsPerPage"></param>
-    protected abstract T CreateViewModel(BackpackModel backpackModel, int itemsPerPage);
-
-    public void InitBackpackView(BackpackModel backpackModel)
+    /// <exception cref="UnityException"></exception>
+    public virtual void InitBackpackView(BackpackModel backpackModel)
     {
         if (capacity <= 0 || itemsPerPage <= 0)
         {
             throw new UnityException("背包初始化出错！");
         }
         capacity = backpackModel.Capacity;
-        this.backpackViewModel = CreateViewModel(backpackModel, itemsPerPage);
+        this.backpackViewModel = new BackpackViewModel(backpackModel, itemsPerPage);
     }
 
 

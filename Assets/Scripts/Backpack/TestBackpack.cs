@@ -11,8 +11,8 @@ public class TestBackpack : MonoBehaviour
     public BackpackModel backpackModel;
     public BackpackModel backpackMode2;
 
-    public BackpackView<UAVBackpackViewModel> backpackView1;
-    public BackpackView<BackpackViewModel> backpackView2;
+    public UAVBackpackView backpackView1;
+    public FreezerView backpackView2;
 
     void Awake()
     {
@@ -28,7 +28,7 @@ public class TestBackpack : MonoBehaviour
         FoodMaterial material = new FoodMaterial("114", "KaZuHa", "Images/kazuha", "枫原万叶,流浪的武士", StaticTemplates.Food.MaterialType.Drink);
         BagItem bagItem = new BagItem(material, 1);
         FoodMaterial material2 = new FoodMaterial("514", "GGG", "Images/GoTo", "Go Go Go,出发咯", StaticTemplates.Food.MaterialType.Drink);
-        BagItem bagItem2 = new BagItem(material2, 4);
+        BagItem bagItem2 = new BagItem(material2, 2);
         FoodMaterial material3 = new FoodMaterial("114", "KaZuHa", "Images/kazuha", "枫原万叶,流浪的武士", StaticTemplates.Food.MaterialType.Drink);
         BagItem bagItem3 = new BagItem(material3, 1);
         backpackModel = new BackpackModel(20);
