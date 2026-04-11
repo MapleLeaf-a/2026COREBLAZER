@@ -2,6 +2,7 @@ using Statics.Classes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class BackpackModel
@@ -157,6 +158,31 @@ public class BackpackModel
         BagItem[] result = new BagItem[actualCount];
         Array.Copy(bagItems, start, result, 0, actualCount);
         return result;
+    }
+
+
+    /// <summary>
+    /// 将所有物品排序,主关键词是数量，副关键词是ID
+    /// </summary>
+    public bool SortItems()
+    {
+        for (int i = 0; i < bagItems.Length - 1; i++)
+        {
+            for (int j = 0; j < bagItems.Length - 1 - i; j++)
+            {
+                //比较是否需要交换
+                var a = bagItems[j];
+                var b = bagItems[j + 1];
+                if ((a == null && b != null) || (a != null && b != null && a.num < b.num)
+                    || (a != null && b != null && ( a.ID.CompareTo(b.ID)) < 0 ) ) //a.ID < b.ID
+                {
+                    var temp = bagItems[j];
+                    bagItems[j] = bagItems[j + 1];
+                    bagItems[j + 1] = temp;
+                }
+            }
+        }
+        return true;
     }
 }
 

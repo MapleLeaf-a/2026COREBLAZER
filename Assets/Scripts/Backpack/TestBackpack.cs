@@ -11,8 +11,8 @@ public class TestBackpack : MonoBehaviour
     public BackpackModel backpackModel;
     public BackpackModel backpackMode2;
 
-    public BackpackView backpackView1;
-    public BackpackView backpackView2;
+    public BackpackView<UAVBackpackViewModel> backpackView1;
+    public BackpackView<BackpackViewModel> backpackView2;
 
     void Awake()
     {

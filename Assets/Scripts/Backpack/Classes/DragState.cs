@@ -4,7 +4,7 @@
 public static class DragState
 {
     public static int FromIndex = -1;
-    public static BackpackView SourceView = null;
+    public static BackpackView<BackpackViewModel> SourceView = null;
 
     public static void Reset()
     {
