@@ -9,19 +9,19 @@ using UnityEngine.UI;
 
 public class BackpackViewModel : INotifyPropertyChanged
 {
-    private BackpackModel backpack;
+    protected BackpackModel backpack;
 
     //当前页数
-    private int currentPage = 0;
+    protected int currentPage = 0;
     //总页数
-    private int totalPages;
+    protected int totalPages;
     //每页含有的元素数量
-    private int itemsPerPage;
+    protected int itemsPerPage;
     //当前页选中的物品在当前页的index
-    private int selectecIndex = -1;
+    protected int selectecIndex = -1;
 
     //string到Sprite的映射,用于读取每个BagItem的图片
-    private Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
+    protected Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
 
 
     public BackpackViewModel(BackpackModel backpackModel, int itemsPerPage)
@@ -66,6 +66,12 @@ public class BackpackViewModel : INotifyPropertyChanged
             return null;
         }
     }
+
+    /// <summary>
+    /// 当前选中的物品在当前页的索引
+    /// </summary>
+    public int SelectedIndex => selectecIndex;
+
 
     /// <summary>
     /// 当前页的编号(从一开始)
@@ -126,15 +132,18 @@ public class BackpackViewModel : INotifyPropertyChanged
     }
 
     /// <summary>
-    /// 删除物品
+    /// 删除当前页index的对应数量的物品
     /// </summary>
-    public void DeleteItem(int itemIndexInCurrentPage, int quantity = 1)
+    /// <param name="itemIndexInCurrentPage"></param>
+    /// <param name="quantity"></param>
+    public void RemoveItemAt(int itemIndexInCurrentPage, int quantity = 1)
     {
         int indexInBackpack = currentPage * totalPages + itemIndexInCurrentPage;
         if (backpack.RemoveItemAt(indexInBackpack, quantity)) //若删除成功
         {
             OnPropertyChanged(nameof(CurrentPageItems));
             OnPropertyChanged(nameof(TotalCount));
+            OnPropertyChanged(nameof(SelectedItem));
         }
     }
 
@@ -217,12 +226,7 @@ public class BackpackViewModel : INotifyPropertyChanged
     /// <returns></returns>
     public BagItem GetItemAt(int index)
     {
-        BagItem[] bagItems = CurrentPageItems;
-        if (0 <= index && index < bagItems.Length)
-        {
-            return bagItems[index];
-        }
-        return null;
+        return backpack.GetItemAt(itemsPerPage * currentPage + index);
     }
 
     /// <summary>
@@ -241,7 +245,7 @@ public class BackpackViewModel : INotifyPropertyChanged
         if (toItem != null && fromItem.ID == toItem.ID) //目标处有物品且可堆叠
         {
             toItem.IncreaseNum(fromItem.num);
-            DeleteItem(from, fromItem.num);
+            RemoveItemAt(from, fromItem.num);
         }
         else
         {
@@ -254,9 +258,12 @@ public class BackpackViewModel : INotifyPropertyChanged
     }
 
     /// <summary>
-    ///尝试向另一背包移动物品
+    /// 尝试向另一背包移动物品
     /// </summary>
-    /// <returns>是否成功</returns>
+    /// <param name="anotherBackpack"></param>
+    /// <param name="fromInCurrent">本页index</param>
+    /// <param name="toInTarget">目标背包的那页的index</param>
+    /// <returns></returns>
     public bool TryTransferTo(BackpackViewModel anotherBackpack, int fromInCurrent, int toInTarget)
     { 
         if (anotherBackpack == null) return false;
@@ -279,9 +286,18 @@ public class BackpackViewModel : INotifyPropertyChanged
             return false;
         }
 
-        DeleteItem(fromInCurrent, fromItem.num); //对前两种情况的原背包的更新
+        RemoveItemAt(fromInCurrent, fromItem.num); //对前两种情况的原背包的更新
 
         return true;
+    }
+
+    public void SortItems()
+    {
+        if (backpack.SortItems())
+        {
+            OnPropertyChanged(nameof(CurrentPageItems));
+            OnPropertyChanged(nameof(TotalCount));
+        }
     }
 
     private void RefreshAll()

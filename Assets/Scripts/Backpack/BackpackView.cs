@@ -5,10 +5,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BackpackView : MonoBehaviour
+public abstract class BackpackView<T> : MonoBehaviour where T : BackpackViewModel
 {
-    BackpackViewModel backpackViewModel;
-    BackpackModel backpackModel;
+    public T backpackViewModel;
 
     [Header("背包初始属性")]
     [Tooltip("背包容量")]
@@ -37,7 +36,7 @@ public class BackpackView : MonoBehaviour
 
     private List<PackageUIItem> slots = new List<PackageUIItem>();
 
-    private BackpackView sourceView;  //记录拖拽源头的背包视图
+    private BackpackView<T> sourceView;  //记录拖拽源头的背包视图
 
     void Start()
     {
@@ -52,6 +51,9 @@ public class BackpackView : MonoBehaviour
         //绑定切换页面事件
         PageChangingEvent();
 
+        //子类按钮绑定
+        BindOtherButtons();
+
         //初始化显示
         RefreshUI();
     }
@@ -61,15 +63,21 @@ public class BackpackView : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// 子类实现该抽象方法,用于创建ViewModel
+    /// </summary>
+    /// <param name="backpackModel"></param>
+    /// <param name="itemsPerPage"></param>
+    protected abstract T CreateViewModel(BackpackModel backpackModel, int itemsPerPage);
+
     public void InitBackpackView(BackpackModel backpackModel)
     {
         if (capacity <= 0 || itemsPerPage <= 0)
         {
             throw new UnityException("背包初始化出错！");
         }
-        this.backpackModel = backpackModel;
         capacity = backpackModel.Capacity;
-        this.backpackViewModel = new BackpackViewModel(backpackModel, itemsPerPage);
+        this.backpackViewModel = CreateViewModel(backpackModel, itemsPerPage);
     }
 
 
@@ -96,6 +104,11 @@ public class BackpackView : MonoBehaviour
         prevButton.onClick.AddListener(() => backpackViewModel.PrevPage());
         nextButton.onClick.AddListener(() => backpackViewModel.NextPage());
     }
+
+    /// <summary>
+    /// 子类实现该抽象方法，绑定子类其他别的用途的按钮
+    /// </summary>
+    protected abstract void BindOtherButtons();
 
 
     //响应ViewModel变化,当ViewModel中的属性发生变化时,这个方法会被自动调用
@@ -162,7 +175,7 @@ public class BackpackView : MonoBehaviour
     }
 
     //刷新所有UI
-    void RefreshUI()
+    public void RefreshUI()
     {
         RefreshItems();
         RefreshDetail();

@@ -12,7 +12,7 @@ IDropHandler - 在目标上放下时触发*/
     public float dragIconScale = 1.2f;
     public float dragAlpha = 0.8f;
 
-    private BackpackView backpackView;
+    private BackpackView<BackpackViewModel> backpackView;
     private int slotIndex;
     private GameObject dragObject;
     private Canvas dragCanvas;
@@ -21,7 +21,7 @@ IDropHandler - 在目标上放下时触发*/
 
     void OnEnable()
     {
-        backpackView = GetComponentInParent<BackpackView>();
+        backpackView = GetComponentInParent<BackpackView<BackpackViewModel>>();
         slotIndex = transform.GetSiblingIndex();
 
         // 创建拖拽Canvas
