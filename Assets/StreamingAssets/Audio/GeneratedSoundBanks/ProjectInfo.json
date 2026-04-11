@@ -1,0 +1,29 @@
+{
+ "ProjectInfo": {
+  "Project": {
+   "Name": "KaiTuoXin2026_Test",
+   "GUID": "{54E64248-6837-4C08-8B1F-38E1A028E4E8}",
+   "Generator": "2025.1.6.9117"
+  },
+  "CacheRoot": "D:/Users/Sleepwalker/Documents/WwiseProjects/KaiTuoXin2026_Test/.cache",
+  "Platforms": [
+   {
+    "Name": "Windows",
+    "GUID": "{E07F70C7-D4A4-44B9-9396-0E0FD1E6B2D8}",
+    "BasePlatform": "Windows",
+    "BasePlatformGUID": "{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}",
+    "Path": "Windows"
+   }
+  ],
+  "Languages": [
+   {
+    "Name": "English(US)",
+    "Id": "684519430",
+    "GUID": "{A8126BE6-35FC-48E3-BEEE-D8AABCCBAF29}",
+    "Default": "true",
+    "UseAsStandIn": "true"
+   }
+  ],
+  "FileHash": "{BFB566B3-B41B-1B5C-A39D-2EA19856B169}"
+ }
+}
