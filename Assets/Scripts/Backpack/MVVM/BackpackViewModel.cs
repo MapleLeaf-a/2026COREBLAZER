@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class BackpackViewModel : INotifyPropertyChanged
 {
-    protected BackpackModel backpack;
+    public BackpackModel backpack;
 
     //当前页数
     protected int currentPage = 0;
@@ -93,11 +93,6 @@ public class BackpackViewModel : INotifyPropertyChanged
     /// </summary>
     public bool HasNextPage => currentPage < totalPages - 1;
 
-    /// <summary>
-    /// 总物品数量
-    /// </summary>
-    public int TotalCount => backpack.Count;
-
 
 
     /// <summary>
@@ -110,7 +105,6 @@ public class BackpackViewModel : INotifyPropertyChanged
             AddPairToSprites(bagItem.SpritePath);
 
             OnPropertyChanged(nameof(CurrentPageItems));
-            OnPropertyChanged(nameof(TotalCount));
         }
     }
 
@@ -127,7 +121,6 @@ public class BackpackViewModel : INotifyPropertyChanged
             AddPairToSprites(bagItem.SpritePath);
 
             OnPropertyChanged(nameof(CurrentPageItems));
-            OnPropertyChanged(nameof(TotalCount));
         }
     }
 
@@ -142,7 +135,6 @@ public class BackpackViewModel : INotifyPropertyChanged
         if (backpack.RemoveItemAt(indexInBackpack, quantity)) //若删除成功
         {
             OnPropertyChanged(nameof(CurrentPageItems));
-            OnPropertyChanged(nameof(TotalCount));
             OnPropertyChanged(nameof(SelectedItem));
         }
     }
@@ -291,19 +283,18 @@ public class BackpackViewModel : INotifyPropertyChanged
         return true;
     }
 
-    public void SortItems()
+    public void Organize()
     {
-        if (backpack.SortItems())
+        if (backpack.Organize())
         {
             OnPropertyChanged(nameof(CurrentPageItems));
-            OnPropertyChanged(nameof(TotalCount));
+            OnPropertyChanged(nameof(SelectedItem));
         }
     }
 
-    private void RefreshAll()
+    public void RefreshAll()
     {
         OnPropertyChanged(nameof(CurrentPageItems));
-        OnPropertyChanged(nameof(TotalCount));
         OnPropertyChanged(nameof(TotalPages));
         OnPropertyChanged(nameof(HasPrevPage));
         OnPropertyChanged(nameof(HasNextPage));

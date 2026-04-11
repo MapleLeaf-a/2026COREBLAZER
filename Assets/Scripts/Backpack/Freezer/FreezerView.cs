@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FreezerView : BackpackView<BackpackViewModel>
+public class FreezerView : BackpackView
 {
     protected override void BindOtherButtons() { }
 
-    protected override BackpackViewModel CreateViewModel(BackpackModel model, int itemsPerPage)
-    {
-        return new BackpackViewModel(model, itemsPerPage);
-    }
+    
 }
