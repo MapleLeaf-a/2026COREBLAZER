@@ -1,4 +1,3 @@
-using System.Buffers.Text;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,19 +7,33 @@ public class Note : MonoBehaviour
     //音符运动速度
     public float speed;
 
-    //判定条
-    public static Transform bar;
+    [Header("判定条")]
+    public Transform bar;
 
     //是否已经超出判定区
     bool isOutOfJugdingZone = false;
     //是否已经判断过
     bool isJugded = false;
 
+    //音符图片
     SpriteRenderer spriteRenderer;
+
+    [Header("配置音符移动方向")]
+    public NoteMoveDirEnum direction;
+
+    //移动策略
+    private IMovementStrategy movementStrategy;
+
+    //对应方向的轴向的值
+    float p;
+
+    //bar对应方向的轴向的值
+    float barP;
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();    
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        movementStrategy = CreateMoveStategy(direction);
     }
 
     void Update()
@@ -35,16 +48,31 @@ public class Note : MonoBehaviour
         IsOutOfScreen();
     }
 
+    //多态解决音符的不同运动方向
+    IMovementStrategy CreateMoveStategy(NoteMoveDirEnum dir)
+    {
+        switch (dir)
+        {
+            case NoteMoveDirEnum.RightToLeft:
+                return new RightToLeftMovement();
+            case NoteMoveDirEnum.TopToBottom:
+                return new TopToBottomMovement();
+            default:
+                throw new System.Exception("音符运动方向设置错误！");
+        }
+    }
+
+
     //音符移动
     void Move()
     {
-        transform.Translate(speed * Time.deltaTime * Vector3.left);
+        transform.Translate(speed * Time.deltaTime * movementStrategy.GetMoveDirV3());
     }
 
     //是否已经离开了判定区
     void IsOutOfJudgingZone()
     {
-        if (transform.position.x < bar.position.x - BarJudger.miss * speed)
+        if (p < barP - BarJudger.miss * speed)
         {
             Debug.Log("Totally MISS!");
             BarJudger.ShowText("Totally MISS!", Color.red);
@@ -55,32 +83,32 @@ public class Note : MonoBehaviour
 
     public bool JudgeTime()
     { 
-        float baseX = bar.position.x;
+        float baseP = barP;
 
-        float x = transform.position.x;
+        float p = this.p;
 
-        if (baseX + this.speed * BarJudger.miss < x)  //还未到判定区
+        if (baseP + this.speed * BarJudger.miss < p)  //还未到判定区
         {
             return false;
         }
 
         //判定区内的时机判定
-        if (baseX - speed * BarJudger.perfect < x && x < baseX + speed * BarJudger.perfect)
+        if (baseP - speed * BarJudger.perfect < p && p < baseP + speed * BarJudger.perfect)
         {
             BarJudger.ShowText("Perfect!", Color.yellow);
             ScoreManager.ScoreManagerInstance.score.AddScore("Perfect!");
         }
-        else if (baseX - speed * BarJudger.good < x && x < baseX + speed * BarJudger.good)
+        else if (baseP - speed * BarJudger.good < p && p < baseP + speed * BarJudger.good)
         {
             BarJudger.ShowText("Good!", Color.green);
             ScoreManager.ScoreManagerInstance.score.AddScore("Good!");
         }
-        else if (baseX - speed * BarJudger.soso < x && x < baseX + speed * BarJudger.soso)
+        else if (baseP - speed * BarJudger.soso < p && p < baseP + speed * BarJudger.soso)
         {
             BarJudger.ShowText("So-so!", Color.cyan);
             ScoreManager.ScoreManagerInstance.score.AddScore("So-so!");
         }
-        else if (baseX - speed * BarJudger.miss < x && x < baseX + speed * BarJudger.miss)
+        else if (baseP - speed * BarJudger.miss < p && p < baseP + speed * BarJudger.miss)
         {
             BarJudger.ShowText("Miss!", Color.red);
         }
