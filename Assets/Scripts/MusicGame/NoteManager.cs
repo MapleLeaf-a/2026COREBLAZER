@@ -37,14 +37,14 @@ public class NoteManager : MonoBehaviour
 
     void OnEnable()
     {
-        CanvasManager.canvasManagerInstance.canvasStack.Push(canvas);
+        CanvasManager.canvasManagerInstance?.canvasStack.Push(canvas);
 
         InputManager.InputManagerInstance.SetContext(InputManager.InputContext.MUSICGAME);
     }
 
     void OnDisable()
     {
-        CanvasManager.canvasManagerInstance.canvasStack.PopTo(canvas);
+        CanvasManager.canvasManagerInstance?.canvasStack.PopTo(canvas);
     }
 
     void Awake()
@@ -61,8 +61,6 @@ public class NoteManager : MonoBehaviour
 
     void Start()
     {
-        Note.bar = bar;
-
         notes = new List<bool> {false, true, false, true, true, true, true, true};
     }
 
