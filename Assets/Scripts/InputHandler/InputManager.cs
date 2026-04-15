@@ -41,8 +41,14 @@ public class InputManager : MonoBehaviour
     //初始化默认映射
     void InitMappings()
     {
-        //音游轨道对应按键
+        //音游轨道(单轨道)对应按键
         AddMapping("Judge", KeyCode.Space, InputContext.MUSICGAME);
+
+        //多轨道(4轨道)
+        AddMapping("JudgeTrack0", KeyCode.A, InputContext.MUSICGAME);
+        AddMapping("JudgeTrack1", KeyCode.D, InputContext.MUSICGAME);
+        AddMapping("JudgeTrack2", KeyCode.J, InputContext.MUSICGAME);
+        AddMapping("JudgeTrack3", KeyCode.L, InputContext.MUSICGAME);
 
         //角色操控对应按键
         AddMapping("MoveUp", KeyCode.W, InputContext.CHARACTER);
@@ -56,6 +62,26 @@ public class InputManager : MonoBehaviour
 
         //交互对应按键
         AddMapping("InteractF", KeyCode.F, InputContext.CHARACTER);
+    }
+    
+    /// <summary>
+    /// 供轨道判定调用,根据轨道数量自动选择判定方式
+    /// </summary>
+    /// <param name="trackCount">轨道数量</param>
+    /// <param name="trackIndex">轨道索引（0-based）</param>
+    public bool GetJudgeKeyDown_MusicGame(int trackCount, int trackIndex)
+    {
+        if (trackCount == 1)
+        {
+            //单轨道:使用"Judge"动作
+            return GetKeyDown("Judge");
+        }
+        else
+        {
+            //多轨道:使用"JudgeTrack{index}"动作
+            string actionName = $"JudgeTrack{trackIndex}";
+            return GetKeyDown(actionName);
+        }
     }
 
     void AddMapping(string actionName, KeyCode key, InputContext? inputContext) //可空值类型inputContext

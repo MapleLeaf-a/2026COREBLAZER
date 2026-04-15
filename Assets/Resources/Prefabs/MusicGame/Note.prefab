@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -6017412171604378374}
   - component: {fileID: 5100254025908816983}
   m_Layer: 0
-  m_Name: Note_RIghtToLeft
+  m_Name: Note
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,4 +108,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   bar: {fileID: 6330866817020698422, guid: ed8ff2a59eb6a5548b8058aa93e165db, type: 3}
-  direction: 1
+  direction: 2

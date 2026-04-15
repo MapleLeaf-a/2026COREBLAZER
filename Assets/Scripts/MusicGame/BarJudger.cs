@@ -10,8 +10,16 @@ public class BarJudger : MonoBehaviour
     public const float soso = 0.12f; //<120ms
     public const float miss = 0.18f; //<180ms
 
-    public static PopUpText text;
+    public PopUpText text;
 
+    //当前轨道的索引
+    int trackIndex;
+
+    //轨道总数
+    int trackCount;
+
+    //当前轨道的音符管理
+    NoteManager noteManager;
 
     void Start()
     {
@@ -20,16 +28,16 @@ public class BarJudger : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.InputManagerInstance.GetKeyDown("Judge"))
+        if (InputManager.InputManagerInstance.GetJudgeKeyDown_MusicGame(trackCount, trackIndex))
         {
-            if (NoteManager.NoteManagerInstance.NoteListCount > 0)
+            if (noteManager.NoteListCount > 0)
             {
-                Note note = NoteManager.NoteManagerInstance.PeekFirstNote();
+                Note note = noteManager.PeekFirstNote();
                 if (note.JudgeTime()) //假如音符判定了
                 {
-                    ScoreManager.ScoreManagerInstance.score.AddNoteCount(); //增加音符计数
-                    ScoreManager.ScoreManagerInstance.score.UpdateCurrentRate(); //更新目前的perfect率
-                    ScoreManager.ScoreManagerInstance.UpdateCurrentScoreText(); //更新文本
+                    ScoreManager.ScoreManagerInstance?.score.AddNoteCount(); //增加音符计数
+                    ScoreManager.ScoreManagerInstance?.score.UpdateCurrentRate(); //更新目前的perfect率
+                    ScoreManager.ScoreManagerInstance?.UpdateCurrentScoreText(); //更新文本
                 }
             }
             else
@@ -39,7 +47,14 @@ public class BarJudger : MonoBehaviour
         }
     }
 
-    public static void ShowText(string message, Color color, float duration = 0f)
+    public void Initialize(NoteManager noteManager, int trackIndex, int trackCount)
+    {
+        this.noteManager = noteManager;
+        this.trackIndex = trackIndex;
+        this.trackCount = trackCount;
+    }
+
+    public void ShowText(string message, Color color, float duration = 0f)
     {
         text.ShowText(message, color, duration);
     }
