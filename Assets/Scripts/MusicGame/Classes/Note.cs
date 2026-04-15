@@ -5,10 +5,10 @@ using UnityEngine;
 public class Note : MonoBehaviour
 {
     //音符运动速度
-    public float speed;
+    private float speed;
 
     [Header("判定条")]
-    public Transform bar;
+    public GameObject bar;
 
     //是否已经超出判定区
     bool isOutOfJugdingZone = false;
@@ -17,9 +17,6 @@ public class Note : MonoBehaviour
 
     //音符图片
     SpriteRenderer spriteRenderer;
-
-    [Header("配置音符移动方向")]
-    public NoteMoveDirEnum direction;
 
     //移动策略
     private IMovementStrategy movementStrategy;
@@ -30,10 +27,15 @@ public class Note : MonoBehaviour
     //bar对应方向的轴向的值
     float barP;
 
+    //当前所在轨道
+    BarJudger barJudger;
+
+    NoteManager noteManager;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        movementStrategy = CreateMoveStategy(direction);
+        barP = movementStrategy.GetPositionOnAxis(bar.transform);
     }
 
     void Update()
@@ -48,18 +50,13 @@ public class Note : MonoBehaviour
         IsOutOfScreen();
     }
 
-    //多态解决音符的不同运动方向
-    IMovementStrategy CreateMoveStategy(NoteMoveDirEnum dir)
+    public void Initialize(NoteManager noteManager, GameObject bar, IMovementStrategy dir, float speed)
     {
-        switch (dir)
-        {
-            case NoteMoveDirEnum.RightToLeft:
-                return new RightToLeftMovement();
-            case NoteMoveDirEnum.TopToBottom:
-                return new TopToBottomMovement();
-            default:
-                throw new System.Exception("音符运动方向设置错误！");
-        }
+        this.noteManager = noteManager;
+        this.bar = bar;
+        this.barJudger = bar.GetComponent<BarJudger>();
+        movementStrategy = dir;
+        this.speed = speed;
     }
 
 
@@ -67,6 +64,7 @@ public class Note : MonoBehaviour
     void Move()
     {
         transform.Translate(speed * Time.deltaTime * movementStrategy.GetMoveDirV3());
+        p = movementStrategy.GetPositionOnAxis(transform);
     }
 
     //是否已经离开了判定区
@@ -75,7 +73,7 @@ public class Note : MonoBehaviour
         if (p < barP - BarJudger.miss * speed)
         {
             Debug.Log("Totally MISS!");
-            BarJudger.ShowText("Totally MISS!", Color.red);
+            barJudger.ShowText("Totally MISS!", Color.red);
             isOutOfJugdingZone = true;
             DestroyNote();
         }
@@ -95,22 +93,22 @@ public class Note : MonoBehaviour
         //判定区内的时机判定
         if (baseP - speed * BarJudger.perfect < p && p < baseP + speed * BarJudger.perfect)
         {
-            BarJudger.ShowText("Perfect!", Color.yellow);
-            ScoreManager.ScoreManagerInstance.score.AddScore("Perfect!");
+            barJudger.ShowText("Perfect!", Color.yellow);
+            ScoreManager.ScoreManagerInstance?.score.AddScore("Perfect!");
         }
         else if (baseP - speed * BarJudger.good < p && p < baseP + speed * BarJudger.good)
         {
-            BarJudger.ShowText("Good!", Color.green);
-            ScoreManager.ScoreManagerInstance.score.AddScore("Good!");
+            barJudger.ShowText("Good!", Color.green);
+            ScoreManager.ScoreManagerInstance?.score.AddScore("Good!");
         }
         else if (baseP - speed * BarJudger.soso < p && p < baseP + speed * BarJudger.soso)
         {
-            BarJudger.ShowText("So-so!", Color.cyan);
-            ScoreManager.ScoreManagerInstance.score.AddScore("So-so!");
+            barJudger.ShowText("So-so!", Color.cyan);
+            ScoreManager.ScoreManagerInstance?.score.AddScore("So-so!");
         }
         else if (baseP - speed * BarJudger.miss < p && p < baseP + speed * BarJudger.miss)
         {
-            BarJudger.ShowText("Miss!", Color.red);
+            barJudger.ShowText("Miss!", Color.red);
         }
         
         DestroyNote();
@@ -120,13 +118,13 @@ public class Note : MonoBehaviour
 
     public void DestroyNote()
     {
-        NoteManager.NoteManagerInstance.RemoveNote();
+        noteManager.RemoveNote();
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.5f);
     }
 
     public void IsOutOfScreen()
     {
-        if (transform.position.x < bar.position.x - 10f)
+        if (p < barP - 10f)
         {
             Destroy(gameObject);
         }

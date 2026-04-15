@@ -13,9 +13,10 @@ public class Settle : MonoBehaviour
     public Button settleButton;
 
     //结算的画布
-    public Canvas canvas;
+    public Canvas settleCanvas;
 
-    public TextMeshProUGUI text;
+    //结算的文本
+    public TextMeshProUGUI settleText;
 
     void Start()
     {
@@ -28,12 +29,15 @@ public class Settle : MonoBehaviour
         Score score = ScoreManager.ScoreManagerInstance.score;
         score.ComputeFinalRate();
         Debug.Log("提前结算：" + score.GetFinalRate());
-        text.text = "提前结算：" + score.GetFinalRate();
+        settleText.text = "提前结算：" + score.GetFinalRate();
 
         score.InitScore();
 
-        NoteManager.NoteManagerInstance.RemoveALLNotes();
+        foreach (var track in TracksManager.instance.tracks)
+        { 
+            track.RemoveALLNotes();
+        }
 
-        CanvasManager.canvasManagerInstance.canvasStack.ReplaceAll(canvas);
+        CanvasManager.canvasManagerInstance.canvasStack.ReplaceAll(settleCanvas);
     }
 }

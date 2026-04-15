@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//管理所有音符的脚本(生成、销毁)
+//管理一轨道音符的脚本(生成、销毁)
 public class NoteManager : MonoBehaviour
 {
     //预设的音符列表
@@ -13,7 +13,15 @@ public class NoteManager : MonoBehaviour
     private Queue<Note> noteList = new Queue<Note>();
 
     private float spawnInterval = 0.8f; //每多少秒生成一个节奏块
-    private float spawnHorizontalOffset = 8f; //生成时在Bar右边多少
+    [Header("配置生成时音符离Bar的距离")]
+    public float spawnHorizontalOffset = 8f; //生成时离Bar的距离
+
+    [Header("配置音符移动方向")]
+    public NoteMoveDirEnum direction;
+
+    //移动策略
+    private IMovementStrategy movementStrategy;
+
 
     //音符速度
     float noteSpeed = 5f;
@@ -22,7 +30,8 @@ public class NoteManager : MonoBehaviour
     public GameObject notePrefab;
 
     //判定条
-    public Transform bar;
+    public GameObject bar;
+    private BarJudger barJudger;
 
     private float timer; //生成计时器
 
@@ -32,36 +41,16 @@ public class NoteManager : MonoBehaviour
     //画布父物体
     public Canvas canvas;
 
-    //单例
-    public static NoteManager NoteManagerInstance;
-
-    void OnEnable()
-    {
-        CanvasManager.canvasManagerInstance?.canvasStack.Push(canvas);
-
-        InputManager.InputManagerInstance.SetContext(InputManager.InputContext.MUSICGAME);
-    }
-
-    void OnDisable()
-    {
-        CanvasManager.canvasManagerInstance?.canvasStack.PopTo(canvas);
-    }
-
-    void Awake()
-    {
-        if (NoteManagerInstance == null)
-        {
-            NoteManagerInstance = this;
-        }
-        else 
-        {
-            Destroy(gameObject);
-        }
-    }
+    //轨道索引
+    int trackIndex;
+    //轨道总数量
+    int trackCount;
 
     void Start()
     {
-        notes = new List<bool> {false, true, false, true, true, true, true, true};
+        movementStrategy = CreateMoveStategy(direction);
+        barJudger = bar.GetComponent<BarJudger>();
+        barJudger.Initialize(this, trackIndex, trackCount);
     }
 
     void Update()
@@ -80,18 +69,39 @@ public class NoteManager : MonoBehaviour
         if (i >= notes.Count && !over && NoteListCount == 0)
         { 
             over = true;
-            ScoreManager.ScoreManagerInstance.score.ComputeFinalRate();
-            Debug.Log("Perfect率:" + ScoreManager.ScoreManagerInstance.score.GetFinalRate());
+            ScoreManager.ScoreManagerInstance?.score.ComputeFinalRate();
+            Debug.Log("Perfect率:" + ScoreManager.ScoreManagerInstance?.score.GetFinalRate());
+        }
+    }
+
+    public void Initialize(int trackIndex, int trackCount, List<bool> notesPre)
+    { 
+        this.trackIndex = trackIndex;
+        this.trackCount = trackCount;
+        this.notes = notesPre;
+    }
+
+    //多态解决音符的不同运动方向
+    IMovementStrategy CreateMoveStategy(NoteMoveDirEnum dir)
+    {
+        switch (dir)
+        {
+            case NoteMoveDirEnum.RightToLeft:
+                return new RightToLeftMovement();
+            case NoteMoveDirEnum.TopToBottom:
+                return new TopToBottomMovement();
+            default:
+                throw new System.Exception("音符运动方向设置错误！");
         }
     }
 
     private void SpawnNote()
     {
-        Vector3 spawnPos = bar.position + new Vector3(spawnHorizontalOffset, 0, 0);
+        Vector3 spawnPos = bar.transform.position - movementStrategy.GetMoveDirV3() * spawnHorizontalOffset;
         GameObject noteObj =  Instantiate(notePrefab, spawnPos, notePrefab.transform.rotation, canvas.transform);
 
         Note note = noteObj.GetComponent<Note>();
-        note.speed = noteSpeed;
+        note.Initialize(this, bar, movementStrategy, noteSpeed);
 
         AddNote(note);
 
