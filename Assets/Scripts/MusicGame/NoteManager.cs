@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 //管理一轨道音符的脚本(生成、销毁)
@@ -7,7 +8,8 @@ public class NoteManager : MonoBehaviour
 {
     //预设的音符列表
     private List<bool> notes;
-    int i;
+    //遍历预设音符列表的i
+    int iForNotes;
 
     //待打的音符队列
     private Queue<Note> noteList = new Queue<Note>();
@@ -46,6 +48,9 @@ public class NoteManager : MonoBehaviour
     //轨道总数量
     int trackCount;
 
+    //轨道管理者
+    TracksManager tracksManager;
+
     void Start()
     {
         movementStrategy = CreateMoveStategy(direction);
@@ -56,29 +61,58 @@ public class NoteManager : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (i < notes.Count && timer > spawnInterval)
+        if (iForNotes < notes.Count && timer > spawnInterval)
         {
-            if (notes[i])
+            if (notes[iForNotes])
             {
                 SpawnNote();
             }
-            i++;
+            iForNotes++;
+            
             timer = 0;
         }
-
-        if (i >= notes.Count && !over && NoteListCount == 0)
-        { 
+        if (iForNotes >= notes.Count && !tracksManager.TrackOutOfPre() && !over && NoteListCount == 0)
+        {
             over = true;
             ScoreManager.ScoreManagerInstance?.score.ComputeFinalRate();
-            Debug.Log("Perfect率:" + ScoreManager.ScoreManagerInstance?.score.GetFinalRate());
+            //Debug.Log("Perfect率:" + ScoreManager.ScoreManagerInstance?.score.GetFinalRate());
         }
     }
 
-    public void Initialize(int trackIndex, int trackCount, List<bool> notesPre)
-    { 
+    public void Initialize(int trackIndex, int trackCount, List<bool> notesPre, TracksManager tracksManager)
+    {
         this.trackIndex = trackIndex;
         this.trackCount = trackCount;
         this.notes = notesPre;
+        this.tracksManager = tracksManager;
+    }
+
+    /// <summary>
+    /// 获取遍历预设音符列表的i
+    /// </summary>
+    public int IForNotes => iForNotes;
+
+    /// <summary>
+    /// 预设音符的列表长度
+    /// </summary>
+    public int PreNotesCount => notes.Count;
+
+
+    /// <summary>
+    /// 增加点击的轨道索引
+    /// </summary>
+    /// <param name="index"></param>
+    public void AddBarIndex(int index)
+    {
+        tracksManager.AddBarIndex(index);
+    }
+
+    /// <summary>
+    /// 清空已点击轨道索引列表
+    /// </summary>
+    public void ClearIndex()
+    {
+        tracksManager.ClearIndex();
     }
 
     //多态解决音符的不同运动方向
@@ -104,8 +138,6 @@ public class NoteManager : MonoBehaviour
         note.Initialize(this, bar, movementStrategy, noteSpeed);
 
         AddNote(note);
-
-        //ScoreManager.ScoreManagerInstance.score.AddNoteCount();
     }
 
     //添加一个音符

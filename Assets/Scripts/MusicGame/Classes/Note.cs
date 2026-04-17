@@ -32,10 +32,13 @@ public class Note : MonoBehaviour
 
     NoteManager noteManager;
 
+    public Camera mainCamera;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         barP = movementStrategy.GetPositionOnAxis(bar.transform);
+        mainCamera = Camera.main;
     }
 
     void Update()
@@ -76,6 +79,10 @@ public class Note : MonoBehaviour
             barJudger.ShowText("Totally MISS!", Color.red);
             isOutOfJugdingZone = true;
             DestroyNote();
+
+            ScoreManager.ScoreManagerInstance?.score.AddNoteCount(); //增加音符计数
+            ScoreManager.ScoreManagerInstance?.score.UpdateCurrentRate(); //更新目前的perfect率
+            ScoreManager.ScoreManagerInstance?.UpdateCurrentScoreText(); //更新文本
         }
     }
 
@@ -110,7 +117,7 @@ public class Note : MonoBehaviour
         {
             barJudger.ShowText("Miss!", Color.red);
         }
-        
+
         DestroyNote();
         isJugded = true;
         return true;
@@ -124,9 +131,16 @@ public class Note : MonoBehaviour
 
     public void IsOutOfScreen()
     {
-        if (p < barP - 10f)
+        Vector3 screenPos = mainCamera.WorldToScreenPoint(transform.position);
+
+        //检测是否超出屏幕边界（带缓冲）
+        float buffer = 100f;  //超出屏幕边缘100像素就销毁
+
+        if (screenPos.y < -buffer || screenPos.x < -buffer)
         {
             Destroy(gameObject);
+         
+            noteManager.ClearIndex();
         }
     }
 }
