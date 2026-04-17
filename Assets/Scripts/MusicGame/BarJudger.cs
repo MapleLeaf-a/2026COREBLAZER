@@ -21,6 +21,9 @@ public class BarJudger : MonoBehaviour
     //当前轨道的音符管理
     NoteManager noteManager;
 
+    //轨道管理者
+    TracksManager tracksManager;
+
     void Start()
     {
         text = GetComponentInChildren<PopUpText>();
@@ -38,6 +41,8 @@ public class BarJudger : MonoBehaviour
                     ScoreManager.ScoreManagerInstance?.score.AddNoteCount(); //增加音符计数
                     ScoreManager.ScoreManagerInstance?.score.UpdateCurrentRate(); //更新目前的perfect率
                     ScoreManager.ScoreManagerInstance?.UpdateCurrentScoreText(); //更新文本
+
+                    noteManager.AddBarIndex(trackIndex);
                 }
             }
             else
