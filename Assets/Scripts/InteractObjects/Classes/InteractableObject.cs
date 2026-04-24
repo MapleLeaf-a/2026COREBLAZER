@@ -48,7 +48,7 @@ public abstract class InteractableObject : MonoBehaviour
                 isPlayerInRange = true;
                 //显示提示文本
                 ShowPrompt();
-                CanvasManager.canvasManagerInstance.canvasStack.Push(promptPanel);
+                CanvasManager.instance.canvasStack.Push(promptPanel);
                 Debug.Log("Trigger!" + collision.name);
             }
         }
@@ -64,7 +64,7 @@ public abstract class InteractableObject : MonoBehaviour
                 isPlayerInRange = false;
                 //隐藏文本
                 HidePrompt();
-                CanvasManager.canvasManagerInstance.canvasStack.PopTo(promptPanel);
+                CanvasManager.instance.canvasStack.PopTo(promptPanel);
                 Debug.Log("TriggerExit!" + collision.name);
             }
         }

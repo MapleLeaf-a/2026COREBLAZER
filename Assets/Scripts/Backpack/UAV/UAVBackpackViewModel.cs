@@ -15,6 +15,7 @@ public class UAVBackpackViewModel : BackpackViewModel
     public void DropItem(int itemIndexInCurrentPage)
     {
         RemoveItemAt(itemIndexInCurrentPage, GetItemAt(itemIndexInCurrentPage).num);
+        //RefreshAll(); //不用是因为BackpackViewModel.RemoveItemAt里面已经有通知更新了
     }
 
     /// <summary>

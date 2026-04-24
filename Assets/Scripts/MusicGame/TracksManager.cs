@@ -41,14 +41,14 @@ public class TracksManager : MonoBehaviour
 
     void OnEnable()
     {
-        CanvasManager.canvasManagerInstance.canvasStack.Push(canvas);
+        CanvasManager.instance.canvasStack.Push(canvas);
 
         InputManager.InputManagerInstance.SetContext(InputManager.InputContext.MUSICGAME);
     }
 
     void OnDisable()
     {
-        CanvasManager.canvasManagerInstance.canvasStack.PopTo(canvas);
+        CanvasManager.instance.canvasStack.PopTo(canvas);
     }
 
     void Awake()

@@ -5,15 +5,22 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class BackpackView: MonoBehaviour
-{
-    public BackpackViewModel backpackViewModel;
 
-    [Header("背包初始属性")]
-    [Tooltip("背包容量")]
-    public int capacity;
-    [Tooltip("每页的物品量")]
-    public int itemsPerPage;
+public abstract class BackpackView: View<BagItem, PackageUIItem>
+{
+    
+    public BackpackViewModel backpackViewModel
+    {
+        get => viewModel as BackpackViewModel;
+    
+        set => viewModel = value; //value是C#属性setter中的上下文关键字,代表赋值操作传入的值
+    }
+
+    //[Header("背包初始属性")]
+    //[Tooltip("背包容量")]
+    //public int capacity;
+    //[Tooltip("每页的物品量")]
+    //public int itemsPerPage;
 
     [Header("分页")]
     public Button prevButton;
@@ -28,17 +35,17 @@ public abstract class BackpackView: MonoBehaviour
     public Image itemIconImage;
 
 
-    [Header("背包ItemUI相关")]
-    [Tooltip("父物体")]
-    public Transform contentsParent;
-    [Tooltip("物品槽预制体")]
-    public GameObject slotPrefab;
+    //[Header("背包ItemUI相关")]
+    //[Tooltip("父物体")]
+    //public Transform contentsParent;
+    //[Tooltip("物品槽预制体")]
+    //public GameObject slotPrefab;
 
-    private List<PackageUIItem> slots = new List<PackageUIItem>();
+    //private List<PackageUIItem> slots = new List<PackageUIItem>();
 
-    private BackpackView sourceView;  //记录拖拽源头的背包视图
+    //private BackpackView sourceView;  //记录拖拽源头的背包视图
 
-    void Start()
+    protected override void Start()
     {
         //InitBackpackView();
 
@@ -58,11 +65,6 @@ public abstract class BackpackView: MonoBehaviour
         RefreshUI();
     }
 
-    void Update()
-    {
-        
-    }
-
     /// <summary>
     /// 初始化背包View层，子类最好重写这个方法
     /// </summary>
@@ -79,22 +81,22 @@ public abstract class BackpackView: MonoBehaviour
     }
 
 
-    void CreateSlots()
-    {
-        for (int i = 0; i < itemsPerPage; i++)
-        {
-            int index = i; //防止用lambda引用的闭包陷阱
-            GameObject slot = Instantiate(slotPrefab, contentsParent);
-            Button button = slot.GetComponent<Button>();
-            button.onClick.AddListener(() => OnSlotClick(index)); //用lambda解决了"按钮点击事件无法直接传递参数"的问题
-            slots.Add(slot.GetComponent<PackageUIItem>());
-        }
-    }
+    //void CreateSlots()
+    //{
+    //    for (int i = 0; i < itemsPerPage; i++)
+    //    {
+    //        int index = i; //防止用lambda引用的闭包陷阱
+    //        GameObject slot = Instantiate(slotPrefab, contentsParent);
+    //        Button button = slot.GetComponent<Button>();
+    //        button.onClick.AddListener(() => OnSlotClick(index)); //用lambda解决了"按钮点击事件无法直接传递参数"的问题
+    //        slots.Add(slot.GetComponent<PackageUIItem>());
+    //    }
+    //}
 
-    void OnSlotClick(int index)
-    { 
-        backpackViewModel.SelectItem(index);
-    }
+    //void OnSlotClick(int index)
+    //{ 
+    //    backpackViewModel.SelectItem(index);
+    //}
 
     //更换页面事件
     void PageChangingEvent()
@@ -103,14 +105,14 @@ public abstract class BackpackView: MonoBehaviour
         nextButton.onClick.AddListener(() => backpackViewModel.NextPage());
     }
 
-    /// <summary>
-    /// 子类实现该抽象方法，绑定子类其他别的用途的按钮
-    /// </summary>
-    protected abstract void BindOtherButtons();
+    ///// <summary>
+    ///// 子类实现该抽象方法，绑定子类其他别的用途的按钮
+    ///// </summary>
+    //protected abstract void BindOtherButtons();
 
 
     //响应ViewModel变化,当ViewModel中的属性发生变化时,这个方法会被自动调用
-    void OnViewModelChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+    protected override void OnViewModelChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
         switch (e.PropertyName)
         {
@@ -173,7 +175,7 @@ public abstract class BackpackView: MonoBehaviour
     }
 
     //刷新所有UI
-    public void RefreshUI()
+    public override void RefreshUI()
     {
         RefreshItems();
         RefreshDetail();
@@ -191,7 +193,7 @@ public abstract class BackpackView: MonoBehaviour
     //拖拽相关(由Drag Handler调用,这种设计使得视图和拖拽逻辑分离)
     private int draggingIndex = -1;
 
-    public void OnDragStart(int index)
+    public override void OnDragStart(int index)
     {
         draggingIndex = index;  //记录开始拖拽的槽位
 
@@ -200,21 +202,21 @@ public abstract class BackpackView: MonoBehaviour
         Debug.Log($"拖拽开始: 索引={index}, 源背包={name}");
     }
 
-    public void OnDragEnd()
+    public override void OnDragEnd()
     {
         draggingIndex = -1; //拖拽结束清空记录
 
         Debug.Log("拖拽结束");
     }
 
-    public void OnDrop(int targetIndex)
+    public override void OnDrop(int targetIndex)
     {
-        if (DragState.FromIndex == -1)
+        if (DragState<BagItem, PackageUIItem>.FromIndex == -1)
         {
             return; //如果没有正在拖拽的物品,返回
         }
 
-        if (DragState.SourceView == this) //若是同一个背包
+        if (DragState<BagItem, PackageUIItem>.SourceView == this) //若是同一个背包
         {
             //不是拖到同一个槽位
             if (draggingIndex != targetIndex)
@@ -232,51 +234,17 @@ public abstract class BackpackView: MonoBehaviour
         else //不是同一个背包
         {
             //尝试移动,注意是从源背包到目前背包
-            bool success = DragState.SourceView.backpackViewModel.TryTransferTo(backpackViewModel, DragState.FromIndex, targetIndex);
+            var v = DragState<BagItem, PackageUIItem>.SourceView;
+            bool success = (v as BackpackView).backpackViewModel.TryTransferTo(backpackViewModel, DragState<BagItem, PackageUIItem>.FromIndex, targetIndex);
 
             if (success)
             {
                 //刷新两个背包的页面
-                DragState.SourceView.RefreshUI();
+                DragState<BagItem, PackageUIItem>.SourceView.RefreshUI();
                 RefreshUI();
             }
         }
 
-        DragState.Reset();  //清空拖拽状态
-
-    //    if (draggingIndex == -1)
-    //    {
-    //        return; //如果没有正在拖拽的物品,返回
-    //    }
-
-    //    if (sourceView == this) //若是同一个背包
-    //    {
-    //        //不是拖到同一个槽位
-    //        if (draggingIndex != targetIndex)
-    //        {
-    //            //尝试移动物品
-    //            bool success = backpackViewModel.TryMoveItem(draggingIndex, targetIndex);
-
-    //            if (success)
-    //            {
-    //                backpackViewModel.SelectItem(targetIndex);
-    //                RefreshUI(); //刷新界面
-    //            }
-    //        }
-    //    }
-    //    else //不是同一个背包
-    //    {
-    //        //尝试移动,注意是从源背包到目前背包
-    //        bool success = sourceView.backpackViewModel.TryTransferTo(this.backpackViewModel, draggingIndex, targetIndex);
-
-    //        if (success)
-    //        { 
-    //            //刷新两个背包的状态
-    //            sourceView.RefreshUI();
-    //            this.RefreshUI();
-    //        }
-    //    }
-        
-    //    //OnDragEnd(); //清空拖拽状态
+        DragState<BagItem, PackageUIItem>.Reset();  //清空拖拽状态
     }
 }

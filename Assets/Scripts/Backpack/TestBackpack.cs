@@ -14,6 +14,14 @@ public class TestBackpack : MonoBehaviour
     public UAVBackpackView backpackView1;
     public FreezerView backpackView2;
 
+    public AllRecipesModel allRecipesModel;
+
+    public AllRecipesView allRecipesView;
+
+    public TodaysRecipeModel todaysRecipeModel;
+
+    public TodaysRecipeView todaysRecipeView;
+
     void Awake()
     {
         if (instance == null)
@@ -44,6 +52,17 @@ public class TestBackpack : MonoBehaviour
 
         backpackView1.InitBackpackView(backpackModel);
         backpackView2.InitBackpackView(backpackMode2);
+
+        List<string> ingredients1 = new List<string>(); 
+        FoodRecipe foodRecipe1 = new FoodRecipe(60, "«·÷Àƒﬁª‘Œ’", "Images/Sushi", ingredients1);
+        allRecipesModel = new AllRecipesModel(12);
+        allRecipesModel.AddItem(foodRecipe1);
+        allRecipesView.InitBackpackView(allRecipesModel);
+
+
+        todaysRecipeModel = new TodaysRecipeModel(12);
+        //todaysRecipeModel.AddItem(foodRecipe1);
+        todaysRecipeView.InitBackpackView(todaysRecipeModel);
     }
 
     void Update()

@@ -1,22 +1,19 @@
 using Statics.Classes;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PackageUIItem : MonoBehaviour
+public class PackageUIItem : GenericSlot<BagItem>
 {
-    //物品图像
-    public Image itemImage;
+    ////物品图像
+    //public Image itemImage;
     //物品数量文本
     public TextMeshProUGUI quantityText;
-    //选中显示
-    public Image selectedImage;
+    ////选中显示
+    //public Image selectedImage;
 
 
-    private BagItem currentItem;
-    private int slotIndex;
+    //private BagItem currentItem;
+    //private int slotIndex;
 
     void Awake()
     {
@@ -31,7 +28,7 @@ public class PackageUIItem : MonoBehaviour
     /// <param name="item"></param>
     /// <param name="index"></param>
     /// <param name="isSelected"></param>
-    public void SetUp(BagItem item, Sprite image, int index, bool isSelected)
+    public override void SetUp(BagItem item, Sprite image, int index, bool isSelected)
     {
         currentItem = item;
         slotIndex = index;
@@ -58,7 +55,7 @@ public class PackageUIItem : MonoBehaviour
     /// <summary>
     /// 清除槽位各显示效果
     /// </summary>
-    public void Clear()
+    public override void Clear()
     {
         if (itemImage != null)
         {
@@ -73,22 +70,22 @@ public class PackageUIItem : MonoBehaviour
         SetSelected(false);
     }
 
-    /// <summary>
-    /// 设置选中效果
-    /// </summary>
-    /// <param name="isSelected"></param>
-    public void SetSelected(bool isSelected)
-    {
-        if (selectedImage != null)
-        {
-            if (isSelected)
-            {
-                selectedImage.enabled = true;
-            }
-            else
-            {
-                selectedImage.enabled = false; 
-            }
-        }
-    }
+    ///// <summary>
+    ///// 设置选中效果
+    ///// </summary>
+    ///// <param name="isSelected"></param>
+    //public void SetSelected(bool isSelected)
+    //{
+    //    if (selectedImage != null)
+    //    {
+    //        if (isSelected)
+    //        {
+    //            selectedImage.enabled = true;
+    //        }
+    //        else
+    //        {
+    //            selectedImage.enabled = false; 
+    //        }
+    //    }
+    //}
 }
