@@ -41,7 +41,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0.0f;
         isPaused = true;
 
-        CanvasManager.canvasManagerInstance.canvasStack.Push(pauseCanvas);
+        CanvasManager.instance.canvasStack.Push(pauseCanvas);
     }
 
     public void ContinueGame()
@@ -49,6 +49,6 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1.0f;
         isPaused = false;
 
-        CanvasManager.canvasManagerInstance.canvasStack.PopTo(pauseCanvas);
+        CanvasManager.instance.canvasStack.PopTo(pauseCanvas);
     }
 }

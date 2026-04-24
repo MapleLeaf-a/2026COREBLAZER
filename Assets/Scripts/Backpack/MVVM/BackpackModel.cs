@@ -7,28 +7,28 @@ using System.Globalization;
 using System.Linq;
 using UnityEngine;
 
-public class BackpackModel
+public class BackpackModel : Model<BagItem>
 {
-    //背包数组
-    private BagItem[] bagItems;
-    //背包容量
-    int capacity;
+    ////背包数组
+    //private BagItem[] bagItems;
+    ////背包容量
+    //int capacity;
 
 
-    /// <summary>
-    /// 获取Capacity
-    /// </summary>
-    public int Capacity => capacity;
+    ///// <summary>
+    ///// 获取Capacity
+    ///// </summary>
+    //public int Capacity => capacity;
+    
     /// <summary>
     /// 获取只读列表
     /// </summary>
-    public ReadOnlyCollection<BagItem> BagItems => Array.AsReadOnly(bagItems);
+    public ReadOnlyCollection<BagItem> BagItems => Array.AsReadOnly(items);
 
 
-    public BackpackModel(int capacity)
+    public BackpackModel(int capacity) : base(capacity)
     {
-        bagItems = new BagItem[capacity];
-        this.capacity = capacity;
+
     }
 
     /// <summary>
@@ -36,15 +36,15 @@ public class BackpackModel
     /// </summary>
     /// <param name="bagItem"></param>
     /// <returns></returns>
-    public bool AddItem(BagItem bagItem)
+    public override bool AddItem(BagItem bagItem)
     {
         int i;
         for (i = 0; i < capacity; i++)
         {
-            BagItem item = bagItems[i];
+            BagItem item = items[i];
             if (item == null)
             {
-                bagItems[i] = bagItem;
+                items[i] = bagItem;
                 break;
             }
             else if (item.material.id == bagItem.material.id)
@@ -65,14 +65,14 @@ public class BackpackModel
     /// <param name="bagItem"></param>
     /// <param name="index"></param>
     /// <returns></returns>
-    public bool AddItemAt(BagItem bagItem, int index)
+    public override bool AddItemAt(BagItem bagItem, int index)
     { 
         if (index >= capacity || index < 0) return false;
 
-        BagItem item = bagItems[index];
+        BagItem item = items[index];
         if (item == null)
         {
-            bagItems[index] = bagItem;
+            items[index] = bagItem;
         }
         else if (item.material.id == bagItem.material.id)
         {
@@ -94,72 +94,72 @@ public class BackpackModel
     /// <returns></returns>
     public bool RemoveItemAt(int index, int quantity = 1)
     {
-        if (index >= capacity) return false;
+        if (index >= capacity || index < 0) return false;
 
-        if (bagItems[index].num > quantity)
+        if (items[index].num > quantity)
         {
-            bagItems[index].num -= quantity;
+            items[index].num -= quantity;
         }
         else
         { 
-            bagItems[index] = null;
+            items[index] = null;
         }
 
         return true;
     }
 
-    /// <summary>
-    /// 获取指定绝对位置的物品
-    /// </summary>
-    public BagItem GetItemAt(int index)
-    {
-        if (index < 0 || index >= capacity) return null;
-        return bagItems[index];
-    }
+    ///// <summary>
+    ///// 获取指定绝对位置的物品
+    ///// </summary>
+    //public BagItem GetItemAt(int index)
+    //{
+    //    if (index < 0 || index >= capacity) return null;
+    //    return items[index];
+    //}
 
-    /// <summary>
-    /// 交换两个绝对位置的物品
-    /// </summary>
-    /// <param name="indexA"></param>
-    /// <param name="indexB"></param>
-    /// <returns></returns>
-    public bool SwapItem(int indexA, int indexB)
-    {
-        if (indexA < 0 || indexA >= capacity
-         || indexB < 0 || indexB >= capacity) return false;
+    ///// <summary>
+    ///// 交换两个绝对位置的物品
+    ///// </summary>
+    ///// <param name="indexA"></param>
+    ///// <param name="indexB"></param>
+    ///// <returns></returns>
+    //public bool SwapItem(int indexA, int indexB)
+    //{
+    //    if (indexA < 0 || indexA >= capacity
+    //     || indexB < 0 || indexB >= capacity) return false;
 
-        var temp = bagItems[indexA];
-        bagItems[indexA] = bagItems[indexB];
-        bagItems[indexB] = temp;
-        return true;
-    }
+    //    var temp = items[indexA];
+    //    items[indexA] = items[indexB];
+    //    items[indexB] = temp;
+    //    return true;
+    //}
 
-    /// <summary>
-    /// 获取start到end的物品，闭区间
-    /// </summary>
-    /// <param name="start">绝对开始位置</param>
-    /// <param name="end">绝对结束位置</param>
-    /// <returns></returns>
-    public BagItem[] GetItemRange(int start, int end)
-    {
-        if (start >= capacity) return new BagItem[0];
+    ///// <summary>
+    ///// 获取start到end的物品，闭区间
+    ///// </summary>
+    ///// <param name="start">绝对开始位置</param>
+    ///// <param name="end">绝对结束位置</param>
+    ///// <returns></returns>
+    //public BagItem[] GetItemRange(int start, int end)
+    //{
+    //    if (start >= capacity) return new BagItem[0];
 
-        int actualCount = Mathf.Min(end - start + 1, capacity - start);
-        if (actualCount <= 0) return new BagItem[0];
+    //    int actualCount = Mathf.Min(end - start + 1, capacity - start);
+    //    if (actualCount <= 0) return new BagItem[0];
 
-        BagItem[] result = new BagItem[actualCount];
-        Array.Copy(bagItems, start, result, 0, actualCount);
-        return result;
-    }
+    //    BagItem[] result = new BagItem[actualCount];
+    //    Array.Copy(items, start, result, 0, actualCount);
+    //    return result;
+    //}
 
 
     public bool TransferAllTo(BackpackModel target)
     {
         if (target == null) return false;
 
-        for (int i = 0; i < bagItems.Length; i++)
+        for (int i = 0; i < items.Length; i++)
         {
-            BagItem bagItem = bagItems[i];
+            BagItem bagItem = items[i];
             if (bagItem != null)
             {
                 target.AddItem(bagItem);
@@ -180,7 +180,7 @@ public class BackpackModel
     { 
         Dictionary<string, BagItem> mergedItems = new Dictionary<string, BagItem>();
 
-        foreach (var bagItem in bagItems)
+        foreach (var bagItem in items)
         {
             if (bagItem != null)
             {
@@ -201,9 +201,9 @@ public class BackpackModel
                                                .ToList();
 
         //写回原数组
-        for (int i = 0; i < bagItems.Length; i++)
+        for (int i = 0; i < items.Length; i++)
         {
-            bagItems[i] = i < sortedItems.Count ? sortedItems[i] : null;
+            items[i] = i < sortedItems.Count ? sortedItems[i] : null;
         }
 
         return true;

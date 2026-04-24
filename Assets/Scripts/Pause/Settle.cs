@@ -38,6 +38,6 @@ public class Settle : MonoBehaviour
             track.RemoveALLNotes();
         }
 
-        CanvasManager.canvasManagerInstance.canvasStack.ReplaceAll(settleCanvas);
+        CanvasManager.instance.canvasStack.ReplaceAll(settleCanvas);
     }
 }

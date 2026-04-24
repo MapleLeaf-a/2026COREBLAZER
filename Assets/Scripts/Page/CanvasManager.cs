@@ -9,13 +9,13 @@ public class CanvasManager : MonoBehaviour
 
 
     //µ¥Àý
-    public static CanvasManager canvasManagerInstance;
+    public static CanvasManager instance;
 
     void Awake()
     {
-        if (canvasManagerInstance == null)
+        if (instance == null)
         {
-            canvasManagerInstance = this;
+            instance = this;
         }
         else 
         {
