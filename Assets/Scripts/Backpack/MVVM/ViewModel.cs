@@ -18,8 +18,8 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
     //当前页选中的物品在当前页的index
     protected int selectecIndex = -1;
 
-    //string到Sprite的映射,用于读取每个item的图片
-    protected Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
+    ////string到Sprite的映射,用于读取每个item的图片
+    //protected Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
 
     public ViewModel(Model<T> model, int itemsPerPage)
     { 
@@ -218,21 +218,11 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
     //给sprites增加键值对
     protected void AddPairToSprites(string path)
     {
-        if (!sprites.ContainsKey(path))
-        {
-            sprites[path] = Resources.Load<Sprite>(path);
-        }
+        SpriteStatic.AddPairToSprites(path);
     }
 
     public Sprite GetSprite(string path)
     {
-        if (sprites.ContainsKey(path))
-        {
-            return sprites[path];
-        }
-        else
-        {
-            throw new UnityException("图片路径不存在！");
-        }
+        return SpriteStatic.GetSprite(path);
     }
 }

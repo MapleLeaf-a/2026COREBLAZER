@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using ObjectPool;
 
 public class AllRecipesView : RecipesView
 {
@@ -33,6 +34,18 @@ public class AllRecipesView : RecipesView
     public Image itemIconImage;
     [Tooltip("价格图标")]
     public Image priceIconImage;
+    [Tooltip("食材展示父物体")]
+    public Transform ingredientsParent;
+    [Tooltip("单个食材物件预制体")]
+    public GameObject ingredientUIItemPrefab;
+    [Tooltip("无需原材料的提示文本")]
+    public TextMeshProUGUI noIngredientPrompt;
+
+    //最后一次选择的食谱的ID
+    private string lastSelectedItemId = "-1";
+
+    //食材展示的实例列表
+    private Queue<IngredientUIItem> ingredientItems = new Queue<IngredientUIItem>();
 
     protected override void BindOtherButtons()
     {
@@ -52,6 +65,8 @@ public class AllRecipesView : RecipesView
             itemIconImage.sprite = allRecipesViewModel.GetSprite(item.spritePath);
             itemNameText.text = item.name;
             itemPriceText.text = item.basePrice.ToString();
+
+            RefreshIngredients(item);
         }
         else
         {
@@ -59,6 +74,69 @@ public class AllRecipesView : RecipesView
             itemNameText.enabled = false;
             itemPriceText.enabled = false;
             priceIconImage.enabled = false;
+            noIngredientPrompt.enabled = false;
+
+            ClearIngredients();
+            lastSelectedItemId = "-1";
+        }
+    }
+
+    /// <summary>
+    /// 刷新食材列表
+    /// </summary>
+    private void RefreshIngredients(FoodRecipe item)
+    {
+        //选中同一个菜谱,不更新
+        if (lastSelectedItemId == item.id)
+            return;
+
+        lastSelectedItemId = item.id;
+
+        //清空现有显示
+        ClearIngredients();
+
+        Dictionary<string, int> ingredients = item.ingredients;
+
+        //食材列表为空
+        if (ingredients == null || ingredients.Count == 0)
+        {
+            noIngredientPrompt.enabled = true;
+        }
+        else
+        {
+            noIngredientPrompt.enabled = false;
+            foreach ((string ingredientPath, int quantity) in ingredients)
+            {
+                CreateIngredientItem(ingredientPath, quantity);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 创建单个食材对象
+    /// </summary>
+    /// <param name="ingredientPath"></param>
+    private void CreateIngredientItem(string ingredientPath, int quantity)
+    {
+        GameObject ingredientObject = Instantiate(ingredientUIItemPrefab, ingredientsParent);
+
+        IngredientUIItem ingredient = ingredientObject.GetComponent<IngredientUIItem>();
+        ingredient.SetUp(recipesViewModel.GetSprite(ingredientPath), quantity);
+
+        ingredientItems.Enqueue(ingredient);
+    }
+
+    /// <summary>
+    /// 清空食材显示
+    /// </summary>
+    private void ClearIngredients()
+    {
+        while (ingredientItems.Count != 0)
+        {
+            var item = ingredientItems.Dequeue();
+
+            item.Clear();
+            Destroy(item.gameObject);
         }
     }
 
@@ -91,16 +169,18 @@ public class AllRecipesView : RecipesView
         {
             //全部食谱同一背包内不可移动
         }
-        else //不是同一个背包
+        else if (DragState<FoodRecipe, RecipesUIItem>.SourceView as TodaysRecipeView != null) //是今日菜谱背包
         {
             //尝试移动,注意是从源背包到目前背包
-            var v = DragState<FoodRecipe, RecipesUIItem>.SourceView;
-            bool success = (v as RecipesView).recipesViewModel.RemoveItemAt(DragState<FoodRecipe, RecipesUIItem>.FromIndex);
+            var v = DragState<FoodRecipe, RecipesUIItem>.SourceView as TodaysRecipeView;
+            bool success = v.todaysRecipeViewModel.RemoveItemAt(DragState<FoodRecipe, RecipesUIItem>.FromIndex);
 
             if (success)
             {
-                //刷新两个背包的页面
-                DragState<FoodRecipe, RecipesUIItem>.SourceView.RefreshUI();
+                v.todaysRecipeViewModel.Organize();
+
+               //刷新两个背包的页面
+               DragState<FoodRecipe, RecipesUIItem>.SourceView.RefreshUI();
                 RefreshUI();
             }
         }

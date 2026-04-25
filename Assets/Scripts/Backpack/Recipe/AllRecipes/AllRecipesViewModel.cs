@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class AllRecipesViewModel : RecipesViewModel
 {
+    protected AllRecipesModel allRecipesModel
+    { 
+        get => recipesModel as AllRecipesModel;
+        set => recipesModel = value;
+    }
+
     public AllRecipesViewModel(AllRecipesModel allRecipesModel, int itemsPerPage) : base(allRecipesModel, itemsPerPage)
     {
 
@@ -30,4 +36,6 @@ public class AllRecipesViewModel : RecipesViewModel
 
         return true;
     }
+
+    
 }
