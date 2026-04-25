@@ -2,6 +2,6 @@
 {
     public interface IResetable
     {
-        void Reset();
+        void IReset();
     }
 }

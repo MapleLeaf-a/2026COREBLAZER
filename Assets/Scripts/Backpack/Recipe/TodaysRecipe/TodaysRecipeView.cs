@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TodaysRecipeView : RecipesView
 {
-    public TodaysRecipeViewModel todaysRecipesViewModel
+    public TodaysRecipeViewModel todaysRecipeViewModel
     {
         get => viewModel as TodaysRecipeViewModel;
 
@@ -83,6 +83,9 @@ public class TodaysRecipeView : RecipesView
 
                 if (success)
                 {
+                    //整理当前背包
+                    todaysRecipeViewModel.Organize();
+
                     RefreshUI(); //刷新界面
                 }
             }
@@ -95,6 +98,9 @@ public class TodaysRecipeView : RecipesView
 
             if (success)
             {
+                //整理当前背包
+                todaysRecipeViewModel.Organize();
+
                 //刷新两个背包的页面
                 DragState<FoodRecipe, RecipesUIItem>.SourceView.RefreshUI();
                 RefreshUI();

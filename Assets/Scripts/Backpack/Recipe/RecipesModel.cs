@@ -5,7 +5,7 @@ using UnityEngine;
 public class RecipesModel : Model<FoodRecipe>
 {
     public RecipesModel(int capacity) : base(capacity)
-    { 
-        
+    {
+
     }
 }

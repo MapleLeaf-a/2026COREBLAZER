@@ -22,7 +22,9 @@ namespace ObjectPool
         {
             if (_pool.Count == 0)
             {
-                return new T();
+                var newObj = new T();
+                initializer(newObj);
+                return newObj;
             }
             var obj = _pool[^1];
             _pool.RemoveAt(_pool.Count - 1);
@@ -32,8 +34,8 @@ namespace ObjectPool
 
         public void Free(T item)
         {
+            item.IReset();
             _pool.Add(item);
-            item.Reset();
         }
     }
 }
