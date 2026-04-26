@@ -1,0 +1,48 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "3125805189",
+    "Type": "Bus",
+    "GUID": "{EEE64A7A-452F-49C7-97CA-50946B07DD10}",
+    "Language": "SFX",
+    "Hash": "{F4A90C28-05E4-9C35-A506-679ABD5FACFA}",
+    "ObjectPath": "AMB_Bus_Wet",
+    "ShortName": "AMB_Bus_Wet",
+    "Path": "Bus/31/AMB_Bus_Wet.bnk",
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "2098638826",
+       "Name": "Underground_Parking1",
+       "ObjectPath": "\\Effects\\Factory Effects\\Matrix Reverb\\Underground_Parking1",
+       "GUID": "{8DA66AA3-6CA0-41A0-B7A2-BB6FCABFCDA8}",
+       "LibName": "Wwise Matrix Reverb",
+       "LibId": "7536643"
+      }
+     ]
+    },
+    "AuxBusses": [
+     {
+      "Id": "3125805189",
+      "Name": "AMB_Bus_Wet",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\AMB_Bus_Wet",
+      "GUID": "{EEE64A7A-452F-49C7-97CA-50946B07DD10}",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "2098638826"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{462EC82C-938E-F446-8D04-85881F26BBC9}"
+ }
+}

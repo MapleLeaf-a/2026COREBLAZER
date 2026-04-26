@@ -10,11 +10,21 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{12D0DF48-666A-3CD8-9281-2B054E6667CE}",
+    "Hash": "{8129F448-5720-5232-8FC2-C8AB16986540}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
     "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "2098638826",
+       "Name": "Underground_Parking1",
+       "ObjectPath": "\\Effects\\Factory Effects\\Matrix Reverb\\Underground_Parking1",
+       "GUID": "{8DA66AA3-6CA0-41A0-B7A2-BB6FCABFCDA8}",
+       "LibName": "Wwise Matrix Reverb",
+       "LibId": "7536643"
+      }
+     ],
      "AudioDevices": [
       {
        "Id": "2317455096",
@@ -36,10 +46,37 @@
     },
     "Busses": [
      {
+      "Id": "1251258226",
+      "Name": "AMB Bus Dry",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\AMB Bus Dry",
+      "GUID": "{6B53538C-B969-436D-9C2C-D1B411CA0E5A}"
+     },
+     {
+      "Id": "1697111475",
+      "Name": "BGM Bus",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\BGM Bus",
+      "GUID": "{58431A79-6789-49D8-B976-EE75466811D5}"
+     },
+     {
       "Id": "2246998526",
       "Name": "Main Audio Bus",
       "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus",
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     }
+    ],
+    "AuxBusses": [
+     {
+      "Id": "3125805189",
+      "Name": "AMB_Bus_Wet",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\AMB_Bus_Wet",
+      "GUID": "{EEE64A7A-452F-49C7-97CA-50946B07DD10}",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "2098638826"
+        }
+       ]
+      }
      }
     ],
     "GameParameters": [
@@ -102,6 +139,90 @@
       "Name": "SS_Air_Turbulence",
       "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Turbulence",
       "GUID": "{EDA87B19-73AA-40A0-9F19-2073606DB710}"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "938816221",
+      "Name": "Menu_Status",
+      "ObjectPath": "\\States\\Default Work Unit\\Menu_Status",
+      "GUID": "{E7C6A252-9070-4FCA-937F-53F4A6E85AB3}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Menu_Status\\None",
+        "GUID": "{06F9DB38-8CF7-4984-BCCC-E5B394BA6E2E}"
+       },
+       {
+        "Id": "1631528850",
+        "Name": "In_Menu",
+        "ObjectPath": "\\States\\Default Work Unit\\Menu_Status\\In_Menu",
+        "GUID": "{A1A40BF4-F907-4009-B17F-C6429C8266BA}"
+       },
+       {
+        "Id": "2967546505",
+        "Name": "In_Game",
+        "ObjectPath": "\\States\\Default Work Unit\\Menu_Status\\In_Game",
+        "GUID": "{1BBF956D-6374-4072-97AC-97D43EEBECCD}"
+       }
+      ]
+     },
+     {
+      "Id": "1959470009",
+      "Name": "Date",
+      "ObjectPath": "\\States\\Default Work Unit\\Date",
+      "GUID": "{37354572-4625-4478-A3D4-85EB9B310BDE}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\None",
+        "GUID": "{62D9FB3B-BD20-4548-9012-B8DFE3C508D6}"
+       },
+       {
+        "Id": "2043358088",
+        "Name": "Day3",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day3",
+        "GUID": "{B1DCF1B1-9461-45C7-A1A9-A12156F9821A}"
+       },
+       {
+        "Id": "2043358089",
+        "Name": "Day2",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day2",
+        "GUID": "{E89B142F-6D3C-4390-9426-E7906B861699}"
+       },
+       {
+        "Id": "2043358090",
+        "Name": "Day1",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day1",
+        "GUID": "{122A6F5F-A321-476C-8E9B-B2D580D6E499}"
+       },
+       {
+        "Id": "2043358092",
+        "Name": "Day7",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day7",
+        "GUID": "{D31A9208-17D9-4A66-A07E-357CEEE21F72}"
+       },
+       {
+        "Id": "2043358093",
+        "Name": "Day6",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day6",
+        "GUID": "{78BF732A-43AC-4CA3-A22E-E0AB96D21BCB}"
+       },
+       {
+        "Id": "2043358094",
+        "Name": "Day5",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day5",
+        "GUID": "{733CE550-A1FB-47A9-B679-B6B4E34CD93F}"
+       },
+       {
+        "Id": "2043358095",
+        "Name": "Day4",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day4",
+        "GUID": "{5997CF05-C857-412D-BF51-6B5DE4C44DAC}"
+       }
+      ]
      }
     ],
     "AcousticTextures": [
@@ -583,6 +704,6 @@
     ]
    }
   ],
-  "FileHash": "{4677C98F-96F9-9A67-D5F7-8C20F69B06F0}"
+  "FileHash": "{845BC007-E526-FA13-B8F2-BD9168A663D3}"
  }
 }

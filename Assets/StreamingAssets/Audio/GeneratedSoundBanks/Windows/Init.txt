@@ -1,5 +1,30 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	938816221	Menu_Status			\Default Work Unit\Menu_Status	
+	1959470009	Date			\Default Work Unit\Date	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Menu_Status			
+	1631528850	In_Menu	Menu_Status			
+	2967546505	In_Game	Menu_Status			
+	748895195	None	Date			
+	2043358088	Day3	Date			
+	2043358089	Day2	Date			
+	2043358090	Day1	Date			
+	2043358092	Day7	Date			
+	2043358093	Day6	Date			
+	2043358094	Day5	Date			
+	2043358095	Day4	Date			
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	1251258226	AMB Bus Dry			\Default Work Unit\Main Audio Bus\AMB Bus Dry	
+	1697111475	BGM Bus			\Default Work Unit\Main Audio Bus\BGM Bus	
 	2246998526	Main Audio Bus			\Default Work Unit\Main Audio Bus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	3125805189	AMB_Bus_Wet			\Default Work Unit\Main Audio Bus\AMB_Bus_Wet	
+
+Effect plug-ins	ID	Name	Type				Notes
+	2098638826	Underground_Parking1	Wwise Matrix Reverb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			
