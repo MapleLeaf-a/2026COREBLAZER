@@ -1,10 +1,14 @@
 using Statics.Classes;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TodaysRecipeView : RecipesView
 {
+    [Header("预期营业额的Text组件")]
+    public TextMeshProUGUI respectedTurnoverText;
+
     public TodaysRecipeViewModel todaysRecipeViewModel
     {
         get => viewModel as TodaysRecipeViewModel;
@@ -24,6 +28,26 @@ public class TodaysRecipeView : RecipesView
     protected override void BindOtherButtons()
     {
 
+    }
+
+    protected override void OnViewModelChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        switch (e.PropertyName)
+        {
+            case nameof(todaysRecipeViewModel.CurrentPageItems):      //VM中此页物品刷新时
+                RefreshItems(); //V刷新物品列表
+                RefreshRespectedTurnoverText();
+                break;
+            case nameof(todaysRecipeViewModel.SelectedItem): //VM中选中的物品刷新时
+                RefreshDetail();                         //V刷新详情面板
+                RefreshItems();
+                break;
+            case nameof(todaysRecipeViewModel.CurrentPageNumber):
+                break;
+            case nameof(todaysRecipeViewModel.RespectedTurnover):
+                RefreshRespectedTurnoverText();
+                break;
+        }
     }
 
     protected override void RefreshDetail()
@@ -46,6 +70,11 @@ public class TodaysRecipeView : RecipesView
                 slots[i].Clear();  //(slots[i] as TodaysRecipeUIItem).Clear(); //多态,应该是等价的
             }
         }
+    }
+
+    protected void RefreshRespectedTurnoverText()
+    { 
+        respectedTurnoverText.text = todaysRecipeViewModel.RespectedTurnover.ToString();
     }
 
     //拖拽相关(由Drag Handler调用,这种设计使得视图和拖拽逻辑分离)
@@ -100,6 +129,8 @@ public class TodaysRecipeView : RecipesView
             {
                 //整理当前背包
                 todaysRecipeViewModel.Organize();
+                //计算预计营业额
+                todaysRecipeViewModel.CaculateRespectedTurnover();
 
                 //刷新两个背包的页面
                 DragState<FoodRecipe, RecipesUIItem>.SourceView.RefreshUI();

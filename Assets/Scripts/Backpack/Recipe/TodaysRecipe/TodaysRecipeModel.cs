@@ -26,4 +26,21 @@ public class TodaysRecipeModel : RecipesModel
 
         return true;
     }
+
+    public int CaculateRespectedTurnover()
+    {
+        int s = 0;
+        foreach (var foodRecipe in items)
+        {
+            if (foodRecipe != null)
+            {
+                s += foodRecipe.basePrice;
+            }
+            else
+            {
+                break;
+            }
+        }
+        return s;
+    }
 }
