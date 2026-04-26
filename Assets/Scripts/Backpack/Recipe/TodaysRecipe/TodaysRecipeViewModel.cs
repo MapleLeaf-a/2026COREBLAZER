@@ -10,6 +10,14 @@ public class TodaysRecipeViewModel : RecipesViewModel
         set => recipesModel = value;
     }
 
+    //预计营业额
+    protected int respectedTurnover = 0;
+
+    /// <summary>
+    /// 预计营业额
+    /// </summary>
+    public int RespectedTurnover => respectedTurnover;
+
     public TodaysRecipeViewModel(TodaysRecipeModel todaysRecipesModel, int itemsPerPage) : base(todaysRecipesModel, itemsPerPage)
     {
 
@@ -21,5 +29,12 @@ public class TodaysRecipeViewModel : RecipesViewModel
         {
             OnPropertyChanged(nameof(CurrentPageItems));
         }
+    }
+
+    public int CaculateRespectedTurnover()
+    {
+        respectedTurnover = todaysRecipeModel.CaculateRespectedTurnover();
+        OnPropertyChanged(nameof(RespectedTurnover));
+        return respectedTurnover;
     }
 }

@@ -125,4 +125,9 @@ public class Model<T> where T : class
         Array.Copy(items, start, result, 0, actualCount);
         return result;
     }
+
+    public virtual void Clear()
+    {
+        Array.Fill(items, null);
+    }
 }
