@@ -1,0 +1,6 @@
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	3125805189	AMB_Bus_Wet			\Default Work Unit\Main Audio Bus\AMB_Bus_Wet	
+
+Effect plug-ins	ID	Name	Type				Notes
+	2098638826	Underground_Parking1	Wwise Matrix Reverb			
+
