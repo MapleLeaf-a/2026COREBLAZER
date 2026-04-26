@@ -1,6 +1,34 @@
 Event	ID	Name			Wwise Object Path	Notes
+	472383433	Play_Mouse_Up			\Default Work Unit\UI\Play_Mouse_Up	
+	953277036	Resume			\Default Work Unit\Other\Resume	
+	1192977285	Play_Music_MusicGame			\Default Work Unit\BGM\Play_Music_MusicGame	
+	2897856806	MusicGame_Resume			\Default Work Unit\Other\MusicGame_Resume	
+	3092587493	Pause			\Default Work Unit\Other\Pause	
 	3187507146	Play_test			\Default Work Unit\Play_test	
+	3956123227	Mouse_Down_InGame			\Default Work Unit\UI\Mouse_Down_InGame	
+	4059570743	MusicGame_Pause			\Default Work Unit\Other\MusicGame_Pause	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	938816221	Menu_Status			\Default Work Unit\Menu_Status	
+	1959470009	Date			\Default Work Unit\Date	
+
+State	ID	Name	State Group			Notes
+	748895195	None	Menu_Status			
+	1631528850	In_Menu	Menu_Status			
+	2967546505	In_Game	Menu_Status			
+	748895195	None	Date			
+	2043358088	Day3	Date			
+	2043358089	Day2	Date			
+	2043358090	Day1	Date			
+	2043358092	Day7	Date			
+	2043358093	Day6	Date			
+	2043358094	Day5	Date			
+	2043358095	Day4	Date			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	8425254	233_BPM163	.cache\D0\{D076EE1D-5A98-B51C-02B8-85B7DF27024E}.wem		\Containers\Default Work Unit\BGM\音游BGM\233_BPM163		23957276
+	151039256	419_BPM78	.cache\9A\{9A800976-CA0A-7492-4E5E-9412CD9C6281}.wem		\Containers\Default Work Unit\BGM\音游BGM\419_BPM78		23054160
+	457653704	Mouse_Down_InGame	.cache\20\{20ABEC8C-CCE3-70A6-0C09-88DD4EF776AB}.wem		\Containers\Default Work Unit\UI\Mouse_Down_InGame		18776
+	639919688	Mouse_Up	.cache\7B\{7B4F2D31-E934-2E20-7C4B-CE2DF690BE4A}.wem		\Containers\Default Work Unit\UI\Mouse_Up		25032
 	916806784	test	.cache\1D\{1DAD5592-D056-EA3D-8649-C2FBA99A28C5}.wem		\Containers\Default Work Unit\test		886268
 
