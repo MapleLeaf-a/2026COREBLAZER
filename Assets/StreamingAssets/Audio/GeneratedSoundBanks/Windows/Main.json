@@ -10,11 +10,43 @@
     "Type": "User",
     "GUID": "{6F9A392E-1F44-4D50-B5C0-D3F8BDCF7557}",
     "Language": "SFX",
-    "Hash": "{58E7BEFE-4515-653C-E7DA-5DE4EE8F42AB}",
+    "Hash": "{2320E1C0-2E6A-1D92-B44C-8DCD2D73B269}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
     "Media": [
+     {
+      "Id": "8425254",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "233_BPM163.wav",
+      "CachePath": "D0/{D076EE1D-5A98-B51C-02B8-85B7DF27024E}.wem"
+     },
+     {
+      "Id": "151039256",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "419_BPM78.wav",
+      "CachePath": "9A/{9A800976-CA0A-7492-4E5E-9412CD9C6281}.wem"
+     },
+     {
+      "Id": "457653704",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Mouse_Down_InGame.wav",
+      "CachePath": "20/{20ABEC8C-CCE3-70A6-0C09-88DD4EF776AB}.wem"
+     },
+     {
+      "Id": "639919688",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Mouse_Up.wav",
+      "CachePath": "7B/{7B4F2D31-E934-2E20-7C4B-CE2DF690BE4A}.wem"
+     },
      {
       "Id": "916806784",
       "Language": "SFX",
@@ -25,6 +57,111 @@
      }
     ],
     "Events": [
+     {
+      "Id": "3956123227",
+      "Name": "Mouse_Down_InGame",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Mouse_Down_InGame",
+      "GUID": "{3C17E7EB-6099-4751-A1B4-8A69A6C63B29}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.09729166",
+      "DurationMax": "0.09729166",
+      "MediaRefs": [
+       {
+        "Id": "457653704"
+       }
+      ]
+     },
+     {
+      "Id": "4059570743",
+      "Name": "MusicGame_Pause",
+      "ObjectPath": "\\Events\\Default Work Unit\\Other\\MusicGame_Pause",
+      "GUID": "{03395C22-208E-4BBB-8662-74ACBC2D0F49}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
+      "Id": "2897856806",
+      "Name": "MusicGame_Resume",
+      "ObjectPath": "\\Events\\Default Work Unit\\Other\\MusicGame_Resume",
+      "GUID": "{120DE3E8-6AB3-461B-B41E-F8384A045DC9}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
+      "Id": "3092587493",
+      "Name": "Pause",
+      "ObjectPath": "\\Events\\Default Work Unit\\Other\\Pause",
+      "GUID": "{9E4936F2-D0FA-40E9-830B-07856A445068}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "938816221",
+        "Id": "1631528850",
+        "Name": "In_Menu",
+        "ObjectPath": "\\States\\Default Work Unit\\Menu_Status\\In_Menu",
+        "GUID": "{A1A40BF4-F907-4009-B17F-C6429C8266BA}"
+       }
+      ]
+     },
+     {
+      "Id": "472383433",
+      "Name": "Play_Mouse_Up",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Mouse_Up",
+      "GUID": "{9D08DC0F-24F9-4F15-B411-751761570935}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.129875",
+      "DurationMax": "0.129875",
+      "MediaRefs": [
+       {
+        "Id": "639919688"
+       }
+      ]
+     },
+     {
+      "Id": "1192977285",
+      "Name": "Play_Music_MusicGame",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Music_MusicGame",
+      "GUID": "{1A4C2EE7-2C27-4F0F-8B93-241BF6A4FFA7}",
+      "DurationType": "OneShot",
+      "DurationMin": "120.07324",
+      "DurationMax": "124.77698",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1959470009",
+         "Id": "748895195",
+         "GUID": "{62D9FB3B-BD20-4548-9012-B8DFE3C508D6}",
+         "Default": "true"
+        },
+        "MediaRefs": [
+         {
+          "Id": "8425254"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1959470009",
+         "Id": "2043358090",
+         "GUID": "{122A6F5F-A321-476C-8E9B-B2D580D6E499}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "151039256"
+         }
+        ]
+       }
+      ]
+     },
      {
       "Id": "3187507146",
       "Name": "Play_test",
@@ -38,10 +175,104 @@
         "Id": "916806784"
        }
       ]
+     },
+     {
+      "Id": "953277036",
+      "Name": "Resume",
+      "ObjectPath": "\\Events\\Default Work Unit\\Other\\Resume",
+      "GUID": "{3CE53033-9C3F-40F4-A913-36A192DA7780}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     }
+    ],
+    "StateGroups": [
+     {
+      "Id": "938816221",
+      "Name": "Menu_Status",
+      "ObjectPath": "\\States\\Default Work Unit\\Menu_Status",
+      "GUID": "{E7C6A252-9070-4FCA-937F-53F4A6E85AB3}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Menu_Status\\None",
+        "GUID": "{06F9DB38-8CF7-4984-BCCC-E5B394BA6E2E}"
+       },
+       {
+        "Id": "1631528850",
+        "Name": "In_Menu",
+        "ObjectPath": "\\States\\Default Work Unit\\Menu_Status\\In_Menu",
+        "GUID": "{A1A40BF4-F907-4009-B17F-C6429C8266BA}"
+       },
+       {
+        "Id": "2967546505",
+        "Name": "In_Game",
+        "ObjectPath": "\\States\\Default Work Unit\\Menu_Status\\In_Game",
+        "GUID": "{1BBF956D-6374-4072-97AC-97D43EEBECCD}"
+       }
+      ]
+     },
+     {
+      "Id": "1959470009",
+      "Name": "Date",
+      "ObjectPath": "\\States\\Default Work Unit\\Date",
+      "GUID": "{37354572-4625-4478-A3D4-85EB9B310BDE}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\None",
+        "GUID": "{62D9FB3B-BD20-4548-9012-B8DFE3C508D6}"
+       },
+       {
+        "Id": "2043358088",
+        "Name": "Day3",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day3",
+        "GUID": "{B1DCF1B1-9461-45C7-A1A9-A12156F9821A}"
+       },
+       {
+        "Id": "2043358089",
+        "Name": "Day2",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day2",
+        "GUID": "{E89B142F-6D3C-4390-9426-E7906B861699}"
+       },
+       {
+        "Id": "2043358090",
+        "Name": "Day1",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day1",
+        "GUID": "{122A6F5F-A321-476C-8E9B-B2D580D6E499}"
+       },
+       {
+        "Id": "2043358092",
+        "Name": "Day7",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day7",
+        "GUID": "{D31A9208-17D9-4A66-A07E-357CEEE21F72}"
+       },
+       {
+        "Id": "2043358093",
+        "Name": "Day6",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day6",
+        "GUID": "{78BF732A-43AC-4CA3-A22E-E0AB96D21BCB}"
+       },
+       {
+        "Id": "2043358094",
+        "Name": "Day5",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day5",
+        "GUID": "{733CE550-A1FB-47A9-B679-B6B4E34CD93F}"
+       },
+       {
+        "Id": "2043358095",
+        "Name": "Day4",
+        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day4",
+        "GUID": "{5997CF05-C857-412D-BF51-6B5DE4C44DAC}"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{058743C4-A2C3-3462-00D9-EDC1976BF2D8}"
+  "FileHash": "{83D5CC08-1031-1BA4-E045-9AE36762F119}"
  }
 }
