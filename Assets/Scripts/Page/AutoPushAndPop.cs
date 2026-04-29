@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class AutoPushAndPop : MonoBehaviour
 {
-    [Header("希望自动进行页面层级管理的目标Canvas")]
-    public Canvas canvas;
+    //希望自动进行页面层级管理的目标Canvas
+    private Canvas canvas;
 
     private void OnEnable()
     {
+        canvas = GetComponent<Canvas>();
         if (CanvasManager.instance != null)
         {
             CanvasManager.instance.canvasStack.Push(canvas);

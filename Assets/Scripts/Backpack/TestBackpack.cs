@@ -33,7 +33,7 @@ public class TestBackpack : MonoBehaviour
             Destroy(gameObject);
         }
 
-        FoodMaterial material = new FoodMaterial("114", "KaZuHa", "Images/Recipes/kazuha", "枫原万叶,流浪的武士", StaticTemplates.Food.MaterialType.Drink);
+        FoodMaterial material = FoodMaterials.LookUpFoodMaterial("101");
         BagItem bagItem = new BagItem(material, 1);
         BagItem bagItem3 = new BagItem(material, 1);
         backpackModel = new BackpackModel(20);
@@ -48,12 +48,9 @@ public class TestBackpack : MonoBehaviour
         backpackView1.InitBackpackView(backpackModel);
         backpackView2.InitBackpackView(backpackMode2);
 
-        Dictionary<string, int> ingredients1 = new Dictionary<string, int>(){ { "Images/Recipes/kazuha", 3 } }; 
-        FoodRecipe foodRecipe1 = new FoodRecipe(60, "001", "轻炙霓辉握", "Images/Recipes/Sushi", ingredients1);
-        Dictionary<string, int> ingredients2 = new Dictionary<string, int>() { { "Images/Recipes/kazuha", 1 }, { "Images/Recipes/fish", 1 }, { "Images/Recipes/seaweed", 1 } };
-        FoodRecipe foodRecipe2 = new FoodRecipe(20, "002", "汤", "Images/Recipes/Soup", ingredients2);
-        Dictionary<string, int> ingredients3 = new Dictionary<string, int>();
-        FoodRecipe foodRecipe3 = new FoodRecipe(0, "003", "水", "Images/Recipes/Water", ingredients3);
+        FoodRecipe foodRecipe1 = FoodRecipes.LookUpFoodRecipe("001");
+        FoodRecipe foodRecipe2 = FoodRecipes.LookUpFoodRecipe("002");
+        FoodRecipe foodRecipe3 = FoodRecipes.LookUpFoodRecipe("003");
         allRecipesModel = new AllRecipesModel(12);
         allRecipesModel.AddItem(foodRecipe1);
         allRecipesModel.AddItem(foodRecipe2);
