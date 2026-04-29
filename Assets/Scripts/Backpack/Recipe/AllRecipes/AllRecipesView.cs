@@ -1,10 +1,7 @@
-using Statics.Classes;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using ObjectPool;
 
 public class AllRecipesView : RecipesView
 {
@@ -40,6 +37,10 @@ public class AllRecipesView : RecipesView
     public GameObject ingredientUIItemPrefab;
     [Tooltip("无需原材料的提示文本")]
     public TextMeshProUGUI noIngredientPrompt;
+    [Tooltip("设置菜谱词条按钮")]
+    public Button editEntryButton;
+    [Tooltip("设置词条的画布")]
+    public Canvas editEntryCanvas;
 
     //最后一次选择的食谱的ID
     private string lastSelectedItemId = "-1";
@@ -47,9 +48,16 @@ public class AllRecipesView : RecipesView
     //食材展示的实例列表
     private Queue<IngredientUIItem> ingredientItems = new Queue<IngredientUIItem>();
 
+
     protected override void BindOtherButtons()
     {
-        
+        editEntryButton.onClick.AddListener(() => ActivateEditEntryCanvas(allRecipesViewModel.SelectedItem));
+    }
+
+    private void ActivateEditEntryCanvas(FoodRecipe foodRecipe)
+    {
+        editEntryCanvas.gameObject.SetActive(true);
+        editEntryCanvas.GetComponent<EditEntry>().RefreshDetail(foodRecipe);
     }
 
     protected override void RefreshDetail()
@@ -61,8 +69,11 @@ public class AllRecipesView : RecipesView
             itemNameText.enabled = true;
             itemPriceText.enabled = true;
             priceIconImage.enabled = true;
+            
+            if (item.ingredients.Count != 0) editEntryButton.gameObject.SetActive(true);  //如果有原材料,则可以编辑词条
+            else editEntryButton.gameObject.SetActive(false);
 
-            itemIconImage.sprite = allRecipesViewModel.GetSprite(item.spritePath);
+                itemIconImage.sprite = allRecipesViewModel.GetSprite(item.spritePath);
             itemNameText.text = item.name;
             itemPriceText.text = item.basePrice.ToString();
 
@@ -75,6 +86,7 @@ public class AllRecipesView : RecipesView
             itemPriceText.enabled = false;
             priceIconImage.enabled = false;
             noIngredientPrompt.enabled = false;
+            editEntryButton.gameObject.SetActive(false);
 
             ClearIngredients();
             lastSelectedItemId = "-1";
@@ -105,9 +117,9 @@ public class AllRecipesView : RecipesView
         else
         {
             noIngredientPrompt.enabled = false;
-            foreach ((string ingredientPath, int quantity) in ingredients)
+            foreach ((string ingredientId, int quantity) in ingredients)
             {
-                CreateIngredientItem(ingredientPath, quantity);
+                CreateIngredientItem(ingredientId, quantity);
             }
         }
     }
@@ -115,13 +127,14 @@ public class AllRecipesView : RecipesView
     /// <summary>
     /// 创建单个食材对象
     /// </summary>
-    /// <param name="ingredientPath"></param>
-    private void CreateIngredientItem(string ingredientPath, int quantity)
+    /// <param name="ingredientId"></param>
+    private void CreateIngredientItem(string ingredientId, int quantity)
     {
         GameObject ingredientObject = Instantiate(ingredientUIItemPrefab, ingredientsParent);
 
         IngredientUIItem ingredient = ingredientObject.GetComponent<IngredientUIItem>();
-        ingredient.SetUp(recipesViewModel.GetSprite(ingredientPath), quantity);
+        string path = FoodMaterials.LookUpFoodMaterial(ingredientId).spritePath;
+        ingredient.SetUp(allRecipesViewModel.GetSprite(path), quantity);
 
         ingredientItems.Enqueue(ingredient);
     }
