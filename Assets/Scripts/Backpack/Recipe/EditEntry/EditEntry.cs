@@ -38,10 +38,10 @@ public class EditEntry : MonoBehaviour
 
     //词条展示GO列表
     private List<Description> entryDescriptions = new List<Description>();
-    //词条的index
-    private Dictionary<int, int> entryIndexes;
-    //预加入entryIndexes的index
-    int preEntryIndex;
+    //词条的名字
+    private Dictionary<int, string> entryNames;
+    //预加入entryNames的词条名
+    string preEntryName;
 
     [Header("按钮")]
     [Tooltip("重置词条按钮")]
@@ -71,6 +71,13 @@ public class EditEntry : MonoBehaviour
         completeEntrySettingButton.onClick.AddListener(SetFoodEntry);
     
         canvas = GetComponent<Canvas>();
+
+
+        var sprites = DescriptionEntry.GetRandomSprites(entryImages.Count);
+        for (int i = 0; i < entryImages.Count; i++)
+        {
+            entryImages[i].GetComponent<Image>().sprite = sprites[i];
+        }
     }
 
     public void RefreshDetail(FoodRecipe item)
@@ -150,12 +157,12 @@ public class EditEntry : MonoBehaviour
             entryDescriptions.Add(description);
         }
 
-        entryIndexes = Foods.GetFoodEntry(item.id);
-        foreach ((int i, int j) in entryIndexes)
+        entryNames = Foods.GetFoodEntry(item.id);
+        foreach ((int i, string j) in entryNames)
         {
-            if (j != -1)
+            if (j != "")
             {
-                entryDescriptions[i].SetUp(entryImages[j].sprite);
+                entryDescriptions[i].SetUp(DescriptionEntry.GetSprite(j));
             }
         }
     }
@@ -176,14 +183,14 @@ public class EditEntry : MonoBehaviour
 
     public void OnDragBegin(int index)
     {
-        this.fromSprite = entryImages[index].sprite;
-        preEntryIndex = index;
+        fromSprite = entryImages[index].sprite;
+        preEntryName = DescriptionEntry.GetName(fromSprite);
     }
 
     public void OnDrop(int slotIndex)
     {
         entryDescriptions[slotIndex].SetUp(fromSprite);
-        entryIndexes[slotIndex] = preEntryIndex;
+        entryNames[slotIndex] = preEntryName;
     }
 
     private void ResetFoodEntry()
@@ -193,9 +200,9 @@ public class EditEntry : MonoBehaviour
             go.SetUp(null);
         }
 
-        foreach (int key in entryIndexes.Keys.ToList())
+        foreach (int key in entryNames.Keys.ToList())
         {
-            entryIndexes[key] = -1;
+            entryNames[key] = "";
         }
     }
 
