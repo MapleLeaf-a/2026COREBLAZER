@@ -29,11 +29,11 @@ public static class Foods
 
 
     /// <summary>
-    /// 食谱id，返回菜品的词条,对应的食材索引 -> 词条索引
+    /// 食谱id，返回菜品的词条,对应的食材索引 -> 词条名
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public static Dictionary<int, int> GetFoodEntry(string id)
+    public static Dictionary<int, string> GetFoodEntry(string id)
     {
         return foods[id].entry;
     }

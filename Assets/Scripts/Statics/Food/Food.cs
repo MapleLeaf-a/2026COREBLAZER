@@ -15,17 +15,17 @@ public class Food
     public FoodRecipe foodRecipe;
 
     /// <summary>
-    /// 菜品的词条, 对应的食材索引 -> 词条索引
+    /// 菜品的词条, 对应的食材索引 -> 词条名
     /// </summary>
-    public Dictionary<int, int> entry;
+    public Dictionary<int, string> entry;
 
     public Food(FoodRecipe foodRecipe)
     { 
         this.foodRecipe = foodRecipe;
-        entry = new Dictionary<int, int>();
+        entry = new Dictionary<int, string>();
         for (int i = 0; i < foodRecipe.ingredients.Count; i++)
         {
-            entry.Add(i, -1);
+            entry.Add(i, "");
         }
     }
 }
