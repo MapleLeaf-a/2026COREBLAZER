@@ -1,5 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	472383433	Play_Mouse_Up			\Default Work Unit\UI\Play_Mouse_Up	
+	475124431	Stop_Music_MusicGame			\Default Work Unit\BGM\Stop_Music_MusicGame	
 	953277036	Resume			\Default Work Unit\Other\Resume	
 	1192977285	Play_Music_MusicGame			\Default Work Unit\BGM\Play_Music_MusicGame	
 	2897856806	MusicGame_Resume			\Default Work Unit\Other\MusicGame_Resume	
