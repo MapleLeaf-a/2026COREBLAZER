@@ -21,6 +21,7 @@ namespace AK
         static const AkUniqueID PLAY_MUSIC_MUSICGAME = 1192977285U;
         static const AkUniqueID PLAY_TEST = 3187507146U;
         static const AkUniqueID RESUME = 953277036U;
+        static const AkUniqueID STOP_MUSIC_MUSICGAME = 475124431U;
     } // namespace EVENTS
 
     namespace STATES

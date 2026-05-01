@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{6F9A392E-1F44-4D50-B5C0-D3F8BDCF7557}",
     "Language": "SFX",
-    "Hash": "{D6E6F4D0-5D54-5DC6-C79B-3785314988DD}",
+    "Hash": "{75D0248D-D9D7-5083-E96E-8B1F13AD88AD}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -217,6 +217,16 @@
       "DurationType": "OneShot",
       "DurationMin": "0",
       "DurationMax": "0"
+     },
+     {
+      "Id": "475124431",
+      "Name": "Stop_Music_MusicGame",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Stop_Music_MusicGame",
+      "GUID": "{19131850-67FE-4BB1-9C80-BD0A59D6E716}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
      }
     ],
     "StateGroups": [
@@ -249,6 +259,6 @@
     ]
    }
   ],
-  "FileHash": "{EF1F8630-C30A-998E-CBF0-590DF62D880D}"
+  "FileHash": "{DDD24475-EC04-F31D-F027-04EBE40CB667}"
  }
 }
