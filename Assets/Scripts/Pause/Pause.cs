@@ -17,6 +17,7 @@ public class Pause : MonoBehaviour
     //ÔÝÍ£µÄ»­²¼
     public Canvas pauseCanvas;
 
+    public ResumeCountdown resumeCountdown;
 
     void Start()
     {
@@ -46,9 +47,8 @@ public class Pause : MonoBehaviour
 
     public void ContinueGame()
     {
-        Time.timeScale = 1.0f;
-        isPaused = false;
-
         CanvasManager.instance.canvasStack.PopTo(pauseCanvas);
+
+        resumeCountdown.StartResumeCountdown();
     }
 }

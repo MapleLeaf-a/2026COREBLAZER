@@ -10,26 +10,34 @@
     "Type": "User",
     "GUID": "{6F9A392E-1F44-4D50-B5C0-D3F8BDCF7557}",
     "Language": "SFX",
-    "Hash": "{2320E1C0-2E6A-1D92-B44C-8DCD2D73B269}",
+    "Hash": "{11790E41-B876-5BF8-1705-EC68CF7863F2}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
     "Media": [
      {
-      "Id": "8425254",
+      "Id": "13117330",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "233_BPM163.wav",
-      "CachePath": "D0/{D076EE1D-5A98-B51C-02B8-85B7DF27024E}.wem"
+      "ShortName": "宵祭りの風.wav",
+      "CachePath": "7F/{7F7C772B-6106-3DFE-1EA3-06534BE2B91B}.wem"
      },
      {
-      "Id": "151039256",
+      "Id": "41652233",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
-      "ShortName": "419_BPM78.wav",
-      "CachePath": "9A/{9A800976-CA0A-7492-4E5E-9412CD9C6281}.wem"
+      "ShortName": "志は死なない.wav",
+      "CachePath": "23/{232A464C-C489-409A-AE0D-6CBDCA5314C2}.wem"
+     },
+     {
+      "Id": "100810506",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "ezokoiuta.wav",
+      "CachePath": "6E/{6E0A4C46-3FA2-C0FF-60BA-FD1F9FF3EC87}.wem"
      },
      {
       "Id": "457653704",
@@ -40,6 +48,14 @@
       "CachePath": "20/{20ABEC8C-CCE3-70A6-0C09-88DD4EF776AB}.wem"
      },
      {
+      "Id": "522635378",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "high-tech2.wav",
+      "CachePath": "F9/{F981F0F4-FD78-C689-C32C-7639B88F6154}.wem"
+     },
+     {
       "Id": "639919688",
       "Language": "SFX",
       "Streaming": "false",
@@ -48,12 +64,36 @@
       "CachePath": "7B/{7B4F2D31-E934-2E20-7C4B-CE2DF690BE4A}.wem"
      },
      {
+      "Id": "899250504",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "月夜蝶～君ヲ想フ～.wav",
+      "CachePath": "72/{7203B338-CC09-99C0-A96C-95BBE85C9505}.wem"
+     },
+     {
       "Id": "916806784",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "test.wav",
       "CachePath": "1D/{1DAD5592-D056-EA3D-8649-C2FBA99A28C5}.wem"
+     },
+     {
+      "Id": "1035644058",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "華志の舞.wav",
+      "CachePath": "9F/{9F661A12-5681-B15D-975F-F37130705AF9}.wem"
+     },
+     {
+      "Id": "1050366963",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "日本開花.wav",
+      "CachePath": "5D/{5D1980D7-E928-C090-F436-A554A065F258}.wem"
      }
     ],
     "Events": [
@@ -111,6 +151,42 @@
       ]
      },
      {
+      "Id": "2243961743",
+      "Name": "Play_ezokoiuta",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_ezokoiuta",
+      "GUID": "{B50E23F6-5543-4F82-A13B-7098D01391E8}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "100810506"
+       }
+      ]
+     },
+     {
+      "Id": "172809449",
+      "Name": "Play_high_tech2",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_high_tech2",
+      "GUID": "{9EE24F8C-015D-45AF-90D1-528C43BA8621}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "522635378"
+       }
+      ]
+     },
+     {
+      "Id": "1965924116",
+      "Name": "Play_kashinomai",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_kashinomai",
+      "GUID": "{8893B62D-12BE-430A-AD8B-3CE34AFEC618}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "1035644058"
+       }
+      ]
+     },
+     {
       "Id": "472383433",
       "Name": "Play_Mouse_Up",
       "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Mouse_Up",
@@ -125,40 +201,26 @@
       ]
      },
      {
-      "Id": "1192977285",
-      "Name": "Play_Music_MusicGame",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Music_MusicGame",
-      "GUID": "{1A4C2EE7-2C27-4F0F-8B93-241BF6A4FFA7}",
-      "DurationType": "OneShot",
-      "DurationMin": "120.07324",
-      "DurationMax": "124.77698",
-      "SwitchContainers": [
+      "Id": "1241429455",
+      "Name": "Play_nipponkaika",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_nipponkaika",
+      "GUID": "{40BC21F5-4936-47BB-85E7-43F775CD5C86}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
        {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "1959470009",
-         "Id": "748895195",
-         "GUID": "{62D9FB3B-BD20-4548-9012-B8DFE3C508D6}",
-         "Default": "true"
-        },
-        "MediaRefs": [
-         {
-          "Id": "8425254"
-         }
-        ]
-       },
+        "Id": "1050366963"
+       }
+      ]
+     },
+     {
+      "Id": "3951695210",
+      "Name": "Play_shihashinanai",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_shihashinanai",
+      "GUID": "{B4E983F7-F4D1-4C2C-BAB1-DE3EE37AF195}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
        {
-        "SwitchValue": {
-         "GroupType": "State",
-         "GroupId": "1959470009",
-         "Id": "2043358090",
-         "GUID": "{122A6F5F-A321-476C-8E9B-B2D580D6E499}"
-        },
-        "MediaRefs": [
-         {
-          "Id": "151039256"
-         }
-        ]
+        "Id": "41652233"
        }
       ]
      },
@@ -177,10 +239,44 @@
       ]
      },
      {
+      "Id": "2907769111",
+      "Name": "Play_tsukiyochou",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_tsukiyochou",
+      "GUID": "{D28A0420-6E54-4C95-820A-A43B25BC2387}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "899250504"
+       }
+      ]
+     },
+     {
+      "Id": "3572638966",
+      "Name": "Play_yoimatsurinokaze",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_yoimatsurinokaze",
+      "GUID": "{850A1665-2CE2-4581-9B3E-62C17E1F2439}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "13117330"
+       }
+      ]
+     },
+     {
       "Id": "953277036",
       "Name": "Resume",
       "ObjectPath": "\\Events\\Default Work Unit\\Other\\Resume",
       "GUID": "{3CE53033-9C3F-40F4-A913-36A192DA7780}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
+     },
+     {
+      "Id": "475124431",
+      "Name": "Stop_Music_MusicGame",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Stop_Music_MusicGame",
+      "GUID": "{19131850-67FE-4BB1-9C80-BD0A59D6E716}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
       "DurationMin": "0",
@@ -213,66 +309,10 @@
         "GUID": "{1BBF956D-6374-4072-97AC-97D43EEBECCD}"
        }
       ]
-     },
-     {
-      "Id": "1959470009",
-      "Name": "Date",
-      "ObjectPath": "\\States\\Default Work Unit\\Date",
-      "GUID": "{37354572-4625-4478-A3D4-85EB9B310BDE}",
-      "States": [
-       {
-        "Id": "748895195",
-        "Name": "None",
-        "ObjectPath": "\\States\\Default Work Unit\\Date\\None",
-        "GUID": "{62D9FB3B-BD20-4548-9012-B8DFE3C508D6}"
-       },
-       {
-        "Id": "2043358088",
-        "Name": "Day3",
-        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day3",
-        "GUID": "{B1DCF1B1-9461-45C7-A1A9-A12156F9821A}"
-       },
-       {
-        "Id": "2043358089",
-        "Name": "Day2",
-        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day2",
-        "GUID": "{E89B142F-6D3C-4390-9426-E7906B861699}"
-       },
-       {
-        "Id": "2043358090",
-        "Name": "Day1",
-        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day1",
-        "GUID": "{122A6F5F-A321-476C-8E9B-B2D580D6E499}"
-       },
-       {
-        "Id": "2043358092",
-        "Name": "Day7",
-        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day7",
-        "GUID": "{D31A9208-17D9-4A66-A07E-357CEEE21F72}"
-       },
-       {
-        "Id": "2043358093",
-        "Name": "Day6",
-        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day6",
-        "GUID": "{78BF732A-43AC-4CA3-A22E-E0AB96D21BCB}"
-       },
-       {
-        "Id": "2043358094",
-        "Name": "Day5",
-        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day5",
-        "GUID": "{733CE550-A1FB-47A9-B679-B6B4E34CD93F}"
-       },
-       {
-        "Id": "2043358095",
-        "Name": "Day4",
-        "ObjectPath": "\\States\\Default Work Unit\\Date\\Day4",
-        "GUID": "{5997CF05-C857-412D-BF51-6B5DE4C44DAC}"
-       }
-      ]
      }
     ]
    }
   ],
-  "FileHash": "{83D5CC08-1031-1BA4-E045-9AE36762F119}"
+  "FileHash": "{3199F814-85DD-FE4C-5842-EBD79FF14173}"
  }
 }

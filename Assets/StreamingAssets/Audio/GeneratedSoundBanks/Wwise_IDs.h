@@ -17,10 +17,17 @@ namespace AK
         static const AkUniqueID MUSICGAME_PAUSE = 4059570743U;
         static const AkUniqueID MUSICGAME_RESUME = 2897856806U;
         static const AkUniqueID PAUSE = 3092587493U;
+        static const AkUniqueID PLAY_EZOKOIUTA = 2243961743U;
+        static const AkUniqueID PLAY_HIGH_TECH2 = 172809449U;
+        static const AkUniqueID PLAY_KASHINOMAI = 1965924116U;
         static const AkUniqueID PLAY_MOUSE_UP = 472383433U;
-        static const AkUniqueID PLAY_MUSIC_MUSICGAME = 1192977285U;
+        static const AkUniqueID PLAY_NIPPONKAIKA = 1241429455U;
+        static const AkUniqueID PLAY_SHIHASHINANAI = 3951695210U;
         static const AkUniqueID PLAY_TEST = 3187507146U;
+        static const AkUniqueID PLAY_TSUKIYOCHOU = 2907769111U;
+        static const AkUniqueID PLAY_YOIMATSURINOKAZE = 3572638966U;
         static const AkUniqueID RESUME = 953277036U;
+        static const AkUniqueID STOP_MUSIC_MUSICGAME = 475124431U;
     } // namespace EVENTS
 
     namespace STATES
