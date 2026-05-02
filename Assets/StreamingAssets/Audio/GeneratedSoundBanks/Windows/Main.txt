@@ -1,34 +1,37 @@
 Event	ID	Name			Wwise Object Path	Notes
+	172809449	Play_high_tech2			\Default Work Unit\BGM\Play_high_tech2	
 	472383433	Play_Mouse_Up			\Default Work Unit\UI\Play_Mouse_Up	
+	475124431	Stop_Music_MusicGame			\Default Work Unit\BGM\Stop_Music_MusicGame	
 	953277036	Resume			\Default Work Unit\Other\Resume	
-	1192977285	Play_Music_MusicGame			\Default Work Unit\BGM\Play_Music_MusicGame	
+	1241429455	Play_nipponkaika			\Default Work Unit\BGM\Play_nipponkaika	
+	1965924116	Play_kashinomai			\Default Work Unit\BGM\Play_kashinomai	
+	2243961743	Play_ezokoiuta			\Default Work Unit\BGM\Play_ezokoiuta	
 	2897856806	MusicGame_Resume			\Default Work Unit\Other\MusicGame_Resume	
+	2907769111	Play_tsukiyochou			\Default Work Unit\BGM\Play_tsukiyochou	
 	3092587493	Pause			\Default Work Unit\Other\Pause	
 	3187507146	Play_test			\Default Work Unit\Play_test	
+	3572638966	Play_yoimatsurinokaze			\Default Work Unit\BGM\Play_yoimatsurinokaze	
+	3951695210	Play_shihashinanai			\Default Work Unit\BGM\Play_shihashinanai	
 	3956123227	Mouse_Down_InGame			\Default Work Unit\UI\Mouse_Down_InGame	
 	4059570743	MusicGame_Pause			\Default Work Unit\Other\MusicGame_Pause	
 
 State Group	ID	Name			Wwise Object Path	Notes
 	938816221	Menu_Status			\Default Work Unit\Menu_Status	
-	1959470009	Date			\Default Work Unit\Date	
 
 State	ID	Name	State Group			Notes
 	748895195	None	Menu_Status			
 	1631528850	In_Menu	Menu_Status			
 	2967546505	In_Game	Menu_Status			
-	748895195	None	Date			
-	2043358088	Day3	Date			
-	2043358089	Day2	Date			
-	2043358090	Day1	Date			
-	2043358092	Day7	Date			
-	2043358093	Day6	Date			
-	2043358094	Day5	Date			
-	2043358095	Day4	Date			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	8425254	233_BPM163	.cache\D0\{D076EE1D-5A98-B51C-02B8-85B7DF27024E}.wem		\Containers\Default Work Unit\BGM\音游BGM\233_BPM163		23957276
-	151039256	419_BPM78	.cache\9A\{9A800976-CA0A-7492-4E5E-9412CD9C6281}.wem		\Containers\Default Work Unit\BGM\音游BGM\419_BPM78		23054160
+	13117330	宵祭りの風	.cache\7F\{7F7C772B-6106-3DFE-1EA3-06534BE2B91B}.wem		\Containers\Default Work Unit\BGM\音游BGM\宵祭りの風		42741744
+	41652233	志は死なない	.cache\23\{232A464C-C489-409A-AE0D-6CBDCA5314C2}.wem		\Containers\Default Work Unit\BGM\音游BGM\志は死なない		49920144
+	100810506	ezokoiuta	.cache\6E\{6E0A4C46-3FA2-C0FF-60BA-FD1F9FF3EC87}.wem		\Containers\Default Work Unit\BGM\音游BGM\ezokoiuta		19716932
 	457653704	Mouse_Down_InGame	.cache\20\{20ABEC8C-CCE3-70A6-0C09-88DD4EF776AB}.wem		\Containers\Default Work Unit\UI\Mouse_Down_InGame		18776
+	522635378	high-tech2	.cache\F9\{F981F0F4-FD78-C689-C32C-7639B88F6154}.wem		\Containers\Default Work Unit\BGM\音游BGM\high-tech2		31224744
 	639919688	Mouse_Up	.cache\7B\{7B4F2D31-E934-2E20-7C4B-CE2DF690BE4A}.wem		\Containers\Default Work Unit\UI\Mouse_Up		25032
+	899250504	月夜蝶～君ヲ想フ～	.cache\72\{7203B338-CC09-99C0-A96C-95BBE85C9505}.wem		\Containers\Default Work Unit\BGM\音游BGM\月夜蝶～君ヲ想フ～		26265792
 	916806784	test	.cache\1D\{1DAD5592-D056-EA3D-8649-C2FBA99A28C5}.wem		\Containers\Default Work Unit\test		886268
+	1035644058	華志の舞	.cache\9F\{9F661A12-5681-B15D-975F-F37130705AF9}.wem		\Containers\Default Work Unit\BGM\音游BGM\華志の舞		42440812
+	1050366963	日本開花	.cache\5D\{5D1980D7-E928-C090-F436-A554A065F258}.wem		\Containers\Default Work Unit\BGM\音游BGM\日本開花		42134176
 
