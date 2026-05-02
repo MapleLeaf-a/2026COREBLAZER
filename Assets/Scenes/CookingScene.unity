@@ -628,14 +628,13 @@ GameObject:
   - component: {fileID: 595148276}
   - component: {fileID: 595148275}
   - component: {fileID: 595148279}
-  - component: {fileID: 595148280}
   m_Layer: 5
   m_Name: ResumeCountDownCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &595148275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -731,21 +730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c2ae2b697fd264baf77d6faaac37d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &595148280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 595148274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e175f46598e67f94089aa991b3bc5d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countdownCanvas: {fileID: 595148274}
-  countdownText: {fileID: 2069084905}
-  countdownTime: 3
 --- !u!1 &629697399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,6 +1374,7 @@ GameObject:
   - component: {fileID: 1320262868}
   - component: {fileID: 1320262867}
   - component: {fileID: 1320262871}
+  - component: {fileID: 1320262872}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -1514,7 +1499,22 @@ MonoBehaviour:
   pauseButton: {fileID: 1320262867}
   resumeButton: {fileID: 1619793699}
   pauseCanvas: {fileID: 1382149466}
-  resumeCountdown: {fileID: 595148280}
+  resumeCountdown: {fileID: 1320262872}
+--- !u!114 &1320262872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320262865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e175f46598e67f94089aa991b3bc5d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdownCanvas: {fileID: 595148274}
+  countdownText: {fileID: 2069084905}
+  countdownTime: 3
 --- !u!1 &1361927362
 GameObject:
   m_ObjectHideFlags: 0

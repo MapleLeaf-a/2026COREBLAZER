@@ -16,7 +16,11 @@ public class ResumeCountdown : MonoBehaviour
     {
         // 初始隐藏倒计时界面
         if (countdownCanvas != null)
-            countdownCanvas.SetActive(false);
+        {
+            countdownCanvas.SetActive(true);
+            Time.timeScale = 0f;
+            StartResumeCountdown();
+        }
     }
 
     /// <summary>
