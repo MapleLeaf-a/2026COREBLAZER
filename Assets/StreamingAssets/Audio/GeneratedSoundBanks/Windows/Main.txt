@@ -1,11 +1,17 @@
 Event	ID	Name			Wwise Object Path	Notes
+	172809449	Play_high_tech2			\Default Work Unit\BGM\Play_high_tech2	
 	472383433	Play_Mouse_Up			\Default Work Unit\UI\Play_Mouse_Up	
 	475124431	Stop_Music_MusicGame			\Default Work Unit\BGM\Stop_Music_MusicGame	
 	953277036	Resume			\Default Work Unit\Other\Resume	
-	1192977285	Play_Music_MusicGame			\Default Work Unit\BGM\Play_Music_MusicGame	
+	1241429455	Play_nipponkaika			\Default Work Unit\BGM\Play_nipponkaika	
+	1965924116	Play_kashinomai			\Default Work Unit\BGM\Play_kashinomai	
+	2243961743	Play_ezokoiuta			\Default Work Unit\BGM\Play_ezokoiuta	
 	2897856806	MusicGame_Resume			\Default Work Unit\Other\MusicGame_Resume	
+	2907769111	Play_tsukiyochou			\Default Work Unit\BGM\Play_tsukiyochou	
 	3092587493	Pause			\Default Work Unit\Other\Pause	
 	3187507146	Play_test			\Default Work Unit\Play_test	
+	3572638966	Play_yoimatsurinokaze			\Default Work Unit\BGM\Play_yoimatsurinokaze	
+	3951695210	Play_shihashinanai			\Default Work Unit\BGM\Play_shihashinanai	
 	3956123227	Mouse_Down_InGame			\Default Work Unit\UI\Mouse_Down_InGame	
 	4059570743	MusicGame_Pause			\Default Work Unit\Other\MusicGame_Pause	
 

@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{6F9A392E-1F44-4D50-B5C0-D3F8BDCF7557}",
     "Language": "SFX",
-    "Hash": "{75D0248D-D9D7-5083-E96E-8B1F13AD88AD}",
+    "Hash": "{11790E41-B876-5BF8-1705-EC68CF7863F2}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -151,6 +151,42 @@
       ]
      },
      {
+      "Id": "2243961743",
+      "Name": "Play_ezokoiuta",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_ezokoiuta",
+      "GUID": "{B50E23F6-5543-4F82-A13B-7098D01391E8}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "100810506"
+       }
+      ]
+     },
+     {
+      "Id": "172809449",
+      "Name": "Play_high_tech2",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_high_tech2",
+      "GUID": "{9EE24F8C-015D-45AF-90D1-528C43BA8621}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "522635378"
+       }
+      ]
+     },
+     {
+      "Id": "1965924116",
+      "Name": "Play_kashinomai",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_kashinomai",
+      "GUID": "{8893B62D-12BE-430A-AD8B-3CE34AFEC618}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "1035644058"
+       }
+      ]
+     },
+     {
       "Id": "472383433",
       "Name": "Play_Mouse_Up",
       "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Mouse_Up",
@@ -165,32 +201,26 @@
       ]
      },
      {
-      "Id": "1192977285",
-      "Name": "Play_Music_MusicGame",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Music_MusicGame",
-      "GUID": "{1A4C2EE7-2C27-4F0F-8B93-241BF6A4FFA7}",
+      "Id": "1241429455",
+      "Name": "Play_nipponkaika",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_nipponkaika",
+      "GUID": "{40BC21F5-4936-47BB-85E7-43F775CD5C86}",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
-        "Id": "13117330"
-       },
+        "Id": "1050366963"
+       }
+      ]
+     },
+     {
+      "Id": "3951695210",
+      "Name": "Play_shihashinanai",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_shihashinanai",
+      "GUID": "{B4E983F7-F4D1-4C2C-BAB1-DE3EE37AF195}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
        {
         "Id": "41652233"
-       },
-       {
-        "Id": "100810506"
-       },
-       {
-        "Id": "522635378"
-       },
-       {
-        "Id": "899250504"
-       },
-       {
-        "Id": "1035644058"
-       },
-       {
-        "Id": "1050366963"
        }
       ]
      },
@@ -205,6 +235,30 @@
       "MediaRefs": [
        {
         "Id": "916806784"
+       }
+      ]
+     },
+     {
+      "Id": "2907769111",
+      "Name": "Play_tsukiyochou",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_tsukiyochou",
+      "GUID": "{D28A0420-6E54-4C95-820A-A43B25BC2387}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "899250504"
+       }
+      ]
+     },
+     {
+      "Id": "3572638966",
+      "Name": "Play_yoimatsurinokaze",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_yoimatsurinokaze",
+      "GUID": "{850A1665-2CE2-4581-9B3E-62C17E1F2439}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "13117330"
        }
       ]
      },
@@ -259,6 +313,6 @@
     ]
    }
   ],
-  "FileHash": "{DDD24475-EC04-F31D-F027-04EBE40CB667}"
+  "FileHash": "{3199F814-85DD-FE4C-5842-EBD79FF14173}"
  }
 }
