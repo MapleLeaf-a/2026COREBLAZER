@@ -43,10 +43,14 @@ public class Pause : MonoBehaviour
         isPaused = true;
 
         CanvasManager.instance.canvasStack.Push(pauseCanvas);
+
+        MusicGame_AudioPlayer.instance.PauseMusic();
     }
 
     public void ContinueGame()
     {
+        isPaused = false;
+
         CanvasManager.instance.canvasStack.PopTo(pauseCanvas);
 
         resumeCountdown.StartResumeCountdown();

@@ -5,18 +5,21 @@ using System.Collections;
 
 public class ResumeCountdown : MonoBehaviour
 {
-    [Header("倒计时 UI")]
-    public GameObject countdownCanvas;      // 倒计时画布
-    public TextMeshProUGUI countdownText;   // 倒计时文字
-    public float countdownTime = 3f;        // 倒计时时长
+    [Header("倒计时UI")]
+    public GameObject countdownCanvas;      //倒计时画布
+    public TextMeshProUGUI countdownText;   //倒计时文字
+    public float countdownTime = 3f;        //倒计时时长
 
     private bool isCountingDown = false;
 
+    private bool isFirstTime = true; //是否是第一次开始游戏
+
     void Start()
     {
-        // 初始隐藏倒计时界面
-        if (countdownCanvas != null)
+        if (countdownCanvas != null && isFirstTime)
         {
+            isFirstTime = false;
+
             countdownCanvas.SetActive(true);
             Time.timeScale = 0f;
             StartResumeCountdown();
@@ -29,9 +32,13 @@ public class ResumeCountdown : MonoBehaviour
     public void StartResumeCountdown()
     {
         if (isCountingDown) return;
-        // 显示倒计时界面
+        //显示倒计时界面
         if (countdownCanvas != null)
             countdownCanvas.SetActive(true);
+
+
+        MusicGame_AudioPlayer.instance.ResumeMusic();
+
         StartCoroutine(CountdownCoroutine());
     }
 
@@ -43,19 +50,19 @@ public class ResumeCountdown : MonoBehaviour
 
         while (remainingTime > 0)
         {
-            // 更新显示（显示整数，如 3, 2, 1）
+            //更新显示（显示整数）
             if (countdownText != null)
                 countdownText.text = Mathf.CeilToInt(remainingTime).ToString();
 
-            remainingTime -= Time.unscaledDeltaTime;  // 使用 unscaledDeltaTime，不受 Time.timeScale 影响
+            remainingTime -= Time.unscaledDeltaTime;  //使用unscaledDeltaTime，不受Time.timeScale影响
             yield return null;
         }
 
-        // 倒计时结束，显示 "GO!" 或 "开始"
+        // 倒计时结束，显示"GO!"
         if (countdownText != null)
             countdownText.text = "GO!";
 
-        yield return new WaitForSecondsRealtime(0.2f);  // 短暂显示 GO!
+        yield return new WaitForSecondsRealtime(0.2f); 
 
         // 隐藏倒计时界面
         if (countdownCanvas != null)
