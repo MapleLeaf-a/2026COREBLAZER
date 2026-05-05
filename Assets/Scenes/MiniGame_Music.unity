@@ -790,6 +790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 737072010}
+  preText: "\u5269\u4F59\u83B7\u53D6\u9C7C\u7684\u6B21\u6570\uFF1A"
 --- !u!1001 &750396009
 PrefabInstance:
   m_ObjectHideFlags: 0

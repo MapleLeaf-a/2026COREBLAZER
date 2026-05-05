@@ -5,15 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     //单例
-    public static InputManager InputManagerInstance;
-
-    //输入上下文
-    public enum InputContext
-    { 
-        MUSICGAME, //音游部分
-        CHARACTER, //角色操控部分
-
-    }
+    public static InputManager instance;
 
     //当前的上下文
     public InputContext currenContext = InputContext.CHARACTER;
@@ -26,9 +18,9 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
-        if (InputManagerInstance == null)
+        if (instance == null)
         {
-            InputManagerInstance = this;
+            instance = this;
         }
         else
         {
@@ -62,6 +54,10 @@ public class InputManager : MonoBehaviour
 
         //交互对应按键
         AddMapping("InteractF", KeyCode.F, InputContext.CHARACTER);
+
+        //挖掘对应按键
+        AddMapping("Dig", KeyCode.Mouse0, InputContext.DIGGAME);
+        AddMapping("Detect", KeyCode.Mouse1, InputContext.DIGGAME);
     }
     
     /// <summary>

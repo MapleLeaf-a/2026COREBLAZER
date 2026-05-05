@@ -7,8 +7,13 @@ public class SetRemainingCountsText : MonoBehaviour
 {
     public TextMeshProUGUI countText;
 
+    [Header("前缀文本")]
+    public string preText;
+    [Header("后缀文本")]
+    public string sufText;
+
     public void SetText(int count)
     { 
-        countText.text = "剩余获取鱼的次数：" + count;
+        countText.text = preText + count + sufText;
     }
 }

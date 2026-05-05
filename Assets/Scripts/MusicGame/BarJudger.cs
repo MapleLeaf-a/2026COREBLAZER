@@ -31,7 +31,7 @@ public class BarJudger : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.InputManagerInstance.GetJudgeKeyDown_MusicGame(trackCount, trackIndex))
+        if (InputManager.instance.GetJudgeKeyDown_MusicGame(trackCount, trackIndex))
         {
             if (noteManager.NoteListCount > 0)
             {
