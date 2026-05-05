@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
     void OnEnable()
     {
         //进入角色操纵模式时,切换到角色上下文
-        InputManager.InputManagerInstance.SetContext(InputManager.InputContext.CHARACTER);
+        InputManager.instance.SetContext(InputContext.CHARACTER);
     }
 
     void FixedUpdate()
@@ -23,19 +23,19 @@ public class Character : MonoBehaviour
         //在FixedUpdate中使用物理移动
         Vector2 moveDirection = Vector2.zero;
 
-        if (InputManager.InputManagerInstance.GetKey("MoveUp"))
+        if (InputManager.instance.GetKey("MoveUp"))
         {
             moveDirection += Vector2.up;
         }
-        if (InputManager.InputManagerInstance.GetKey("MoveDown"))
+        if (InputManager.instance.GetKey("MoveDown"))
         {
             moveDirection += Vector2.down;
         }
-        if (InputManager.InputManagerInstance.GetKey("MoveLeft"))
+        if (InputManager.instance.GetKey("MoveLeft"))
         {
             moveDirection += Vector2.left;
         }
-        if (InputManager.InputManagerInstance.GetKey("MoveRight"))
+        if (InputManager.instance.GetKey("MoveRight"))
         {
             moveDirection += Vector2.right;
         }

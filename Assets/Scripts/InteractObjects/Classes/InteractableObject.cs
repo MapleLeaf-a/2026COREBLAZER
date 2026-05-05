@@ -29,8 +29,8 @@ public abstract class InteractableObject : MonoBehaviour
     {
         if (hasTriggerZone && isPlayerInRange) //处在触发区
         {
-            if (InputManager.InputManagerInstance.currenContext == InputManager.InputContext.CHARACTER
-            && InputManager.InputManagerInstance.GetKeyDown(actionName))
+            if (InputManager.instance.currenContext == InputContext.CHARACTER
+            && InputManager.instance.GetKeyDown(actionName))
             {
                 //按下按键执行交互逻辑
                 InteractLogics();

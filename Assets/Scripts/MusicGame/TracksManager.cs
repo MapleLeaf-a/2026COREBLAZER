@@ -43,7 +43,7 @@ public class TracksManager : MonoBehaviour
     {
         CanvasManager.instance.canvasStack.Push(canvas);
 
-        InputManager.InputManagerInstance.SetContext(InputManager.InputContext.MUSICGAME);
+        InputManager.instance.SetContext(InputContext.MUSICGAME);
     }
 
     void OnDisable()
