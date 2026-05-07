@@ -1,11 +1,21 @@
 State Group	ID	Name			Wwise Object Path	Notes
 	938816221	Menu_Status			\Default Work Unit\Menu_Status	
+	1612179606	BUFF			\Default Work Unit\BUFF	
+	1926883983	Scene			\Default Work Unit\Scene	
 	1959470009	Date			\Default Work Unit\Date	
 
 State	ID	Name	State Group			Notes
 	748895195	None	Menu_Status			
 	1631528850	In_Menu	Menu_Status			
 	2967546505	In_Game	Menu_Status			
+	748895195	None	BUFF			
+	144697359	OutDoor	Scene			
+	251412225	Shop	Scene			
+	445985471	Dig	Scene			
+	748895195	None	Scene			
+	2169636208	Restaurant	Scene			
+	3188984297	Fishing	Scene			
+	3558471344	MusicGame	Scene			
 	748895195	None	Date			
 	2043358088	Day3	Date			
 	2043358089	Day2	Date			
@@ -15,13 +25,19 @@ State	ID	Name	State Group			Notes
 	2043358094	Day5	Date			
 	2043358095	Day4	Date			
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1006694123	music_volume			\Default Work Unit\music_volume	
+	1564184899	sfx_volume			\Default Work Unit\sfx_volume	
+	4179668880	master_volume			\Default Work Unit\master_volume	
+
 Audio Bus	ID	Name			Wwise Object Path	Notes
-	1251258226	AMB Bus Dry			\Default Work Unit\Main Audio Bus\AMB Bus Dry	
-	1697111475	BGM Bus			\Default Work Unit\Main Audio Bus\BGM Bus	
+	393239870	SFX			\Default Work Unit\Main Audio Bus\SFX	
+	412724365	BGM			\Default Work Unit\Main Audio Bus\BGM	
+	1228874784	AMB Dry			\Default Work Unit\Main Audio Bus\SFX\AMB Dry	
 	2246998526	Main Audio Bus			\Default Work Unit\Main Audio Bus	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
-	3125805189	AMB_Bus_Wet			\Default Work Unit\Main Audio Bus\AMB_Bus_Wet	
+	3383164926	AMB_Wet			\Default Work Unit\Main Audio Bus\SFX\AMB_Wet	
 
 Effect plug-ins	ID	Name	Type				Notes
 	2098638826	Underground_Parking1	Wwise Matrix Reverb			
