@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{6F9A392E-1F44-4D50-B5C0-D3F8BDCF7557}",
     "Language": "SFX",
-    "Hash": "{11790E41-B876-5BF8-1705-EC68CF7863F2}",
+    "Hash": "{71AC7D17-0FB2-DF70-2E86-904CECA98908}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -40,12 +40,36 @@
       "CachePath": "6E/{6E0A4C46-3FA2-C0FF-60BA-FD1F9FF3EC87}.wem"
      },
      {
+      "Id": "250552231",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "CountDown.wav",
+      "CachePath": "80/{80351021-BF27-0143-FB5B-33AAB003C6BC}.wem"
+     },
+     {
+      "Id": "330082897",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Drone_Open.wav",
+      "CachePath": "88/{8898EF2B-739C-6F58-5C89-9365191905E6}.wem"
+     },
+     {
       "Id": "457653704",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Mouse_Down_InGame.wav",
       "CachePath": "20/{20ABEC8C-CCE3-70A6-0C09-88DD4EF776AB}.wem"
+     },
+     {
+      "Id": "491541190",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "sakaba.wav",
+      "CachePath": "12/{1237F6A2-DDC2-820E-DFEC-02B03391E39A}.wem"
      },
      {
       "Id": "522635378",
@@ -56,12 +80,60 @@
       "CachePath": "F9/{F981F0F4-FD78-C689-C32C-7639B88F6154}.wem"
      },
      {
+      "Id": "534040236",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "tosyositu.wav",
+      "CachePath": "F8/{F83ED5AF-1BFC-B506-7A37-8EA954471FD1}.wem"
+     },
+     {
+      "Id": "604483754",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Drone_Close.wav",
+      "CachePath": "2D/{2D1832B0-68CE-44D9-6F92-70353FC44C4F}.wem"
+     },
+     {
       "Id": "639919688",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Mouse_Up.wav",
       "CachePath": "7B/{7B4F2D31-E934-2E20-7C4B-CE2DF690BE4A}.wem"
+     },
+     {
+      "Id": "769937516",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cancel.wav",
+      "CachePath": "06/{06E1E2E4-A8B5-0DCF-BE41-C3FF796EB936}.wem"
+     },
+     {
+      "Id": "830230883",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "syuwa2.wav",
+      "CachePath": "19/{1976ECB7-87F0-C93B-D34B-ADBA05838637}.wem"
+     },
+     {
+      "Id": "831280016",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "gisikiwo.wav",
+      "CachePath": "6C/{6CCD9AAF-7F68-17E6-9B88-5512A0E95810}.wem"
+     },
+     {
+      "Id": "871199543",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Cancel.wav",
+      "CachePath": "F8/{F82102C9-2959-1403-156E-09D6506B5C5F}.wem"
      },
      {
       "Id": "899250504",
@@ -80,12 +152,28 @@
       "CachePath": "1D/{1DAD5592-D056-EA3D-8649-C2FBA99A28C5}.wem"
      },
      {
+      "Id": "1029893972",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Window_Open.wav",
+      "CachePath": "63/{63E49873-9ED6-B951-DCE3-E9E8712DB256}.wem"
+     },
+     {
       "Id": "1035644058",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "華志の舞.wav",
       "CachePath": "9F/{9F661A12-5681-B15D-975F-F37130705AF9}.wem"
+     },
+     {
+      "Id": "1041422428",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Confirm.wav",
+      "CachePath": "5A/{5ACC8C74-57AE-CC6B-A0B3-C660FAD1323D}.wem"
      },
      {
       "Id": "1050366963",
@@ -126,20 +214,28 @@
       "Name": "MusicGame_Resume",
       "ObjectPath": "\\Events\\Default Work Unit\\Other\\MusicGame_Resume",
       "GUID": "{120DE3E8-6AB3-461B-B41E-F8384A045DC9}",
-      "MaxAttenuation": "0",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "3.08957",
+      "DurationMax": "3.08957",
+      "MediaRefs": [
+       {
+        "Id": "250552231"
+       }
+      ]
      },
      {
       "Id": "3092587493",
       "Name": "Pause",
       "ObjectPath": "\\Events\\Default Work Unit\\Other\\Pause",
       "GUID": "{9E4936F2-D0FA-40E9-830B-07856A445068}",
-      "MaxAttenuation": "0",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0",
+      "DurationMin": "0.5133",
+      "DurationMax": "0.5133",
+      "MediaRefs": [
+       {
+        "Id": "1029893972"
+       }
+      ],
       "ActionSetState": [
        {
         "GroupId": "938816221",
@@ -151,38 +247,116 @@
       ]
      },
      {
+      "Id": "4136017490",
+      "Name": "Play_Confirm",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Confirm",
+      "GUID": "{D248A6F9-F45E-435D-953F-4ADC5FAC40DF}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.5312709",
+      "DurationMax": "1.5312709",
+      "MediaRefs": [
+       {
+        "Id": "1041422428"
+       }
+      ]
+     },
+     {
+      "Id": "980541865",
+      "Name": "Play_Drone_Close",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Drone_Close",
+      "GUID": "{D354E61A-C066-41A8-A226-DA4E41B7CD85}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.29135",
+      "DurationMax": "0.29135",
+      "MediaRefs": [
+       {
+        "Id": "604483754"
+       }
+      ]
+     },
+     {
+      "Id": "1974567931",
+      "Name": "Play_Drone_Open",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Drone_Open",
+      "GUID": "{79C05DFF-A42C-467B-B479-4A870F39DD68}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.71873",
+      "DurationMax": "0.71873",
+      "MediaRefs": [
+       {
+        "Id": "330082897"
+       }
+      ]
+     },
+     {
       "Id": "2243961743",
       "Name": "Play_ezokoiuta",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_ezokoiuta",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\音游BGM\\Play_ezokoiuta",
       "GUID": "{B50E23F6-5543-4F82-A13B-7098D01391E8}",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "100810506"
+       },
+       {
+        "Id": "250552231"
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "1926883983",
+        "Id": "3558471344",
+        "Name": "MusicGame",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\MusicGame",
+        "GUID": "{13C51477-DD30-4676-B2A4-F6BBA4403431}"
        }
       ]
      },
      {
       "Id": "172809449",
       "Name": "Play_high_tech2",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_high_tech2",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\音游BGM\\Play_high_tech2",
       "GUID": "{9EE24F8C-015D-45AF-90D1-528C43BA8621}",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
+        "Id": "250552231"
+       },
+       {
         "Id": "522635378"
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "1926883983",
+        "Id": "3558471344",
+        "Name": "MusicGame",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\MusicGame",
+        "GUID": "{13C51477-DD30-4676-B2A4-F6BBA4403431}"
        }
       ]
      },
      {
       "Id": "1965924116",
       "Name": "Play_kashinomai",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_kashinomai",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\音游BGM\\Play_kashinomai",
       "GUID": "{8893B62D-12BE-430A-AD8B-3CE34AFEC618}",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
+        "Id": "250552231"
+       },
+       {
         "Id": "1035644058"
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "1926883983",
+        "Id": "3558471344",
+        "Name": "MusicGame",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\MusicGame",
+        "GUID": "{13C51477-DD30-4676-B2A4-F6BBA4403431}"
        }
       ]
      },
@@ -201,26 +375,116 @@
       ]
      },
      {
+      "Id": "484422930",
+      "Name": "Play_Music_Scene",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_Music_Scene",
+      "GUID": "{D0BC5AB6-A4C7-46FD-B11C-AAE8688890D7}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "250552231"
+       }
+      ],
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1926883983",
+         "Id": "144697359",
+         "GUID": "{7BF7DC72-1B0A-4DB7-BEBD-7E7D7D5404C9}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "831280016"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1926883983",
+         "Id": "3188984297",
+         "GUID": "{C6F9956C-2C77-41D9-B4C0-4BFE7D49CA3C}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "491541190"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1926883983",
+         "Id": "445985471",
+         "GUID": "{822EADF3-F2A6-4B14-80ED-9BB2C3803F19}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "830230883"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1926883983",
+         "Id": "251412225",
+         "GUID": "{2394F9B4-D5E5-4C6E-99EF-45932846B1C7}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "534040236"
+         }
+        ]
+       }
+      ]
+     },
+     {
       "Id": "1241429455",
       "Name": "Play_nipponkaika",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_nipponkaika",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\音游BGM\\Play_nipponkaika",
       "GUID": "{40BC21F5-4936-47BB-85E7-43F775CD5C86}",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
+        "Id": "250552231"
+       },
+       {
         "Id": "1050366963"
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "1926883983",
+        "Id": "3558471344",
+        "Name": "MusicGame",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\MusicGame",
+        "GUID": "{13C51477-DD30-4676-B2A4-F6BBA4403431}"
        }
       ]
      },
      {
       "Id": "3951695210",
       "Name": "Play_shihashinanai",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_shihashinanai",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\音游BGM\\Play_shihashinanai",
       "GUID": "{B4E983F7-F4D1-4C2C-BAB1-DE3EE37AF195}",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "41652233"
+       },
+       {
+        "Id": "250552231"
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "1926883983",
+        "Id": "3558471344",
+        "Name": "MusicGame",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\MusicGame",
+        "GUID": "{13C51477-DD30-4676-B2A4-F6BBA4403431}"
        }
       ]
      },
@@ -241,24 +505,76 @@
      {
       "Id": "2907769111",
       "Name": "Play_tsukiyochou",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_tsukiyochou",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\音游BGM\\Play_tsukiyochou",
       "GUID": "{D28A0420-6E54-4C95-820A-A43B25BC2387}",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
+        "Id": "250552231"
+       },
+       {
         "Id": "899250504"
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "1926883983",
+        "Id": "3558471344",
+        "Name": "MusicGame",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\MusicGame",
+        "GUID": "{13C51477-DD30-4676-B2A4-F6BBA4403431}"
+       }
+      ]
+     },
+     {
+      "Id": "4244658871",
+      "Name": "Play_Window_Close",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Window_Close",
+      "GUID": "{D1DAECFD-C48D-4E4D-86C4-A435B7D7D93E}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.49528",
+      "DurationMax": "0.49528",
+      "MediaRefs": [
+       {
+        "Id": "871199543"
+       }
+      ]
+     },
+     {
+      "Id": "4135004417",
+      "Name": "Play_Window_Open",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Window_Open",
+      "GUID": "{B834591F-29AD-4A1E-81A9-57B52D81226D}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.5133",
+      "DurationMax": "0.5133",
+      "MediaRefs": [
+       {
+        "Id": "1029893972"
        }
       ]
      },
      {
       "Id": "3572638966",
       "Name": "Play_yoimatsurinokaze",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Play_yoimatsurinokaze",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\音游BGM\\Play_yoimatsurinokaze",
       "GUID": "{850A1665-2CE2-4581-9B3E-62C17E1F2439}",
       "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "13117330"
+       },
+       {
+        "Id": "250552231"
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "1926883983",
+        "Id": "3558471344",
+        "Name": "MusicGame",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\MusicGame",
+        "GUID": "{13C51477-DD30-4676-B2A4-F6BBA4403431}"
        }
       ]
      },
@@ -267,15 +583,28 @@
       "Name": "Resume",
       "ObjectPath": "\\Events\\Default Work Unit\\Other\\Resume",
       "GUID": "{3CE53033-9C3F-40F4-A913-36A192DA7780}",
-      "MaxAttenuation": "0",
       "DurationType": "OneShot",
-      "DurationMin": "0",
-      "DurationMax": "0"
+      "DurationMin": "1.3929167",
+      "DurationMax": "1.3929167",
+      "MediaRefs": [
+       {
+        "Id": "769937516"
+       }
+      ],
+      "ActionSetState": [
+       {
+        "GroupId": "938816221",
+        "Id": "2967546505",
+        "Name": "In_Game",
+        "ObjectPath": "\\States\\Default Work Unit\\Menu_Status\\In_Game",
+        "GUID": "{1BBF956D-6374-4072-97AC-97D43EEBECCD}"
+       }
+      ]
      },
      {
       "Id": "475124431",
       "Name": "Stop_Music_MusicGame",
-      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\Stop_Music_MusicGame",
+      "ObjectPath": "\\Events\\Default Work Unit\\BGM\\音游BGM\\Stop_Music_MusicGame",
       "GUID": "{19131850-67FE-4BB1-9C80-BD0A59D6E716}",
       "MaxAttenuation": "0",
       "DurationType": "OneShot",
@@ -309,10 +638,74 @@
         "GUID": "{1BBF956D-6374-4072-97AC-97D43EEBECCD}"
        }
       ]
+     },
+     {
+      "Id": "1612179606",
+      "Name": "BUFF",
+      "ObjectPath": "\\States\\Default Work Unit\\BUFF",
+      "GUID": "{26A72A37-124B-41DF-8F28-6C81D3AA74AA}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\BUFF\\None",
+        "GUID": "{26EEF4C8-023F-468B-8CA9-B731276A3BDD}"
+       }
+      ]
+     },
+     {
+      "Id": "1926883983",
+      "Name": "Scene",
+      "ObjectPath": "\\States\\Default Work Unit\\Scene",
+      "GUID": "{2954B20A-130F-41D0-BCD0-8E1A6C46819D}",
+      "States": [
+       {
+        "Id": "144697359",
+        "Name": "OutDoor",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\OutDoor",
+        "GUID": "{7BF7DC72-1B0A-4DB7-BEBD-7E7D7D5404C9}"
+       },
+       {
+        "Id": "251412225",
+        "Name": "Shop",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\Shop",
+        "GUID": "{2394F9B4-D5E5-4C6E-99EF-45932846B1C7}"
+       },
+       {
+        "Id": "445985471",
+        "Name": "Dig",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\Dig",
+        "GUID": "{822EADF3-F2A6-4B14-80ED-9BB2C3803F19}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\None",
+        "GUID": "{69A54E2F-E029-44BB-8E19-C9D6E0054845}"
+       },
+       {
+        "Id": "2169636208",
+        "Name": "Restaurant",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\Restaurant",
+        "GUID": "{EC0F9AA7-50C3-492F-A340-8A7845635F6C}"
+       },
+       {
+        "Id": "3188984297",
+        "Name": "Fishing",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\Fishing",
+        "GUID": "{C6F9956C-2C77-41D9-B4C0-4BFE7D49CA3C}"
+       },
+       {
+        "Id": "3558471344",
+        "Name": "MusicGame",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\MusicGame",
+        "GUID": "{13C51477-DD30-4676-B2A4-F6BBA4403431}"
+       }
+      ]
      }
     ]
    }
   ],
-  "FileHash": "{3199F814-85DD-FE4C-5842-EBD79FF14173}"
+  "FileHash": "{A772B08B-065D-BFF0-7EEB-0426A14FD25C}"
  }
 }

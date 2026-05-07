@@ -17,14 +17,20 @@ namespace AK
         static const AkUniqueID MUSICGAME_PAUSE = 4059570743U;
         static const AkUniqueID MUSICGAME_RESUME = 2897856806U;
         static const AkUniqueID PAUSE = 3092587493U;
+        static const AkUniqueID PLAY_CONFIRM = 4136017490U;
+        static const AkUniqueID PLAY_DRONE_CLOSE = 980541865U;
+        static const AkUniqueID PLAY_DRONE_OPEN = 1974567931U;
         static const AkUniqueID PLAY_EZOKOIUTA = 2243961743U;
         static const AkUniqueID PLAY_HIGH_TECH2 = 172809449U;
         static const AkUniqueID PLAY_KASHINOMAI = 1965924116U;
         static const AkUniqueID PLAY_MOUSE_UP = 472383433U;
+        static const AkUniqueID PLAY_MUSIC_SCENE = 484422930U;
         static const AkUniqueID PLAY_NIPPONKAIKA = 1241429455U;
         static const AkUniqueID PLAY_SHIHASHINANAI = 3951695210U;
         static const AkUniqueID PLAY_TEST = 3187507146U;
         static const AkUniqueID PLAY_TSUKIYOCHOU = 2907769111U;
+        static const AkUniqueID PLAY_WINDOW_CLOSE = 4244658871U;
+        static const AkUniqueID PLAY_WINDOW_OPEN = 4135004417U;
         static const AkUniqueID PLAY_YOIMATSURINOKAZE = 3572638966U;
         static const AkUniqueID RESUME = 953277036U;
         static const AkUniqueID STOP_MUSIC_MUSICGAME = 475124431U;
@@ -32,6 +38,16 @@ namespace AK
 
     namespace STATES
     {
+        namespace BUFF
+        {
+            static const AkUniqueID GROUP = 1612179606U;
+
+            namespace STATE
+            {
+                static const AkUniqueID NONE = 748895195U;
+            } // namespace STATE
+        } // namespace BUFF
+
         namespace DATE
         {
             static const AkUniqueID GROUP = 1959470009U;
@@ -61,10 +77,29 @@ namespace AK
             } // namespace STATE
         } // namespace MENU_STATUS
 
+        namespace SCENE
+        {
+            static const AkUniqueID GROUP = 1926883983U;
+
+            namespace STATE
+            {
+                static const AkUniqueID DIG = 445985471U;
+                static const AkUniqueID FISHING = 3188984297U;
+                static const AkUniqueID MUSICGAME = 3558471344U;
+                static const AkUniqueID NONE = 748895195U;
+                static const AkUniqueID OUTDOOR = 144697359U;
+                static const AkUniqueID RESTAURANT = 2169636208U;
+                static const AkUniqueID SHOP = 251412225U;
+            } // namespace STATE
+        } // namespace SCENE
+
     } // namespace STATES
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID MASTER_VOLUME = 4179668880U;
+        static const AkUniqueID MUSIC_VOLUME = 1006694123U;
+        static const AkUniqueID SFX_VOLUME = 1564184899U;
         static const AkUniqueID SS_AIR_FEAR = 1351367891U;
         static const AkUniqueID SS_AIR_FREEFALL = 3002758120U;
         static const AkUniqueID SS_AIR_FURY = 1029930033U;
@@ -85,14 +120,15 @@ namespace AK
 
     namespace BUSSES
     {
-        static const AkUniqueID AMB_BUS_DRY = 1251258226U;
-        static const AkUniqueID BGM_BUS = 1697111475U;
+        static const AkUniqueID AMB_DRY = 1228874784U;
+        static const AkUniqueID BGM = 412724365U;
         static const AkUniqueID MAIN_AUDIO_BUS = 2246998526U;
+        static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES
 
     namespace AUX_BUSSES
     {
-        static const AkUniqueID AMB_BUS_WET = 3125805189U;
+        static const AkUniqueID AMB_WET = 3383164926U;
     } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES
