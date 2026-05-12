@@ -16,6 +16,24 @@ public class Model<T> where T : class
     /// 获取Capacity
     /// </summary>
     public int Capacity => capacity;
+
+    /// <summary>
+    /// 获取非null物品数量
+    /// </summary>
+    public int Count
+    {
+        get
+        {
+            int count = 0;
+            for (int i = 0; i < capacity; i++) 
+            {
+                if (items[i] != null) count++;
+            }
+
+            return count;
+        }
+    }
+
     /// <summary>
     /// 获取只读列表
     /// </summary>

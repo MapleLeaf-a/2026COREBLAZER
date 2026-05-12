@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class GoToKitchen : GoToObject
 {
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         sceneName = "CookingScene";
-        interactPrompt = "按F交互，\n前往厨房";
+        actionName = "InteractF";
+        interactPrompt = "按F交互，\n前往卧室";
+    }
+
+    protected override void Update()
+    { 
+        base.Update();
     }
 }

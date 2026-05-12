@@ -18,9 +18,15 @@ public class TestBackpack : MonoBehaviour
 
     public AllRecipesView allRecipesView;
 
+
     public TodaysRecipeModel todaysRecipeModel;
 
     public TodaysRecipeView todaysRecipeView;
+
+
+    public OrderIngredientsModel orderIngredientsModel; 
+
+    public OrderIngredientsView orderIngredientsView;
 
     void Awake()
     {
@@ -61,6 +67,12 @@ public class TestBackpack : MonoBehaviour
         todaysRecipeModel = new TodaysRecipeModel(12);
         //todaysRecipeModel.AddItem(foodRecipe1);
         todaysRecipeView.InitBackpackView(todaysRecipeModel);
+
+        orderIngredientsModel = new OrderIngredientsModel(10);
+        orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("101"));
+        orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("102"));
+        orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("103"));
+        orderIngredientsView.InitBackpackView(orderIngredientsModel);
     }
 
     void Update()
