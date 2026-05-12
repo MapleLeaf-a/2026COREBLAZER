@@ -32,15 +32,15 @@ public class DigGameManager : MonoBehaviour
 
     private void SpawnRandomUI()
     {
-        // 实例化
+        //实例化
         GameObject newUI = Instantiate(itemsPrefab, parent.transform);
         RectTransform rect = newUI.GetComponent<RectTransform>();
 
-        // 获取 UI 元素尺寸
+        //获取UI元素尺寸
         float width = rect.rect.width;
         float height = rect.rect.height;
 
-        // 计算安全范围
+        //计算安全范围
         float minX = width / 2;
         float maxX = Screen.width - width / 2;
         float minY = height / 2;

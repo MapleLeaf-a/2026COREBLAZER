@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TracksManager : MonoBehaviour
@@ -19,7 +20,7 @@ public class TracksManager : MonoBehaviour
      new List<bool>()
     };
     //单轨道
-    private List<bool> notesPre = new List<bool> { true, false, false, true, false, true, true, true, true };
+    private List<bool> notesPre;// = new List<bool> { true, false, false, true, false, true, true, true, true };
 
     //判定的次数
     int count;
@@ -61,10 +62,9 @@ public class TracksManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
-    void Start()
-    {
+
+        //需要先于NoteManager调用，防止时序出现问题
         if (tracks.Count == 1)
         {
             tracks[0].Initialize(0, tracks.Count, notesPre, this);
@@ -83,9 +83,22 @@ public class TracksManager : MonoBehaviour
         text?.SetText(RemainingCounts);
     }
 
-    void Update()
+    /// <summary>
+    /// 初始化单轨道的音符序列
+    /// </summary>
+    /// <param name="noteSequence"></param>
+    public void InitializeSingleTrack(List<bool> noteSequence)
     {
-        
+        notesPre = noteSequence;
+
+        if (tracks.Count == 1)
+        {
+            tracks[0].Initialize(0, 1, notesPre, this);
+        }
+        else
+        {
+            throw new UnityException("本该为1的轨道数量不为1！");
+        }
     }
 
     /// <summary>

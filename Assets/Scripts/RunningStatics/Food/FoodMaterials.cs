@@ -11,9 +11,9 @@ public static class FoodMaterials
     static FoodMaterials()
     { 
         allMaterials = new Dictionary<string, FoodMaterial>() {
-            {"101", new FoodMaterial("101", "KaZuHa", "Images/Recipes/kazuha", "枫原万叶,流浪的武士", StaticTemplates.Food.MaterialType.Drink) },
-            {"102", new FoodMaterial("102", "Fish", "Images/Recipes/fish", "只是咸鱼", StaticTemplates.Food.MaterialType.Seafood) },
-            {"103", new FoodMaterial("103", "Seaweed", "Images/Recipes/seaweed", "海草海草", StaticTemplates.Food.MaterialType.Seafood) },
+            {"101", new FoodMaterial("101", 10, "KaZuHa", "Images/Recipes/kazuha", "枫原万叶,流浪的武士", StaticTemplates.Food.MaterialType.Drink) },
+            {"102", new FoodMaterial("102", 114, "Fish", "Images/Recipes/fish", "只是咸鱼", StaticTemplates.Food.MaterialType.Seafood) },
+            {"103", new FoodMaterial("103", 514, "Seaweed", "Images/Recipes/seaweed", "海草海草", StaticTemplates.Food.MaterialType.Seafood) },
 
         };
     }

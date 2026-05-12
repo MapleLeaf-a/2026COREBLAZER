@@ -23,8 +23,8 @@ public class TuningFork : MonoBehaviour
 
     private void Start()
     {
-        //voicePrintAnimation.Play();
-        //voicePrintAnimation.wrapMode = WrapMode.Loop;
+        voicePrintAnimation.Play();
+        voicePrintAnimation.wrapMode = WrapMode.Loop;
 
         rectTransform = GetComponent<RectTransform>();
 

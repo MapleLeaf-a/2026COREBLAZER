@@ -54,6 +54,7 @@ public class InputManager : MonoBehaviour
 
         //交互对应按键
         AddMapping("InteractF", KeyCode.F, InputContext.CHARACTER);
+        AddMapping("InteractMouse0", KeyCode.Mouse0, InputContext.CHARACTER);
 
         //挖掘对应按键
         AddMapping("Dig", KeyCode.Mouse0, InputContext.DIGGAME);
@@ -141,7 +142,11 @@ public class InputManager : MonoBehaviour
             }
             return res;
         }
-        return false;
+        else
+        {
+            Debug.LogWarning("按键不存在！");
+            return false;
+        }
     }
 
 

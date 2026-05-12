@@ -16,16 +16,23 @@ public abstract class InteractableObject : MonoBehaviour
     public Collider2D blockCollider;
 
     //交互文本提示
-    protected string interactPrompt = "按F交互";
-    protected string actionName = "InteractF"; //KeyCode.F;
+    protected string interactPrompt = "测试交互";
+    protected string actionName = "";
     //UI
     public TextMeshProUGUI promptText;
-    public Canvas promptPanel;
 
     //交互逻辑
     public abstract void InteractLogics();
 
-    public virtual void Update()
+    protected virtual void Start()
+    {
+        if (promptText != null)
+        {
+            promptText.enabled = false;
+        }
+    }
+
+    protected virtual void Update()
     {
         if (hasTriggerZone && isPlayerInRange) //处在触发区
         {
@@ -48,8 +55,7 @@ public abstract class InteractableObject : MonoBehaviour
                 isPlayerInRange = true;
                 //显示提示文本
                 ShowPrompt();
-                CanvasManager.instance.canvasStack.Push(promptPanel);
-                Debug.Log("Trigger!" + collision.name);
+                //Debug.Log("Trigger!" + collision.name);
             }
         }
     }
@@ -64,8 +70,7 @@ public abstract class InteractableObject : MonoBehaviour
                 isPlayerInRange = false;
                 //隐藏文本
                 HidePrompt();
-                CanvasManager.instance.canvasStack.PopTo(promptPanel);
-                Debug.Log("TriggerExit!" + collision.name);
+                //Debug.Log("TriggerExit!" + collision.name);
             }
         }
     }
@@ -73,19 +78,16 @@ public abstract class InteractableObject : MonoBehaviour
     //UI方法
     protected virtual void ShowPrompt()
     {
-        if (promptPanel != null)
+        if (promptText != null)
         {
-            promptPanel.gameObject.SetActive(true);
-            if (promptText != null)
-            {
-                promptText.text = interactPrompt;
-            }
+            promptText.enabled = true;
+            promptText.text = interactPrompt;
         }
     }
 
     protected virtual void UpdatePrompt()
     {
-        if (promptPanel != null && promptText != null)
+        if (promptText != null)
         {
             promptText.text = interactPrompt;
         }
@@ -93,9 +95,9 @@ public abstract class InteractableObject : MonoBehaviour
 
     protected virtual void HidePrompt()
     {
-        if (promptPanel != null)
+        if (promptText != null)
         {
-            promptPanel.gameObject.SetActive(false);
+            promptText.enabled = false;
         }
     }
 }

@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IngredientUIItem : MonoBehaviour, IResetable
+public class IngredientUIItem : MonoBehaviour
 {
     [Header("UI×é¼þ")]
     public Image iconImage;
@@ -69,10 +69,5 @@ public class IngredientUIItem : MonoBehaviour, IResetable
         { 
             XText.enabled= false;
         }
-    }
-
-    public void IReset()
-    {
-        Clear();
     }
 }
