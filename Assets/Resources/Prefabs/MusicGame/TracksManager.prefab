@@ -49,3 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracks: []
+  canvas: {fileID: 0}
+  currentStepId: step_001
+  text: {fileID: 0}

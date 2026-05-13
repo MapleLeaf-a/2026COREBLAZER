@@ -1,43 +1,45 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TracksManager : MonoBehaviour
 {
-    //¹ìµÀ
+    //è½¨é“
     public List<NoteManager> tracks;
 
-    //ÒôÓÎ»­²¼
+    //éŸ³æ¸¸ç”»å¸ƒ
     public Canvas canvas;
 
-    //Ô¤ÉèµÄ¸÷Òô·û¹ìµÀµÄÒô·ûÇé¿ö
-    //ËÄ¹ìµÀ
-    public List<List<bool>> notesPres = new List<List<bool>>()
-    {new List<bool>(),  
-     new List<bool>(),  
-     new List<bool>(), 
-     new List<bool>()
+    //é¢„è®¾çš„å„éŸ³ç¬¦è½¨é“çš„éŸ³ç¬¦æƒ…å†µ
+    //å››è½¨é“
+    public List<List<int>> notesPres = new List<List<int>>()
+    {new List<int>(),  
+     new List<int>(),  
+     new List<int>(), 
+     new List<int>()
     };
-    //µ¥¹ìµÀ
-    private List<bool> notesPre;// = new List<bool> { true, false, false, true, false, true, true, true, true };
+    //å•è½¨é“
+    private List<int> notesPre = new List<int> { 1, 0, 0, 1, 0, 1, 1, 1, 1 };
 
-    //ÅĞ¶¨µÄ´ÎÊı
+    [Header("ä» NotesStatics è¯»å“ªä¸ªæ­¥éª¤çš„è°±é¢ (ç•™ç©ºç”¨ä¸Šé¢çš„æµ‹è¯•æ•°æ®)")]
+    public string currentStepId = "";
+
+    //åˆ¤å®šçš„æ¬¡æ•°
     int count;
 
-    //Ô¤ÉèµÄËÄ¹ìµÀ×î´óÅĞ¶¨´ÎÊı
+    //é¢„è®¾çš„å››è½¨é“æœ€å¤§åˆ¤å®šæ¬¡æ•°
     private int maxCountOf4Tracks = 3;
 
-    //¹ìµÀÉú³ÉÆ÷
+    //è½¨é“ç”Ÿæˆå™¨
     TrackGenerator trackGenerator = new TrackGenerator();
 
-    //´æÃ¿´Îµã»÷Òô·ûµÄ¹ìµÀ
+    //å­˜æ¯æ¬¡ç‚¹å‡»éŸ³ç¬¦çš„è½¨é“
     List<int> barIndexs = new List<int>();
 
-    [Header("ÉèÖÃÊ£ÓàÎÄ±¾")]
+    [Header("è®¾ç½®å‰©ä½™æ–‡æœ¬")]
     public SetRemainingCountsText text;
 
-    //µ¥Àı
+    //å•ä¾‹
     public static TracksManager instance;
 
     void OnEnable()
@@ -62,9 +64,16 @@ public class TracksManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
 
+    void Start()
+    {
+        // è‡ªåŠ¨ä» NotesStatics åŠ è½½è°±é¢ (å¦‚æœæŒ‡å®šäº†æ­¥éª¤)
+        if (!string.IsNullOrEmpty(currentStepId) && NotesStatics.stepsPreTyped != null && NotesStatics.stepsPreTyped.ContainsKey(currentStepId))
+        {
+            notesPre = NotesStatics.stepsPreTyped[currentStepId];
+        }
 
-        //ĞèÒªÏÈÓÚNoteManagerµ÷ÓÃ£¬·ÀÖ¹Ê±Ğò³öÏÖÎÊÌâ
         if (tracks.Count == 1)
         {
             tracks[0].Initialize(0, tracks.Count, notesPre, this);
@@ -83,26 +92,13 @@ public class TracksManager : MonoBehaviour
         text?.SetText(RemainingCounts);
     }
 
-    /// <summary>
-    /// ³õÊ¼»¯µ¥¹ìµÀµÄÒô·ûĞòÁĞ
-    /// </summary>
-    /// <param name="noteSequence"></param>
-    public void InitializeSingleTrack(List<bool> noteSequence)
+    void Update()
     {
-        notesPre = noteSequence;
-
-        if (tracks.Count == 1)
-        {
-            tracks[0].Initialize(0, 1, notesPre, this);
-        }
-        else
-        {
-            throw new UnityException("±¾¸ÃÎª1µÄ¹ìµÀÊıÁ¿²»Îª1£¡");
-        }
+        
     }
 
     /// <summary>
-    /// Ôö¼Óµã»÷µÄ¹ìµÀË÷Òı
+    /// å¢åŠ ç‚¹å‡»çš„è½¨é“ç´¢å¼•
     /// </summary>
     /// <param name="index"></param>
     public void AddBarIndex(int index)
@@ -117,7 +113,7 @@ public class TracksManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Çå¿ÕÒÑµã»÷¹ìµÀË÷ÒıÁĞ±í
+    /// æ¸…ç©ºå·²ç‚¹å‡»è½¨é“ç´¢å¼•åˆ—è¡¨
     /// </summary>
     public void ClearIndex()
     {
@@ -125,12 +121,12 @@ public class TracksManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Ê£ÓàµÄ¿ÉÅĞ¶¨´ÎÊı
+    /// å‰©ä½™çš„å¯åˆ¤å®šæ¬¡æ•°
     /// </summary>
     public int RemainingCounts => maxCountOf4Tracks - count;
 
     /// <summary>
-    /// ¹ìµÀ±éÀúÔ¤ÉèÒô·û³¬³öÔ¤Éè³¤¶È,Ôö¼ÓÒ»ÁĞ,·µ»ØÊÇ·ñÌí¼Ó³É¹¦
+    /// è½¨é“éå†é¢„è®¾éŸ³ç¬¦è¶…å‡ºé¢„è®¾é•¿åº¦,å¢åŠ ä¸€åˆ—,è¿”å›æ˜¯å¦æ·»åŠ æˆåŠŸ
     /// </summary>
     public bool TrackOutOfPre()
     {
@@ -145,7 +141,7 @@ public class TracksManager : MonoBehaviour
             {
                 tracks[i].RemoveALLNotes();
             }
-            Debug.Log("³¬³ö×î´óÅĞ¶¨Êı£¡");
+            Debug.Log("è¶…å‡ºæœ€å¤§åˆ¤å®šæ•°ï¼");
             return false;
         }
 
