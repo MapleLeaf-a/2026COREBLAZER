@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{8129F448-5720-5232-8FC2-C8AB16986540}",
+    "Hash": "{CF99D334-566F-6046-0026-EF6CD2D310E2}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -46,16 +46,22 @@
     },
     "Busses": [
      {
-      "Id": "1251258226",
-      "Name": "AMB Bus Dry",
-      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\AMB Bus Dry",
-      "GUID": "{6B53538C-B969-436D-9C2C-D1B411CA0E5A}"
+      "Id": "393239870",
+      "Name": "SFX",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\SFX",
+      "GUID": "{E0B386C9-0643-4CC1-90EA-B5521FD4085E}"
      },
      {
-      "Id": "1697111475",
-      "Name": "BGM Bus",
-      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\BGM Bus",
+      "Id": "412724365",
+      "Name": "BGM",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\BGM",
       "GUID": "{58431A79-6789-49D8-B976-EE75466811D5}"
+     },
+     {
+      "Id": "1228874784",
+      "Name": "AMB Dry",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\SFX\\AMB Dry",
+      "GUID": "{6B53538C-B969-436D-9C2C-D1B411CA0E5A}"
      },
      {
       "Id": "2246998526",
@@ -66,9 +72,9 @@
     ],
     "AuxBusses": [
      {
-      "Id": "3125805189",
-      "Name": "AMB_Bus_Wet",
-      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\AMB_Bus_Wet",
+      "Id": "3383164926",
+      "Name": "AMB_Wet",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\SFX\\AMB_Wet",
       "GUID": "{EEE64A7A-452F-49C7-97CA-50946B07DD10}",
       "PluginRefs": {
        "ShareSets": [
@@ -87,6 +93,12 @@
       "GUID": "{A34890AB-B9D5-4526-A64D-5290C43EF2DC}"
      },
      {
+      "Id": "1006694123",
+      "Name": "music_volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\music_volume",
+      "GUID": "{3A6C49DB-0CA6-4619-8E49-C7912197DFE9}"
+     },
+     {
       "Id": "1029930033",
       "Name": "SS_Air_Fury",
       "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Fury",
@@ -97,6 +109,12 @@
       "Name": "SS_Air_Fear",
       "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Fear",
       "GUID": "{F72E0659-4346-4E1C-A1B1-DAB46A05101E}"
+     },
+     {
+      "Id": "1564184899",
+      "Name": "sfx_volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\sfx_volume",
+      "GUID": "{1FC714B8-C812-435C-A80D-FA0E8CAEAE18}"
      },
      {
       "Id": "2648548617",
@@ -139,6 +157,12 @@
       "Name": "SS_Air_Turbulence",
       "ObjectPath": "\\Game Parameters\\Factory Soundseed Air Game Syncs\\SS_Air_Turbulence",
       "GUID": "{EDA87B19-73AA-40A0-9F19-2073606DB710}"
+     },
+     {
+      "Id": "4179668880",
+      "Name": "master_volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\master_volume",
+      "GUID": "{0D99679D-6FC5-4CE9-884F-3EEF13956791}"
      }
     ],
     "StateGroups": [
@@ -165,6 +189,70 @@
         "Name": "In_Game",
         "ObjectPath": "\\States\\Default Work Unit\\Menu_Status\\In_Game",
         "GUID": "{1BBF956D-6374-4072-97AC-97D43EEBECCD}"
+       }
+      ]
+     },
+     {
+      "Id": "1612179606",
+      "Name": "BUFF",
+      "ObjectPath": "\\States\\Default Work Unit\\BUFF",
+      "GUID": "{26A72A37-124B-41DF-8F28-6C81D3AA74AA}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\BUFF\\None",
+        "GUID": "{26EEF4C8-023F-468B-8CA9-B731276A3BDD}"
+       }
+      ]
+     },
+     {
+      "Id": "1926883983",
+      "Name": "Scene",
+      "ObjectPath": "\\States\\Default Work Unit\\Scene",
+      "GUID": "{2954B20A-130F-41D0-BCD0-8E1A6C46819D}",
+      "States": [
+       {
+        "Id": "144697359",
+        "Name": "OutDoor",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\OutDoor",
+        "GUID": "{7BF7DC72-1B0A-4DB7-BEBD-7E7D7D5404C9}"
+       },
+       {
+        "Id": "251412225",
+        "Name": "Shop",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\Shop",
+        "GUID": "{2394F9B4-D5E5-4C6E-99EF-45932846B1C7}"
+       },
+       {
+        "Id": "445985471",
+        "Name": "Dig",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\Dig",
+        "GUID": "{822EADF3-F2A6-4B14-80ED-9BB2C3803F19}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\None",
+        "GUID": "{69A54E2F-E029-44BB-8E19-C9D6E0054845}"
+       },
+       {
+        "Id": "2169636208",
+        "Name": "Restaurant",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\Restaurant",
+        "GUID": "{EC0F9AA7-50C3-492F-A340-8A7845635F6C}"
+       },
+       {
+        "Id": "3188984297",
+        "Name": "Fishing",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\Fishing",
+        "GUID": "{C6F9956C-2C77-41D9-B4C0-4BFE7D49CA3C}"
+       },
+       {
+        "Id": "3558471344",
+        "Name": "MusicGame",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\MusicGame",
+        "GUID": "{13C51477-DD30-4676-B2A4-F6BBA4403431}"
        }
       ]
      },
@@ -704,6 +792,6 @@
     ]
    }
   ],
-  "FileHash": "{845BC007-E526-FA13-B8F2-BD9168A663D3}"
+  "FileHash": "{6C87F18D-ABAA-E079-C787-22AEADD8E70B}"
  }
 }

@@ -6,14 +6,14 @@
   "SoundBankVersion": "172",
   "SoundBanks": [
    {
-    "Id": "3125805189",
+    "Id": "3383164926",
     "Type": "Bus",
     "GUID": "{EEE64A7A-452F-49C7-97CA-50946B07DD10}",
     "Language": "SFX",
-    "Hash": "{F4A90C28-05E4-9C35-A506-679ABD5FACFA}",
-    "ObjectPath": "AMB_Bus_Wet",
-    "ShortName": "AMB_Bus_Wet",
-    "Path": "Bus/31/AMB_Bus_Wet.bnk",
+    "Hash": "{E231342E-970A-9EAB-FA27-099A4176F958}",
+    "ObjectPath": "AMB_Wet",
+    "ShortName": "AMB_Wet",
+    "Path": "Bus/33/AMB_Wet.bnk",
     "Plugins": {
      "ShareSets": [
       {
@@ -28,9 +28,9 @@
     },
     "AuxBusses": [
      {
-      "Id": "3125805189",
-      "Name": "AMB_Bus_Wet",
-      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\AMB_Bus_Wet",
+      "Id": "3383164926",
+      "Name": "AMB_Wet",
+      "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\SFX\\AMB_Wet",
       "GUID": "{EEE64A7A-452F-49C7-97CA-50946B07DD10}",
       "PluginRefs": {
        "ShareSets": [
@@ -43,6 +43,6 @@
     ]
    }
   ],
-  "FileHash": "{462EC82C-938E-F446-8D04-85881F26BBC9}"
+  "FileHash": "{57248839-B817-4EEE-7046-7C6C56506F10}"
  }
 }
