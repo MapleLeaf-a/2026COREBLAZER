@@ -22,15 +22,15 @@ public class LoadCanvas : MonoBehaviour
     protected virtual void Update()
     {
         if (InputManager.instance.currenContext == InputContext.CHARACTER
-            && InputManager.instance.GetKeyDown(actionName) && CheckMouseClick())
+            && InputManager.instance.GetKeyDown(actionName))
         {
-            OpenCanvas();
+            CheckMouseClick();
         }
     }
 
-    protected virtual bool CheckMouseClick()
+    protected virtual void CheckMouseClick()
     {
-        if (mainCamera == null) return false;
+        if (mainCamera == null) return;
 
         Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
@@ -38,9 +38,8 @@ public class LoadCanvas : MonoBehaviour
 
         if (hit.collider != null && hit.collider.gameObject == gameObject)
         {
-            return true;
+            OpenCanvas();
         }
-        return false;
     }
 
     protected virtual void OpenCanvas()
