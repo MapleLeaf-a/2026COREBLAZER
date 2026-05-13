@@ -1,54 +1,57 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-//¹ÜÀíÒ»¹ìµÀÒô·ûµÄ½Å±¾(Éú³É¡¢Ïú»Ù)
+//ç®¡ç†ä¸€è½¨é“éŸ³ç¬¦çš„è„šæœ¬(ç”Ÿæˆã€é”€æ¯)
 public class NoteManager : MonoBehaviour
 {
-    //Ô¤ÉèµÄÒô·ûÁĞ±í
-    private List<bool> notes;
-    //±éÀúÔ¤ÉèÒô·ûÁĞ±íµÄi
+    //é¢„è®¾çš„éŸ³ç¬¦åˆ—è¡¨
+    private List<int> notes;
+    //éå†é¢„è®¾éŸ³ç¬¦åˆ—è¡¨çš„i
     int iForNotes;
 
-    //´ı´òµÄÒô·û¶ÓÁĞ
+    //å¾…æ‰“çš„éŸ³ç¬¦é˜Ÿåˆ—
     private Queue<Note> noteList = new Queue<Note>();
 
-    private float spawnInterval = 0.8f; //Ã¿¶àÉÙÃëÉú³ÉÒ»¸ö½Ú×à¿é
-    [Header("ÅäÖÃÉú³ÉÊ±Òô·ûÀëBarµÄ¾àÀë")]
-    public float spawnHorizontalOffset = 8f; //Éú³ÉÊ±ÀëBarµÄ¾àÀë
+    private float spawnInterval = 0.0417f; //æ¯å¤šå°‘ç§’ç”Ÿæˆä¸€ä¸ªèŠ‚å¥å—
+    [Header("é…ç½®ç”Ÿæˆæ—¶éŸ³ç¬¦ç¦»Barçš„è·ç¦»")]
+    public float spawnHorizontalOffset = 8f; //ç”Ÿæˆæ—¶ç¦»Barçš„è·ç¦»
 
-    [Header("ÅäÖÃÒô·ûÒÆ¶¯·½Ïò")]
+    [Header("é…ç½®éŸ³ç¬¦ç§»åŠ¨æ–¹å‘")]
     public NoteMoveDirEnum direction;
 
-    //ÒÆ¶¯²ßÂÔ
+    //ç§»åŠ¨ç­–ç•¥
     private IMovementStrategy movementStrategy;
 
 
-    //Òô·ûËÙ¶È
+    //éŸ³ç¬¦é€Ÿåº¦
     float noteSpeed = 5f;
 
-    //Òô·ûÔ¤ÖÆÌå
+    //éŸ³ç¬¦é¢„åˆ¶ä½“
     public GameObject notePrefab;
 
-    //ÅĞ¶¨Ìõ
+    [Header("éŸ³ç¬¦ç§ç±»â†’é¢„åˆ¶ä½“æ˜ å°„ (æŒ‰ NotesStatics.noteTypes é¡ºåº)")]
+    public List<GameObject> notePrefabsByType;  // æ’è°±å·¥å…·æŒ‰ç§ç±»è‡ªåŠ¨é€‰: ç¬¬ N é¡¹å¯¹åº” noteTypes[N]
+
+    //åˆ¤å®šæ¡
     public GameObject bar;
     private BarJudger barJudger;
 
-    private float timer; //Éú³É¼ÆÊ±Æ÷
+    private float timer; //ç”Ÿæˆè®¡æ—¶å™¨
 
-    //ÊÇ·ñ½áÊø
+    //æ˜¯å¦ç»“æŸ
     private bool over = false;
 
-    //»­²¼¸¸ÎïÌå
+    //ç”»å¸ƒçˆ¶ç‰©ä½“
     public Canvas canvas;
 
-    //¹ìµÀË÷Òı
+    //è½¨é“ç´¢å¼•
     int trackIndex;
-    //¹ìµÀ×ÜÊıÁ¿
+    //è½¨é“æ€»æ•°é‡
     int trackCount;
 
-    //¹ìµÀ¹ÜÀíÕß
+    //è½¨é“ç®¡ç†è€…
     TracksManager tracksManager;
 
     void Start()
@@ -63,9 +66,9 @@ public class NoteManager : MonoBehaviour
         timer += Time.deltaTime;
         if (iForNotes < notes.Count && timer > spawnInterval)
         {
-            if (notes[iForNotes])
+            if (notes[iForNotes] > 0)
             {
-                SpawnNote();
+                SpawnNote(notes[iForNotes]);
             }
             iForNotes++;
             
@@ -75,11 +78,11 @@ public class NoteManager : MonoBehaviour
         {
             over = true;
             ScoreManager.ScoreManagerInstance?.score.ComputeFinalRate();
-            //Debug.Log("PerfectÂÊ:" + ScoreManager.ScoreManagerInstance?.score.GetFinalRate());
+            //Debug.Log("Perfectç‡:" + ScoreManager.ScoreManagerInstance?.score.GetFinalRate());
         }
     }
 
-    public void Initialize(int trackIndex, int trackCount, List<bool> notesPre, TracksManager tracksManager)
+    public void Initialize(int trackIndex, int trackCount, List<int> notesPre, TracksManager tracksManager)
     {
         this.trackIndex = trackIndex;
         this.trackCount = trackCount;
@@ -88,18 +91,18 @@ public class NoteManager : MonoBehaviour
     }
 
     /// <summary>
-    /// »ñÈ¡±éÀúÔ¤ÉèÒô·ûÁĞ±íµÄi
+    /// è·å–éå†é¢„è®¾éŸ³ç¬¦åˆ—è¡¨çš„i
     /// </summary>
     public int IForNotes => iForNotes;
 
     /// <summary>
-    /// Ô¤ÉèÒô·ûµÄÁĞ±í³¤¶È
+    /// é¢„è®¾éŸ³ç¬¦çš„åˆ—è¡¨é•¿åº¦
     /// </summary>
     public int PreNotesCount => notes.Count;
 
 
     /// <summary>
-    /// Ôö¼Óµã»÷µÄ¹ìµÀË÷Òı
+    /// å¢åŠ ç‚¹å‡»çš„è½¨é“ç´¢å¼•
     /// </summary>
     /// <param name="index"></param>
     public void AddBarIndex(int index)
@@ -108,14 +111,14 @@ public class NoteManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Çå¿ÕÒÑµã»÷¹ìµÀË÷ÒıÁĞ±í
+    /// æ¸…ç©ºå·²ç‚¹å‡»è½¨é“ç´¢å¼•åˆ—è¡¨
     /// </summary>
     public void ClearIndex()
     {
         tracksManager.ClearIndex();
     }
 
-    //¶àÌ¬½â¾öÒô·ûµÄ²»Í¬ÔË¶¯·½Ïò
+    //å¤šæ€è§£å†³éŸ³ç¬¦çš„ä¸åŒè¿åŠ¨æ–¹å‘
     IMovementStrategy CreateMoveStategy(NoteMoveDirEnum dir)
     {
         switch (dir)
@@ -125,14 +128,15 @@ public class NoteManager : MonoBehaviour
             case NoteMoveDirEnum.TopToBottom:
                 return new TopToBottomMovement();
             default:
-                throw new System.Exception("Òô·ûÔË¶¯·½ÏòÉèÖÃ´íÎó£¡");
+                throw new System.Exception("éŸ³ç¬¦è¿åŠ¨æ–¹å‘è®¾ç½®é”™è¯¯ï¼");
         }
     }
 
-    private void SpawnNote()
+    private void SpawnNote(int typeIdx)
     {
         Vector3 spawnPos = bar.transform.position - movementStrategy.GetMoveDirV3() * spawnHorizontalOffset;
-        GameObject noteObj =  Instantiate(notePrefab, spawnPos, notePrefab.transform.rotation, canvas.transform);
+        GameObject _resolvedPrefab = (notePrefabsByType != null && typeIdx - 1 >= 0 && typeIdx - 1 < notePrefabsByType.Count && notePrefabsByType[typeIdx - 1] != null) ? notePrefabsByType[typeIdx - 1] : notePrefab;
+        GameObject noteObj =  Instantiate(_resolvedPrefab, spawnPos, _resolvedPrefab.transform.rotation, canvas.transform);
 
         Note note = noteObj.GetComponent<Note>();
         note.Initialize(this, bar, movementStrategy, noteSpeed);
@@ -140,12 +144,12 @@ public class NoteManager : MonoBehaviour
         AddNote(note);
     }
 
-    //Ìí¼ÓÒ»¸öÒô·û
+    //æ·»åŠ ä¸€ä¸ªéŸ³ç¬¦
     public void AddNote(Note note)
     { 
         noteList.Enqueue(note);
     }
-    //É¾³ıÒ»¸öÒô·û(°üÀ¨ÎïÌå)
+    //åˆ é™¤ä¸€ä¸ªéŸ³ç¬¦(åŒ…æ‹¬ç‰©ä½“)
     public void RemoveNote()
     {
         if (noteList.Count > 0)
@@ -157,7 +161,7 @@ public class NoteManager : MonoBehaviour
             Debug.Log("RemoveNote : noteList is EMPTY!");
         }
     }
-    //»ñÈ¡¶ÓÊ×Òô·û
+    //è·å–é˜Ÿé¦–éŸ³ç¬¦
     public Note PeekFirstNote()
     {
         if (noteList.Count > 0)
@@ -171,10 +175,10 @@ public class NoteManager : MonoBehaviour
         }
     }
 
-    //»ñÈ¡Òô·ûÁĞ±íº¬ÓĞµÄÒô·ûÊıÁ¿
+    //è·å–éŸ³ç¬¦åˆ—è¡¨å«æœ‰çš„éŸ³ç¬¦æ•°é‡
     public int NoteListCount => noteList.Count;
 
-    //É¾³ıËùÓĞÒô·û(°üÀ¨ÆäGameObject)
+    //åˆ é™¤æ‰€æœ‰éŸ³ç¬¦(åŒ…æ‹¬å…¶GameObject)
     public void RemoveALLNotes()
     {
         while (noteList.Count != 0)
