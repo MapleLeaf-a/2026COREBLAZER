@@ -172,4 +172,22 @@ public class InputManager : MonoBehaviour
     //        }
     //    }
     //}
+
+    /// <summary>
+    /// 按住中(每帧返回 true), 用于长音符 Holding 检测
+    /// </summary>
+    public bool GetJudgeKey_MusicGame(int trackCount, int trackIndex)
+    {
+        if (trackCount == 1) return GetKey("Judge");
+        return GetKey($"JudgeTrack{trackIndex}");
+    }
+
+    /// <summary>
+    /// 松开瞬间, 用于长音符尾判
+    /// </summary>
+    public bool GetJudgeKeyUp_MusicGame(int trackCount, int trackIndex)
+    {
+        if (trackCount == 1) return GetKeyUp("Judge");
+        return GetKeyUp($"JudgeTrack{trackIndex}");
+    }
 }

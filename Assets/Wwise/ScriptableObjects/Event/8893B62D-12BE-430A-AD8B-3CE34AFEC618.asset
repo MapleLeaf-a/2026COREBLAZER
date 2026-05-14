@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb93b52fd61473f4ebd2803570152ad2, type: 3}
+  m_Name: 8893B62D-12BE-430A-AD8B-3CE34AFEC618
+  m_EditorClassIdentifier: 
+  objectName: Play_kashinomai
+  id: 1965924116
+  guid: 8893B62D-12BE-430A-AD8B-3CE34AFEC618
+  IsInUserDefinedSoundBank: 1

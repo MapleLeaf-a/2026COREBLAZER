@@ -74,15 +74,37 @@ public class TracksManager : MonoBehaviour
             notesPre = NotesStatics.stepsPreTyped[currentStepId];
         }
 
+        // 自动从 NotesStatics 加载谱面 (如果指定了步骤)
+        List<NoteManager.LongNoteData> longsPre = null;
+        if (!string.IsNullOrEmpty(currentStepId) && NotesStatics.stepsPreTyped != null && NotesStatics.stepsPreTyped.ContainsKey(currentStepId))
+        {
+            notesPre = NotesStatics.stepsPreTyped[currentStepId];
+
+            // 读对应的长音符列表
+            if (NotesStatics.stepsLongs != null && NotesStatics.stepsLongs.ContainsKey(currentStepId))
+            {
+                longsPre = new List<NoteManager.LongNoteData>();
+                foreach (var l in NotesStatics.stepsLongs[currentStepId])
+                {
+                    longsPre.Add(new NoteManager.LongNoteData
+                    {
+                        start = l.start,
+                        length = l.length,
+                        typeIndex = l.typeIndex
+                    });
+                }
+            }
+        }
+
         if (tracks.Count == 1)
         {
-            tracks[0].Initialize(0, tracks.Count, notesPre, this);
+            tracks[0].Initialize(0, tracks.Count, notesPre, longsPre, this);
         }
         else
         {
             for (int i = 0; i < tracks.Count; i++)
             {
-                tracks[i].Initialize(i, tracks.Count, notesPres[i], this);
+                tracks[i].Initialize(i, tracks.Count, notesPres[i], null, this);
             }
         }
 

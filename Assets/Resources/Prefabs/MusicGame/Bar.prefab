@@ -239,7 +239,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 3849728399441101608}
-  barIndex: 0
 --- !u!114 &4149136733221196423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,5 +254,7 @@ MonoBehaviour:
   spawnHorizontalOffset: 8
   direction: 2
   notePrefab: {fileID: 5184792620345489454, guid: 903a7ee0c7603034c9f40f2d3620064e, type: 3}
+  notePrefabsByType: []
   bar: {fileID: 8273302596305066737}
   canvas: {fileID: 0}
+  longNotePrefab: {fileID: 419470181584188534, guid: c642ba94cf542b444870801b5787a9a4, type: 3}
