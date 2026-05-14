@@ -1116,7 +1116,7 @@ PrefabInstance:
       objectReference: {fileID: 1417406174}
     - target: {fileID: 6990136206122637923, guid: 3e91a2b16f548be48bba34bc7b8f1c0a, type: 3}
       propertyPath: currentStepId
-      value: step_002
+      value: step_001
       objectReference: {fileID: 0}
     - target: {fileID: 6990136206122637923, guid: 3e91a2b16f548be48bba34bc7b8f1c0a, type: 3}
       propertyPath: tracks.Array.size

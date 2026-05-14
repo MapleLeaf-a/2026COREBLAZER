@@ -20,7 +20,7 @@ using UnityEngine;
 //
 //   noteTypes        -- 所有音符种类的定义 (id/label/color/shape)
 //   stepsPreTyped    -- Dict<step_id, List<int>>: 0=空格, 1+=noteTypes 中第 (n-1) 种 ★推荐用这个
-//   stepsLongs       -- Dict<step_id, List<LongNote>>: 长按音符 (留给未来引擎升级)
+//   stepsLongs       -- Dict<step_id, List<LongNote1>>: 长按音符 (留给未来引擎升级)
 //   dishesPre        -- Dict<dish_id, List<DishStep>>: 菜品 = 步骤序列
 //   notesPreTyped    -- Dict<dish_id, List<int>>: 已拼好的扁平带类型谱面 ★推荐
 //   stepsPre         -- Dict<step_id, List<bool>>: 向后兼容 (只有 有/无, 丢失种类)
@@ -56,7 +56,7 @@ public class NoteTypeInfo {
 
 // 长按音符 (未来引擎升级用)
 [System.Serializable]
-public class LongNote {
+public class LongNote1 {
     public int start;       // 起始格索引
     public int length;      // 持续多少格
     public int typeIndex;   // 1-based, 对应 NotesStatics.noteTypes
@@ -116,59 +116,59 @@ public static class NotesStatics {
     };
 
     // 各步骤的长按音符 (当前引擎暂未消费, 留给未来升级)
-    public static Dictionary<string, List<LongNote>> stepsLongs = new Dictionary<string, List<LongNote>>() {
-        {"step_001", new List<LongNote>() {
-            new LongNote { start = 0, length = 58, typeIndex = 3 },
-            new LongNote { start = 241, length = 35, typeIndex = 8 },
+    public static Dictionary<string, List<LongNote1>> stepsLongs = new Dictionary<string, List<LongNote1>>() {
+        {"step_001", new List<LongNote1>() {
+            new LongNote1 { start = 0, length = 58, typeIndex = 3 },
+            new LongNote1 { start = 241, length = 35, typeIndex = 8 },
         }},
-        {"step_002", new List<LongNote>() {
-            new LongNote { start = 0, length = 58, typeIndex = 3 },
-            new LongNote { start = 66, length = 56, typeIndex = 7 },
+        {"step_002", new List<LongNote1>() {
+            new LongNote1 { start = 0, length = 58, typeIndex = 3 },
+            new LongNote1 { start = 66, length = 56, typeIndex = 7 },
         }},
-        {"step_003", new List<LongNote>() {
-            new LongNote { start = 0, length = 25, typeIndex = 10 },
-            new LongNote { start = 32, length = 26, typeIndex = 10 },
+        {"step_003", new List<LongNote1>() {
+            new LongNote1 { start = 0, length = 25, typeIndex = 10 },
+            new LongNote1 { start = 32, length = 26, typeIndex = 10 },
         }},
-        {"step_004", new List<LongNote>() {
-            new LongNote { start = 65, length = 26, typeIndex = 12 },
-            new LongNote { start = 97, length = 26, typeIndex = 7 },
-            new LongNote { start = 162, length = 25, typeIndex = 12 },
+        {"step_004", new List<LongNote1>() {
+            new LongNote1 { start = 65, length = 26, typeIndex = 12 },
+            new LongNote1 { start = 97, length = 26, typeIndex = 7 },
+            new LongNote1 { start = 162, length = 25, typeIndex = 12 },
         }},
-        {"step_005", new List<LongNote>() {
-            new LongNote { start = 0, length = 58, typeIndex = 3 },
-            new LongNote { start = 65, length = 57, typeIndex = 14 },
-            new LongNote { start = 194, length = 26, typeIndex = 15 },
-            new LongNote { start = 226, length = 25, typeIndex = 15 },
-            new LongNote { start = 273, length = 35, typeIndex = 12 },
+        {"step_005", new List<LongNote1>() {
+            new LongNote1 { start = 0, length = 58, typeIndex = 3 },
+            new LongNote1 { start = 65, length = 57, typeIndex = 14 },
+            new LongNote1 { start = 194, length = 26, typeIndex = 15 },
+            new LongNote1 { start = 226, length = 25, typeIndex = 15 },
+            new LongNote1 { start = 273, length = 35, typeIndex = 12 },
         }},
-        {"step_006", new List<LongNote>() {
-            new LongNote { start = 0, length = 58, typeIndex = 3 },
-            new LongNote { start = 128, length = 59, typeIndex = 7 },
+        {"step_006", new List<LongNote1>() {
+            new LongNote1 { start = 0, length = 58, typeIndex = 3 },
+            new LongNote1 { start = 128, length = 59, typeIndex = 7 },
         }},
-        {"step_007", new List<LongNote>() {
-            new LongNote { start = 0, length = 58, typeIndex = 3 },
-            new LongNote { start = 194, length = 26, typeIndex = 16 },
+        {"step_007", new List<LongNote1>() {
+            new LongNote1 { start = 0, length = 58, typeIndex = 3 },
+            new LongNote1 { start = 194, length = 26, typeIndex = 16 },
         }},
-        {"step_008", new List<LongNote>() {
-            new LongNote { start = 0, length = 58, typeIndex = 3 },
-            new LongNote { start = 193, length = 27, typeIndex = 16 },
+        {"step_008", new List<LongNote1>() {
+            new LongNote1 { start = 0, length = 58, typeIndex = 3 },
+            new LongNote1 { start = 193, length = 27, typeIndex = 16 },
         }},
-        {"step_009", new List<LongNote>() {
-            new LongNote { start = 64, length = 26, typeIndex = 17 },
-            new LongNote { start = 98, length = 24, typeIndex = 17 },
-            new LongNote { start = 130, length = 25, typeIndex = 17 },
-            new LongNote { start = 194, length = 25, typeIndex = 17 },
+        {"step_009", new List<LongNote1>() {
+            new LongNote1 { start = 64, length = 26, typeIndex = 17 },
+            new LongNote1 { start = 98, length = 24, typeIndex = 17 },
+            new LongNote1 { start = 130, length = 25, typeIndex = 17 },
+            new LongNote1 { start = 194, length = 25, typeIndex = 17 },
         }},
-        {"step_010", new List<LongNote>() {
-            new LongNote { start = 81, length = 34, typeIndex = 19 },
-            new LongNote { start = 130, length = 58, typeIndex = 17 },
-            new LongNote { start = 195, length = 24, typeIndex = 15 },
-            new LongNote { start = 226, length = 25, typeIndex = 15 },
-            new LongNote { start = 339, length = 34, typeIndex = 13 },
-            new LongNote { start = 290, length = 15, typeIndex = 19 },
-            new LongNote { start = 307, length = 13, typeIndex = 19 },
+        {"step_010", new List<LongNote1>() {
+            new LongNote1 { start = 81, length = 34, typeIndex = 19 },
+            new LongNote1 { start = 130, length = 58, typeIndex = 17 },
+            new LongNote1 { start = 195, length = 24, typeIndex = 15 },
+            new LongNote1 { start = 226, length = 25, typeIndex = 15 },
+            new LongNote1 { start = 339, length = 34, typeIndex = 13 },
+            new LongNote1 { start = 290, length = 15, typeIndex = 19 },
+            new LongNote1 { start = 307, length = 13, typeIndex = 19 },
         }},
-        {"step_011", new List<LongNote>() {}},
+        {"step_011", new List<LongNote1>() {}},
     };
 
     // 菜品 -- 每个菜品由若干步骤组合

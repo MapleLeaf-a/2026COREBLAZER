@@ -54,6 +54,21 @@ public class NoteManager : MonoBehaviour
     //轨道管理者
     TracksManager tracksManager;
 
+    [Header("长音符预制体")]
+    public GameObject longNotePrefab;
+
+    // 长音符数据 (从 NotesStatics.stepsLongs 来)
+    private List<LongNoteData> longs;
+    // 已生成但还没完成的长音符
+    private List<LongNote> activeLongNotes = new List<LongNote>();
+
+    [System.Serializable]
+    public class LongNoteData
+    {
+        public int start;
+        public int length;
+        public int typeIndex;
+    }
     void Start()
     {
         movementStrategy = CreateMoveStategy(direction);
@@ -66,27 +81,44 @@ public class NoteManager : MonoBehaviour
         timer += Time.deltaTime;
         if (iForNotes < notes.Count && timer > spawnInterval)
         {
-            if (notes[iForNotes] > 0)
+            // 先看这个格子是不是某个长音符的起点
+            LongNoteData ln = FindLongNoteStartAt(iForNotes);
+            if (ln != null)
+            {
+                SpawnLongNote(ln);
+                // 长音符起点的位置不再生成普通音符 (即使 notes[iForNotes]>0)
+            }
+            else if (notes[iForNotes] > 0)
             {
                 SpawnNote(notes[iForNotes]);
             }
             iForNotes++;
-            
             timer = 0;
         }
-        if (iForNotes >= notes.Count && !tracksManager.TrackOutOfPre() && !over && NoteListCount == 0)
+        if (iForNotes >= notes.Count && !tracksManager.TrackOutOfPre() && !over
+            && NoteListCount == 0 && activeLongNotes.Count == 0)
         {
             over = true;
             ScoreManager.ScoreManagerInstance?.score.ComputeFinalRate();
-            //Debug.Log("Perfect率:" + ScoreManager.ScoreManagerInstance?.score.GetFinalRate());
         }
     }
 
-    public void Initialize(int trackIndex, int trackCount, List<int> notesPre, TracksManager tracksManager)
+    private LongNoteData FindLongNoteStartAt(int cellIdx)
+    {
+        foreach (var l in longs)
+        {
+            if (l.start == cellIdx) return l;
+        }
+        return null;
+    }
+
+    public void Initialize(int trackIndex, int trackCount, List<int> notesPre,
+                           List<LongNoteData> longsPre, TracksManager tracksManager)
     {
         this.trackIndex = trackIndex;
         this.trackCount = trackCount;
         this.notes = notesPre;
+        this.longs = longsPre ?? new List<LongNoteData>();
         this.tracksManager = tracksManager;
     }
 
@@ -143,6 +175,42 @@ public class NoteManager : MonoBehaviour
 
         AddNote(note);
     }
+
+    private void SpawnLongNote(LongNoteData data)
+    {
+        if (longNotePrefab == null)
+        {
+            Debug.LogWarning("longNotePrefab 未设置, 长音符跳过 (在 NoteManager 上拖一个 LongNote prefab)");
+            return;
+        }
+
+        Vector3 spawnPos = bar.transform.position - movementStrategy.GetMoveDirV3() * spawnHorizontalOffset;
+        GameObject obj = Instantiate(longNotePrefab, spawnPos, longNotePrefab.transform.rotation, canvas.transform);
+
+        LongNote ln = obj.GetComponent<LongNote>();
+
+        // 颜色按种类取
+        Color c = Color.white;
+        // 这里你可以根据 typeIndex 查 NotesStatics.noteTypes[typeIdx-1].color
+        // 简化版: 先用白色, 之后再加查色逻辑
+        // (typeIndex 1-based, 0=无)
+        int idx = data.typeIndex - 1;
+        if (idx >= 0 && idx < NotesStatics.noteTypes.Count)
+        {
+            ColorUtility.TryParseHtmlString(NotesStatics.noteTypes[idx].color, out c);
+        }
+
+        ln.Initialize(this, bar, movementStrategy, noteSpeed, data.length, spawnInterval, c);
+        activeLongNotes.Add(ln);
+    }
+
+    public void RemoveLongNote(LongNote ln)
+    {
+        activeLongNotes.Remove(ln);
+        // 不立即销毁 GameObject, 让 LongNote 自己出屏幕后销毁
+    }
+
+    public List<LongNote> ActiveLongNotes => activeLongNotes;
 
     //添加一个音符
     public void AddNote(Note note)

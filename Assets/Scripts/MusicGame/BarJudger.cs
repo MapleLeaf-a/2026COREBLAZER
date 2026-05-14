@@ -31,23 +31,53 @@ public class BarJudger : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.instance.GetJudgeKeyDown_MusicGame(trackCount, trackIndex))
+        bool keyDown = InputManager.instance.GetJudgeKeyDown_MusicGame(trackCount, trackIndex);
+        bool keyUp = InputManager.instance.GetJudgeKeyUp_MusicGame(trackCount, trackIndex);
+
+        // 按下: 优先判长音符头, 否则判点音符
+        if (keyDown)
         {
+            // 看队列里有没有等待判头的长音符
+            LongNote pendingLong = null;
+            foreach (var ln in noteManager.ActiveLongNotes)
+            {
+                if (ln.state == LongNote.State.WaitingForHead)
+                {
+                    pendingLong = ln;
+                    break;
+                }
+            }
+
+            if (pendingLong != null && pendingLong.JudgeHead())
+            {
+                noteManager.AddBarIndex(trackIndex);
+                return;
+            }
+
+            // 否则判普通点音符
             if (noteManager.NoteListCount > 0)
             {
                 Note note = noteManager.PeekFirstNote();
-                if (note.JudgeTime()) //假如音符判定了
+                if (note.JudgeTime())
                 {
-                    ScoreManager.ScoreManagerInstance?.score.AddNoteCount(); //增加音符计数
-                    ScoreManager.ScoreManagerInstance?.score.UpdateCurrentRate(); //更新目前的perfect率
-                    ScoreManager.ScoreManagerInstance?.UpdateCurrentScoreText(); //更新文本
-
+                    ScoreManager.ScoreManagerInstance?.score.AddNoteCount();
+                    ScoreManager.ScoreManagerInstance?.score.UpdateCurrentRate();
+                    ScoreManager.ScoreManagerInstance?.UpdateCurrentScoreText();
                     noteManager.AddBarIndex(trackIndex);
                 }
             }
-            else
+        }
+
+        // 松开: 处理 Holding 中或 WaitingForTail 的长音符
+        if (keyUp)
+        {
+            foreach (var ln in noteManager.ActiveLongNotes)
             {
-                Debug.Log("轨道上已无音符！");
+                if (ln.state == LongNote.State.Holding || ln.state == LongNote.State.WaitingForTail)
+                {
+                    ln.OnRelease();
+                    break;
+                }
             }
         }
     }
