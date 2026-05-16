@@ -28,6 +28,14 @@ public class TestBackpack : MonoBehaviour
 
     public OrderIngredientsView orderIngredientsView;
 
+
+
+    public FoodModel foodModel;
+    public FoodView foodView;
+
+    public GuestFoodModel guestFoodModel;
+    public GuestFoodView guestFoodView;
+
     void Awake()
     {
         if (instance == null)
@@ -73,6 +81,19 @@ public class TestBackpack : MonoBehaviour
         orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("102"));
         orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("103"));
         orderIngredientsView.InitBackpackView(orderIngredientsModel);
+
+
+        foodModel = new FoodModel(12);
+        Food food1 = new Food(foodRecipe1);
+        Food food2 = new Food(foodRecipe2);
+        Food food3 = new Food(foodRecipe3);
+        foodModel.AddItem(food1);
+        foodModel.AddItem(food2);
+        foodModel.AddItem(food3);
+        foodView.InitBackpackView(foodModel);
+
+        guestFoodModel = new GuestFoodModel(12);
+        guestFoodView.InitBackpackView(guestFoodModel);
     }
 
     void Update()
