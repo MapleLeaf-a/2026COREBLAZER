@@ -1,20 +1,29 @@
 using UnityEngine;
 
 /// <summary>
-/// ³¤Òô·û: Í·²¿ºÍÎ²²¿¸÷ÅĞ¶¨Ò»´Î, ÖĞ¼äĞè±£³Ö°´×¡
-/// ×´Ì¬»ú: WaitingForHead ¡ú Holding ¡ú WaitingForTail ¡ú Done / Broken
+/// é•¿éŸ³ç¬¦: å¤´éƒ¨å’Œå°¾éƒ¨å„åˆ¤å®šä¸€æ¬¡, ä¸­é—´éœ€ä¿æŒæŒ‰ä½
+/// çŠ¶æ€æœº: WaitingForHead â†’ Holding â†’ WaitingForTail â†’ Done / Broken
+///
+/// è®¡åˆ†è§„åˆ™ (ä¸è®¾è®¡æ–‡æ¡£å¯¹é½):
+///   é•¿éŸ³ç¬¦ = 1 ä¸ªéŸ³ç¬¦ (NoteCount + 1, ä»…åœ¨ç»“ç®—æ—¶è®¡ 1 æ¬¡)
+///   æ€»å¾—åˆ† = headPct Ã— 0.3 + holdPct Ã— 0.4 + tailPct Ã— 0.3   (æ»¡åˆ† 1.0)
+///     - headPct: å¤´éƒ¨æŒ‰ä¸‹ç²¾åº¦ (Perfect=1.0, Good=0.8, So-so=0.6, Miss=0)
+///     - holdPct: ä¿æŒæ—¶é•¿æ¯”ä¾‹ (ä¸€ç›´æŒ‰ä½åˆ° Hold ç»“æŸ = 1.0; ä¸­é€”æ¾æ‰‹ = å·²ä¿æŒ/æ€»æ—¶é•¿)
+///     - tailPct: å°¾éƒ¨ç²¾åº¦ (Perfect=1.0, Good=0.8, So-so=0.6, Miss=0)
+///   BREAK ç‰¹æ®Š: ä¸­é€”æ¾æ‰‹å¾—åˆ† = headPct Ã— 30% + holdPct Ã— 40% (æŒ‰å®é™…æŒ‰ä½çš„æ¯”ä¾‹ç»™ hold æ®µ, æ‹¿ä¸åˆ°å°¾éƒ¨ 30%)
+///   å¤´éƒ¨ Totally MISS: æ•´ä¸ªé•¿éŸ³ç¬¦å¾—åˆ† = 0 (ç›¸å½“äºå®Œå…¨æ²¡æ¥ä½)
 /// </summary>
 public class LongNote : MonoBehaviour
 {
     public enum State { WaitingForHead, Holding, WaitingForTail, Done, Broken }
     public State state = State.WaitingForHead;
 
-    [Header("ÊÓ¾õ²¿¼ş (ÔÚ prefab ÀïÖ¸¶¨)")]
-    public Transform head;        // Í·²¿ (SpriteRenderer)
-    public Transform tail;        // Î²²¿ (SpriteRenderer)
-    public SpriteRenderer body;   // ÖĞ¼äÁ¬½ÓÌõ (Sprite Draw Mode = Tiled)
+    [Header("è§†è§‰éƒ¨ä»¶ (åœ¨ prefab é‡ŒæŒ‡å®š)")]
+    public Transform head;        // å¤´éƒ¨ (SpriteRenderer)
+    public Transform tail;        // å°¾éƒ¨ (SpriteRenderer)
+    public SpriteRenderer body;   // ä¸­é—´è¿æ¥æ¡ (Sprite Draw Mode = Tiled)
 
-    [Header("Òô·ûÖÖÀà×ÅÉ«")]
+    [Header("éŸ³ç¬¦ç§ç±»ç€è‰²")]
     public SpriteRenderer headRenderer;
     public SpriteRenderer tailRenderer;
 
@@ -28,10 +37,16 @@ public class LongNote : MonoBehaviour
     private NoteManager noteManager;
     private Camera mainCamera;
 
-    // Í·²¿ºÍÎ²²¿·Ö±ğÏà¶ÔÅĞ¶¨ÌõµÄÖáÏòÎ»ÖÃ
+    // å¤´éƒ¨å’Œå°¾éƒ¨åˆ†åˆ«ç›¸å¯¹åˆ¤å®šæ¡çš„è½´å‘ä½ç½®
     private float barP;
     private bool headJudged = false;
     private bool tailJudged = false;
+
+    // === è®¡åˆ†è·Ÿè¸ª (æœ¬é•¿éŸ³ç¬¦ä¸€ç”Ÿçš„è¿‡ç¨‹é‡) ===
+    private float headPct = 0f;            // å¤´éƒ¨æŒ‰ä¸‹ç²¾åº¦ [0, 1]
+    private float tailPct = 0f;            // å°¾éƒ¨ç²¾åº¦ [0, 1]
+    private float holdStartTime = -1f;     // å¤´éƒ¨ Judge æ—¶çš„æ¸¸æˆæ—¶é—´
+    private float expectedHoldDuration;    // å¤´åˆ°å°¾çš„ä¸–ç•Œé•¿åº¦å¯¹åº”çš„æ—¶é—´ (ç§’)
 
     public void Initialize(NoteManager nm, GameObject bar, IMovementStrategy strategy,
                            float speed, int lengthInCells, float spawnInterval, Color color)
@@ -45,25 +60,27 @@ public class LongNote : MonoBehaviour
         this.spawnInterval = spawnInterval;
         this.mainCamera = Camera.main;
 
-        // µ÷ÕûÎ²²¿Î»ÖÃºÍÖĞ¼äÌõµÄ³¤¶È
-        // ³¤¶È = (¸ñÊı-1) ¡Á Ã¿¸ñÃëÊı ¡Á ËÙ¶È (ÊÀ½çµ¥Î»)
+        // è°ƒæ•´å°¾éƒ¨ä½ç½®å’Œä¸­é—´æ¡çš„é•¿åº¦
+        // é•¿åº¦ = (æ ¼æ•°-1) Ã— æ¯æ ¼ç§’æ•° Ã— é€Ÿåº¦ (ä¸–ç•Œå•ä½)
         float worldLength = (lengthInCells - 1) * spawnInterval * speed;
+        // é¢„æœŸä¿æŒæ—¶é•¿ = ä¸–ç•Œé•¿åº¦ / é€Ÿåº¦ = (æ ¼æ•°-1) Ã— æ¯æ ¼ç§’æ•°
+        expectedHoldDuration = (lengthInCells - 1) * spawnInterval;
+
         if (tail != null)
         {
-            // Î²²¿ÑØ"Òô·ûÇ°½ø·½ÏòµÄ·´·½Ïò"°Ú·Å
-            // ±ÈÈçÏò×óÒÆ¶¯, Î²²¿¾ÍÔÚÓÒ±ß
+            // å°¾éƒ¨æ²¿"éŸ³ç¬¦å‰è¿›æ–¹å‘çš„åæ–¹å‘"æ‘†æ”¾
             Vector3 backward = -movementStrategy.GetMoveDirV3();
             tail.localPosition = backward * worldLength;
         }
         if (body != null)
         {
-            // body µÄ size.x À­µ½Æ¥Åä³¤¶È
+            // body çš„ size.x æ‹‰åˆ°åŒ¹é…é•¿åº¦
             body.size = new Vector2(worldLength, body.size.y);
-            // body ¾ÓÖĞ
+            // body å±…ä¸­
             body.transform.localPosition = (-movementStrategy.GetMoveDirV3()) * (worldLength / 2f);
         }
 
-        // °´ÖÖÀà×ÅÉ« (ÓÃÒô·ûÖÖÀàµÄÑÕÉ«)
+        // æŒ‰ç§ç±»ç€è‰² (ç”¨éŸ³ç¬¦ç§ç±»çš„é¢œè‰²)
         if (headRenderer != null) headRenderer.color = color;
         if (tailRenderer != null) tailRenderer.color = color;
         if (body != null) body.color = new Color(color.r, color.g, color.b, 0.5f);
@@ -73,28 +90,30 @@ public class LongNote : MonoBehaviour
 
     void Update()
     {
-        // ÕûÌåÒÆ¶¯ (¸ú Note Ò»Ñù)
+        // æ•´ä½“ç§»åŠ¨ (è·Ÿ Note ä¸€æ ·)
         transform.Translate(speed * Time.deltaTime * movementStrategy.GetMoveDirV3());
 
-        // Í·Î²µÄÊÀ½çÎ»ÖÃ
+        // å¤´å°¾çš„ä¸–ç•Œä½ç½®
         float headP = head != null ? movementStrategy.GetPositionOnAxis(head) : movementStrategy.GetPositionOnAxis(transform);
         float tailP = tail != null ? movementStrategy.GetPositionOnAxis(tail) : headP;
 
-        // === ×´Ì¬»ú ===
+        // === çŠ¶æ€æœº ===
         switch (state)
         {
             case State.WaitingForHead:
-                // Í·³¬³öÅĞ¶¨Çø»¹Ã»ÅĞ ¡ú Totally MISS
+                // å¤´è¶…å‡ºåˆ¤å®šåŒºè¿˜æ²¡æŒ‰ â†’ Totally MISS (æ•´ä¸ªé•¿éŸ³ç¬¦ 0 åˆ†)
                 if (headP < barP - BarJudger.miss * speed)
                 {
                     barJudger.ShowText("Totally MISS!", Color.red);
                     state = State.Broken;
-                    OnLongNoteEnd(missCountIncrement: 1);
+                    headPct = 0f;
+                    tailPct = 0f;
+                    FinalizeScore(brokenInMid: false);
                 }
                 break;
 
             case State.Holding:
-                // µÈ´ıÎ²²¿½øÈëÅĞ¶¨Çø
+                // ç­‰å¾…å°¾éƒ¨è¿›å…¥åˆ¤å®šåŒº
                 if (tailP < barP + BarJudger.miss * speed)
                 {
                     state = State.WaitingForTail;
@@ -102,23 +121,32 @@ public class LongNote : MonoBehaviour
                 break;
 
             case State.WaitingForTail:
-                // Íæ¼ÒÒ»Ö±°´×Å, Î²µ½´ïÅĞ¶¨Ìõ ¡ú ×Ô¶¯ÅĞ Perfect
-                // (°´×¡µ½µ×ÊÓÎªÍêÃÀÍê³É, ²»Ç¿ÖÆÒªÇóËÉÊÖ)
+                // ç©å®¶ä¸€ç›´æŒ‰ç€, å°¾åˆ°è¾¾åˆ¤å®šæ¡ â†’ è‡ªåŠ¨åˆ¤ Perfect
+                // (æŒ‰åˆ°åº•è§†ä¸ºå®Œç¾å®Œæˆ, ä¸å¼ºåˆ¶è¦æ±‚æ¾æ‰‹)
                 if (Mathf.Abs(tailP - barP) < speed * BarJudger.perfect)
                 {
                     barJudger.ShowText("Perfect!", Color.yellow);
-                    ScoreManager.ScoreManagerInstance?.score.AddScore("Perfect!");
+                    tailPct = 1f;
                     tailJudged = true;
                     state = State.Done;
-                    OnLongNoteEnd(missCountIncrement: 0);
+                    FinalizeScore(brokenInMid: false);
 
                     if (tailRenderer != null)
                         tailRenderer.color = new Color(tailRenderer.color.r, tailRenderer.color.g, tailRenderer.color.b, 0.5f);
                 }
+                else if (tailP < barP - BarJudger.miss * speed)
+                {
+                    // å°¾éƒ¨å®Œå…¨ç¦»å¼€åˆ¤å®šåŒºè¿˜æ²¡æ¾æ‰‹ â†’ å½“ä½œ Miss tail
+                    barJudger.ShowText("Miss!", Color.red);
+                    tailPct = 0f;
+                    tailJudged = true;
+                    state = State.Done;
+                    FinalizeScore(brokenInMid: false);
+                }
                 break;
         }
 
-        // µÈÎ²°ÍÒ²³öÆÁÄ»Ö®ºóÔÙÏú»Ù
+        // ç­‰å°¾å·´ä¹Ÿå‡ºå±å¹•ä¹‹åå†é”€æ¯
         if (mainCamera != null && tail != null)
         {
             Vector3 screenPos = mainCamera.WorldToScreenPoint(tail.position);
@@ -131,7 +159,7 @@ public class LongNote : MonoBehaviour
     }
 
     /// <summary>
-    /// Í·²¿ÅĞ¶¨: Íæ¼Ò°´ÏÂÊ± BarJudger µ÷ÓÃ
+    /// å¤´éƒ¨åˆ¤å®š: ç©å®¶æŒ‰ä¸‹æ—¶ BarJudger è°ƒç”¨
     /// </summary>
     public bool JudgeHead()
     {
@@ -139,27 +167,36 @@ public class LongNote : MonoBehaviour
 
         float headP = head != null ? movementStrategy.GetPositionOnAxis(head) : movementStrategy.GetPositionOnAxis(transform);
 
-        // Î´µ½ÅĞ¶¨Çø
+        // æœªåˆ°åˆ¤å®šåŒº
         if (barP + speed * BarJudger.miss < headP) return false;
 
+        // å¤´éƒ¨ç²¾åº¦åˆ¤å®š â†’ ç®— headPct
         if (Mathf.Abs(headP - barP) < speed * BarJudger.perfect)
+        {
             barJudger.ShowText("Perfect!", Color.yellow);
+            headPct = 1f;
+        }
         else if (Mathf.Abs(headP - barP) < speed * BarJudger.good)
+        {
             barJudger.ShowText("Good!", Color.green);
+            headPct = 0.8f;
+        }
         else if (Mathf.Abs(headP - barP) < speed * BarJudger.soso)
+        {
             barJudger.ShowText("So-so!", Color.cyan);
+            headPct = 0.6f;
+        }
         else
+        {
             barJudger.ShowText("Miss!", Color.red);
+            headPct = 0f;
+        }
 
         headJudged = true;
         state = State.Holding;
+        holdStartTime = Time.time;
 
-        // Í·ÅĞËãÒ»¸öÒô·û
-        ScoreManager.ScoreManagerInstance?.score.AddNoteCount();
-        ScoreManager.ScoreManagerInstance?.score.UpdateCurrentRate();
-        ScoreManager.ScoreManagerInstance?.UpdateCurrentScoreText();
-
-        // Í·²¿ÊÓ¾õ·´À¡: °ëÍ¸Ã÷
+        // å¤´éƒ¨è§†è§‰åé¦ˆ: åŠé€æ˜
         if (headRenderer != null)
             headRenderer.color = new Color(headRenderer.color.r, headRenderer.color.g, headRenderer.color.b, 0.5f);
 
@@ -167,60 +204,104 @@ public class LongNote : MonoBehaviour
     }
 
     /// <summary>
-    /// Íæ¼ÒËÉ¿ª°´¼ü: ÖĞÍ¾ËÉÊÖ ¡ú break, Ä©Î²´°ÄÚ ¡ú Î²ÅĞ
+    /// ç©å®¶æ¾å¼€æŒ‰é”®: ä¸­é€”æ¾æ‰‹ â†’ break, æœ«å°¾çª—å£å†… â†’ å°¾åˆ¤
     /// </summary>
     public void OnRelease()
     {
         if (state == State.Holding)
         {
-            // ÖĞÍ¾ËÉÊÖ ¡ú break
+            // ä¸­é€”æ¾æ‰‹ â†’ BREAK
             barJudger.ShowText("BREAK!", Color.red);
             state = State.Broken;
-            OnLongNoteEnd(missCountIncrement: 1);  // Î²°ÍËãÒ»¸ö miss
+            tailPct = 0f;
+            FinalizeScore(brokenInMid: true);
         }
         else if (state == State.WaitingForTail)
         {
-            // Ä©Î²´°ÄÚËÉÊÖ ¡ú Î²ÅĞ
+            // æœ«å°¾çª—å£å†…æ¾æ‰‹ â†’ æŒ‰å°¾éƒ¨ç²¾åº¦åˆ¤å®š
             float tailP = tail != null ? movementStrategy.GetPositionOnAxis(tail) : 0f;
 
             if (Mathf.Abs(tailP - barP) < speed * BarJudger.perfect)
             {
                 barJudger.ShowText("Perfect!", Color.yellow);
-                ScoreManager.ScoreManagerInstance?.score.AddScore("Perfect!");
+                tailPct = 1f;
             }
             else if (Mathf.Abs(tailP - barP) < speed * BarJudger.good)
             {
                 barJudger.ShowText("Good!", Color.green);
-                ScoreManager.ScoreManagerInstance?.score.AddScore("Good!");
+                tailPct = 0.8f;
             }
             else if (Mathf.Abs(tailP - barP) < speed * BarJudger.soso)
             {
                 barJudger.ShowText("So-so!", Color.cyan);
-                ScoreManager.ScoreManagerInstance?.score.AddScore("So-so!");
+                tailPct = 0.6f;
             }
             else
             {
                 barJudger.ShowText("Miss!", Color.red);
+                tailPct = 0f;
             }
 
             tailJudged = true;
             state = State.Done;
-            OnLongNoteEnd(missCountIncrement: 0);
+            FinalizeScore(brokenInMid: false);
 
-            // Î²²¿ÊÓ¾õ·´À¡
+            // å°¾éƒ¨è§†è§‰åé¦ˆ
             if (tailRenderer != null)
                 tailRenderer.color = new Color(tailRenderer.color.r, tailRenderer.color.g, tailRenderer.color.b, 0.5f);
         }
     }
 
-    private void OnLongNoteEnd(int missCountIncrement)
+    /// <summary>
+    /// åœ¨é•¿éŸ³ç¬¦æ•´ä¸ªç”Ÿå‘½å‘¨æœŸç»“æŸæ—¶è°ƒç”¨ä¸€æ¬¡, è®¡å…¥ NoteCount + Score.
+    /// brokenInMid: true è¡¨ç¤ºä¸­é€”æ¾æ‰‹ BREAK (æŒ‰ hold æ¯”ä¾‹ç»™ hold æ®µåˆ†æ•°, æ‹¿ä¸åˆ°å°¾éƒ¨);
+    ///              false è¡¨ç¤ºæ­£å¸¸ / å°¾éƒ¨ Miss / å¤´éƒ¨ Totally MISS (æŒ‰ 3:4:3 åŠ æƒ)
+    /// </summary>
+    private void FinalizeScore(bool brokenInMid)
     {
-        // Î²°ÍËãÒ»¸öÒô·û (ÎŞÂÛ break »¹ÊÇÕı³£Íê³É)
+        float totalPct;
+        float holdPct;
+
+        if (brokenInMid)
+        {
+            // BREAK: æ‹¿åˆ° head é‚£ 30% + æŒ‰ hold æ¯”ä¾‹çš„ 0~40%, ä½†å¤±å»å°¾éƒ¨é‚£ 30%
+            // holdPct = å·²æŒ‰ä½æ—¶é—´ / é¢„æœŸä¿æŒæ—¶é•¿
+            if (expectedHoldDuration > 0f && holdStartTime >= 0f)
+            {
+                holdPct = Mathf.Clamp01((Time.time - holdStartTime) / expectedHoldDuration);
+            }
+            else
+            {
+                holdPct = 0f;
+            }
+            totalPct = headPct * 0.3f + holdPct * 0.4f;
+            // å°¾éƒ¨é‚£ 0.3f æ°¸è¿œæ‹¿ä¸åˆ° (BREAK æ²¡æ¥ä½å°¾)
+        }
+        else
+        {
+            // æ­£å¸¸å®Œæˆ / å°¾éƒ¨ Miss / å¤´éƒ¨ Totally MISS
+            if (state == State.Broken)
+            {
+                // å¤´éƒ¨ Totally MISS è¿›çš„ Broken: æ²¡æ¥ä½ä»»ä½•ä¸œè¥¿
+                holdPct = 0f;
+            }
+            else
+            {
+                // æ­£å¸¸å®Œæˆæˆ–å°¾éƒ¨ Miss: å¤´éƒ¨æŒ‰ä¸‹åä¸€ç›´æŒ‰åˆ° Done, hold å®Œæ•´
+                holdPct = 1f;
+            }
+            totalPct = headPct * 0.3f + holdPct * 0.4f + tailPct * 0.3f;
+        }
+
+        // ç´¯åŠ åˆ° ScoreManager: é•¿éŸ³ç¬¦ç®— 1 ä¸ªéŸ³ç¬¦
+        ScoreManager.ScoreManagerInstance?.score.AddScore(totalPct);
         ScoreManager.ScoreManagerInstance?.score.AddNoteCount();
         ScoreManager.ScoreManagerInstance?.score.UpdateCurrentRate();
         ScoreManager.ScoreManagerInstance?.UpdateCurrentScoreText();
 
-        // Í¨Öª NoteManager ÒÆ³ı×Ô¼º
+        Debug.Log($"[LongNote] ç»“ç®—: headPct={headPct:F2} holdPct={holdPct:F2} tailPct={tailPct:F2} totalPct={totalPct:F2} (broken={brokenInMid})");
+
+        // é€šçŸ¥ NoteManager ç§»é™¤è‡ªå·±
         noteManager.RemoveLongNote(this);
     }
 
