@@ -18,10 +18,6 @@ public static class FoodMaterials
             {"step_006", new FoodMaterial("step_006", 17, "星沫囊泡", "Images/Recipes/星沫囊泡", "一簇簇附着在伞背后的半透明囊体，大小如鱼丸。整体偏浅蓝或浅紫色，表面有微光。", StaticTemplates.Food.MaterialType.Seafood)},
             {"step_007", new FoodMaterial("step_007", 20, "白潮果", "Images/Recipes/白潮果", "一种乳白色外壳的大小似鸡蛋的硬质果实，根深埋在盐滩之中。", StaticTemplates.Food.MaterialType.Vegetable)},
             {"step_008", new FoodMaterial("step_008", 28, "团叶果母", "Images/Recipes/团叶果母", "漂浮在水面上的团状果体结合物，外面拖着一层层圆润叶片。", StaticTemplates.Food.MaterialType.Vegetable)},
-            //{"101", new FoodMaterial("101", 10, "KaZuHa", "Images/Recipes/kazuha", "枫原万叶,流浪的武士", StaticTemplates.Food.MaterialType.Drink) },
-            //{"102", new FoodMaterial("102", 114, "Fish", "Images/Recipes/fish", "只是咸鱼", StaticTemplates.Food.MaterialType.Seafood) },
-            //{"103", new FoodMaterial("103", 514, "Seaweed", "Images/Recipes/seaweed", "海草海草", StaticTemplates.Food.MaterialType.Seafood) },
-
         };
     }
 
