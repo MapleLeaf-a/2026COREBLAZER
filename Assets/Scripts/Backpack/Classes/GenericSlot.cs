@@ -39,6 +39,7 @@ public class GenericSlot<T> : MonoBehaviour where T : class
         {
             itemImage.sprite = image;
             itemImage.enabled = true;
+            itemImage.SetNativeSize();
         }
 
         SetSelected(isSelected);
