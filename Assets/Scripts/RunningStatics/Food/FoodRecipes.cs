@@ -13,15 +13,17 @@ public static class FoodRecipes
     static FoodRecipes()
     { 
         ingredients = new Dictionary<string, Dictionary<string, int>>() {
-            {"001", new Dictionary<string, int>(){ { "101", 3 } }  },
-            {"002", new Dictionary<string, int>(){ { "101", 1 }, { "102", 1 }, { "103", 1 } } },
-            {"003", new Dictionary<string, int>() }
+            {"step_004", new Dictionary<string, int>(){ { "step_001", 2 }, { "step_002", 2 }, { "step_003", 1 } }  },
+            {"step_009", new Dictionary<string, int>(){ { "step_006", 1 }, { "step_007", 1 }, { "step_008", 1 } } },
+            {"step_010", new Dictionary<string, int>(){ { "step_005", 2 }, } },
+            {"step_011", new Dictionary<string, int>() }
         };
 
         foodRecipes = new Dictionary<string, FoodRecipe>() {
-            {"001", new FoodRecipe(60, "001", "«·÷Àƒﬁª‘Œ’", "Images/Recipes/Sushi", ingredients["001"])},
-            {"002", new FoodRecipe(20, "002", "Ã¿", "Images/Recipes/Soup", ingredients["002"])},
-            {"003", new FoodRecipe(0, "003", "ÀÆ", "Images/Recipes/Water", ingredients["003"])},
+            {"step_004", new FoodRecipe(150, "step_004", "«·÷Àƒﬁª‘Œ’", "Images/Recipes/Sushi", ingredients["step_004"])},
+            {"step_009", new FoodRecipe(130, "step_009", "∏°µ∆“ª’µ", "Images/Recipes/seaweed", ingredients["step_009"])},
+            {"step_010", new FoodRecipe(140, "step_010", "–«ª∑∆—…’¥Æ", "Images/Recipes/Soup", ingredients["step_010"])},
+            {"step_011", new FoodRecipe(10, "step_011", "¬Ã≤Ë", "Images/Recipes/Water", ingredients["step_011"])},
         };
     }
 

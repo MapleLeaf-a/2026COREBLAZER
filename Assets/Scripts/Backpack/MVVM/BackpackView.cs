@@ -163,6 +163,8 @@ public abstract class BackpackView: View<BagItem, PackageUIItem>
             itemDescribeText.enabled = true;
 
             itemIconImage.sprite = backpackViewModel.GetSprite(item.SpritePath);
+            itemIconImage.SetNativeSize();
+            itemIconImage.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
             itemNameText.text = item.Name;
             itemDescribeText.text = item.Description;
         }
