@@ -34,6 +34,8 @@ public class IngredientUIItem : MonoBehaviour
         { 
             iconImage.sprite = image;
             iconImage.enabled = true;
+            iconImage.SetNativeSize();
+            iconImage.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
         }
 
         if (quantityText != null)

@@ -73,7 +73,9 @@ public class AllRecipesView : RecipesView
             if (item.ingredients.Count != 0) editEntryButton.gameObject.SetActive(true);  //如果有原材料,则可以编辑词条
             else editEntryButton.gameObject.SetActive(false);
 
-                itemIconImage.sprite = allRecipesViewModel.GetSprite(item.spritePath);
+            itemIconImage.sprite = allRecipesViewModel.GetSprite(item.spritePath);
+            itemIconImage.SetNativeSize();
+            //itemIconImage.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             itemNameText.text = item.name;
             itemPriceText.text = item.basePrice.ToString();
 
@@ -191,6 +193,7 @@ public class AllRecipesView : RecipesView
             if (success)
             {
                 v.todaysRecipeViewModel.Organize();
+                v.todaysRecipeViewModel.CaculateRespectedTurnover();
 
                //刷新两个背包的页面
                DragState<FoodRecipe, RecipesUIItem>.SourceView.RefreshUI();

@@ -11,8 +11,8 @@ public class TestBackpack : MonoBehaviour
     public BackpackModel backpackModel;
     public BackpackModel backpackMode2;
 
-    public UAVBackpackView backpackView1;
-    public FreezerView backpackView2;
+    public UAVBackpackView UAVBackpackView;
+    public FreezerView FreezerBackpackView;
 
     public AllRecipesModel allRecipesModel;
 
@@ -59,14 +59,14 @@ public class TestBackpack : MonoBehaviour
         backpackMode2.AddItem(bagItem4);
         backpackMode2.AddItemAt(bagItem6, 3);
 
-        backpackView1.InitBackpackView(backpackModel);
-        backpackView2.InitBackpackView(backpackMode2);
+        UAVBackpackView.InitBackpackView(backpackModel);
+        FreezerBackpackView.InitBackpackView(backpackMode2);
 
         FoodRecipe foodRecipe1 = FoodRecipes.LookUpFoodRecipe("step_004");
         FoodRecipe foodRecipe2 = FoodRecipes.LookUpFoodRecipe("step_009");
         FoodRecipe foodRecipe3 = FoodRecipes.LookUpFoodRecipe("step_010");
         FoodRecipe foodRecipe4 = FoodRecipes.LookUpFoodRecipe("step_011");
-        allRecipesModel = new AllRecipesModel(12);
+        allRecipesModel = new AllRecipesModel(8);
         allRecipesModel.AddItem(foodRecipe1);
         allRecipesModel.AddItem(foodRecipe2);
         allRecipesModel.AddItem(foodRecipe3);
@@ -74,14 +74,14 @@ public class TestBackpack : MonoBehaviour
         allRecipesView.InitBackpackView(allRecipesModel);
 
 
-        todaysRecipeModel = new TodaysRecipeModel(12);
+        todaysRecipeModel = new TodaysRecipeModel(8);
         //todaysRecipeModel.AddItem(foodRecipe1);
         todaysRecipeView.InitBackpackView(todaysRecipeModel);
 
         orderIngredientsModel = new OrderIngredientsModel(10);
-        orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("101"));
-        orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("102"));
-        orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("103"));
+        //orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("101"));
+        //orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("102"));
+        //orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("103"));
         orderIngredientsView.InitBackpackView(orderIngredientsModel);
 
 
@@ -102,4 +102,6 @@ public class TestBackpack : MonoBehaviour
     {
         
     }
+
+
 }
