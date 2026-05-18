@@ -53,8 +53,8 @@ public class TestBackpack : MonoBehaviour
         backpackModel = new BackpackModel(20);
         backpackModel.AddItem(bagItem);
         backpackModel.AddItemAt(bagItem3, 3);
-        BagItem bagItem4 = new BagItem(material, 2);
-        BagItem bagItem6 = new BagItem(material, 2);
+        BagItem bagItem4 = new BagItem(material, 4);
+        BagItem bagItem6 = new BagItem(material, 4);
         backpackMode2 = new BackpackModel(40);
         backpackMode2.AddItem(bagItem4);
         backpackMode2.AddItemAt(bagItem6, 3);
