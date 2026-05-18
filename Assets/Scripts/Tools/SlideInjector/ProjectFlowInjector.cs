@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Tools.Unity;
+﻿using Assets.Scripts.OutsideDoorScene.OutsideManager.Manager;
+using Assets.Scripts.OutsideDoorScene.OutsideManager.UI;
+using Assets.Scripts.Tools.Unity;
 using Events;
 using UnityEngine;
 
@@ -16,6 +18,12 @@ namespace Assets.Scripts.Tools.SlideInjector
 
 			//场景流程管理
 			GameSceneManager.Instance.Init();
+
+			//户外UI管理注册
+			OutsideUIPanelManager.Instance.Init();
+
+			//户外能量注册
+			OutsideDoorCharacterPowerManager.Instance.Init();
 		}
 	}
 }

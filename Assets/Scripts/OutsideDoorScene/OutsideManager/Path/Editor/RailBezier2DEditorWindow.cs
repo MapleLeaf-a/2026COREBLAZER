@@ -185,25 +185,22 @@ public sealed class RailBezier2DEditorWindow : EditorWindow
 			RailNode2D runtimeNode = new RailNode2D
 			{
 				nodeId = authoringNode.nodeId,
+				nodeKey = string.IsNullOrWhiteSpace(authoringNode.nodeKey)
+					? authoringNode.displayName
+					: authoringNode.nodeKey,
 				position = authoringNode.position,
 				exits = new List<RailExit2D>()
 			};
 
-			// 转换出口
-			TryBuildRuntimeExit(map, authoringNode.nodeId, RailExitChoice2D.Left, authoringNode.leftExitSegmentId, out RailExit2D leftExit);
-			if (leftExit != null) runtimeNode.exits.Add(leftExit);
+			// 转换旧字段为通用规则 (fromSegmentId = -1)
+			AddLegacyExitIfValid(runtimeNode, authoringNode, RailExitChoice2D.Left, authoringNode.leftExitSegmentId, map);
+			AddLegacyExitIfValid(runtimeNode, authoringNode, RailExitChoice2D.Right, authoringNode.rightExitSegmentId, map);
+			AddLegacyExitIfValid(runtimeNode, authoringNode, RailExitChoice2D.Up, authoringNode.upExitSegmentId, map);
+			AddLegacyExitIfValid(runtimeNode, authoringNode, RailExitChoice2D.Down, authoringNode.downExitSegmentId, map);
+			AddLegacyExitIfValid(runtimeNode, authoringNode, RailExitChoice2D.Auto, authoringNode.autoExitSegmentId, map);
 
-			TryBuildRuntimeExit(map, authoringNode.nodeId, RailExitChoice2D.Right, authoringNode.rightExitSegmentId, out RailExit2D rightExit);
-			if (rightExit != null) runtimeNode.exits.Add(rightExit);
-
-			TryBuildRuntimeExit(map, authoringNode.nodeId, RailExitChoice2D.Up, authoringNode.upExitSegmentId, out RailExit2D upExit);
-			if (upExit != null) runtimeNode.exits.Add(upExit);
-
-			TryBuildRuntimeExit(map, authoringNode.nodeId, RailExitChoice2D.Down, authoringNode.downExitSegmentId, out RailExit2D downExit);
-			if (downExit != null) runtimeNode.exits.Add(downExit);
-
-			TryBuildRuntimeExit(map, authoringNode.nodeId, RailExitChoice2D.Auto, authoringNode.autoExitSegmentId, out RailExit2D autoExit);
-			if (autoExit != null) runtimeNode.exits.Add(autoExit);
+			// 转换新 exitRules
+			AddExitRules(runtimeNode, authoringNode, map);
 
 			asset.nodes.Add(runtimeNode);
 		}
@@ -260,51 +257,92 @@ public sealed class RailBezier2DEditorWindow : EditorWindow
 		}
 	}
 
-	private static bool TryBuildRuntimeExit(
-		RailBezierMap2DAuthoring map,
-		int ownerNodeId,
+	/// <summary>
+	/// 把旧版节点出口字段导出为 fromSegmentId = -1 的通用规则。
+	/// </summary>
+	private static void AddLegacyExitIfValid(
+		RailNode2D runtimeNode,
+		RailBezierNode2D authoringNode,
 		RailExitChoice2D choice,
 		int targetSegmentId,
-		out RailExit2D exit)
+		RailBezierMap2DAuthoring map)
 	{
-		exit = null;
-
 		if (targetSegmentId < 0)
 		{
-			return false;
+			return;
 		}
 
 		RailBezierSegment2D targetSegment = map.FindSegment(targetSegmentId);
 
 		if (targetSegment == null)
 		{
-			return false;
+			return;
 		}
 
-		RailEndpoint2D enterFrom;
+		bool enterFromStart = targetSegment.startNodeId == authoringNode.nodeId;
+		bool enterFromEnd = targetSegment.endNodeId == authoringNode.nodeId;
 
-		if (targetSegment.startNodeId == ownerNodeId)
+		if (!enterFromStart && !enterFromEnd)
 		{
-			enterFrom = RailEndpoint2D.Start;
-		}
-		else if (targetSegment.endNodeId == ownerNodeId)
-		{
-			enterFrom = RailEndpoint2D.End;
-		}
-		else
-		{
-			return false;
+			return;
 		}
 
-		exit = new RailExit2D
+		runtimeNode.exits.Add(new RailExit2D
 		{
 			choice = choice,
 			segmentId = targetSegmentId,
-			enterFrom = enterFrom,
+			enterFrom = enterFromStart ? RailEndpoint2D.Start : RailEndpoint2D.End,
+			fromSegmentId = -1,
 			priority = 0
-		};
+		});
+	}
 
-		return true;
+	/// <summary>
+	/// 把新版 fromSegmentId 出口规则导出到运行时节点。
+	/// </summary>
+	private static void AddExitRules(
+		RailNode2D runtimeNode,
+		RailBezierNode2D authoringNode,
+		RailBezierMap2DAuthoring map)
+	{
+		if (authoringNode.exitRules == null)
+		{
+			return;
+		}
+
+		for (int i = 0; i < authoringNode.exitRules.Count; i++)
+		{
+			RailBezierExitRule2D rule = authoringNode.exitRules[i];
+
+			if (rule == null || rule.targetSegmentId < 0)
+			{
+				continue;
+			}
+
+			RailBezierSegment2D targetSegment = map.FindSegment(rule.targetSegmentId);
+
+			if (targetSegment == null)
+			{
+				continue;
+			}
+
+			bool enterFromStart = targetSegment.startNodeId == authoringNode.nodeId;
+			bool enterFromEnd = targetSegment.endNodeId == authoringNode.nodeId;
+
+			if (!enterFromStart && !enterFromEnd)
+			{
+				continue;
+			}
+
+			runtimeNode.exits.Add(new RailExit2D
+			{
+				choice = rule.choice,
+				segmentId = rule.targetSegmentId,
+				enterFrom = enterFromStart ? RailEndpoint2D.Start : RailEndpoint2D.End,
+				fromSegmentId = rule.fromSegmentId,
+				priority = rule.priority
+			});
+		}
 	}
 
 	private void DrawSelectedNodePanel()
@@ -337,6 +375,7 @@ public sealed class RailBezier2DEditorWindow : EditorWindow
 		EditorGUI.BeginChangeCheck();
 
 		node.displayName = EditorGUILayout.TextField("Display Name", node.displayName);
+		node.nodeKey = EditorGUILayout.TextField("Node Key", node.nodeKey);
 		node.position = EditorGUILayout.Vector2Field("Position", node.position);
 
 		EditorGUILayout.Space(5);
@@ -588,6 +627,24 @@ public sealed class RailBezier2DEditorWindow : EditorWindow
 			if (!nodeIds.Add(node.nodeId))
 			{
 				errors.Add($"重复的 nodeId: {node.nodeId}");
+			}
+		}
+
+		// 检查 nodeKey 重复
+		HashSet<string> nodeKeys = new HashSet<string>();
+		for (int i = 0; i < map.nodes.Count; i++)
+		{
+			RailBezierNode2D node = map.nodes[i];
+			if (node == null) continue;
+
+			if (string.IsNullOrWhiteSpace(node.nodeKey))
+			{
+				continue;
+			}
+
+			if (!nodeKeys.Add(node.nodeKey))
+			{
+				errors.Add($"重复的 nodeKey: {node.nodeKey}");
 			}
 		}
 

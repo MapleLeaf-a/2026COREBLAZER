@@ -25,6 +25,11 @@ namespace Arch.Tools
 
 		public void Init()
 		{
+			OnInit();
+		}
+
+		public virtual void OnInit()
+		{
 		}
 	}
 }
