@@ -21,6 +21,9 @@ public class TracksManager : MonoBehaviour
     //单轨道
     private List<int> notesPre = new List<int> { 1, 0, 0, 1, 0, 1, 1, 1, 1 };
 
+    [Header("从 NotesStatics 读哪个菜品的谱面 (留空用上面的测试数据)")]
+    public string currentDishId = "";
+
     [Header("从 NotesStatics 读哪个步骤的谱面 (留空用上面的测试数据)")]
     public string currentStepId = "";
 
@@ -28,7 +31,7 @@ public class TracksManager : MonoBehaviour
     int count;
 
     //预设的四轨道最大判定次数
-    private int maxCountOf4Tracks = 3;
+    private int maxCountOf4Tracks = 5;
 
     //轨道生成器
     TrackGenerator trackGenerator = new TrackGenerator();
@@ -96,15 +99,21 @@ public class TracksManager : MonoBehaviour
             }
         }
 
+        // 自动从 NotesStatics 加载谱面 (如果指定了菜品)
+        if (!string.IsNullOrEmpty(currentDishId) && NotesStatics.notesPreTyped != null && NotesStatics.notesPreTyped.ContainsKey(currentDishId))
+        {
+            notesPre = NotesStatics.notesPreTyped[currentDishId];
+        }
+
         if (tracks.Count == 1)
         {
-            tracks[0].Initialize(0, tracks.Count, notesPre, longsPre, this);
+            tracks[0].Initialize(0, tracks.Count, notesPre, longsPre, this, 0.0417f);
         }
         else
         {
             for (int i = 0; i < tracks.Count; i++)
             {
-                tracks[i].Initialize(i, tracks.Count, notesPres[i], null, this);
+                tracks[i].Initialize(i, tracks.Count, notesPres[i], null, this, 2f);
             }
         }
 

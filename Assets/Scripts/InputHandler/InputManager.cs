@@ -27,6 +27,8 @@ public class InputManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        DontDestroyOnLoad(gameObject);
+
         InitMappings();   
     }
 
@@ -37,10 +39,10 @@ public class InputManager : MonoBehaviour
         AddMapping("Judge", KeyCode.Space, InputContext.MUSICGAME);
 
         //多轨道(4轨道)
-        AddMapping("JudgeTrack0", KeyCode.A, InputContext.MUSICGAME);
-        AddMapping("JudgeTrack1", KeyCode.D, InputContext.MUSICGAME);
+        AddMapping("JudgeTrack0", KeyCode.D, InputContext.MUSICGAME);
+        AddMapping("JudgeTrack1", KeyCode.F, InputContext.MUSICGAME);
         AddMapping("JudgeTrack2", KeyCode.J, InputContext.MUSICGAME);
-        AddMapping("JudgeTrack3", KeyCode.L, InputContext.MUSICGAME);
+        AddMapping("JudgeTrack3", KeyCode.K, InputContext.MUSICGAME);
 
         //角色操控对应按键
         AddMapping("MoveUp", KeyCode.W, InputContext.CHARACTER);

@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class BackpackModel : Model<BagItem>
 {
@@ -106,6 +107,40 @@ public class BackpackModel : Model<BagItem>
         }
 
         return true;
+    }
+
+    /// <summary>
+    /// 删除指定物品的指定个(不会删这一类)
+    /// </summary>
+    /// <param name="bagItem"></param>
+    /// <returns></returns>
+    public bool RemoveItem(BagItem bagItem, int quantity)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            BagItem item = items[i];
+            if (item == bagItem)
+            {
+                return RemoveItemAt(i, quantity);
+            }
+        }
+        return false;
+    }
+
+
+    /// <summary>
+    /// 用食材id来查找物品
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public BagItem GetBagItemWithId(string id)
+    {
+        foreach (BagItem item in items)
+        {
+            if (item == null) continue;
+            if (item.ID == id) return item;
+        }
+        return null;
     }
 
     ///// <summary>
