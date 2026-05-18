@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 {
@@ -25,6 +26,19 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 	}
 
 	public struct CloseOutsideUIEvent
+	{
+	}
+
+	public struct CreatePlayerEvent
+	{
+		public Vector2 pos;
+
+		public float facingSign;
+
+		public RailMap2DAsset rail;
+	}
+
+	public struct ClosePlayerEvent
 	{
 	}
 

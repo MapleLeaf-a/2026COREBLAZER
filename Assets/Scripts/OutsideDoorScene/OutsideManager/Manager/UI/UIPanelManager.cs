@@ -1,13 +1,8 @@
-﻿using Arch.Tools;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Scripts.Tools.Common;
 
 namespace Assets.Scripts.OutsideDoorScene.OutsideManager.UI
 {
-	internal class OutsideUIPanelManager : Singleton<OutsideUIPanelManager>
+	internal class OutsideUIPanelManager : MonoSingleton<OutsideUIPanelManager>
 	{
 		public void OnDisableOutsideUI()
 		{

@@ -118,6 +118,16 @@ public sealed class RailWalker2D : MonoBehaviour
 		InitializeStartPosition();
 	}
 
+	public void ResetMapData(RailMap2DAsset railMap)
+	{
+		if (railMap == null)
+		{
+			Debug.LogError("不可将无效地图信息导入给角色！");
+			return;
+		}
+		this.railMap = railMap;
+	}
+
 	public void InitializeStartPosition()
 	{
 		if (railMap == null)
