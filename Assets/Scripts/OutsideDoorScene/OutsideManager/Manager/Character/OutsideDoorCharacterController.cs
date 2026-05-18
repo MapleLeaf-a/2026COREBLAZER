@@ -108,6 +108,7 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 	{
 		// 如果项目里必须使用自定义 InputManager 上下文，可以在这里打开。
 		// InputManager.instance.SetContext(InputContext.CHARACTER);
+		InputManager.instance.SetContext(InputContext.CHARACTER);
 	}
 
 	private void Update()
@@ -132,22 +133,25 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 
 	private void ReadOldInput()
 	{
-		if (InputManager.instance.GetKey("MoveUp"))
-		{
-			cachedVerticalInput += 1;
-		}
-		if (InputManager.instance.GetKey("MoveDown"))
-		{
-			cachedVerticalInput += -1;
-		}
-		if (InputManager.instance.GetKey("MoveLeft"))
-		{
-			cachedHorizontalInput += -1;
-		}
-		if (InputManager.instance.GetKey("MoveRight"))
-		{
-			cachedHorizontalInput += 1;
-		}
+		cachedHorizontalInput = Input.GetAxisRaw(horizontalAxisName);
+		cachedVerticalInput = Input.GetAxisRaw(verticalAxisName);
+
+		//if (InputManager.instance.GetKey("MoveUp"))
+		//{
+		//	cachedVerticalInput += 1;
+		//}
+		//if (InputManager.instance.GetKey("MoveDown"))
+		//{
+		//	cachedVerticalInput += -1;
+		//}
+		//if (InputManager.instance.GetKey("MoveLeft"))
+		//{
+		//	cachedHorizontalInput += -1;
+		//}
+		//if (InputManager.instance.GetKey("MoveRight"))
+		//{
+		//	cachedHorizontalInput += 1;
+		//}
 	}
 
 	private void UpdateFacingByInput(float horizontalInput)
