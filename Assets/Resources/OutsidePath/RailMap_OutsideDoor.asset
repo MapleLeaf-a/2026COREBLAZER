@@ -26,7 +26,7 @@ MonoBehaviour:
     position: {x: 463.32562, y: -65.68803}
     exits: []
   segments:
-  - segmentId: 17
+  - segmentId: 0
     startNodeId: 9
     endNodeId: 8
     bakedPoints:
@@ -97,7 +97,7 @@ MonoBehaviour:
     - 212.08528
     - 218.93045
     - 225.80688
-  - segmentId: 18
+  - segmentId: 1
     startNodeId: 9
     endNodeId: 10
     bakedPoints:
@@ -168,7 +168,7 @@ MonoBehaviour:
     - 168.56319
     - 169.4492
     - 169.7354
-  - segmentId: 19
+  - segmentId: 2
     startNodeId: 9
     endNodeId: 11
     bakedPoints:

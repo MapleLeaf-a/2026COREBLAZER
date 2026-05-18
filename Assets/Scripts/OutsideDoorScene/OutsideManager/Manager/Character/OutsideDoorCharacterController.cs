@@ -135,7 +135,8 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 	{
 		cachedHorizontalInput = Input.GetAxisRaw(horizontalAxisName);
 		cachedVerticalInput = Input.GetAxisRaw(verticalAxisName);
-
+		//cachedVerticalInput = 0;
+		//cachedHorizontalInput = 0;
 		//if (InputManager.instance.GetKey("MoveUp"))
 		//{
 		//	cachedVerticalInput += 1;
@@ -183,7 +184,13 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 		float moveAmount = Mathf.Abs(horizontalInput);
 		bool isMoving = moveAmount > 0.01f;
 
-		animator.SetFloat(animatorMoveSpeedParameter, moveAmount);
-		animator.SetBool(animatorIsMovingParameter, isMoving);
+		if (isMoving)
+		{
+			animator.CrossFade("Walk", 0.1f);
+		}
+		else
+		{
+			animator.CrossFade("Idle", 0.1f);
+		}
 	}
 }
