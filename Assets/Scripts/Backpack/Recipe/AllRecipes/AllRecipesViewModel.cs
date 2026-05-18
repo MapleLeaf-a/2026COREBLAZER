@@ -1,9 +1,23 @@
+using StaticTemplates.MusicGame;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TipType
+{
+    ShowCanvas, //显示原料不足的画布
+}
+
 public class AllRecipesViewModel : RecipesViewModel
 {
+
+    public event System.Action<TipType> OnShowTip;
+
+    protected void ShowTip(TipType message)
+    {
+        OnShowTip?.Invoke(message);
+    }
+
     protected AllRecipesModel allRecipesModel
     { 
         get => recipesModel as AllRecipesModel;
@@ -27,7 +41,15 @@ public class AllRecipesViewModel : RecipesViewModel
 
         if (toItem == null)
         {
-            anotherBackpack.AddItemAt(fromItem, toInTarget);
+            if (TestBackpack.instance.FreezerBackpackView.CheckFoodRecipeAble(fromItem))
+            {
+                anotherBackpack.AddItemAt(fromItem, toInTarget);
+            }
+            else
+            {
+                OnShowTip(TipType.ShowCanvas);
+                return false;
+            }
         }
         else //非空认为不可移动
         {

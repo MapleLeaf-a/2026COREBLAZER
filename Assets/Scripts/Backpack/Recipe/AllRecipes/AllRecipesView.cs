@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Profiling.HierarchyFrameDataView;
 
 public class AllRecipesView : RecipesView
 {
@@ -20,6 +22,16 @@ public class AllRecipesView : RecipesView
         }
         capacity = recipesModel.Capacity;
         this.recipesViewModel = new AllRecipesViewModel(recipesModel, itemsPerPage);
+    }
+
+    protected void OnEnable()
+    {
+        allRecipesViewModel.OnShowTip += OnShowTip;
+    }
+
+    protected void OnDisable()
+    {
+        allRecipesViewModel.OnShowTip -= OnShowTip;
     }
 
     [Header("详情面板")]
@@ -42,11 +54,25 @@ public class AllRecipesView : RecipesView
     [Tooltip("设置词条的画布")]
     public Canvas editEntryCanvas;
 
+    [Header("提示原材料不足的画布")]
+    public Canvas IngredientsNotEnoughCanvas;
+
     //最后一次选择的食谱的ID
     private string lastSelectedItemId = "-1";
 
     //食材展示的实例列表
     private Queue<IngredientUIItem> ingredientItems = new Queue<IngredientUIItem>();
+
+
+    private void OnShowTip(TipType type)
+    {
+        switch (type)
+        {
+            case TipType.ShowCanvas:
+                IngredientsNotEnoughCanvas.gameObject.SetActive(true);
+                break;
+        }
+    }
 
 
     protected override void BindOtherButtons()
@@ -188,7 +214,8 @@ public class AllRecipesView : RecipesView
         {
             //尝试移动,注意是从源背包到目前背包
             var v = DragState<FoodRecipe, RecipesUIItem>.SourceView as TodaysRecipeView;
-            bool success = v.todaysRecipeViewModel.RemoveItemAt(DragState<FoodRecipe, RecipesUIItem>.FromIndex);
+            int fromIndex = DragState<FoodRecipe, RecipesUIItem>.FromIndex;
+            bool success = v.todaysRecipeViewModel.RemoveRecipeAndReturnIngredients(fromIndex);
 
             if (success)
             {
