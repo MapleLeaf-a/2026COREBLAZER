@@ -26,9 +26,9 @@ public class PageStack<T>
     //获取顶端页面
     public T CurrentPage => IsEmpty ? default : stack.Peek();
 
-    public void Push(T newPage)
+    public void Push(T newPage, bool isDeactivated = true)
     {
-        if (CurrentPage != null)
+        if (CurrentPage != null && isDeactivated)
         {
             //如果事件不空,则执行停用栈顶页面
             OnPageDeactivated?.Invoke(CurrentPage);
