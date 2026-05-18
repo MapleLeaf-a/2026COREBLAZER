@@ -84,13 +84,16 @@ namespace Assets.Scripts.Tools.Common
 						// MonoBehaviour 不能通过 new T() 创建。
 						// 所以这里先创建一个 GameObject，再把 T 作为组件挂上去。
 						var singletonObject = new GameObject($"[MonoSingleton] {typeof(T).Name}");
-
 						m_instance = singletonObject.AddComponent<T>();
 					}
 				}
 
 				return m_instance;
 			}
+		}
+
+		public void Init()
+		{
 		}
 
 		/// <summary>

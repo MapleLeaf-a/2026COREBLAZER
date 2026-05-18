@@ -1,16 +1,21 @@
-﻿using Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Scripts.Tools.Unity;
+using Events;
+using UnityEngine;
 
 namespace Assets.Scripts.Tools.SlideInjector
 {
-	public static class ProjectFlowInjector
+	/// <summary>
+	/// 为了轻量化嵌入，就只使用单例完成系统管理
+	/// </summary>
+	public class ProjectFlowInjector : MonoBehaviour
 	{
-		public static void Init()
+		public void Awake()
 		{
+			//基本工具
+			EventBus.Instance.Init();
+
+			//场景流程管理
+			GameSceneManager.Instance.Init();
 		}
 	}
 }
