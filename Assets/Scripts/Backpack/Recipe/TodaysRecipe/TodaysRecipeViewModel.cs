@@ -1,3 +1,4 @@
+using StaticTemplates.MusicGame;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,4 +38,25 @@ public class TodaysRecipeViewModel : RecipesViewModel
         OnPropertyChanged(nameof(RespectedTurnover));
         return respectedTurnover;
     }
+
+    public bool RemoveRecipeAndReturnIngredients(int index)
+    {
+        FoodRecipe foodRecipe = GetItemAt(index);
+        if (foodRecipe != null)
+        {
+            foreach (var item in foodRecipe.ingredients)
+            {
+                FoodMaterial foodMaterial = FoodMaterials.LookUpFoodMaterial(item.Key);
+                TestBackpack.instance.FreezerBackpackView.backpackViewModel.AddItem(new Statics.Classes.BagItem(foodMaterial, item.Value));
+            }
+            return RemoveItemAt(index);
+        }
+        else
+        {
+            Debug.Log("ÍÏ×§Î»Îª¿Õ£¡");
+            return false;
+        }
+    }
+
+   
 }

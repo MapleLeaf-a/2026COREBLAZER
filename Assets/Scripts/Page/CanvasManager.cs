@@ -8,7 +8,7 @@ public class CanvasManager : MonoBehaviour
 {
 	public PageStack<Canvas> canvasStack;
 
-	//µ¥Àı
+	//å•ä¾‹
 	public static CanvasManager instance;
 
 	private void Awake()
@@ -24,31 +24,35 @@ public class CanvasManager : MonoBehaviour
 
 		canvasStack = new PageStack<Canvas>();
 
-		//°ó¶¨ÊÂ¼ş´¦Àí
+    DontDestroyOnLoad(gameObject);
+
+    canvasStack = new PageStack<Canvas>();
+
+		//ç»‘å®šäº‹ä»¶å¤„ç†
 		canvasStack.OnPagePopped += OnPagePopped;
 		canvasStack.OnPagePushed += OnPagePushed;
 		canvasStack.OnPageActivated += OnPageActivated;
 		canvasStack.OnPageDeactivated += OnPageDeactivated;
-	}
+	}        
 
 	private void OnDestroy()
 	{
 		if (canvasStack != null)
 		{
-			//½â°óÊÂ¼ş
+			//è§£ç»‘äº‹ä»¶
 			canvasStack.OnPagePopped -= OnPagePopped;
 			canvasStack.OnPagePushed -= OnPagePushed;
 			canvasStack.OnPageActivated -= OnPageActivated;
 			canvasStack.OnPageDeactivated -= OnPageDeactivated;
 			/*
-             * Èô²»½â³ı¶©ÔÄ:ÓÉÓÚ ÊÂ¼ş·¢²¼Õß£¨PageStack£©³ÖÓĞ¶©ÔÄÕß£¨UIManager£©µÄÒıÓÃ£¬µ¼ÖÂ CanvasManager ÎŞ·¨±» GC »ØÊÕ£¨ÒıÓÃ¼ÆÊı²»Îª0£©
+             * è‹¥ä¸è§£é™¤è®¢é˜…:ç”±äº äº‹ä»¶å‘å¸ƒè€…ï¼ˆPageStackï¼‰æŒæœ‰è®¢é˜…è€…ï¼ˆUIManagerï¼‰çš„å¼•ç”¨ï¼Œå¯¼è‡´ CanvasManager æ— æ³•è¢« GC å›æ”¶ï¼ˆå¼•ç”¨è®¡æ•°ä¸ä¸º0ï¼‰
              */
 		}
 	}
 
 	private void OnPagePopped(Canvas pageCanvas)
 	{
-		//Ö»ÓĞPopÊ±²ÅÒş²ØCanvas,²»ÔÚÍ£ÓÃÀïÃæĞ´,·ÀÖ¹PushÊ±Ò²Òş²ØÁËÏÂÃæµÄÒ³Ãæ
+		//åªæœ‰Popæ—¶æ‰éšè—Canvas,ä¸åœ¨åœç”¨é‡Œé¢å†™,é˜²æ­¢Pushæ—¶ä¹Ÿéšè—äº†ä¸‹é¢çš„é¡µé¢
 		pageCanvas.gameObject.SetActive(false);
 	}
 
@@ -62,17 +66,17 @@ public class CanvasManager : MonoBehaviour
 	{
 		pageCanvas.gameObject.SetActive(true);
 
-		//È·±£×îÉÏ²ãÒ³ÃæµÄÉäÏß¼ì²âÊÇ¿ªÆôµÄ
+		//ç¡®ä¿æœ€ä¸Šå±‚é¡µé¢çš„å°„çº¿æ£€æµ‹æ˜¯å¼€å¯çš„
 		EnableRaycasterForPage(pageCanvas);
 	}
 
 	private void OnPageDeactivated(Canvas pageCanvas)
 	{
-		//Ò³Ãæ±»Í£ÓÃ£¨²»ÊÇ±» Pop£©Ê±£¬²»Òş²Ø£¬µ«½ûÓÃÉäÏß¼ì²â
+		//é¡µé¢è¢«åœç”¨ï¼ˆä¸æ˜¯è¢« Popï¼‰æ—¶ï¼Œä¸éšè—ï¼Œä½†ç¦ç”¨å°„çº¿æ£€æµ‹
 		DisableRaycasterForPage(pageCanvas);
 	}
 
-	//½ûÓÃµ¥¸öCanvasµÄÉäÏß¼ì²â
+	//ç¦ç”¨å•ä¸ªCanvasçš„å°„çº¿æ£€æµ‹
 	private void DisableRaycasterForPage(Canvas canvas)
 	{
 		GraphicRaycaster raycaster = canvas.GetComponent<GraphicRaycaster>();
@@ -82,7 +86,7 @@ public class CanvasManager : MonoBehaviour
 		}
 	}
 
-	//ÆôÓÃµ¥¸öCanvasµÄÉäÏß¼ì²â
+	//å¯ç”¨å•ä¸ªCanvasçš„å°„çº¿æ£€æµ‹
 	private void EnableRaycasterForPage(Canvas canvas)
 	{
 		GraphicRaycaster raycaster = canvas.GetComponent<GraphicRaycaster>();
