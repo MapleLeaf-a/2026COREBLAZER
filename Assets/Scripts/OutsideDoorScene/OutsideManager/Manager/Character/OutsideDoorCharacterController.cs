@@ -108,7 +108,7 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 	{
 		// 如果项目里必须使用自定义 InputManager 上下文，可以在这里打开。
 		// InputManager.instance.SetContext(InputContext.CHARACTER);
-		InputManager.instance.SetContext(InputContext.CHARACTER);
+		// InputManager.instance.SetContext(InputContext.CHARACTER);
 	}
 
 	private void Update()
@@ -163,11 +163,11 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 
 		if (horizontalInput > 0.01f)
 		{
-			facingSign = 1;
+			facingSign = -1;
 		}
 		else if (horizontalInput < -0.01f)
 		{
-			facingSign = -1;
+			facingSign = 1;
 		}
 
 		spriteRenderer.flipX = facingSign < 0;
