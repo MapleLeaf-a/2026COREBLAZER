@@ -9,6 +9,20 @@ using UnityEngine;
 public sealed class RailMap2DAsset : ScriptableObject
 {
     /// <summary>
+    /// 默认起始路径段 ID。
+    ///
+    /// 用途：
+    /// 当 Player 的 RailWalker2D.currentSegmentId 没有配置，
+    /// 或者配置的 Segment ID 在当前 RailMap 中不存在时，
+    /// RailWalker2D 可以使用这个字段作为兜底起点。
+    ///
+    /// 约定：
+    /// -1 表示没有默认起点。
+    /// 有效值必须能在 segments 列表中找到对应 RailSegment2D。
+    /// </summary>
+    public int defaultStartSegmentId = -1;
+
+    /// <summary>
     /// 地图里的所有运行时节点。
     /// </summary>
     public List<RailNode2D> nodes = new List<RailNode2D>();
@@ -82,6 +96,28 @@ public sealed class RailMap2DAsset : ScriptableObject
 
         segment = null;
         return false;
+    }
+
+    /// <summary>
+    /// 尝试获取默认起始路径段。
+    /// </summary>
+    /// <param name="segment">
+    /// 输出找到的默认路径段。
+    /// 如果没有找到，会输出 null。
+    /// </param>
+    /// <returns>
+    /// true 表示找到默认路径段。
+    /// false 表示 defaultStartSegmentId 无效，或者没有配置默认路径段。
+    /// </returns>
+    public bool TryGetDefaultStartSegment(out RailSegment2D segment)
+    {
+        if (defaultStartSegmentId < 0)
+        {
+            segment = null;
+            return false;
+        }
+
+        return TryGetSegment(defaultStartSegmentId, out segment);
     }
 
     /// <summary>

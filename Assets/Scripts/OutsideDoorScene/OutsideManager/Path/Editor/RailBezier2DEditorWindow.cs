@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 /// <summary>
@@ -229,6 +230,21 @@ public sealed class RailBezier2DEditorWindow : EditorWindow
 			asset.segments.Add(runtimeSegment);
 		}
 
+		// 如果当前选中的 Segment 存在于导出结果中，就把它作为默认起点。
+		// 否则使用导出结果中的第一条 Segment。
+		if (asset.TryGetSegment(selectedSegmentId, out _))
+		{
+			asset.defaultStartSegmentId = selectedSegmentId;
+		}
+		else if (asset.segments.Count > 0)
+		{
+			asset.defaultStartSegmentId = asset.segments[0].segmentId;
+		}
+		else
+		{
+			asset.defaultStartSegmentId = -1;
+		}
+
 		string path = EditorUtility.SaveFilePanelInProject(
 			"保存运行时路径资产",
 			"RailMap_OutsideDoor",
@@ -410,6 +426,18 @@ public sealed class RailBezier2DEditorWindow : EditorWindow
 			EditorUtility.SetDirty(map);
 		}
 
+		if (GUILayout.Button("Normalize Left To Right"))
+		{
+			Undo.RecordObject(map, "Normalize Segment Left To Right");
+
+			bool changed = segment.NormalizeLeftToRight(map);
+
+			if (changed)
+			{
+				EditorUtility.SetDirty(map);
+			}
+		}
+
 		EditorGUILayout.EndHorizontal();
 
 		if (GUILayout.Button("Delete Selected Segment"))
@@ -489,17 +517,42 @@ public sealed class RailBezier2DEditorWindow : EditorWindow
 
 		if (!targetRuntimeRailMap.TryGetSegment(selectedSegmentId, out _))
 		{
-			EditorUtility.DisplayDialog("错误", "选中的 Segment 在 Runtime Rail Map 中不存在。", "确定");
+			EditorUtility.DisplayDialog(
+				"错误",
+				$"选中的 SegmentId {selectedSegmentId} 在 Runtime Rail Map 中不存在。请重新 Export Runtime Asset。",
+				"确定");
+
 			return;
 		}
 
-		targetCharacter.Walker.SetStartForEditorOrRuntime(
+		RailWalker2D walker = targetCharacter.Walker;
+
+		Undo.RecordObject(
+			walker,
+			"Set Character Rail Start");
+
+		walker.SetStartForEditorOrRuntime(
 			targetRuntimeRailMap,
 			selectedSegmentId,
 			characterStartNormalizedPosition,
 			true);
 
-		EditorUtility.SetDirty(targetCharacter.Walker);
+		EditorUtility.SetDirty(walker);
+
+		// 如果 Target Character 是场景中的 Prefab 实例，
+		// 这一步用于记录 RailWalker2D 字段覆盖。
+		// 否则只 SetDirty 可能导致 currentSegmentId 没有稳定保存。
+		PrefabUtility.RecordPrefabInstancePropertyModifications(walker);
+
+		if (walker.gameObject.scene.IsValid())
+		{
+			EditorSceneManager.MarkSceneDirty(walker.gameObject.scene);
+		}
+
+		EditorUtility.DisplayDialog(
+			"完成",
+			$"已设置角色起始路径：SegmentId = {selectedSegmentId}",
+			"确定");
 	}
 
 	private void DrawValidationPanel()
@@ -584,11 +637,11 @@ public sealed class RailBezier2DEditorWindow : EditorWindow
 			RailBezierNode2D node = map.nodes[i];
 			if (node == null) continue;
 
-			ValidateNodeExit(errors, node, node.leftExitSegmentId, "Left");
-			ValidateNodeExit(errors, node, node.rightExitSegmentId, "Right");
-			ValidateNodeExit(errors, node, node.upExitSegmentId, "Up");
-			ValidateNodeExit(errors, node, node.downExitSegmentId, "Down");
-			ValidateNodeExit(errors, node, node.autoExitSegmentId, "Auto");
+			ValidateExit(node, "Left Exit", node.leftExitSegmentId, errors);
+			ValidateExit(node, "Right Exit", node.rightExitSegmentId, errors);
+			ValidateExit(node, "Up Exit", node.upExitSegmentId, errors);
+			ValidateExit(node, "Down Exit", node.downExitSegmentId, errors);
+			ValidateExit(node, "Auto Exit", node.autoExitSegmentId, errors);
 		}
 
 		if (errors.Count == 0)
@@ -615,6 +668,62 @@ public sealed class RailBezier2DEditorWindow : EditorWindow
 
 		// 这里需要访问 map，但因为是静态方法，需要传入 map
 		// 简化处理：只检查 ID 是否有效
+	}
+
+	/// <summary>
+	/// 校验节点出口是否合法。
+	///
+	/// 检查内容：
+	/// 1. segmentId 小于 0 表示未配置，不算错误。
+	/// 2. segmentId 必须存在。
+	/// 3. 目标 Segment 必须连接当前 Node。
+	///
+	/// 如果出口指向的 Segment 不连接当前 Node，
+	/// 导出后 TryBuildRuntimeExit 会失败，
+	/// Runtime RailMap 中该出口会丢失，
+	/// 角色走到节点后就无法进入下一段。
+	/// </summary>
+	/// <param name="node">
+	/// 当前节点。
+	/// </param>
+	/// <param name="exitName">
+	/// 出口名称，例如 Left Exit。
+	/// </param>
+	/// <param name="segmentId">
+	/// 出口指向的路径段 ID。
+	/// </param>
+	/// <param name="errors">
+	/// 错误列表。
+	/// </param>
+	private void ValidateExit(
+		RailBezierNode2D node,
+		string exitName,
+		int segmentId,
+		List<string> errors)
+	{
+		if (segmentId < 0)
+		{
+			return;
+		}
+
+		RailBezierSegment2D segment = map.FindSegment(segmentId);
+
+		if (segment == null)
+		{
+			errors.Add($"{node.displayName}: {exitName} 指向不存在的 Segment {segmentId}。");
+			return;
+		}
+
+		bool connected =
+			segment.startNodeId == node.nodeId ||
+			segment.endNodeId == node.nodeId;
+
+		if (!connected)
+		{
+			errors.Add(
+				$"{node.displayName}: {exitName} 指向 Segment {segmentId}，" +
+				"但该 Segment 没有连接到这个 Node。");
+		}
 	}
 
 	private void DuringSceneGui(SceneView sceneView)

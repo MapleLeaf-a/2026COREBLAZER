@@ -132,6 +132,60 @@ public sealed class RailBezierSegment2D
     }
 
     /// <summary>
+    /// 如果当前路径段是从右往左绘制，则反转为从左往右。
+    ///
+    /// 判断方式：
+    /// startNode.position.x > endNode.position.x 时，认为它是右到左。
+    ///
+    /// 作用：
+    /// 保证 bakedPoints[0] 更接近逻辑左端，
+    /// bakedPoints[last] 更接近逻辑右端。
+    ///
+    /// 注意：
+    /// 如果路线接近垂直，x 差值很小，
+    /// 不建议自动归一化，应交给设计者手动判断。
+    /// </summary>
+    /// <param name="map">
+    /// 当前编辑期路径地图。
+    /// </param>
+    /// <returns>
+    /// true 表示发生了反转。
+    /// false 表示没有反转。
+    /// </returns>
+    public bool NormalizeLeftToRight(RailBezierMap2DAuthoring map)
+    {
+        if (map == null)
+        {
+            return false;
+        }
+
+        RailBezierNode2D startNode = map.FindNode(startNodeId);
+        RailBezierNode2D endNode = map.FindNode(endNodeId);
+
+        if (startNode == null || endNode == null)
+        {
+            return false;
+        }
+
+        float deltaX = endNode.position.x - startNode.position.x;
+
+        if (Mathf.Abs(deltaX) <= 0.001f)
+        {
+            return false;
+        }
+
+        if (deltaX > 0f)
+        {
+            return false;
+        }
+
+        Reverse();
+        Bake(map);
+
+        return true;
+    }
+
+    /// <summary>
     /// 计算三次贝塞尔曲线上的点。
     /// </summary>
     /// <param name="p0">

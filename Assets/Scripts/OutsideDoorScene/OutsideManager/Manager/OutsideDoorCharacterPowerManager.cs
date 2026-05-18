@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Arch.Tools;
 
 namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 {
-	public class OutsideDoorCharacterPowerManager
+	public class OutsideDoorCharacterPowerManager : Singleton<OutsideDoorCharacterPowerManager>
 	{
+		public bool IsOutsideDoor = false;
 	}
 }
