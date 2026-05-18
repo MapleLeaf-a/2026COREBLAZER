@@ -9,144 +9,98 @@ public sealed class RailWalker2D : MonoBehaviour
 {
     [Header("Rail Data")]
 
-    /// <summary>
-    /// 运行时路径地图资产。
-    /// 它保存节点、路径段、出口和烘焙点。
-    /// </summary>
     [SerializeField]
     private RailMap2DAsset railMap;
 
-    /// <summary>
-    /// 当前所在路径段 ID。
-    ///
-    /// -1 表示尚未配置。
-    ///
-    /// 注意：
-    /// Segment ID 是编辑器生成的稳定 ID，不保证从 0 开始。
-    /// 所以不能把 0 当作默认合法值。
-    /// </summary>
     [SerializeField]
     private int currentSegmentId = -1;
 
-    /// <summary>
-    /// 初始归一化位置。
-    /// 0 表示当前路径段起点。
-    /// 1 表示当前路径段终点。
-    /// </summary>
     [SerializeField]
     [Range(0f, 1f)]
     private float normalizedStartPosition = 0f;
 
     [Header("Movement")]
 
-    /// <summary>
-    /// 沿路径移动速度。
-    /// 单位是 Unity 世界单位每秒。
-    /// </summary>
     [SerializeField]
     [Min(0f)]
     private float moveSpeed = 4f;
 
-    /// <summary>
-    /// 横向输入死区。
-    /// 输入绝对值小于该值时视为没有横向输入。
-    /// </summary>
     [SerializeField]
     [Range(0f, 1f)]
     private float horizontalDeadZone = 0.1f;
 
-    /// <summary>
-    /// 纵向输入死区。
-    /// 输入绝对值大于该值时才认为玩家选择了上分支或下分支。
-    /// </summary>
     [SerializeField]
     [Range(0f, 1f)]
     private float verticalDeadZone = 0.5f;
 
-    /// <summary>
-    /// 上下分支输入缓存时间。
-    /// 玩家提前按下上或下时，可以在这个时间内保留选择。
-    /// </summary>
     [SerializeField]
     [Min(0f)]
     private float branchInputBufferTime = 0.15f;
 
-    /// <summary>
-    /// 节点到达误差。
-    /// 角色距离路径端点小于该值时，认为角色站在节点上。
-    /// </summary>
     [SerializeField]
     [Min(0f)]
     private float nodeArriveEpsilon = 0.02f;
 
-    /// <summary>
-    /// 是否根据当前 Segment 的起点和终点 X 坐标自动修正输入方向。
-    ///
-    /// 开启后：
-    /// 如果 Segment 是从左到右，按右 distance 增加。
-    /// 如果 Segment 是从右到左，按右 distance 减少。
-    ///
-    /// 这样即使某条 Segment 没有被 Normalize，
-    /// 玩家按右也仍然会在世界坐标上向右移动。
-    /// </summary>
     [SerializeField]
     private bool autoMatchInputToWorldX = true;
 
-    /// <summary>
-    /// 是否输出路径移动调试日志。
-    ///
-    /// 开启后会打印：
-    /// 1. 无效 currentSegmentId。
-    /// 2. 自动切换到默认起始 Segment。
-    /// 3. 节点缺少出口。
-    /// 4. 目标 Segment 无效。
-    /// </summary>
     [SerializeField]
     private bool logRailDebug = true;
 
+    [SerializeField]
+    private bool autoContinueThroughConnectedSegments = true;
+
+    [Header("Vector Target Movement")]
+
+    [SerializeField]
+    private bool useVectorTargetMovement = true;
+
+    [SerializeField]
+    [Min(0f)]
+    private float targetLeadDistance = 0.15f;
+
+    [SerializeField]
+    [Min(0f)]
+    private float targetArriveEpsilon = 0.01f;
+
+    [SerializeField]
+    [Min(0f)]
+    private float acceleration = 20f;
+
     [Header("Physics")]
 
-    /// <summary>
-    /// 角色 Rigidbody2D。
-    /// 如果存在，则使用 Rigidbody2D.MovePosition。
-    /// 如果不存在，则直接修改 transform.position。
-    /// </summary>
     [SerializeField]
     private Rigidbody2D rb;
 
-    /// <summary>
-    /// 当前路径段上的距离。
-    /// 0 表示当前 Segment 起点。
-    /// Segment.Length 表示当前 Segment 终点。
-    /// </summary>
     [SerializeField]
     private float distanceOnSegment;
 
     private RailExitChoice2D bufferedVerticalChoice = RailExitChoice2D.None;
     private float bufferedVerticalTimer;
+    private float currentMoveSpeed;
 
-    /// <summary>
-    /// 当前路径地图。
-    /// </summary>
-    public RailMap2DAsset RailMap
+    public RailMap2DAsset RailMap => railMap;
+    public int CurrentSegmentId => currentSegmentId;
+    public float DistanceOnSegment => distanceOnSegment;
+
+    public float MoveSpeed
     {
-        get { return railMap; }
+        get { return moveSpeed; }
     }
 
-    /// <summary>
-    /// 当前路径段 ID。
-    /// </summary>
-    public int CurrentSegmentId
+    public void SetMoveSpeed(float newMoveSpeed)
     {
-        get { return currentSegmentId; }
+        moveSpeed = Mathf.Max(0f, newMoveSpeed);
     }
 
-    /// <summary>
-    /// 当前路径段上的距离。
-    /// </summary>
-    public float DistanceOnSegment
+    private void OnValidate()
     {
-        get { return distanceOnSegment; }
+        moveSpeed = Mathf.Max(0f, moveSpeed);
+        branchInputBufferTime = Mathf.Max(0f, branchInputBufferTime);
+        nodeArriveEpsilon = Mathf.Max(0f, nodeArriveEpsilon);
+        targetLeadDistance = Mathf.Max(0f, targetLeadDistance);
+        targetArriveEpsilon = Mathf.Max(0f, targetArriveEpsilon);
+        acceleration = Mathf.Max(0f, acceleration);
     }
 
     private void Awake()
@@ -168,17 +122,6 @@ public sealed class RailWalker2D : MonoBehaviour
         InitializeStartPosition();
     }
 
-    /// <summary>
-    /// 初始化角色在路径上的起始位置。
-    ///
-    /// 执行顺序：
-    /// 1. 检查 railMap 是否存在。
-    /// 2. 优先使用 currentSegmentId。
-    /// 3. currentSegmentId 无效时，尝试使用 RailMap.defaultStartSegmentId。
-    /// 4. 默认起点无效时，尝试使用 RailMap 中第一条有效 Segment。
-    /// 5. 根据 normalizedStartPosition 计算 distanceOnSegment。
-    /// 6. 把角色吸附到路径点上。
-    /// </summary>
     public void InitializeStartPosition()
     {
         if (railMap == null)
@@ -202,29 +145,9 @@ public sealed class RailWalker2D : MonoBehaviour
         }
 
         distanceOnSegment = segment.Length * Mathf.Clamp01(normalizedStartPosition);
-
         SnapToCurrentSegment();
     }
 
-    /// <summary>
-    /// 解析初始路径段。
-    ///
-    /// 优先级：
-    /// 1. 当前 RailWalker2D.currentSegmentId。
-    /// 2. RailMap2DAsset.defaultStartSegmentId。
-    /// 3. RailMap2DAsset.segments 中第一条有效路径段。
-    ///
-    /// 这样即使 Editor 没有正确写入 currentSegmentId，
-    /// 角色也不会完全静默卡死。
-    /// </summary>
-    /// <param name="segment">
-    /// 输出解析到的初始路径段。
-    /// 如果失败，输出 null。
-    /// </param>
-    /// <returns>
-    /// true 表示成功找到可用路径段。
-    /// false 表示 RailMap 中没有任何可用路径段。
-    /// </returns>
     private bool TryResolveInitialSegment(out RailSegment2D segment)
     {
         if (railMap.TryGetSegment(currentSegmentId, out segment) && IsSegmentUsable(segment))
@@ -250,24 +173,6 @@ public sealed class RailWalker2D : MonoBehaviour
         return false;
     }
 
-    /// <summary>
-    /// 使用 RailMap 中第一条有效 Segment 作为兜底起点。
-    ///
-    /// 有效 Segment 的条件：
-    /// 1. segment 不为空。
-    /// 2. bakedPoints 至少有两个点。
-    /// 3. Segment.Length 大于 0。
-    ///
-    /// 这个方法是容错逻辑。
-    /// 正式关卡仍然应该通过 Editor Binding 明确配置 currentSegmentId。
-    /// </summary>
-    /// <param name="segment">
-    /// 输出第一条有效 Segment。
-    /// </param>
-    /// <returns>
-    /// true 表示找到并切换成功。
-    /// false 表示没有可用 Segment。
-    /// </returns>
     private bool TryUseFirstAvailableSegment(out RailSegment2D segment)
     {
         segment = null;
@@ -290,23 +195,12 @@ public sealed class RailWalker2D : MonoBehaviour
             segment = candidate;
 
             LogRailWarning($"Auto switched to first available segment {currentSegmentId}.");
-
             return true;
         }
 
         return false;
     }
 
-    /// <summary>
-    /// 判断路径段是否可用于角色移动。
-    /// </summary>
-    /// <param name="segment">
-    /// 要检查的路径段。
-    /// </param>
-    /// <returns>
-    /// true 表示路径段可用于移动。
-    /// false 表示路径段为空、没有烘焙点，或者长度为 0。
-    /// </returns>
     private static bool IsSegmentUsable(RailSegment2D segment)
     {
         if (segment == null)
@@ -324,25 +218,7 @@ public sealed class RailWalker2D : MonoBehaviour
         return segment.Length > Mathf.Epsilon;
     }
 
-    /// <summary>
-    /// 外部控制器每个物理帧调用。
-    /// </summary>
-    /// <param name="horizontalAxis">
-    /// 横向输入轴。
-    /// 大于 0 表示向右，小于 0 表示向左。
-    /// </param>
-    /// <param name="verticalAxis">
-    /// 纵向输入轴。
-    /// 大于 0 表示选择上分支，小于 0 表示选择下分支。
-    /// </param>
-    /// <param name="deltaTime">
-    /// 当前物理帧间隔。
-    /// 通常传入 Time.fixedDeltaTime。
-    /// </param>
-    public void TickMove(
-        float horizontalAxis,
-        float verticalAxis,
-        float deltaTime)
+    public void TickMove(float horizontalAxis, float verticalAxis, float deltaTime)
     {
         RailExitChoice2D verticalChoice = ReadVerticalChoice(verticalAxis);
         int horizontalSign = ReadHorizontalSign(horizontalAxis);
@@ -351,24 +227,6 @@ public sealed class RailWalker2D : MonoBehaviour
         MoveAlongCurrentSegment(horizontalSign, deltaTime);
     }
 
-    /// <summary>
-    /// 给 Editor 工具或初始化逻辑使用。
-    /// 用来设置角色起始路径段。
-    /// </summary>
-    /// <param name="newRailMap">
-    /// 新的运行时路径地图资产。
-    /// </param>
-    /// <param name="newSegmentId">
-    /// 新的起始路径段 ID。
-    /// </param>
-    /// <param name="newNormalizedStartPosition">
-    /// 新的起始归一化位置。
-    /// 0 表示路径段起点，1 表示路径段终点。
-    /// </param>
-    /// <param name="snapImmediately">
-    /// 是否立刻把角色吸附到新位置。
-    /// Editor 工具中通常传 true。
-    /// </param>
     public void SetStartForEditorOrRuntime(
         RailMap2DAsset newRailMap,
         int newSegmentId,
@@ -383,6 +241,166 @@ public sealed class RailWalker2D : MonoBehaviour
         {
             InitializeStartPosition();
         }
+    }
+
+    /// <summary>
+    /// 把 Player 设置到指定命名节点上。
+    /// </summary>
+    public bool TrySetStartAtNode(
+        string nodeKey,
+        RailExitChoice2D preferredExitChoice = RailExitChoice2D.Auto,
+        bool snapImmediately = true)
+    {
+        if (railMap == null)
+        {
+            LogRailWarning("Cannot set start at node because railMap is null.");
+            return false;
+        }
+
+        if (!railMap.TryGetNodeByKey(nodeKey, out RailNode2D node))
+        {
+            LogRailWarning($"Cannot find node by key: {nodeKey}.");
+            return false;
+        }
+
+        if (!TryResolveSpawnSegmentAtNode(node, preferredExitChoice, out RailSegment2D segment, out RailEndpoint2D enterFrom))
+        {
+            LogRailWarning($"Node {node.nodeKey} exists, but no connected segment can be used as start segment.");
+            return false;
+        }
+
+        EnsureSegmentLengthTable(segment);
+
+        if (!IsSegmentUsable(segment))
+        {
+            LogRailWarning($"Resolved spawn segment {segment.segmentId} is not usable.");
+            return false;
+        }
+
+        currentSegmentId = segment.segmentId;
+        distanceOnSegment = enterFrom == RailEndpoint2D.Start ? 0f : segment.Length;
+
+        if (snapImmediately)
+        {
+            MoveBodyPosition(node.position);
+        }
+
+        return true;
+    }
+
+    private bool TryResolveSpawnSegmentAtNode(
+        RailNode2D node,
+        RailExitChoice2D preferredExitChoice,
+        out RailSegment2D segment,
+        out RailEndpoint2D enterFrom)
+    {
+        segment = null;
+        enterFrom = RailEndpoint2D.Start;
+
+        if (node == null)
+        {
+            return false;
+        }
+
+        if (TryResolveSpawnExit(node.nodeId, preferredExitChoice, out segment, out enterFrom))
+        {
+            return true;
+        }
+
+        if (preferredExitChoice != RailExitChoice2D.Auto &&
+            TryResolveSpawnExit(node.nodeId, RailExitChoice2D.Auto, out segment, out enterFrom))
+        {
+            return true;
+        }
+
+        if (preferredExitChoice != RailExitChoice2D.Right &&
+            TryResolveSpawnExit(node.nodeId, RailExitChoice2D.Right, out segment, out enterFrom))
+        {
+            return true;
+        }
+
+        if (preferredExitChoice != RailExitChoice2D.Left &&
+            TryResolveSpawnExit(node.nodeId, RailExitChoice2D.Left, out segment, out enterFrom))
+        {
+            return true;
+        }
+
+        return railMap.TryGetFirstConnectedSegment(node.nodeId, -1, out segment, out enterFrom);
+    }
+
+    private bool TryResolveSpawnExit(
+        int nodeId,
+        RailExitChoice2D choice,
+        out RailSegment2D segment,
+        out RailEndpoint2D enterFrom)
+    {
+        segment = null;
+        enterFrom = RailEndpoint2D.Start;
+
+        bool hasExit = railMap.TryResolveBranchExit(
+            nodeId,
+            -1,
+            choice == RailExitChoice2D.Up || choice == RailExitChoice2D.Down ? choice : RailExitChoice2D.None,
+            choice == RailExitChoice2D.Left || choice == RailExitChoice2D.Right ? choice : RailExitChoice2D.None,
+            out RailExit2D exit);
+
+        return TryGetSegmentFromExit(exit, hasExit, out segment, out enterFrom);
+    }
+
+    private bool TryGetSegmentFromExit(
+        RailExit2D exit,
+        bool hasExit,
+        out RailSegment2D segment,
+        out RailEndpoint2D enterFrom)
+    {
+        segment = null;
+        enterFrom = RailEndpoint2D.Start;
+
+        if (!hasExit || exit == null)
+        {
+            return false;
+        }
+
+        if (!railMap.TryGetSegment(exit.segmentId, out segment))
+        {
+            return false;
+        }
+
+        if (!IsSegmentUsable(segment))
+        {
+            return false;
+        }
+
+        enterFrom = exit.enterFrom;
+        return true;
+    }
+
+    /// <summary>
+    /// 把 Player 从任意世界坐标接入最近的 Rail 路线。
+    /// </summary>
+    public bool TryAttachToNearestRail(Vector2 worldPosition, bool snapToRail)
+    {
+        if (railMap == null)
+        {
+            LogRailWarning("Cannot attach to nearest rail because railMap is null.");
+            return false;
+        }
+
+        if (!railMap.TryFindNearestRailPoint(worldPosition, out RailAttachResult2D result))
+        {
+            LogRailWarning("Cannot attach to nearest rail because no usable rail point was found.");
+            return false;
+        }
+
+        currentSegmentId = result.segmentId;
+        distanceOnSegment = result.distanceOnSegment;
+
+        if (snapToRail)
+        {
+            MoveBodyPosition(result.nearestPosition);
+        }
+
+        return true;
     }
 
     private RailExitChoice2D ReadVerticalChoice(float verticalAxis)
@@ -415,12 +433,9 @@ public sealed class RailWalker2D : MonoBehaviour
         return 0;
     }
 
-    private void TickBranchInputBuffer(
-        RailExitChoice2D verticalChoice,
-        float deltaTime)
+    private void TickBranchInputBuffer(RailExitChoice2D verticalChoice, float deltaTime)
     {
-        if (verticalChoice == RailExitChoice2D.Up ||
-            verticalChoice == RailExitChoice2D.Down)
+        if (verticalChoice == RailExitChoice2D.Up || verticalChoice == RailExitChoice2D.Down)
         {
             bufferedVerticalChoice = verticalChoice;
             bufferedVerticalTimer = branchInputBufferTime;
@@ -441,36 +456,7 @@ public sealed class RailWalker2D : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 根据当前路径段的世界方向，计算 distanceOnSegment 的变化方向。
-    ///
-    /// 如果 autoMatchInputToWorldX 为 false：
-    /// 直接返回 horizontalSign。
-    ///
-    /// 如果 autoMatchInputToWorldX 为 true：
-    /// 使用 bakedPoints[0].x 和 bakedPoints[last].x 判断路径方向。
-    ///
-    /// 示例：
-    /// bakedPoints[0].x 小于 bakedPoints[last].x，表示路径从左到右。
-    /// 按右 horizontalSign = 1，distance 应该增加。
-    ///
-    /// bakedPoints[0].x 大于 bakedPoints[last].x，表示路径从右到左。
-    /// 按右 horizontalSign = 1，distance 应该减少。
-    /// </summary>
-    /// <param name="segment">
-    /// 当前路径段。
-    /// </param>
-    /// <param name="horizontalSign">
-    /// 玩家横向输入方向。
-    /// 1 表示按右，-1 表示按左，0 表示无输入。
-    /// </param>
-    /// <returns>
-    /// 返回 distanceOnSegment 应该增加还是减少。
-    /// 1 表示增加，-1 表示减少，0 表示不变。
-    /// </returns>
-    private int GetDistanceMoveSign(
-        RailSegment2D segment,
-        int horizontalSign)
+    private int GetDistanceMoveSign(RailSegment2D segment, int horizontalSign)
     {
         if (horizontalSign == 0)
         {
@@ -489,7 +475,6 @@ public sealed class RailWalker2D : MonoBehaviour
 
         Vector2 firstPoint = segment.bakedPoints[0];
         Vector2 lastPoint = segment.bakedPoints[segment.bakedPoints.Length - 1];
-
         float directionX = lastPoint.x - firstPoint.x;
 
         if (Mathf.Abs(directionX) <= Mathf.Epsilon)
@@ -497,37 +482,11 @@ public sealed class RailWalker2D : MonoBehaviour
             return horizontalSign;
         }
 
-        int segmentWorldXSign = directionX > 0f
-            ? 1
-            : -1;
-
+        int segmentWorldXSign = directionX > 0f ? 1 : -1;
         return horizontalSign * segmentWorldXSign;
     }
 
-    /// <summary>
-    /// 根据玩家输入沿当前路径段移动。
-    ///
-    /// horizontalSign 是玩家输入方向：
-    /// 1 表示按右。
-    /// -1 表示按左。
-    ///
-    /// distanceMoveSign 是路径距离方向：
-    /// 1 表示 distanceOnSegment 增加。
-    /// -1 表示 distanceOnSegment 减少。
-    ///
-    /// 二者不一定相同。
-    /// 如果当前 Segment 是从右往左烘焙，
-    /// 按右时 distanceMoveSign 应该是 -1。
-    /// </summary>
-    /// <param name="horizontalSign">
-    /// 玩家横向输入方向。
-    /// </param>
-    /// <param name="deltaTime">
-    /// 当前物理帧间隔。
-    /// </param>
-    private void MoveAlongCurrentSegment(
-        int horizontalSign,
-        float deltaTime)
+    private void MoveAlongCurrentSegment(int horizontalSign, float deltaTime)
     {
         if (railMap == null)
         {
@@ -550,42 +509,108 @@ public sealed class RailWalker2D : MonoBehaviour
 
         int distanceMoveSign = GetDistanceMoveSign(segment, horizontalSign);
 
-        distanceOnSegment += distanceMoveSign * moveSpeed * deltaTime;
+        if (distanceMoveSign == 0)
+        {
+            currentMoveSpeed = 0f;
+            return;
+        }
 
-        ResolveSegmentBoundary(
-            segment,
-            horizontalSign,
-            distanceMoveSign);
+        float frameMoveDistance = CalculateFrameMoveDistance(deltaTime);
+        distanceOnSegment += distanceMoveSign * frameMoveDistance;
+
+        ResolveSegmentBoundary(segment, horizontalSign, distanceMoveSign);
+
+        if (useVectorTargetMovement)
+        {
+            MoveTowardsCurrentRailTarget(frameMoveDistance, distanceMoveSign);
+            return;
+        }
 
         SnapToCurrentSegment();
     }
 
-    /// <summary>
-    /// 处理角色到达当前 Segment 起点或终点后的换段逻辑。
-    ///
-    /// 注意：
-    /// 是否离开 Start / End 应该看 distanceMoveSign，
-    /// 而不是直接看 horizontalSign。
-    ///
-    /// 因为某些 Segment 可能从右往左烘焙，
-    /// 此时玩家按右 horizontalSign = 1，
-    /// 但 distanceMoveSign = -1，实际会走向 Start。
-    /// </summary>
-    /// <param name="segment">
-    /// 当前路径段。
-    /// </param>
-    /// <param name="horizontalSign">
-    /// 玩家横向输入方向。
-    /// 用于在节点上选择 Left / Right 出口。
-    /// </param>
-    /// <param name="distanceMoveSign">
-    /// 当前 distanceOnSegment 的变化方向。
-    /// 用于判断角色正在离开 Start 还是 End。
-    /// </param>
-    private void ResolveSegmentBoundary(
-        RailSegment2D segment,
-        int horizontalSign,
-        int distanceMoveSign)
+    private float CalculateFrameMoveDistance(float deltaTime)
+    {
+        if (acceleration <= 0f)
+        {
+            currentMoveSpeed = moveSpeed;
+        }
+        else
+        {
+            currentMoveSpeed = Mathf.MoveTowards(currentMoveSpeed, moveSpeed, acceleration * deltaTime);
+        }
+
+        return currentMoveSpeed * deltaTime;
+    }
+
+    private void MoveTowardsCurrentRailTarget(float maxMoveDistance, int distanceMoveSign)
+    {
+        if (railMap == null)
+        {
+            return;
+        }
+
+        if (!railMap.TryGetSegment(currentSegmentId, out RailSegment2D segment))
+        {
+            return;
+        }
+
+        EnsureSegmentLengthTable(segment);
+
+        if (!IsSegmentUsable(segment))
+        {
+            return;
+        }
+
+        float targetDistance = distanceOnSegment;
+
+        if (targetLeadDistance > 0f && distanceMoveSign != 0)
+        {
+            targetDistance += distanceMoveSign * targetLeadDistance;
+            targetDistance = Mathf.Clamp(targetDistance, 0f, segment.Length);
+        }
+
+        Vector2 targetPosition = segment.GetPointByDistance(targetDistance);
+        Vector2 originPosition = GetCurrentBodyPosition();
+        Vector2 toTarget = targetPosition - originPosition;
+
+        if (toTarget.sqrMagnitude <= targetArriveEpsilon * targetArriveEpsilon)
+        {
+            MoveBodyPosition(targetPosition);
+            return;
+        }
+
+        float distanceToTarget = toTarget.magnitude;
+        Vector2 direction = toTarget / distanceToTarget;
+        Vector2 displacement = direction * Mathf.Min(maxMoveDistance, distanceToTarget);
+        Vector2 nextPosition = originPosition + displacement;
+
+        MoveBodyPosition(nextPosition);
+    }
+
+    private Vector2 GetCurrentBodyPosition()
+    {
+        if (Application.isPlaying && rb != null)
+        {
+            return rb.position;
+        }
+
+        Vector3 position = transform.position;
+        return new Vector2(position.x, position.y);
+    }
+
+    private void MoveBodyPosition(Vector2 position)
+    {
+        if (Application.isPlaying && rb != null)
+        {
+            rb.MovePosition(position);
+            return;
+        }
+
+        transform.position = new Vector3(position.x, position.y, transform.position.z);
+    }
+
+    private void ResolveSegmentBoundary(RailSegment2D segment, int horizontalSign, int distanceMoveSign)
     {
         bool hasVerticalBranchChoice =
             bufferedVerticalChoice == RailExitChoice2D.Up ||
@@ -601,12 +626,7 @@ public sealed class RailWalker2D : MonoBehaviour
             if (wantsLeaveStart)
             {
                 float overflowDistance = Mathf.Max(0f, -distanceOnSegment);
-
-                TrySwitchAtNode(
-                    segment.startNodeId,
-                    horizontalSign,
-                    RailEndpoint2D.Start,
-                    overflowDistance);
+                TrySwitchAtNode(segment.startNodeId, horizontalSign, RailEndpoint2D.Start, overflowDistance);
             }
             else
             {
@@ -625,67 +645,48 @@ public sealed class RailWalker2D : MonoBehaviour
 
             if (wantsLeaveEnd)
             {
-                float overflowDistance = Mathf.Max(
-                    0f,
-                    distanceOnSegment - segment.Length);
-
-                TrySwitchAtNode(
-                    segment.endNodeId,
-                    horizontalSign,
-                    RailEndpoint2D.End,
-                    overflowDistance);
+                float overflowDistance = Mathf.Max(0f, distanceOnSegment - segment.Length);
+                TrySwitchAtNode(segment.endNodeId, horizontalSign, RailEndpoint2D.End, overflowDistance);
             }
             else
             {
-                distanceOnSegment = Mathf.Min(
-                    segment.Length,
-                    distanceOnSegment);
+                distanceOnSegment = Mathf.Min(segment.Length, distanceOnSegment);
             }
         }
     }
 
-    /// <summary>
-    /// 在节点处尝试切换到下一条路径段。
-    ///
-    /// horizontalSign 用于选择节点出口：
-    /// 1 -> Right
-    /// -1 -> Left
-    ///
-    /// bufferedVerticalChoice 优先级更高：
-    /// Up / Down 会先于 Left / Right 被选择。
-    /// </summary>
-    /// <param name="nodeId">
-    /// 当前抵达的节点 ID。
-    /// </param>
-    /// <param name="horizontalSign">
-    /// 玩家横向输入方向。
-    /// </param>
-    /// <param name="arrivedEndpoint">
-    /// 当前角色是从当前 Segment 的哪一端抵达节点。
-    /// 没有出口时用它把角色限制在当前端点。
-    /// </param>
-    /// <param name="overflowDistance">
-    /// 当前帧越过节点后多走出的距离。
-    /// 切换到下一段后要保留这部分距离，避免速度损失。
-    /// </param>
     private void TrySwitchAtNode(
         int nodeId,
         int horizontalSign,
         RailEndpoint2D arrivedEndpoint,
         float overflowDistance)
     {
+        int fromSegmentId = currentSegmentId;
         RailExitChoice2D horizontalChoice = ToHorizontalChoice(horizontalSign);
 
-        bool hasExit = railMap.TryResolveExit(
+        bool hasExit = railMap.TryResolveBranchExit(
             nodeId,
+            fromSegmentId,
             bufferedVerticalChoice,
             horizontalChoice,
             out RailExit2D exit);
+
+        if (!hasExit && IsBufferedVerticalChoiceActive())
+        {
+            bool wantUp = bufferedVerticalChoice == RailExitChoice2D.Up;
+            hasExit = TryInferVerticalExitByWorldY(nodeId, wantUp, out exit);
+        }
+
+        if (!hasExit && autoContinueThroughConnectedSegments)
+        {
+            hasExit = TryInferConnectedExit(nodeId, horizontalSign, out exit);
+        }
 
         if (!hasExit)
         {
             LogRailWarning(
                 $"Node {nodeId} has no exit. " +
+                $"fromSegmentId={fromSegmentId}, " +
                 $"verticalChoice={bufferedVerticalChoice}, " +
                 $"horizontalChoice={horizontalChoice}, " +
                 $"currentSegmentId={currentSegmentId}.");
@@ -696,10 +697,7 @@ public sealed class RailWalker2D : MonoBehaviour
 
         if (!railMap.TryGetSegment(exit.segmentId, out RailSegment2D nextSegment))
         {
-            LogRailWarning(
-                $"Node {nodeId} resolved exit to segment {exit.segmentId}, " +
-                "but that segment does not exist in railMap.");
-
+            LogRailWarning($"Node {nodeId} resolved exit to segment {exit.segmentId}, but that segment does not exist.");
             ClampToCurrentSegmentEnd(arrivedEndpoint);
             return;
         }
@@ -708,10 +706,7 @@ public sealed class RailWalker2D : MonoBehaviour
 
         if (!IsSegmentUsable(nextSegment))
         {
-            LogRailWarning(
-                $"Node {nodeId} resolved exit to segment {exit.segmentId}, " +
-                "but that segment is not usable.");
-
+            LogRailWarning($"Node {nodeId} resolved exit to segment {exit.segmentId}, but that segment is not usable.");
             ClampToCurrentSegmentEnd(arrivedEndpoint);
             return;
         }
@@ -727,13 +722,189 @@ public sealed class RailWalker2D : MonoBehaviour
             distanceOnSegment = nextSegment.Length - overflowDistance;
         }
 
-        distanceOnSegment = Mathf.Clamp(
-            distanceOnSegment,
-            0f,
-            nextSegment.Length);
+        distanceOnSegment = Mathf.Clamp(distanceOnSegment, 0f, nextSegment.Length);
 
         bufferedVerticalChoice = RailExitChoice2D.None;
         bufferedVerticalTimer = 0f;
+    }
+
+    private bool IsBufferedVerticalChoiceActive()
+    {
+        return bufferedVerticalChoice == RailExitChoice2D.Up ||
+               bufferedVerticalChoice == RailExitChoice2D.Down;
+    }
+
+    private bool TryInferVerticalExitByWorldY(int nodeId, bool wantUp, out RailExit2D exit)
+    {
+        exit = null;
+
+        if (railMap == null || railMap.segments == null)
+        {
+            return false;
+        }
+
+        RailSegment2D bestSegment = null;
+        RailEndpoint2D bestEnterFrom = RailEndpoint2D.Start;
+        float bestScore = float.NegativeInfinity;
+
+        for (int i = 0; i < railMap.segments.Count; i++)
+        {
+            RailSegment2D candidate = railMap.segments[i];
+
+            if (!IsSegmentUsable(candidate))
+            {
+                continue;
+            }
+
+            if (candidate.segmentId == currentSegmentId)
+            {
+                continue;
+            }
+
+            bool connectedToStart = candidate.startNodeId == nodeId;
+            bool connectedToEnd = candidate.endNodeId == nodeId;
+
+            if (!connectedToStart && !connectedToEnd)
+            {
+                continue;
+            }
+
+            RailEndpoint2D enterFrom = connectedToStart ? RailEndpoint2D.Start : RailEndpoint2D.End;
+            Vector2 leaveDirection = GetLeaveDirectionFromEndpoint(candidate, enterFrom);
+
+            if (leaveDirection.sqrMagnitude <= Mathf.Epsilon)
+            {
+                continue;
+            }
+
+            Vector2 normalizedDirection = leaveDirection.normalized;
+            float score = wantUp ? normalizedDirection.y : -normalizedDirection.y;
+
+            if (score > bestScore)
+            {
+                bestScore = score;
+                bestSegment = candidate;
+                bestEnterFrom = enterFrom;
+            }
+        }
+
+        if (bestSegment == null)
+        {
+            return false;
+        }
+
+        exit = new RailExit2D
+        {
+            choice = wantUp ? RailExitChoice2D.Up : RailExitChoice2D.Down,
+            segmentId = bestSegment.segmentId,
+            enterFrom = bestEnterFrom,
+            fromSegmentId = currentSegmentId,
+            priority = 0
+        };
+
+        return true;
+    }
+
+    private bool TryInferConnectedExit(int nodeId, int horizontalSign, out RailExit2D exit)
+    {
+        exit = null;
+
+        if (railMap == null || railMap.segments == null)
+        {
+            return false;
+        }
+
+        RailSegment2D bestSegment = null;
+        RailEndpoint2D bestEnterFrom = RailEndpoint2D.Start;
+        float bestScore = float.NegativeInfinity;
+
+        for (int i = 0; i < railMap.segments.Count; i++)
+        {
+            RailSegment2D candidate = railMap.segments[i];
+
+            if (!IsSegmentUsable(candidate))
+            {
+                continue;
+            }
+
+            if (candidate.segmentId == currentSegmentId)
+            {
+                continue;
+            }
+
+            bool connectedToStart = candidate.startNodeId == nodeId;
+            bool connectedToEnd = candidate.endNodeId == nodeId;
+
+            if (!connectedToStart && !connectedToEnd)
+            {
+                continue;
+            }
+
+            RailEndpoint2D enterFrom = connectedToStart ? RailEndpoint2D.Start : RailEndpoint2D.End;
+            Vector2 leaveDirection = GetLeaveDirectionFromEndpoint(candidate, enterFrom);
+            float score = ScoreInferredExit(leaveDirection, horizontalSign);
+
+            if (score > bestScore)
+            {
+                bestScore = score;
+                bestSegment = candidate;
+                bestEnterFrom = enterFrom;
+            }
+        }
+
+        if (bestSegment == null)
+        {
+            return false;
+        }
+
+        exit = new RailExit2D
+        {
+            choice = RailExitChoice2D.Auto,
+            segmentId = bestSegment.segmentId,
+            enterFrom = bestEnterFrom,
+            fromSegmentId = currentSegmentId,
+            priority = 0
+        };
+
+        return true;
+    }
+
+    private static Vector2 GetLeaveDirectionFromEndpoint(RailSegment2D segment, RailEndpoint2D enterFrom)
+    {
+        if (segment == null || segment.bakedPoints == null || segment.bakedPoints.Length < 2)
+        {
+            return Vector2.zero;
+        }
+
+        if (enterFrom == RailEndpoint2D.Start)
+        {
+            return segment.bakedPoints[1] - segment.bakedPoints[0];
+        }
+
+        int lastIndex = segment.bakedPoints.Length - 1;
+        return segment.bakedPoints[lastIndex - 1] - segment.bakedPoints[lastIndex];
+    }
+
+    private static float ScoreInferredExit(Vector2 leaveDirection, int horizontalSign)
+    {
+        if (leaveDirection.sqrMagnitude <= Mathf.Epsilon)
+        {
+            return -1000f;
+        }
+
+        Vector2 normalizedDirection = leaveDirection.normalized;
+
+        if (horizontalSign > 0)
+        {
+            return normalizedDirection.x;
+        }
+
+        if (horizontalSign < 0)
+        {
+            return -normalizedDirection.x;
+        }
+
+        return 0f;
     }
 
     private static RailExitChoice2D ToHorizontalChoice(int horizontalSign)
@@ -759,10 +930,7 @@ public sealed class RailWalker2D : MonoBehaviour
         }
 
         EnsureSegmentLengthTable(segment);
-
-        distanceOnSegment = arrivedEndpoint == RailEndpoint2D.Start
-            ? 0f
-            : segment.Length;
+        distanceOnSegment = arrivedEndpoint == RailEndpoint2D.Start ? 0f : segment.Length;
     }
 
     private void SnapToCurrentSegment()
@@ -778,19 +946,8 @@ public sealed class RailWalker2D : MonoBehaviour
         }
 
         EnsureSegmentLengthTable(segment);
-
         Vector2 targetPosition = segment.GetPointByDistance(distanceOnSegment);
-
-        if (Application.isPlaying && rb != null)
-        {
-            rb.MovePosition(targetPosition);
-            return;
-        }
-
-        transform.position = new Vector3(
-            targetPosition.x,
-            targetPosition.y,
-            transform.position.z);
+        MoveBodyPosition(targetPosition);
     }
 
     private static void EnsureSegmentLengthTable(RailSegment2D segment)
@@ -811,12 +968,6 @@ public sealed class RailWalker2D : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 输出 RailWalker2D 调试警告。
-    /// </summary>
-    /// <param name="message">
-    /// 警告内容。
-    /// </param>
     private void LogRailWarning(string message)
     {
         if (!logRailDebug)
@@ -824,8 +975,6 @@ public sealed class RailWalker2D : MonoBehaviour
             return;
         }
 
-        Debug.LogWarning(
-            $"{nameof(RailWalker2D)} [{name}]: {message}",
-            this);
+        Debug.LogWarning($"{nameof(RailWalker2D)} [{name}]: {message}", this);
     }
 }

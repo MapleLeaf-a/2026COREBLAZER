@@ -43,16 +43,17 @@ public sealed class RailBezierMap2DAuthoring : MonoBehaviour
     /// </returns>
     public int CreateNode(Vector2 position)
     {
-        int nodeId = nextNodeId++;
+		int nodeId = nextNodeId++;
 
-        nodes.Add(new RailBezierNode2D
-        {
-            nodeId = nodeId,
-            displayName = $"Node_{nodeId}",
-            position = position
-        });
+		nodes.Add(new RailBezierNode2D
+		{
+			nodeId = nodeId,
+			displayName = $"Node_{nodeId}",
+			nodeKey = $"Node_{nodeId}",
+			position = position
+		});
 
-        return nodeId;
+		return nodeId;
     }
 
     /// <summary>
