@@ -845,7 +845,43 @@ MonoBehaviour:
     upExitSegmentId: -1
     downExitSegmentId: -1
     autoExitSegmentId: -1
-    exitRules: []
+    exitRules:
+    - fromSegmentId: 0
+      choice: 2
+      targetSegmentId: 1
+      priority: 0
+    - fromSegmentId: 0
+      choice: 3
+      targetSegmentId: 2
+      priority: 0
+    - fromSegmentId: 0
+      choice: 4
+      targetSegmentId: 1
+      priority: 0
+    - fromSegmentId: 1
+      choice: 1
+      targetSegmentId: 0
+      priority: 0
+    - fromSegmentId: 1
+      choice: 4
+      targetSegmentId: 2
+      priority: 0
+    - fromSegmentId: 1
+      choice: 2
+      targetSegmentId: 1
+      priority: 0
+    - fromSegmentId: 2
+      choice: 2
+      targetSegmentId: 1
+      priority: 0
+    - fromSegmentId: 2
+      choice: 1
+      targetSegmentId: 0
+      priority: 0
+    - fromSegmentId: 2
+      choice: 3
+      targetSegmentId: 0
+      priority: 0
   - nodeId: 14
     displayName: Node_14
     nodeKey: Fish
@@ -875,7 +911,15 @@ MonoBehaviour:
     upExitSegmentId: -1
     downExitSegmentId: -1
     autoExitSegmentId: -1
-    exitRules: []
+    exitRules:
+    - fromSegmentId: 1
+      choice: 2
+      targetSegmentId: 3
+      priority: 0
+    - fromSegmentId: 3
+      choice: 1
+      targetSegmentId: 1
+      priority: 0
   segments:
   - segmentId: 0
     displayName: Segment_20
@@ -961,8 +1005,8 @@ MonoBehaviour:
     - {x: -83.1311, y: -221.60004}
   - segmentId: 2
     displayName: Segment_23
-    startNodeId: 16
-    endNodeId: 13
+    startNodeId: 13
+    endNodeId: 16
     startHandleOffset: {x: -118.91953, y: -35.74456}
     endHandleOffset: {x: 190.92581, y: 38.316193}
     sampleCount: 32
