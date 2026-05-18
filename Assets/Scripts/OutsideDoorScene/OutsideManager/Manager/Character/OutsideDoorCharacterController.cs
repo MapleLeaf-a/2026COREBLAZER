@@ -108,7 +108,6 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 	{
 		// 如果项目里必须使用自定义 InputManager 上下文，可以在这里打开。
 		// InputManager.instance.SetContext(InputContext.CHARACTER);
-		// InputManager.instance.SetContext(InputContext.CHARACTER);
 	}
 
 	private void Update()
@@ -129,6 +128,49 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 			cachedHorizontalInput,
 			cachedVerticalInput,
 			Time.fixedDeltaTime);
+	}
+
+	public void ResetPlayerTransform(
+		Vector3 worldPosition,
+		bool faceRight,
+		bool resetInput = true)
+	{
+		// 直接设置 Player 根节点的世界坐标。
+		// 因为 OutsideDoorCharacterController 挂在 Player 根节点上，
+		// 所以这里使用 transform.position 即可。
+		transform.position = worldPosition;
+
+		// 根据需要清空输入缓存。
+		// 如果不清空，角色可能在重置后的下一帧继续沿着旧输入移动。
+		if (resetInput)
+		{
+			cachedHorizontalInput = 0f;
+			cachedVerticalInput = 0f;
+		}
+
+		// 更新内部朝向标记。
+		// 你的原代码里：
+		// facingSign < 0 时，spriteRenderer.flipX = true。
+		// 所以这里保持同一套规则。
+		facingSign = faceRight ? -1 : 1;
+
+		// 如果有 SpriteRenderer，就立刻刷新显示朝向。
+		if (spriteRenderer != null)
+		{
+			spriteRenderer.flipX = facingSign < 0;
+		}
+
+		// 如果有 Animator，可以顺手切回 Idle。
+		// 这样角色重置后不会继续停留在 Walk 动画状态。
+		if (animator != null)
+		{
+			animator.CrossFade("Base Layer.Idle", 0.05f);
+		}
+	}
+
+	public void ResetRailMap2D(RailMap2DAsset rail)
+	{
+		railWalker.ResetMapData(rail);
 	}
 
 	private void ReadOldInput()
