@@ -46,6 +46,11 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
     }
 
     /// <summary>
+    /// 非null物品的数量
+    /// </summary>
+    public int Count => model.Count;
+
+    /// <summary>
     /// 当前选中的物品
     /// </summary>
     public T SelectedItem

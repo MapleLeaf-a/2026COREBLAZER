@@ -12,6 +12,9 @@ public class UAVBackpackView : BackpackView
     [Tooltip("转移全部按钮")]
     public Button transferAllButton;
 
+    [Tooltip("转移此种物品按钮")]
+    public Button transferThisButton;
+
     [Tooltip("冰箱View")]
     public FreezerView freezerView;
 
@@ -20,6 +23,7 @@ public class UAVBackpackView : BackpackView
         dropButton.onClick.AddListener(OnDropItemClick);
 
         transferAllButton.onClick.AddListener(OnTransferAllClick);
+        transferThisButton.onClick.AddListener(OnTransferSelectedClick);
     }
 
     public override void InitBackpackView(BackpackModel backpackModel)
@@ -50,5 +54,12 @@ public class UAVBackpackView : BackpackView
 
         //RefreshUI();
         //freezerView.RefreshUI();
+    }
+
+    void OnTransferSelectedClick()
+    {
+        if (freezerView == null) return;
+
+        (backpackViewModel as UAVBackpackViewModel)?.TransferSelectedTo(freezerView.backpackViewModel);
     }
 }

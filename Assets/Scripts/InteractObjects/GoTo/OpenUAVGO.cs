@@ -7,6 +7,7 @@ public class OpenUAVGO : MonoBehaviour
 {
     [Header("需要被激活的游戏物体")]
     public GameObject GameObject;
+    public Canvas UAVCanvas;
 
     private Button button;
 
@@ -19,5 +20,6 @@ public class OpenUAVGO : MonoBehaviour
     private void OpenGO()
     {
         GameObject.SetActive(true);
+        UAVCanvas.gameObject.SetActive(true);
     }
 }

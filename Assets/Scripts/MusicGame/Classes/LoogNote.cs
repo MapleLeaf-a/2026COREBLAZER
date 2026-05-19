@@ -104,7 +104,7 @@ public class LongNote : MonoBehaviour
                 // 头超出判定区还没按 → Totally MISS (整个长音符 0 分)
                 if (headP < barP - BarJudger.miss * speed)
                 {
-                    barJudger.ShowText("Totally MISS!", Color.red);
+                    barJudger.ShowText("糟糕！", Color.red);
                     state = State.Broken;
                     headPct = 0f;
                     tailPct = 0f;
@@ -125,7 +125,7 @@ public class LongNote : MonoBehaviour
                 // (按到底视为完美完成, 不强制要求松手)
                 if (Mathf.Abs(tailP - barP) < speed * BarJudger.perfect)
                 {
-                    barJudger.ShowText("Perfect!", Color.yellow);
+                    barJudger.ShowText("赞！", Color.yellow);
                     tailPct = 1f;
                     tailJudged = true;
                     state = State.Done;
@@ -137,7 +137,7 @@ public class LongNote : MonoBehaviour
                 else if (tailP < barP - BarJudger.miss * speed)
                 {
                     // 尾部完全离开判定区还没松手 → 当作 Miss tail
-                    barJudger.ShowText("Miss!", Color.red);
+                    barJudger.ShowText("遗憾！", Color.red);
                     tailPct = 0f;
                     tailJudged = true;
                     state = State.Done;
@@ -173,22 +173,22 @@ public class LongNote : MonoBehaviour
         // 头部精度判定 → 算 headPct
         if (Mathf.Abs(headP - barP) < speed * BarJudger.perfect)
         {
-            barJudger.ShowText("Perfect!", Color.yellow);
+            barJudger.ShowText("赞！", Color.yellow);
             headPct = 1f;
         }
         else if (Mathf.Abs(headP - barP) < speed * BarJudger.good)
         {
-            barJudger.ShowText("Good!", Color.green);
+            barJudger.ShowText("还行！", Color.green);
             headPct = 0.8f;
         }
         else if (Mathf.Abs(headP - barP) < speed * BarJudger.soso)
         {
-            barJudger.ShowText("So-so!", Color.cyan);
+            barJudger.ShowText("一般！", Color.cyan);
             headPct = 0.6f;
         }
         else
         {
-            barJudger.ShowText("Miss!", Color.red);
+            barJudger.ShowText("遗憾！", Color.red);
             headPct = 0f;
         }
 
@@ -223,22 +223,22 @@ public class LongNote : MonoBehaviour
 
             if (Mathf.Abs(tailP - barP) < speed * BarJudger.perfect)
             {
-                barJudger.ShowText("Perfect!", Color.yellow);
+                barJudger.ShowText("赞！", Color.yellow);
                 tailPct = 1f;
             }
             else if (Mathf.Abs(tailP - barP) < speed * BarJudger.good)
             {
-                barJudger.ShowText("Good!", Color.green);
+                barJudger.ShowText("还行！", Color.green);
                 tailPct = 0.8f;
             }
             else if (Mathf.Abs(tailP - barP) < speed * BarJudger.soso)
             {
-                barJudger.ShowText("So-so!", Color.cyan);
+                barJudger.ShowText("一般！", Color.cyan);
                 tailPct = 0.6f;
             }
             else
             {
-                barJudger.ShowText("Miss!", Color.red);
+                barJudger.ShowText("遗憾！", Color.red);
                 tailPct = 0f;
             }
 

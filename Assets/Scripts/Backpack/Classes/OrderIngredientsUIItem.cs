@@ -9,9 +9,21 @@ public class OrderIngredientsUIItem : GenericSlot<FoodMaterial>
     //±≥æ∞ÕºœÒ
     public Image bgImage;
 
-    public void SetUp(FoodMaterial item, Sprite bgImage, Sprite image, int index, bool isSelected)
+    [Header("¥Ú’€Õº∆¨")]
+    public Sprite discountImage;
+    [Header("ƒ¨»œÕº∆¨")]
+    public Sprite defaultImage;
+
+    public void SetUp(FoodMaterial item, Sprite image, int index, bool isSelected, bool isDiscounted)
     {
         base.SetUp(item, image, index, isSelected);
-        this.bgImage.sprite = bgImage;
+        if (isDiscounted)
+        {
+            bgImage.sprite = discountImage;
+        }
+        else
+        {
+            bgImage.sprite = defaultImage;
+        }
     }
 }
