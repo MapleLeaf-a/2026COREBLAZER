@@ -7,4 +7,5 @@ public enum InputContext
     CHARACTER, //角色操控部分
     DIGGAME,   //挖掘游戏部分
     RECIPE,    //每日菜谱部分
+    BACKPACK, //背包部分
 }

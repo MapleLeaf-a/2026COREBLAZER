@@ -72,8 +72,12 @@ public class NoteManager : MonoBehaviour
     void Start()
     {
         movementStrategy = CreateMoveStategy(direction);
-        barJudger = bar.GetComponent<BarJudger>();
-        barJudger.Initialize(this, trackIndex, trackCount);
+        // NOTE: BarJudger wiring moved to Initialize() — running here was a bug because
+        // trackCount/trackIndex aren't set until TracksManager calls Initialize(),
+        // and Unity makes no guarantee about Start() order between sibling MonoBehaviours.
+        // For 4-track that bug was harmless (trackCount=0 still fell into the multi-track
+        // branch and queried JudgeTrack0..3 which happen to map to A/D/J/L). For 1-track
+        // it was fatal: trackCount=0 never queried the "Judge" / Space binding.
     }
 
     void Update()
@@ -113,13 +117,33 @@ public class NoteManager : MonoBehaviour
     }
 
     public void Initialize(int trackIndex, int trackCount, List<int> notesPre,
-                           List<LongNoteData> longsPre, TracksManager tracksManager)
+                           List<LongNoteData> longsPre, TracksManager tracksManager, float spawnInterval)
     {
         this.trackIndex = trackIndex;
         this.trackCount = trackCount;
         this.notes = notesPre;
         this.longs = longsPre ?? new List<LongNoteData>();
         this.tracksManager = tracksManager;
+        this.spawnInterval = spawnInterval;
+
+        // Wire up the BarJudger now that we have correct trackIndex / trackCount.
+        // (bar is a public field assigned in Inspector — safe to access here.)
+        if (bar != null)
+        {
+            barJudger = bar.GetComponent<BarJudger>();
+            if (barJudger != null)
+            {
+                barJudger.Initialize(this, trackIndex, trackCount);
+            }
+            else
+            {
+                Debug.LogWarning("[NoteManager] bar 上没找到 BarJudger 组件 (轨道 " + trackIndex + ")");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("[NoteManager] bar 字段未在 Inspector 里赋值 (轨道 " + trackIndex + ")");
+        }
     }
 
     /// <summary>

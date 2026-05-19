@@ -25,18 +25,18 @@ public class Score
     {
         switch (state)
         {
-            case "Perfect!":
+            case "‘ﬁ£°":
                 score += 1f;
                 break;
-            case "Good!":
+            case "ªπ––£°":
                 score += 0.8f;
                 break;
-            case "So-so!":
+            case "“ª∞„£°":
                 score += 0.6f;
                 break;
-            //case "Miss!":
+            //case "“≈∫∂£°":
             //    break;
-            //case "Totally MISS!":
+            //case "‘„∏‚£°":
             //    break;
             default:
                 break;
