@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/OutsideDoor/OutsideDoor_2.unity
     guid: 6ace87fe2db74de40af08e5aee8e9a3a
   - enabled: 1
-    path: Assets/Scenes/OutsideDoor/OutsideDoor_3.unity
+    path: Assets/Scenes/OutsideDoor/Fish.unity
     guid: cb98b28bc72376a4b8f733c8fa3cab94
   m_configObjects: {}

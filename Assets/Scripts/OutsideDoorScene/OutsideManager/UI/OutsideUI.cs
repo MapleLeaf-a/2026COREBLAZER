@@ -17,6 +17,7 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.UI
 
 		public void OnEnable()
 		{
+			DontDestroyOnLoad(this);
 			this.Open();
 		}
 
