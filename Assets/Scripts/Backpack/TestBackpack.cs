@@ -79,9 +79,9 @@ public class TestBackpack : MonoBehaviour
         todaysRecipeView.InitBackpackView(todaysRecipeModel);
 
         orderIngredientsModel = new OrderIngredientsModel(10);
-        //orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("101"));
-        //orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("102"));
-        //orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("103"));
+        orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("step_001"));
+        orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("step_002"));
+        orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("step_003"));
         orderIngredientsView.InitBackpackView(orderIngredientsModel);
 
 

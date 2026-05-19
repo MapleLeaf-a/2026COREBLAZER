@@ -23,6 +23,10 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
     [Tooltip("计算总价")]
     public TotalPriceCaculator totalPriceCaculator;
 
+
+    //打折的物品的索引
+    private int discountIndex;
+
     public OrderIngredientsViewModel orderIngredientsViewModel
     {
         get => viewModel as OrderIngredientsViewModel;
@@ -101,11 +105,23 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
         }
     }
 
+    public void GenerateDiscountIndex()
+    {
+        discountIndex = Random.Range(0, orderIngredientsViewModel.Count);
+    }
+
+
+    public void RefreshDiscount()
+    { 
+        
+    }
+
     //刷新所有UI
     public override void RefreshUI()
     {
         RefreshItems();
         RefreshDetail();
+        RefreshDiscount();
     }
 
     protected override void BindOtherButtons()
