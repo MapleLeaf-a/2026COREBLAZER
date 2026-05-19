@@ -3,6 +3,7 @@ using Assets.Scripts.Tools.Unity;
 using Events;
 using System;
 using UnityEngine;
+using Assets.Scripts.OutsideDoorScene.OutsideManager.Manager;
 
 namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 {
@@ -35,6 +36,10 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 				Debug.LogError("Empty Scene Name");
 				return;
 			}
+
+			// 必须在 LoadScene 前记录。
+			// 因为 LoadScene 之后，当前激活场景会变成新场景，旧场景名就取不到了。
+			SceneTransitionContext.RecordTransition(goToOutsideEvent.targetSceneName);
 
 			var sceneChangeRequest = new SceneLoadRequestEvent(requestId: "default", loadMode: GameSceneLoadMode.Single, targetSceneName: goToOutsideEvent.targetSceneName);
 

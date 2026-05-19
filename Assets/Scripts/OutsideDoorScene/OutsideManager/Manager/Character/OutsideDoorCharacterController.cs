@@ -191,6 +191,83 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 		railWalker.ResetMapData(rail);
 	}
 
+	/// <summary>
+	/// 重置角色的 RailMap，并把角色接入指定出生节点。
+	/// </summary>
+	/// <param name="rail">
+	/// 当前场景的 RailMap2DAsset。
+	/// 作用是提供当前场景的节点、路径段和出口规则。
+	/// </param>
+	/// <param name="spawnNodeKey">
+	/// 出生节点查询名。
+	/// 作用是让 RailWalker2D 在 rail 中查找对应 RailNode2D。
+	/// </param>
+	/// <param name="fallbackPosition">
+	/// 兜底世界坐标。
+	/// 当 spawnNodeKey 查不到，或者节点无法接入路径时使用。
+	/// </param>
+	/// <param name="preferredExitChoice">
+	/// 优先出口选择。
+	/// 当出生节点连接多条路径时，用它决定优先接入哪条路径。
+	/// </param>
+	/// <param name="faceRight">
+	/// 是否朝右。
+	/// true 表示朝右，false 表示朝左。
+	/// </param>
+	public void ResetRailMapAndSpawnAtNode(
+		RailMap2DAsset rail,
+		string spawnNodeKey,
+		Vector2 fallbackPosition,
+		RailExitChoice2D preferredExitChoice,
+		bool faceRight)
+	{
+		if (railWalker == null)
+		{
+			Debug.LogError("Player 缺少 RailWalker2D，无法接入当前场景 RailMap。");
+			ResetPlayerTransform(fallbackPosition, faceRight);
+			return;
+		}
+
+		if (rail == null)
+		{
+			Debug.LogError("传入的 RailMap2DAsset 为空，无法接入当前场景路径。");
+			ResetPlayerTransform(fallbackPosition, faceRight);
+			return;
+		}
+
+		// 先把当前场景的 RailMap 导入给角色。
+		// 这样 TrySetStartAtNode 才会在当前场景的节点列表中查找。
+		railWalker.ResetMapData(rail);
+
+		bool hasSpawnedOnRail = false;
+
+		if (!string.IsNullOrWhiteSpace(spawnNodeKey))
+		{
+			// 让 RailWalker2D 自己根据节点接入 Segment。
+			// 这一步会同步 currentSegmentId 和 distanceOnSegment，
+			// 比单纯设置 transform.position 更安全。
+			hasSpawnedOnRail = railWalker.TrySetStartAtNode(
+				spawnNodeKey,
+				preferredExitChoice,
+				true);
+		}
+
+		if (!hasSpawnedOnRail)
+		{
+			// 如果没有成功接入指定节点，就退回兜底坐标。
+			ResetPlayerTransform(fallbackPosition, faceRight);
+
+			// 尝试把兜底坐标吸附到最近的 Rail 上。
+			// 这样即使节点配置错了，角色也尽量还能继续沿路径移动。
+			railWalker.TryAttachToNearestRail(fallbackPosition, true);
+			return;
+		}
+
+		// 成功按节点接入路径后，只刷新朝向和输入缓存。
+		// transform.position 使用当前 railWalker 已经移动到的位置。
+		ResetPlayerTransform(transform.position, faceRight);
+	}
+
 	private void ReadOldInput()
 	{
 		cachedHorizontalInput = Input.GetAxisRaw(horizontalAxisName);

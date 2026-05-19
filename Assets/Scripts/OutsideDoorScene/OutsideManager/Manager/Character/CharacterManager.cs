@@ -15,18 +15,32 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 
 		public void OnCreatePlayer(in CreatePlayerEvent createPlayerEvent)
 		{
-			if (playerCache != null)
+			if (playerCache == null)
 			{
-				playerCache.ResetPlayerTransform(createPlayerEvent.pos, createPlayerEvent.facingSign > 0);
-				playerCache.ResetRailMap2D(createPlayerEvent.rail);
-				playerCache.enabled = true;
-				return;
+				if (playerPref == null)
+				{
+					Debug.LogError("CharacterManager 缺少 playerPref，无法创建 Player。");
+					return;
+				}
+
+				playerCache = GameObject.Instantiate(playerPref).GetComponent<OutsideDoorCharacterController>();
+
+				if (playerCache == null)
+				{
+					Debug.LogError("playerPref 上缺少 OutsideDoorCharacterController。");
+					return;
+				}
+
+				Debug.Log("Player has been created");
 			}
 
-			playerCache = GameObject.Instantiate(playerPref).GetComponent<OutsideDoorCharacterController>();
-			playerCache.ResetPlayerTransform(createPlayerEvent.pos, createPlayerEvent.facingSign > 0);
-			playerCache.ResetRailMap2D(createPlayerEvent.rail);
-			Debug.Log("Player has been created");
+			playerCache.ResetRailMapAndSpawnAtNode(
+				createPlayerEvent.rail,
+				createPlayerEvent.spawnNodeKey,
+				createPlayerEvent.fallbackPos,
+				createPlayerEvent.preferredExitChoice,
+				createPlayerEvent.facingSign > 0f);
+
 			playerCache.enabled = true;
 		}
 
