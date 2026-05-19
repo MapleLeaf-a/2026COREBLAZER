@@ -75,6 +75,18 @@ public sealed class RailWalker2D : MonoBehaviour
 	private float bufferedVerticalTimer;
 	private float currentMoveSpeed;
 
+	/// <summary>
+	/// 是否已经由运行时代码指定过出生点。
+	///
+	/// true：
+	/// 说明外部已经调用 TrySetStartAtNode 或 TryAttachToNearestRail 设置过出生位置，
+	/// Start 中不应该再用默认起点覆盖它。
+	///
+	/// false：
+	/// 说明还没有运行时出生点，可以使用默认起点初始化。
+	/// </summary>
+	private bool hasRuntimeSpawnOverride;
+
 	public RailMap2DAsset RailMap => railMap;
 	public int CurrentSegmentId => currentSegmentId;
 	public float DistanceOnSegment => distanceOnSegment;
@@ -115,6 +127,11 @@ public sealed class RailWalker2D : MonoBehaviour
 
 	private void Start()
 	{
+		if (hasRuntimeSpawnOverride)
+		{
+			return;
+		}
+
 		InitializeStartPosition();
 	}
 
@@ -286,6 +303,10 @@ public sealed class RailWalker2D : MonoBehaviour
 		currentSegmentId = segment.segmentId;
 		distanceOnSegment = enterFrom == RailEndpoint2D.Start ? 0f : segment.Length;
 
+		// 标记运行时已经指定出生点。
+		// 这样 Start 不会再次用默认起点覆盖当前状态。
+		hasRuntimeSpawnOverride = true;
+
 		if (snapImmediately)
 		{
 			MoveBodyPosition(node.position);
@@ -400,6 +421,10 @@ public sealed class RailWalker2D : MonoBehaviour
 
 		currentSegmentId = result.segmentId;
 		distanceOnSegment = result.distanceOnSegment;
+
+		// 标记运行时已经指定出生点。
+		// 这样 Start 不会再次用默认起点覆盖当前状态。
+		hasRuntimeSpawnOverride = true;
 
 		if (snapToRail)
 		{

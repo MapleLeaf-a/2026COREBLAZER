@@ -6,9 +6,11 @@ namespace GameScene
 	/// <summary>
 	/// 2D 场景切换触发盒。
 	///
-	/// 这个脚本挂在带 Collider2D 的触发盒对象上。
-	/// 它只负责检测玩家是否满足切换条件，不直接加载场景。
-	/// 真正的场景加载由 SceneTransitionManager 处理。
+	/// 这个脚本只负责检测玩家和发布事件。
+	/// 它不直接加载场景。
+	///
+	/// 这样可以让触发逻辑和场景切换逻辑解耦。
+	/// 后续如果要加入音效、存档、出生点、加载界面，只需要扩展 SceneTransitionManager。
 	/// </summary>
 	[DisallowMultipleComponent]
 	[RequireComponent(typeof(Collider2D))]
@@ -18,7 +20,8 @@ namespace GameScene
 
 		/// <summary>
 		/// 要切换到的目标场景名称。
-		/// 必须和 Unity Build Settings 中的场景名称一致。
+		///
+		/// 必须和 Unity Build Settings 中的场景名称完全一致。
 		/// </summary>
 		[SerializeField]
 		private string targetSceneName;
@@ -26,8 +29,10 @@ namespace GameScene
 		[Header("Player Filter")]
 
 		/// <summary>
-		/// 玩家层级过滤器。
-		/// 只有处于这些 Layer 中的对象，才会被视为玩家。
+		/// 玩家所在的 Layer。
+		///
+		/// LayerMask 是 Unity 的层级过滤器。
+		/// 它可以让触发盒只响应 Player 层，忽略 NPC、道具、背景碰撞体。
 		/// </summary>
 		[SerializeField]
 		private LayerMask playerLayerMask;
@@ -35,23 +40,39 @@ namespace GameScene
 		[Header("Direction Rule")]
 
 		/// <summary>
-		/// 允许触发切换的移动方向。
-		/// 例如配置为 Left 时，玩家必须向左移动才会触发切换。
+		/// 允许触发场景切换的移动方向。
+		///
+		/// None 表示不检查方向。
+		/// Left 表示玩家必须向左移动。
+		/// Right 表示玩家必须向右移动。
+		/// Up 表示玩家必须向上移动。
+		/// Down 表示玩家必须向下移动。
 		/// </summary>
 		[SerializeField]
 		private SceneTransitionDirection requiredDirection = SceneTransitionDirection.None;
 
 		/// <summary>
 		/// 最小移动距离。
-		/// 小于该距离时认为玩家没有真正移动，用于避免站着不动时误触发。
+		///
+		/// 如果玩家两次检测之间的位置变化小于这个值，
+		/// 就认为玩家没有真正移动。
+		///
+		/// 这个字段用于避免玩家站在触发盒内不动时误触发。
 		/// </summary>
 		[SerializeField]
 		private float minMoveDistance = 0.01f;
 
 		/// <summary>
 		/// 方向匹配阈值。
-		/// 取值范围是 0 到 1。
-		/// 越接近 1，要求玩家移动方向越精准。
+		///
+		/// 这里使用 Dot 点积判断玩家移动方向是否接近配置方向。
+		///
+		/// Dot 点积可以简单理解成方向相似度：
+		/// 1 表示完全同向。
+		/// 0 表示垂直。
+		/// -1 表示完全反向。
+		///
+		/// 默认 0.65 代表玩家大致朝配置方向移动即可。
 		/// </summary>
 		[SerializeField]
 		[Range(0f, 1f)]
@@ -60,39 +81,39 @@ namespace GameScene
 		[Header("Fade")]
 
 		/// <summary>
-		/// 黑屏淡出持续时间，单位是秒。
+		/// 切出当前场景时的黑屏淡入时间。
+		///
+		/// 当前场景离开前，黑幕会从透明变成全黑。
 		/// </summary>
 		[SerializeField]
-		private float fadeOutDuration = 0.35f;
+		private float exitFadeInDuration = 0.35f;
 
 		/// <summary>
-		/// 黑屏淡入持续时间，单位是秒。
-		/// </summary>
-		[SerializeField]
-		private float fadeInDuration = 0.35f;
-
-		/// <summary>
-		/// 是否已经触发过。
-		/// 用于避免玩家停留在触发盒内时重复发布切换事件。
+		/// 是否已经触发过场景切换。
+		///
+		/// 用于防止玩家停留在触发盒中时连续发布多次场景切换事件。
 		/// </summary>
 		private bool hasTriggered;
 
 		/// <summary>
-		/// 玩家上一帧的位置。
-		/// 当前帧位置减去上一帧位置，就能得到玩家实际移动方向。
+		/// 玩家上一次检测时的位置。
+		///
+		/// 当前位置减去上一次位置，就能得到玩家移动方向。
 		/// </summary>
 		private Vector2 lastPlayerPosition;
 
 		/// <summary>
-		/// 是否已经记录过玩家上一帧位置。
-		/// 玩家刚进入触发盒时只记录位置，不立刻触发切换。
+		/// 是否已经记录过玩家位置。
+		///
+		/// 第一次进入触发盒时只记录位置，不立刻触发。
+		/// 这样可以避免玩家刚进入触发范围时因为方向数据不准确而误触发。
 		/// </summary>
 		private bool hasLastPlayerPosition;
 
 		private void Reset()
 		{
-			// Reset 在脚本刚挂到 GameObject 上时执行。
-			// 自动设置成 Trigger，减少手动配置出错的可能。
+			// Reset 在脚本首次挂到对象上，或者手动点击 Reset 时执行。
+			// 这里自动把 Collider2D 设置成 Trigger，减少手动配置错误。
 			Collider2D triggerCollider = GetComponent<Collider2D>();
 			triggerCollider.isTrigger = true;
 		}
@@ -104,8 +125,8 @@ namespace GameScene
 				return;
 			}
 
-			// 玩家刚进入触发盒时只记录位置。
-			// 不在 Enter 中直接触发，是为了避免玩家刚好出生在触发盒里导致误切场景。
+			// 玩家刚进入触发盒时，只记录当前位置。
+			// 不在 Enter 阶段直接切场景，是为了避免玩家站在边缘时误触发。
 			lastPlayerPosition = other.transform.position;
 			hasLastPlayerPosition = true;
 		}
@@ -135,8 +156,8 @@ namespace GameScene
 
 			Vector2 moveDelta = currentPlayerPosition - lastPlayerPosition;
 
-			// 先更新上一帧位置。
-			// 即使本帧没有触发，下次检测也能基于最新位置继续判断。
+			// 更新上一帧位置。
+			// 下一次 OnTriggerStay2D 才能继续计算新的移动方向。
 			lastPlayerPosition = currentPlayerPosition;
 
 			if (!IsMovingEnough(moveDelta))
@@ -157,11 +178,12 @@ namespace GameScene
 
 			hasTriggered = true;
 
+			// 触发盒只发布事件，不直接切场景。
+			// 真正的黑屏和 SceneManager.LoadSceneAsync 由 SceneTransitionManager 负责。
 			EventBus.Publish(new SceneTransitionRequestEvent(
 				targetSceneName,
 				player,
-				fadeOutDuration,
-				fadeInDuration));
+				exitFadeInDuration));
 		}
 
 		private void OnTriggerExit2D(Collider2D other)
@@ -171,23 +193,23 @@ namespace GameScene
 				return;
 			}
 
-			// 玩家离开触发盒后，允许下一次重新触发。
+			// 玩家离开触发盒后，允许下次重新触发。
 			hasTriggered = false;
 			hasLastPlayerPosition = false;
 		}
 
 		private bool IsPlayer(GameObject target)
 		{
-			// target.layer 是对象当前所在的 Layer 编号。
-			// 1 << target.layer 会把 Layer 编号转换成二进制位。
-			// 和 playerLayerMask 做按位与后不为 0，表示该对象属于允许的玩家层级。
+			// target.layer 是对象所在层级编号。
+			// 1 << target.layer 会把层级编号转换成对应的二进制位。
+			// 与 playerLayerMask 做按位与后不为 0，代表该层级被允许。
 			return (playerLayerMask.value & (1 << target.layer)) != 0;
 		}
 
 		private bool IsMovingEnough(Vector2 moveDelta)
 		{
 			// sqrMagnitude 是向量长度的平方。
-			// 使用平方比较可以避免开方计算，比 magnitude 更适合频繁检测。
+			// 使用平方比较可以避免开方计算，比 magnitude 更省性能。
 			return moveDelta.sqrMagnitude >= minMoveDistance * minMoveDistance;
 		}
 
@@ -201,7 +223,6 @@ namespace GameScene
 			Vector2 requiredVector = GetRequiredDirectionVector(requiredDirection);
 			Vector2 actualMoveDirection = moveDelta.normalized;
 
-			// 点积越接近 1，说明实际移动方向越接近配置方向。
 			float dot = Vector2.Dot(actualMoveDirection, requiredVector);
 
 			return dot >= directionDotThreshold;
