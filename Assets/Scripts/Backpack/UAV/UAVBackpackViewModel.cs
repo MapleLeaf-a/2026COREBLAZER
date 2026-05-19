@@ -30,4 +30,42 @@ public class UAVBackpackViewModel : BackpackViewModel
             target.RefreshAll();
         }
     }
+
+    /// <summary>
+    /// 转移选中的物品到另一个背包（自动找空位）
+    /// </summary>
+    /// <param name="target">目标背包</param>
+    public void TransferSelectedTo(BackpackViewModel target)
+    {
+        if (target == null) return;
+
+        //获取当前选中的物品
+        BagItem selectedItem = SelectedItem;
+        if (selectedItem == null)
+        {
+            return;
+        }
+
+        //获取选中物品在当前页的索引
+        int fromIndex = SelectedIndex;
+        if (fromIndex < 0) return;
+
+        //在目标背包中找一个空位
+        int targetIndex = target.FindFirstEmptySlot();
+
+        if (targetIndex == -1)
+        {
+            return;
+        }
+
+        //执行转移
+        bool success = TryTransferTo(target, fromIndex, targetIndex);
+
+        if (success)
+        {
+            //刷新两个背包的 UI
+            RefreshAll();
+            target.RefreshAll();
+        }
+    }
 }

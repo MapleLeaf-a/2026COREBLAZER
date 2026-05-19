@@ -75,8 +75,8 @@ public class Note : MonoBehaviour
     {
         if (p < barP - BarJudger.miss * speed)
         {
-            Debug.Log("Totally MISS!");
-            barJudger.ShowText("Totally MISS!", Color.red);
+            Debug.Log("糟糕！");
+            barJudger.ShowText("糟糕！", Color.red);
             isOutOfJugdingZone = true;
             DestroyNote();
 
@@ -100,22 +100,22 @@ public class Note : MonoBehaviour
         //判定区内的时机判定
         if (baseP - speed * BarJudger.perfect < p && p < baseP + speed * BarJudger.perfect)
         {
-            barJudger.ShowText("Perfect!", Color.yellow);
-            ScoreManager.ScoreManagerInstance?.score.AddScore("Perfect!");
+            barJudger.ShowText("赞！", Color.yellow);
+            ScoreManager.ScoreManagerInstance?.score.AddScore("赞！");
         }
         else if (baseP - speed * BarJudger.good < p && p < baseP + speed * BarJudger.good)
         {
-            barJudger.ShowText("Good!", Color.green);
-            ScoreManager.ScoreManagerInstance?.score.AddScore("Good!");
+            barJudger.ShowText("还行！", Color.green);
+            ScoreManager.ScoreManagerInstance?.score.AddScore("还行！");
         }
         else if (baseP - speed * BarJudger.soso < p && p < baseP + speed * BarJudger.soso)
         {
-            barJudger.ShowText("So-so!", Color.cyan);
-            ScoreManager.ScoreManagerInstance?.score.AddScore("So-so!");
+            barJudger.ShowText("一般！", Color.cyan);
+            ScoreManager.ScoreManagerInstance?.score.AddScore("一般！");
         }
         else if (baseP - speed * BarJudger.miss < p && p < baseP + speed * BarJudger.miss)
         {
-            barJudger.ShowText("Miss!", Color.red);
+            barJudger.ShowText("遗憾！", Color.red);
         }
 
         DestroyNote();

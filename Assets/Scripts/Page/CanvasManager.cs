@@ -22,6 +22,8 @@ public class CanvasManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        DontDestroyOnLoad(gameObject);
+
         canvasStack = new PageStack<Canvas>();
 
         //绑定事件处理
