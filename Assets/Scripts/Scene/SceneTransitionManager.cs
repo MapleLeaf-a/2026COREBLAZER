@@ -1,5 +1,6 @@
-using System.Collections;
+using Assets.Scripts.OutsideDoorScene.OutsideManager.Manager;
 using Events;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -67,6 +68,8 @@ namespace GameScene
 			{
 				return;
 			}
+
+			SceneTransitionContext.RecordTransition(eventData.TargetSceneName);
 
 			StartCoroutine(TransitionOutCoroutine(eventData));
 		}

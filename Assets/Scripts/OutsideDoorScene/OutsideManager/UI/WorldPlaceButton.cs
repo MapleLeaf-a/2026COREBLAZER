@@ -20,8 +20,7 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.UI
 
 		protected virtual void Update()
 		{
-			if (InputManager.instance.currenContext == InputContext.CHARACTER
-				   && InputManager.instance.GetKeyDown(actionName) && CheckMouseClick())
+			if (InputManager.instance.GetKeyDown(actionName) && CheckMouseClick())
 			{
 				OnClick();
 			}
