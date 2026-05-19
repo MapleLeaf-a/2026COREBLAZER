@@ -15,7 +15,7 @@ MonoBehaviour:
   defaultStartSegmentId: 0
   nodes:
   - nodeId: 0
-    nodeKey: MainScene
+    nodeKey: MainGameWindow
     position: {x: -469.0738, y: -169.16559}
     exits: []
   - nodeId: 1
@@ -72,7 +72,7 @@ MonoBehaviour:
     position: {x: -83.75802, y: -219.53311}
     exits: []
   - nodeId: 3
-    nodeKey: Outside2
+    nodeKey: OutsideDoor_2
     position: {x: 443.285, y: -66.04336}
     exits: []
   segments:

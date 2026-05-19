@@ -24,16 +24,16 @@ public class CanvasManager : MonoBehaviour
 
 		canvasStack = new PageStack<Canvas>();
 
-    DontDestroyOnLoad(gameObject);
+		DontDestroyOnLoad(gameObject);
 
-    canvasStack = new PageStack<Canvas>();
+		canvasStack = new PageStack<Canvas>();
 
 		//绑定事件处理
 		canvasStack.OnPagePopped += OnPagePopped;
 		canvasStack.OnPagePushed += OnPagePushed;
 		canvasStack.OnPageActivated += OnPageActivated;
 		canvasStack.OnPageDeactivated += OnPageDeactivated;
-	}        
+	}
 
 	private void OnDestroy()
 	{

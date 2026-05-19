@@ -1,4 +1,5 @@
 ﻿using Arch.Tools;
+using Assets.Scripts.OutsideDoorScene.OutsideManager.Manager;
 using Assets.Scripts.Tools.Unity;
 using Events;
 using System;
@@ -36,12 +37,16 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 				return;
 			}
 
+			// 必须在 LoadScene 前记录。
+			// 因为 LoadScene 之后，当前激活场景会变成新场景，旧场景名就取不到了。
+			SceneTransitionContext.RecordTransition(goToOutsideEvent.targetSceneName);
+
 			var sceneChangeRequest = new SceneLoadRequestEvent(requestId: "default", loadMode: GameSceneLoadMode.Single, targetSceneName: goToOutsideEvent.targetSceneName);
 
 			try
 			{
 				EventBus.Publish(sceneChangeRequest);
-				Debug.LogError("开始场景转化");
+				Debug.Log("开始场景转化");
 				IsOutsideDoor = true;
 			}
 			catch (Exception e)

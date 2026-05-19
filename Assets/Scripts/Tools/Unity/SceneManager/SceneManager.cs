@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Tools.Common;
+﻿using Assets.Scripts.OutsideDoorScene.OutsideManager.Manager;
+using Assets.Scripts.Tools.Common;
 using Events;
 using System.Collections;
 using UnityEngine;
@@ -111,7 +112,6 @@ namespace Assets.Scripts.Tools.Unity
 					eventData.RequestId,
 					eventData.TargetSceneName,
 					"目标场景名为空。");
-
 				return;
 			}
 
@@ -121,7 +121,6 @@ namespace Assets.Scripts.Tools.Unity
 					eventData.RequestId,
 					eventData.TargetSceneName,
 					$"目标场景没有加入 Build Settings：{eventData.TargetSceneName}");
-
 				return;
 			}
 
@@ -132,7 +131,6 @@ namespace Assets.Scripts.Tools.Unity
 					eventData.RequestId,
 					eventData.TargetSceneName,
 					$"Loading 场景没有加入 Build Settings：{eventData.LoadingSceneName}");
-
 				return;
 			}
 
@@ -208,50 +206,57 @@ namespace Assets.Scripts.Tools.Unity
 		private IEnumerator LoadSceneRoutine(SceneLoadRequestEvent request)
 		{
 			IsLoading = true;
-
-			if (IsSceneLoaded(request.TargetSceneName))
+			try
 			{
-				bool shouldContinue = HandleDuplicateScene(request);
-
-				if (!shouldContinue)
+				if (IsSceneLoaded(request.TargetSceneName))
 				{
-					IsLoading = false;
-					_loadingCoroutine = null;
-					yield break;
-				}
-			}
+					bool shouldContinue = HandleDuplicateScene(request);
 
-			if (request.UseLoadingScene)
-			{
+					if (!shouldContinue)
+					{
+						IsLoading = false;
+						_loadingCoroutine = null;
+						yield break;
+					}
+				}
+
+				if (request.UseLoadingScene)
+				{
+					yield return LoadSceneInternalRoutine(
+						requestId: request.RequestId,
+						sceneName: request.LoadingSceneName,
+						loadMode: GameSceneLoadMode.Single,
+						setActiveSceneAfterLoaded: true,
+						allowSceneActivation: true);
+
+					// 等一帧，保证 Loading 场景里的 UI 有机会执行 Awake / OnEnable / Start。
+					yield return null;
+				}
+
 				yield return LoadSceneInternalRoutine(
 					requestId: request.RequestId,
-					sceneName: request.LoadingSceneName,
-					loadMode: GameSceneLoadMode.Single,
-					setActiveSceneAfterLoaded: true,
-					allowSceneActivation: true);
+					sceneName: request.TargetSceneName,
+					loadMode: request.LoadMode,
+					setActiveSceneAfterLoaded: request.SetActiveSceneAfterLoaded,
+					allowSceneActivation: request.AllowSceneActivation);
 
-				// 等一帧，保证 Loading 场景里的 UI 有机会执行 Awake / OnEnable / Start。
-				yield return null;
+				IsLoading = false;
+				_loadingCoroutine = null;
+				_pendingActivationOperation = null;
+				_pendingActivationRequestId = null;
+
+				var completedEvent = new SceneLoadCompletedEvent(
+					requestId: request.RequestId,
+					sceneName: request.TargetSceneName);
+
+				// 使用 TryPublish，避免没有完成事件监听者时抛异常。
+				EventBus.Publish(in completedEvent);
 			}
-
-			yield return LoadSceneInternalRoutine(
-				requestId: request.RequestId,
-				sceneName: request.TargetSceneName,
-				loadMode: request.LoadMode,
-				setActiveSceneAfterLoaded: request.SetActiveSceneAfterLoaded,
-				allowSceneActivation: request.AllowSceneActivation);
-
-			IsLoading = false;
-			_loadingCoroutine = null;
-			_pendingActivationOperation = null;
-			_pendingActivationRequestId = null;
-
-			var completedEvent = new SceneLoadCompletedEvent(
-				requestId: request.RequestId,
-				sceneName: request.TargetSceneName);
-
-			// 使用 TryPublish，避免没有完成事件监听者时抛异常。
-			EventBus.Publish(in completedEvent);
+			finally
+			{
+				IsLoading = false;
+				Debug.Log($"[GameSceneManager] 场景加载流程结束，IsLoading 已复位：{request.TargetSceneName}");
+			}
 		}
 
 		/// <summary>

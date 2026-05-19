@@ -2,7 +2,13 @@ using UnityEngine;
 
 /// <summary>
 /// OutsideDoor 场景角色控制器。
-/// 它负责读取 Unity 老 Input 系统、更新朝向和动画，再把输入交给 RailWalker2D。
+///
+/// 作用：
+/// 1. 读取 Unity 老 Input 系统。
+/// 2. 根据横向输入控制角色左右朝向。
+/// 3. 把移动输入传给 RailWalker2D。
+/// 4. 把移动输入传给 RobotProceduralAnimator2D。
+/// 5. 通过按键触发 Scan 动画。
 /// </summary>
 [DisallowMultipleComponent]
 public sealed class OutsideDoorCharacterController : MonoBehaviour
@@ -32,7 +38,7 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 	[SerializeField]
 	private string verticalAxisName = "Vertical";
 
-	[Header("Visual")]
+	[Header("Visual Facing")]
 
 	/// <summary>
 	/// 角色 SpriteRenderer。
@@ -47,31 +53,32 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 	[SerializeField]
 	private bool flipSpriteByMoveDirection = true;
 
+	[Header("Scan Animator")]
+
 	/// <summary>
-	/// 角色 Animator。
-	/// 如果暂时没有动画，可以留空。
+	/// Sprite 节点上的 Animator。
+	/// 当前只负责 Scan 动画。
+	/// 这里保留字段是为了兼容已有 Inspector 绑定。
+	/// 实际 Scan 触发由 RobotProceduralAnimator2D 处理。
 	/// </summary>
 	[SerializeField]
 	private Animator animator;
 
-	/// <summary>
-	/// Animator 中用于表示移动速度的 Float 参数名。
-	/// </summary>
-	[SerializeField]
-	private string animatorMoveSpeedParameter = "MoveSpeed";
+	[Header("Robot Procedural Animation")]
 
 	/// <summary>
-	/// Animator 中用于表示是否移动的 Bool 参数名。
+	/// Robot 程序动画控制器。
+	/// 它负责上下浮动、Z 轴旋转、停止缓冲、Idle 轻微浮动和 Scan 触发。
 	/// </summary>
 	[SerializeField]
-	private string animatorIsMovingParameter = "IsMoving";
+	private RobotProceduralAnimator2D robotProceduralAnimator;
 
 	/// <summary>
-	/// 是否写入 Animator 参数。
-	/// 如果 Animator 没有对应参数，应该关闭。
+	/// 触发 Scan 动画的按键。
+	/// 默认 E 键。
 	/// </summary>
 	[SerializeField]
-	private bool updateAnimatorParameters = false;
+	private KeyCode scanKey = KeyCode.E;
 
 	private float cachedHorizontalInput;
 	private float cachedVerticalInput;
@@ -102,6 +109,11 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 		{
 			animator = GetComponentInChildren<Animator>();
 		}
+
+		if (robotProceduralAnimator == null)
+		{
+			robotProceduralAnimator = GetComponentInChildren<RobotProceduralAnimator2D>();
+		}
 	}
 
 	private void OnEnable()
@@ -113,8 +125,14 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 	private void Update()
 	{
 		ReadOldInput();
+
 		UpdateFacingByInput(cachedHorizontalInput);
-		UpdateAnimatorByInput(cachedHorizontalInput);
+
+		UpdateRobotProceduralAnimation(
+			cachedHorizontalInput,
+			cachedVerticalInput);
+
+		UpdateScanInput();
 	}
 
 	private void FixedUpdate()
@@ -139,6 +157,7 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 		// 因为 OutsideDoorCharacterController 挂在 Player 根节点上，
 		// 所以这里使用 transform.position 即可。
 		transform.position = worldPosition;
+		Debug.Log($"当前角色的位置 :{transform.position}");
 
 		// 根据需要清空输入缓存。
 		// 如果不清空，角色可能在重置后的下一帧继续沿着旧输入移动。
@@ -160,17 +179,94 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 			spriteRenderer.flipX = facingSign < 0;
 		}
 
-		// 如果有 Animator，可以顺手切回 Idle。
-		// 这样角色重置后不会继续停留在 Walk 动画状态。
-		if (animator != null)
+		// 重置程序动画姿态。
+		// 让显示节点回到初始位置和旋转。
+		if (robotProceduralAnimator != null)
 		{
-			animator.CrossFade("Base Layer.Idle", 0.05f);
+			robotProceduralAnimator.ResetProceduralPose();
 		}
 	}
 
 	public void ResetRailMap2D(RailMap2DAsset rail)
 	{
 		railWalker.ResetMapData(rail);
+	}
+
+	/// <summary>
+	/// 重置角色的 RailMap，并把角色接入指定出生节点。
+	/// </summary>
+	/// <param name="rail">
+	/// 当前场景的 RailMap2DAsset。
+	/// 作用是提供当前场景的节点、路径段和出口规则。
+	/// </param>
+	/// <param name="spawnNodeKey">
+	/// 出生节点查询名。
+	/// 作用是让 RailWalker2D 在 rail 中查找对应 RailNode2D。
+	/// </param>
+	/// <param name="fallbackPosition">
+	/// 兜底世界坐标。
+	/// 当 spawnNodeKey 查不到，或者节点无法接入路径时使用。
+	/// </param>
+	/// <param name="preferredExitChoice">
+	/// 优先出口选择。
+	/// 当出生节点连接多条路径时，用它决定优先接入哪条路径。
+	/// </param>
+	/// <param name="faceRight">
+	/// 是否朝右。
+	/// true 表示朝右，false 表示朝左。
+	/// </param>
+	public void ResetRailMapAndSpawnAtNode(
+		RailMap2DAsset rail,
+		string spawnNodeKey,
+		Vector2 fallbackPosition,
+		RailExitChoice2D preferredExitChoice,
+		bool faceRight)
+	{
+		if (railWalker == null)
+		{
+			Debug.LogError("Player 缺少 RailWalker2D，无法接入当前场景 RailMap。");
+			ResetPlayerTransform(fallbackPosition, faceRight);
+			return;
+		}
+
+		if (rail == null)
+		{
+			Debug.LogError("传入的 RailMap2DAsset 为空，无法接入当前场景路径。");
+			ResetPlayerTransform(fallbackPosition, faceRight);
+			return;
+		}
+
+		// 先把当前场景的 RailMap 导入给角色。
+		// 这样 TrySetStartAtNode 才会在当前场景的节点列表中查找。
+		railWalker.ResetMapData(rail);
+
+		bool hasSpawnedOnRail = false;
+
+		if (!string.IsNullOrWhiteSpace(spawnNodeKey))
+		{
+			// 让 RailWalker2D 自己根据节点接入 Segment。
+			// 这一步会同步 currentSegmentId 和 distanceOnSegment，
+			// 比单纯设置 transform.position 更安全。
+			hasSpawnedOnRail = railWalker.TrySetStartAtNode(
+				spawnNodeKey,
+				preferredExitChoice,
+				true);
+		}
+
+		if (!hasSpawnedOnRail)
+		{
+			// 如果没有成功接入指定节点，就退回兜底坐标。
+			ResetPlayerTransform(fallbackPosition, faceRight);
+
+			// 尝试把兜底坐标吸附到最近的 Rail 上。
+			// 这样即使节点配置错了，角色也尽量还能继续沿路径移动。
+			railWalker.TryAttachToNearestRail(fallbackPosition, true);
+			return;
+		}
+
+		// 成功按节点接入路径后，只刷新朝向和输入缓存。
+		// transform.position 使用当前 railWalker 已经移动到的位置。
+		ResetPlayerTransform(fallbackPosition, faceRight);
 	}
 
 	private void ReadOldInput()
@@ -216,23 +312,53 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 		spriteRenderer.flipX = facingSign < 0;
 	}
 
-	private void UpdateAnimatorByInput(float horizontalInput)
+	/// <summary>
+	/// 根据移动输入更新 Robot 程序动画。
+	/// </summary>
+	/// <param name="horizontalInput">
+	/// horizontalInput：
+	/// 横向输入。
+	/// 大于 0 表示向右。
+	/// 小于 0 表示向左。
+	/// 等于 0 表示没有横向输入。
+	/// </param>
+	/// <param name="verticalInput">
+	/// verticalInput：
+	/// 纵向输入。
+	/// 大于 0 表示向上。
+	/// 小于 0 表示向下。
+	/// 等于 0 表示没有纵向输入。
+	/// </param>
+	private void UpdateRobotProceduralAnimation(
+		float horizontalInput,
+		float verticalInput)
 	{
-		if (!updateAnimatorParameters || animator == null)
+		if (robotProceduralAnimator == null)
 		{
 			return;
 		}
 
-		float moveAmount = Mathf.Abs(horizontalInput);
-		bool isMoving = moveAmount > 0.01f;
+		robotProceduralAnimator.SetMoveInput(
+			horizontalInput,
+			verticalInput);
+	}
 
-		if (isMoving)
+	/// <summary>
+	/// 检查 Scan 输入。
+	/// </summary>
+	private void UpdateScanInput()
+	{
+		if (robotProceduralAnimator == null)
 		{
-			animator.CrossFade("Walk", 0.1f);
+			return;
 		}
-		else
+
+		// GetKeyDown：
+		// 只在按键按下的那一帧返回 true。
+		// Scan 是一次性触发动作，所以不能用 GetKey。
+		if (Input.GetKeyDown(scanKey))
 		{
-			animator.CrossFade("Idle", 0.1f);
+			robotProceduralAnimator.PlayScan();
 		}
 	}
 }
