@@ -71,6 +71,8 @@ public class GuestFoodView : View<Food, FoodUIItem>
             var v = DragState<Food, FoodUIItem>.SourceView as FoodView;
             int fromIndex = DragState<Food, FoodUIItem>.FromIndex;
             guestFoodViewModel.AddItemAt(v.foodViewModel.GetItemAt(fromIndex), targetIndex);
+            Food food = v.foodViewModel.GetItemAt(fromIndex);
+            MoneyManager.IncreaseMoney(food.foodRecipe.basePrice);
             bool success = v.foodViewModel.RemoveItemAt(fromIndex);
 
             if (success)

@@ -9,8 +9,14 @@ public class TotalPriceCaculator : MonoBehaviour
     public TextMeshProUGUI countText;
     public TextMeshProUGUI totalPriceText;
 
-    public void Caculate()
+    /// <summary>
+    /// ·µ»ØÊýÁ¿
+    /// </summary>
+    /// <returns></returns>
+    public int Caculate()
     {
-        totalPriceText.text = (int.Parse(priceText.text) * int.Parse(countText.text)).ToString();
+        int count = int.Parse(countText.text);
+        totalPriceText.text = (int.Parse(priceText.text) * count).ToString();
+        return count;
     }
 }

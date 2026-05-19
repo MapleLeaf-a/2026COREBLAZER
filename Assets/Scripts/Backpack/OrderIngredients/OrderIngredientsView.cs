@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
 {
+    [Header("资金短缺画布")]
+    public Canvas ShortOfMoneyCanvas;
+
     [Header("详情面板")]
     [Tooltip("名称")]
     public TextMeshProUGUI itemNameText;
@@ -23,9 +26,15 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
     [Tooltip("计算总价")]
     public TotalPriceCaculator totalPriceCaculator;
 
+    [Tooltip("购买的按钮")]
+    public Button buyButton;
 
-    //打折的物品的索引
-    private int discountIndex;
+    int discountIndex = -1;
+
+    private float discountRate = 0.7f;
+
+    //要买的数量
+    int buyCount;
 
     public OrderIngredientsViewModel orderIngredientsViewModel
     {
@@ -53,6 +62,9 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
             case nameof(orderIngredientsViewModel.SelectedItem): //VM中选中的物品刷新时
                 RefreshDetail();                         //V刷新详情面板
                 RefreshItems();
+                break;
+            case nameof(orderIngredientsViewModel.DiscountIndex):
+                RefreshDiscount();
                 break;
             case nameof(orderIngredientsViewModel.CurrentPageNumber):
                 break;
@@ -91,9 +103,11 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
             itemIconImage.sprite = orderIngredientsViewModel.GetSprite(item.spritePath);
             itemNameText.text = item.name;
             itemDescribeText.text = item.description;
-            priceText.text = item.price.ToString();
+             
+            if (orderIngredientsViewModel.SelectedIndex == discountIndex) priceText.text = (Mathf.Round(item.price * discountRate)).ToString();
+            else priceText.text = item.price.ToString();
 
-            totalPriceCaculator.Caculate();
+            buyCount = totalPriceCaculator.Caculate();
         }
         else
         {
@@ -107,11 +121,19 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
 
     public void GenerateDiscountIndex()
     {
-        discountIndex = Random.Range(0, orderIngredientsViewModel.Count);
+        orderIngredientsViewModel.GenerateDiscountIndex();
     }
 
-
     public void RefreshDiscount()
+    {
+        discountIndex = orderIngredientsViewModel.DiscountIndex;
+        FoodMaterial[] items = orderIngredientsViewModel.CurrentPageItems;
+        bool isSelected = (orderIngredientsViewModel.SelectedItem == items[discountIndex]);
+        slots[discountIndex].SetUp(items[discountIndex], orderIngredientsViewModel.GetSprite(items[discountIndex].spritePath), discountIndex, isSelected, true);
+        RefreshDiscountDetail();
+    }
+
+    public void RefreshDiscountDetail()
     { 
         
     }
@@ -126,7 +148,21 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
 
     protected override void BindOtherButtons()
     {
+        buyButton.onClick.AddListener(Buy);
+    }
 
+    public void Buy()
+    {
+        int totalMoney = buyCount * int.Parse(priceText.text);
+        if (totalMoney > MoneyManager.Money)
+        {
+            ShortOfMoneyCanvas.gameObject.SetActive(true);
+        }
+        else
+        {
+            MoneyManager.IncreaseMoney(-totalMoney);
+            TestBackpack.instance.FreezerBackpackView.backpackViewModel.AddItem(new BagItem(orderIngredientsViewModel.SelectedItem, buyCount));
+        }
     }
 
 
