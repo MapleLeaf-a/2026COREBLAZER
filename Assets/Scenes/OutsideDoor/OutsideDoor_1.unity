@@ -151,8 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61817bd45d5eb514aaaeb656098cd2d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterResourcePath: Prefabs/Player/Robot
   currentSceneRailMap: {fileID: 11400000, guid: 0a9d921ef1d63d045adc53c8c921b4ea, type: 2}
-  defaultSpawnNodeKey: MainGameWindows
+  defaultSpawnNodeKey: MainGameWindow
   fallbackWorldPosition: {x: 0, y: 0}
   defaultFacingSign: -1
   preferredExitChoice: 0

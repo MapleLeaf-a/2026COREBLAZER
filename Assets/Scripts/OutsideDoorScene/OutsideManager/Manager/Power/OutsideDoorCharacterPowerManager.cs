@@ -1,9 +1,9 @@
 ﻿using Arch.Tools;
+using Assets.Scripts.OutsideDoorScene.OutsideManager.Manager;
 using Assets.Scripts.Tools.Unity;
 using Events;
 using System;
 using UnityEngine;
-using Assets.Scripts.OutsideDoorScene.OutsideManager.Manager;
 
 namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 {
@@ -46,7 +46,7 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 			try
 			{
 				EventBus.Publish(sceneChangeRequest);
-				Debug.LogError("开始场景转化");
+				Debug.Log("开始场景转化");
 				IsOutsideDoor = true;
 			}
 			catch (Exception e)
