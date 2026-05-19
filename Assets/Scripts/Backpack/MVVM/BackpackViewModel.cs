@@ -2,6 +2,7 @@ using Statics.Classes;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -216,6 +217,22 @@ public class BackpackViewModel : ViewModel<BagItem>
     //{
     //    return backpack.GetItemAt(itemsPerPage * currentPage + index);
     //}
+
+    /// <summary>
+    /// 查找第一个空槽位的索引（在当前页内）
+    /// </summary>
+    /// <returns>空槽位索引，-1 表示没有空位</returns>
+    public int FindFirstEmptySlot()
+    {
+        var items = CurrentPageItems;
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] == null)
+                return i;
+        }
+        return -1;
+    }
+
 
     /// <summary>
     /// 尝试移动物品(同一页内)

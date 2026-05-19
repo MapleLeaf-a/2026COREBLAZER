@@ -12,4 +12,15 @@ public class OrderIngredientsViewModel : ViewModel<FoodMaterial>
     }
 
     public OrderIngredientsViewModel(OrderIngredientsModel orderIngredientsModel, int itemsPerPage) : base(orderIngredientsModel, itemsPerPage) { }
+
+    //打折的物品的索引
+    private int discountIndex = -1;
+
+    public int DiscountIndex => discountIndex;
+
+    public void GenerateDiscountIndex()
+    {
+        discountIndex = Random.Range(0, Count);
+        OnPropertyChanged(nameof(DiscountIndex));
+    }
 }

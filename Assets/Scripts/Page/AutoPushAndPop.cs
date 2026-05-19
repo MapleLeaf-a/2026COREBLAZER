@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AutoPushAndPop : MonoBehaviour
 {
+    public bool isDeactivated = true;
+
     //希望自动进行页面层级管理的目标Canvas
     private Canvas canvas;
 
@@ -12,7 +14,7 @@ public class AutoPushAndPop : MonoBehaviour
         canvas = GetComponent<Canvas>();
         if (CanvasManager.instance != null)
         {
-            CanvasManager.instance.canvasStack.Push(canvas);
+            CanvasManager.instance.canvasStack.Push(canvas, isDeactivated);
 
         }
         else

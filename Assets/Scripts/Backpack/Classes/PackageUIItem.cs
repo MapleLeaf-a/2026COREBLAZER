@@ -40,7 +40,7 @@ public class PackageUIItem : GenericSlot<BagItem>
             itemImage.SetNativeSize();
         }
 
-        if (item.num > 1) //物品数量大于1显示数量文本
+        if (item.num >= 1) //物品数量大于等于1显示数量文本
         {
             quantityText.text = item.num.ToString();
             quantityText.enabled = true;
