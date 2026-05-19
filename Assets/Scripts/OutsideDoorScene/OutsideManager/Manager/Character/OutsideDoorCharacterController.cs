@@ -2,7 +2,13 @@ using UnityEngine;
 
 /// <summary>
 /// OutsideDoor 场景角色控制器。
-/// 它负责读取 Unity 老 Input 系统、更新朝向和动画，再把输入交给 RailWalker2D。
+///
+/// 作用：
+/// 1. 读取 Unity 老 Input 系统。
+/// 2. 根据横向输入控制角色左右朝向。
+/// 3. 把移动输入传给 RailWalker2D。
+/// 4. 把移动输入传给 RobotProceduralAnimator2D。
+/// 5. 通过按键触发 Scan 动画。
 /// </summary>
 [DisallowMultipleComponent]
 public sealed class OutsideDoorCharacterController : MonoBehaviour
@@ -32,7 +38,7 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 	[SerializeField]
 	private string verticalAxisName = "Vertical";
 
-	[Header("Visual")]
+	[Header("Visual Facing")]
 
 	/// <summary>
 	/// 角色 SpriteRenderer。
@@ -47,31 +53,32 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 	[SerializeField]
 	private bool flipSpriteByMoveDirection = true;
 
+	[Header("Scan Animator")]
+
 	/// <summary>
-	/// 角色 Animator。
-	/// 如果暂时没有动画，可以留空。
+	/// Sprite 节点上的 Animator。
+	/// 当前只负责 Scan 动画。
+	/// 这里保留字段是为了兼容已有 Inspector 绑定。
+	/// 实际 Scan 触发由 RobotProceduralAnimator2D 处理。
 	/// </summary>
 	[SerializeField]
 	private Animator animator;
 
-	/// <summary>
-	/// Animator 中用于表示移动速度的 Float 参数名。
-	/// </summary>
-	[SerializeField]
-	private string animatorMoveSpeedParameter = "MoveSpeed";
+	[Header("Robot Procedural Animation")]
 
 	/// <summary>
-	/// Animator 中用于表示是否移动的 Bool 参数名。
+	/// Robot 程序动画控制器。
+	/// 它负责上下浮动、Z 轴旋转、停止缓冲、Idle 轻微浮动和 Scan 触发。
 	/// </summary>
 	[SerializeField]
-	private string animatorIsMovingParameter = "IsMoving";
+	private RobotProceduralAnimator2D robotProceduralAnimator;
 
 	/// <summary>
-	/// 是否写入 Animator 参数。
-	/// 如果 Animator 没有对应参数，应该关闭。
+	/// 触发 Scan 动画的按键。
+	/// 默认 E 键。
 	/// </summary>
 	[SerializeField]
-	private bool updateAnimatorParameters = false;
+	private KeyCode scanKey = KeyCode.E;
 
 	private float cachedHorizontalInput;
 	private float cachedVerticalInput;
@@ -102,6 +109,11 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 		{
 			animator = GetComponentInChildren<Animator>();
 		}
+
+		if (robotProceduralAnimator == null)
+		{
+			robotProceduralAnimator = GetComponentInChildren<RobotProceduralAnimator2D>();
+		}
 	}
 
 	private void OnEnable()
@@ -113,8 +125,14 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 	private void Update()
 	{
 		ReadOldInput();
+
 		UpdateFacingByInput(cachedHorizontalInput);
-		UpdateAnimatorByInput(cachedHorizontalInput);
+
+		UpdateRobotProceduralAnimation(
+			cachedHorizontalInput,
+			cachedVerticalInput);
+
+		UpdateScanInput();
 	}
 
 	private void FixedUpdate()
@@ -160,11 +178,11 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 			spriteRenderer.flipX = facingSign < 0;
 		}
 
-		// 如果有 Animator，可以顺手切回 Idle。
-		// 这样角色重置后不会继续停留在 Walk 动画状态。
-		if (animator != null)
+		// 重置程序动画姿态。
+		// 让显示节点回到初始位置和旋转。
+		if (robotProceduralAnimator != null)
 		{
-			animator.CrossFade("Base Layer.Idle", 0.05f);
+			robotProceduralAnimator.ResetProceduralPose();
 		}
 	}
 
@@ -216,23 +234,53 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 		spriteRenderer.flipX = facingSign < 0;
 	}
 
-	private void UpdateAnimatorByInput(float horizontalInput)
+	/// <summary>
+	/// 根据移动输入更新 Robot 程序动画。
+	/// </summary>
+	/// <param name="horizontalInput">
+	/// horizontalInput：
+	/// 横向输入。
+	/// 大于 0 表示向右。
+	/// 小于 0 表示向左。
+	/// 等于 0 表示没有横向输入。
+	/// </param>
+	/// <param name="verticalInput">
+	/// verticalInput：
+	/// 纵向输入。
+	/// 大于 0 表示向上。
+	/// 小于 0 表示向下。
+	/// 等于 0 表示没有纵向输入。
+	/// </param>
+	private void UpdateRobotProceduralAnimation(
+		float horizontalInput,
+		float verticalInput)
 	{
-		if (!updateAnimatorParameters || animator == null)
+		if (robotProceduralAnimator == null)
 		{
 			return;
 		}
 
-		float moveAmount = Mathf.Abs(horizontalInput);
-		bool isMoving = moveAmount > 0.01f;
+		robotProceduralAnimator.SetMoveInput(
+			horizontalInput,
+			verticalInput);
+	}
 
-		if (isMoving)
+	/// <summary>
+	/// 检查 Scan 输入。
+	/// </summary>
+	private void UpdateScanInput()
+	{
+		if (robotProceduralAnimator == null)
 		{
-			animator.CrossFade("Walk", 0.1f);
+			return;
 		}
-		else
+
+		// GetKeyDown：
+		// 只在按键按下的那一帧返回 true。
+		// Scan 是一次性触发动作，所以不能用 GetKey。
+		if (Input.GetKeyDown(scanKey))
 		{
-			animator.CrossFade("Idle", 0.1f);
+			robotProceduralAnimator.PlayScan();
 		}
 	}
 }
