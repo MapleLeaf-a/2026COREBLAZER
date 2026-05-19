@@ -12,8 +12,8 @@ public static class Foods
     { 
         foods = new Dictionary<string, Food>() {
             { "step_004", new Food(FoodRecipes.LookUpFoodRecipe("step_004"))},
-            { "step_009", new Food(FoodRecipes.LookUpFoodRecipe("step_009"))},
-            { "step_010", new Food(FoodRecipes.LookUpFoodRecipe("step_010"))},    
+            //{ "step_009", new Food(FoodRecipes.LookUpFoodRecipe("step_009"))},
+            //{ "step_010", new Food(FoodRecipes.LookUpFoodRecipe("step_010"))},    
             { "step_011", new Food(FoodRecipes.LookUpFoodRecipe("step_011"))},    
         };
     }

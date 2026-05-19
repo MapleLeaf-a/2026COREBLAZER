@@ -201,7 +201,7 @@ public class NoteManager : MonoBehaviour
         GameObject noteObj =  Instantiate(_resolvedPrefab, spawnPos, _resolvedPrefab.transform.rotation, canvas.transform);
 
         Note note = noteObj.GetComponent<Note>();
-        note.Initialize(this, bar, movementStrategy, noteSpeed);
+        note.Initialize(this, bar, movementStrategy, noteSpeed, NotesStatics.noteTypes[typeIdx].label);
 
         AddNote(note);
     }

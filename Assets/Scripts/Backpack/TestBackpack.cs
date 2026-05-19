@@ -63,13 +63,13 @@ public class TestBackpack : MonoBehaviour
         FreezerBackpackView.InitBackpackView(backpackMode2);
 
         FoodRecipe foodRecipe1 = FoodRecipes.LookUpFoodRecipe("step_004");
-        FoodRecipe foodRecipe2 = FoodRecipes.LookUpFoodRecipe("step_009");
-        FoodRecipe foodRecipe3 = FoodRecipes.LookUpFoodRecipe("step_010");
+        //FoodRecipe foodRecipe2 = FoodRecipes.LookUpFoodRecipe("step_009");
+        //FoodRecipe foodRecipe3 = FoodRecipes.LookUpFoodRecipe("step_010");
         FoodRecipe foodRecipe4 = FoodRecipes.LookUpFoodRecipe("step_011");
         allRecipesModel = new AllRecipesModel(8);
         allRecipesModel.AddItem(foodRecipe1);
-        allRecipesModel.AddItem(foodRecipe2);
-        allRecipesModel.AddItem(foodRecipe3);
+        //allRecipesModel.AddItem(foodRecipe2);
+        //allRecipesModel.AddItem(foodRecipe3);
         allRecipesModel.AddItem(foodRecipe4);
         allRecipesView.InitBackpackView(allRecipesModel);
 

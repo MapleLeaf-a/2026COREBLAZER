@@ -101,7 +101,7 @@ public class AllRecipesView : RecipesView
 
             itemIconImage.sprite = allRecipesViewModel.GetSprite(item.spritePath);
             itemIconImage.SetNativeSize();
-            //itemIconImage.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+            itemIconImage.transform.localScale = new Vector3(2f, 2f, 2f);
             itemNameText.text = item.name;
             itemPriceText.text = item.basePrice.ToString();
 

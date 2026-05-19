@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Note : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Note : MonoBehaviour
 
     [Header("判定条")]
     public GameObject bar;
+
+    [Header("音符种类图片")]
+    public SpriteRenderer image;
 
     //是否已经超出判定区
     bool isOutOfJugdingZone = false;
@@ -53,13 +57,14 @@ public class Note : MonoBehaviour
         IsOutOfScreen();
     }
 
-    public void Initialize(NoteManager noteManager, GameObject bar, IMovementStrategy dir, float speed)
+    public void Initialize(NoteManager noteManager, GameObject bar, IMovementStrategy dir, float speed, string type)
     {
         this.noteManager = noteManager;
         this.bar = bar;
         this.barJudger = bar.GetComponent<BarJudger>();
         movementStrategy = dir;
         this.speed = speed;
+        this.image.sprite = Resources.Load<Sprite>("Images/MusicGame/音符/" + type);
     }
 
 

@@ -80,7 +80,7 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
             if (i < items.Length && items[i] != null)
             {
                 bool isSelected = (orderIngredientsViewModel.SelectedItem == items[i]);
-                slots[i].SetUp(items[i], orderIngredientsViewModel.GetSprite(items[i].spritePath), i, isSelected, false);
+                slots[i].SetUp(items[i], orderIngredientsViewModel.GetSprite(items[i].spritePath), i, isSelected);
             }
             else //不包含在items里的清除槽位的显示效果
             {

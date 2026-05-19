@@ -14,16 +14,16 @@ public static class FoodRecipes
     { 
         ingredients = new Dictionary<string, Dictionary<string, int>>() {
             {"step_004", new Dictionary<string, int>(){ { "step_001", 2 }, { "step_002", 2 }, { "step_003", 1 } }  },
-            {"step_009", new Dictionary<string, int>(){ { "step_006", 1 }, { "step_007", 1 }, { "step_008", 1 } } },
-            {"step_010", new Dictionary<string, int>(){ { "step_005", 2 }, } },
+            //{"step_009", new Dictionary<string, int>(){ { "step_006", 1 }, { "step_007", 1 }, { "step_008", 1 } } },
+            //{"step_010", new Dictionary<string, int>(){ { "step_005", 2 }, } },
             {"step_011", new Dictionary<string, int>() }
         };
 
         foodRecipes = new Dictionary<string, FoodRecipe>() {
-            {"step_004", new FoodRecipe(150, "step_004", "ÇáÖËÄŞ»ÔÎÕ", "Images/Recipes/Sushi", ingredients["step_004"])},
-            {"step_009", new FoodRecipe(130, "step_009", "¸¡µÆÒ»Õµ", "Images/Recipes/seaweed", ingredients["step_009"])},
-            {"step_010", new FoodRecipe(140, "step_010", "ĞÇ»·ÆÑÉÕ´®", "Images/Recipes/Soup", ingredients["step_010"])},
-            {"step_011", new FoodRecipe(10, "step_011", "ÂÌ²è", "Images/Recipes/Water", ingredients["step_011"])},
+            {"step_004", new FoodRecipe(150, "step_004", "ÇáÖËÄŞ»ÔÎÕ", "Images/Recipes/ÇáÖËÄŞ»ÔÎÕ", ingredients["step_004"])},
+            //{"step_009", new FoodRecipe(130, "step_009", "¸¡µÆÒ»Õµ", "Images/Recipes/seaweed", ingredients["step_009"])},
+            //{"step_010", new FoodRecipe(140, "step_010", "ĞÇ»·ÆÑÉÕ´®", "Images/Recipes/Soup", ingredients["step_010"])},
+            {"step_011", new FoodRecipe(10, "step_011", "ÂÌ²è", "Images/Recipes/ÂÌ²è", ingredients["step_011"])},
         };
     }
 

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GuestFoodView : View<Food, FoodUIItem>
 {
+
+    public Canvas SubmitFoodCanvas;
+
     public GuestFoodViewModel guestFoodViewModel
     { 
         get => viewModel as GuestFoodViewModel;
@@ -80,6 +83,11 @@ public class GuestFoodView : View<Food, FoodUIItem>
                 //刷新两个背包的页面
                 DragState<Food, FoodUIItem>.SourceView.RefreshUI();
                 RefreshUI();
+
+                if (v.foodViewModel.Count == 0)
+                {
+                    SubmitFoodCanvas.gameObject.SetActive(false);
+                }
             }
         }
 

@@ -16,6 +16,26 @@ PrefabInstance:
       propertyPath: targetImage
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2959798377384166502, guid: af710c980ae6ca5418709adac77b78e1, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212834776055706206, guid: af710c980ae6ca5418709adac77b78e1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212834776055706206, guid: af710c980ae6ca5418709adac77b78e1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212834776055706206, guid: af710c980ae6ca5418709adac77b78e1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212834776055706206, guid: af710c980ae6ca5418709adac77b78e1, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8673606119521768137, guid: af710c980ae6ca5418709adac77b78e1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
