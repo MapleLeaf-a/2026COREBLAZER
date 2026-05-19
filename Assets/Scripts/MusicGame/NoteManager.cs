@@ -46,6 +46,9 @@ public class NoteManager : MonoBehaviour
     //画布父物体
     public Canvas canvas;
 
+    //提交菜品的canvas
+    public Canvas SubmitCanvas;
+
     //轨道索引
     int trackIndex;
     //轨道总数量
@@ -104,6 +107,9 @@ public class NoteManager : MonoBehaviour
         {
             over = true;
             ScoreManager.ScoreManagerInstance?.score.ComputeFinalRate();
+            canvas.gameObject.SetActive(false);
+            SubmitCanvas.gameObject.SetActive(true);
+            TestBackpack.instance.foodView.UpdateFoods(TestBackpack.instance.todaysRecipeView.todaysRecipeViewModel.CurrentPageItems);
         }
     }
 

@@ -78,7 +78,7 @@ public class TestBackpack : MonoBehaviour
         //todaysRecipeModel.AddItem(foodRecipe1);
         todaysRecipeView.InitBackpackView(todaysRecipeModel);
 
-        orderIngredientsModel = new OrderIngredientsModel(10);
+        orderIngredientsModel = new OrderIngredientsModel(14);
         orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("step_001"));
         orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("step_002"));
         orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("step_003"));
@@ -86,12 +86,6 @@ public class TestBackpack : MonoBehaviour
         orderIngredientsView.GenerateDiscountIndex();
 
         foodModel = new FoodModel(12);
-        Food food1 = new Food(foodRecipe1);
-        Food food2 = new Food(foodRecipe2);
-        Food food3 = new Food(foodRecipe3);
-        foodModel.AddItem(food1);
-        foodModel.AddItem(food2);
-        foodModel.AddItem(food3);
         foodView.InitBackpackView(foodModel);
 
         guestFoodModel = new GuestFoodModel(12);

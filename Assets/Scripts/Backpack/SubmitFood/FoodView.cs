@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FoodView : View<Food, FoodUIItem>
 {
+
     public FoodViewModel foodViewModel
     { 
         get => viewModel as FoodViewModel;
@@ -20,6 +21,10 @@ public class FoodView : View<Food, FoodUIItem>
         this.foodViewModel = new FoodViewModel(foodModel, itemsPerPage);
     }
 
+    public void UpdateFoods(FoodRecipe[] foodRecipes)
+    {
+        foodViewModel.UpdateFoods(foodRecipes);
+    }
 
 
     public override void RefreshUI()

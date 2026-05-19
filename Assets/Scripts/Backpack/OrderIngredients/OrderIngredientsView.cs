@@ -31,7 +31,7 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
 
     int discountIndex = -1;
 
-    private float discountRate = 0.7f;
+    private float discountRate = 0.8f;
 
     //要买的数量
     int buyCount;
@@ -80,7 +80,7 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
             if (i < items.Length && items[i] != null)
             {
                 bool isSelected = (orderIngredientsViewModel.SelectedItem == items[i]);
-                slots[i].SetUp(items[i], orderIngredientsViewModel.GetSprite(items[i].spritePath), i, isSelected);
+                slots[i].SetUp(items[i], orderIngredientsViewModel.GetSprite(items[i].spritePath), i, isSelected, false);
             }
             else //不包含在items里的清除槽位的显示效果
             {
@@ -130,12 +130,6 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
         FoodMaterial[] items = orderIngredientsViewModel.CurrentPageItems;
         bool isSelected = (orderIngredientsViewModel.SelectedItem == items[discountIndex]);
         slots[discountIndex].SetUp(items[discountIndex], orderIngredientsViewModel.GetSprite(items[discountIndex].spritePath), discountIndex, isSelected, true);
-        RefreshDiscountDetail();
-    }
-
-    public void RefreshDiscountDetail()
-    { 
-        
     }
 
     //刷新所有UI
