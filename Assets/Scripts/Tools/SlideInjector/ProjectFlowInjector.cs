@@ -11,6 +11,16 @@ namespace Assets.Scripts.Tools.SlideInjector
 	/// </summary>
 	public class ProjectFlowInjector : MonoBehaviour
 	{
+		public void OnEnable()
+		{
+			OutsideUI.Instance.Close();
+		}
+
+		public void OnDisable()
+		{
+			OutsideUI.Instance.Open();
+		}
+
 		public void Awake()
 		{
 			//基本工具
