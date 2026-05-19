@@ -83,7 +83,7 @@ public class TestBackpack : MonoBehaviour
         orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("step_002"));
         orderIngredientsModel.AddItem(FoodMaterials.LookUpFoodMaterial("step_003"));
         orderIngredientsView.InitBackpackView(orderIngredientsModel);
-
+        orderIngredientsView.GenerateDiscountIndex();
 
         foodModel = new FoodModel(12);
         Food food1 = new Food(foodRecipe1);
