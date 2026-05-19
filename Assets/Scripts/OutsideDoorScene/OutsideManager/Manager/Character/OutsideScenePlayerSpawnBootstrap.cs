@@ -16,6 +16,29 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 	[DisallowMultipleComponent]
 	public sealed class OutsideScenePlayerSpawnBootstrap : MonoBehaviour
 	{
+		[Header("Character Resource")]
+
+		/// <summary>
+		/// 角色预制体在 Resources 目录下的路径。
+		///
+		/// 作用：
+		/// 1. 作为 CharacterManager 的缓存 key。
+		/// 2. 作为 Resources.Load<GameObject>() 的加载路径。
+		///
+		/// 填写示例：
+		/// 如果预制体路径是：
+		/// Assets/Resources/Characters/OutsidePlayer.prefab
+		///
+		/// 这里应该填写：
+		/// Characters/OutsidePlayer
+		///
+		/// 注意：
+		/// 不要填写 Assets/Resources。
+		/// 不要填写 .prefab 后缀。
+		/// </summary>
+		[SerializeField]
+		private string characterResourcePath = "Characters/OutsidePlayer";
+
 		[Header("Current Scene Rail Map")]
 
 		/// <summary>
@@ -138,13 +161,14 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 		private Vector2 ResolveSpawnPosition(string spawnNodeKey)
 		{
 			if (!string.IsNullOrWhiteSpace(spawnNodeKey) &&
-			    currentSceneRailMap.TryGetNodePositionByKey(spawnNodeKey, out Vector2 position))
+				currentSceneRailMap.TryGetNodePositionByKey(spawnNodeKey, out Vector2 position))
 			{
+				Debug.Log($"当前Node 的pos为{position}");
 				return position;
 			}
 
 			if (!string.IsNullOrWhiteSpace(defaultSpawnNodeKey) &&
-			    currentSceneRailMap.TryGetNodePositionByKey(defaultSpawnNodeKey, out Vector2 defaultPosition))
+				currentSceneRailMap.TryGetNodePositionByKey(defaultSpawnNodeKey, out Vector2 defaultPosition))
 			{
 				Debug.LogWarning(
 					$"当前 RailMap 找不到节点 {spawnNodeKey}，改用默认节点 {defaultSpawnNodeKey}。");
@@ -171,8 +195,16 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 		/// </param>
 		private void PublishCreatePlayerEvent(string spawnNodeKey, Vector2 spawnPosition)
 		{
+			if (string.IsNullOrWhiteSpace(characterResourcePath))
+			{
+				Debug.LogError($"{nameof(OutsideScenePlayerSpawnBootstrap)} 缺少 characterResourcePath。");
+				return;
+			}
+			Debug.Log($"创建玩家事件的Pos{spawnPosition}");
+
 			CreatePlayerEvent createPlayerEvent = new CreatePlayerEvent
 			{
+				characterResourcePath = characterResourcePath,
 				fallbackPos = spawnPosition,
 				facingSign = defaultFacingSign,
 				rail = currentSceneRailMap,

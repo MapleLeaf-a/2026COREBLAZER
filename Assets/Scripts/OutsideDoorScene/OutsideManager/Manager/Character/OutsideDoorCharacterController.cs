@@ -157,6 +157,7 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 		// 因为 OutsideDoorCharacterController 挂在 Player 根节点上，
 		// 所以这里使用 transform.position 即可。
 		transform.position = worldPosition;
+		Debug.Log($"当前角色的位置 :{transform.position}");
 
 		// 根据需要清空输入缓存。
 		// 如果不清空，角色可能在重置后的下一帧继续沿着旧输入移动。
@@ -265,7 +266,7 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 
 		// 成功按节点接入路径后，只刷新朝向和输入缓存。
 		// transform.position 使用当前 railWalker 已经移动到的位置。
-		ResetPlayerTransform(transform.position, faceRight);
+		ResetPlayerTransform(fallbackPosition, faceRight);
 	}
 
 	private void ReadOldInput()

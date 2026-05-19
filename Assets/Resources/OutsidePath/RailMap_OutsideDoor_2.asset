@@ -15,7 +15,7 @@ MonoBehaviour:
   defaultStartSegmentId: 0
   nodes:
   - nodeId: 0
-    nodeKey: Node_0
+    nodeKey: OutsideDoor_1
     position: {x: -284.49164, y: -16.184612}
     exits: []
   - nodeId: 1
