@@ -1,3 +1,4 @@
+using Assets.Scripts.Tools.SlideInjector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,92 +6,93 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
-    public PageStack<Canvas> canvasStack;
+	public PageStack<Canvas> canvasStack;
 
+	//å•ä¾‹
+	public static CanvasManager instance;
 
-    //µ¥Àı
-    public static CanvasManager instance;
+	private void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
 
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else 
-        {
-            Destroy(gameObject);
-        }
+		canvasStack = new PageStack<Canvas>();
 
-        DontDestroyOnLoad(gameObject);
+    DontDestroyOnLoad(gameObject);
 
-        canvasStack = new PageStack<Canvas>();
+    canvasStack = new PageStack<Canvas>();
 
-        //°ó¶¨ÊÂ¼ş´¦Àí
-        canvasStack.OnPagePopped += OnPagePopped;
-        canvasStack.OnPagePushed += OnPagePushed;
-        canvasStack.OnPageActivated += OnPageActivated;
-        canvasStack.OnPageDeactivated += OnPageDeactivated;
-    }
+		//ç»‘å®šäº‹ä»¶å¤„ç†
+		canvasStack.OnPagePopped += OnPagePopped;
+		canvasStack.OnPagePushed += OnPagePushed;
+		canvasStack.OnPageActivated += OnPageActivated;
+		canvasStack.OnPageDeactivated += OnPageDeactivated;
+	}        
 
-    void OnDestroy()
-    {
-        if (canvasStack != null)
-        {
-            //½â°óÊÂ¼ş
-            canvasStack.OnPagePopped -= OnPagePopped;
-            canvasStack.OnPagePushed -= OnPagePushed;
-            canvasStack.OnPageActivated -= OnPageActivated;
-            canvasStack.OnPageDeactivated -= OnPageDeactivated;
-            /*
-             * Èô²»½â³ı¶©ÔÄ:ÓÉÓÚ ÊÂ¼ş·¢²¼Õß£¨PageStack£©³ÖÓĞ¶©ÔÄÕß£¨UIManager£©µÄÒıÓÃ£¬µ¼ÖÂ CanvasManager ÎŞ·¨±» GC »ØÊÕ£¨ÒıÓÃ¼ÆÊı²»Îª0£©
+	private void OnDestroy()
+	{
+		if (canvasStack != null)
+		{
+			//è§£ç»‘äº‹ä»¶
+			canvasStack.OnPagePopped -= OnPagePopped;
+			canvasStack.OnPagePushed -= OnPagePushed;
+			canvasStack.OnPageActivated -= OnPageActivated;
+			canvasStack.OnPageDeactivated -= OnPageDeactivated;
+			/*
+             * è‹¥ä¸è§£é™¤è®¢é˜…:ç”±äº äº‹ä»¶å‘å¸ƒè€…ï¼ˆPageStackï¼‰æŒæœ‰è®¢é˜…è€…ï¼ˆUIManagerï¼‰çš„å¼•ç”¨ï¼Œå¯¼è‡´ CanvasManager æ— æ³•è¢« GC å›æ”¶ï¼ˆå¼•ç”¨è®¡æ•°ä¸ä¸º0ï¼‰
              */
-        }
-    }
+		}
+	}
 
-    void OnPagePopped(Canvas pageCanvas)
-    {
-        //Ö»ÓĞPopÊ±²ÅÒş²ØCanvas,²»ÔÚÍ£ÓÃÀïÃæĞ´,·ÀÖ¹PushÊ±Ò²Òş²ØÁËÏÂÃæµÄÒ³Ãæ
-        pageCanvas.gameObject.SetActive(false);
-    }
+	private void OnPagePopped(Canvas pageCanvas)
+	{
+		//åªæœ‰Popæ—¶æ‰éšè—Canvas,ä¸åœ¨åœç”¨é‡Œé¢å†™,é˜²æ­¢Pushæ—¶ä¹Ÿéšè—äº†ä¸‹é¢çš„é¡µé¢
+		pageCanvas.gameObject.SetActive(false);
+	}
 
-    void OnPagePushed(Canvas pageCanvas)
-    {
-        pageCanvas.overrideSorting = true;
-        pageCanvas.sortingOrder = canvasStack.Count;
-    }
+	private void OnPagePushed(Canvas pageCanvas)
+	{
+		pageCanvas.overrideSorting = true;
+		pageCanvas.sortingOrder = canvasStack.Count;
+	}
 
-    void OnPageActivated(Canvas pageCanvas)
-    {
-        pageCanvas.gameObject.SetActive(true);
-        
-        //È·±£×îÉÏ²ãÒ³ÃæµÄÉäÏß¼ì²âÊÇ¿ªÆôµÄ
-        EnableRaycasterForPage(pageCanvas);
-    }
+	private void OnPageActivated(Canvas pageCanvas)
+	{
+		pageCanvas.gameObject.SetActive(true);
 
-    void OnPageDeactivated(Canvas pageCanvas)
-    {
-        //Ò³Ãæ±»Í£ÓÃ£¨²»ÊÇ±» Pop£©Ê±£¬²»Òş²Ø£¬µ«½ûÓÃÉäÏß¼ì²â
-        DisableRaycasterForPage(pageCanvas);
-    }
+		//ç¡®ä¿æœ€ä¸Šå±‚é¡µé¢çš„å°„çº¿æ£€æµ‹æ˜¯å¼€å¯çš„
+		EnableRaycasterForPage(pageCanvas);
+	}
 
-    //½ûÓÃµ¥¸öCanvasµÄÉäÏß¼ì²â
-    void DisableRaycasterForPage(Canvas canvas)
-    {
-        GraphicRaycaster raycaster = canvas.GetComponent<GraphicRaycaster>();
-        if (raycaster != null)
-        {
-            raycaster.enabled = false;
-        }
-    }
+	private void OnPageDeactivated(Canvas pageCanvas)
+	{
+		//é¡µé¢è¢«åœç”¨ï¼ˆä¸æ˜¯è¢« Popï¼‰æ—¶ï¼Œä¸éšè—ï¼Œä½†ç¦ç”¨å°„çº¿æ£€æµ‹
+		DisableRaycasterForPage(pageCanvas);
+	}
 
-    //ÆôÓÃµ¥¸öCanvasµÄÉäÏß¼ì²â
-    void EnableRaycasterForPage(Canvas canvas)
-    {
-        GraphicRaycaster raycaster = canvas.GetComponent<GraphicRaycaster>();
-        if (raycaster != null)
-        {
-            raycaster.enabled = true;
-        }
-    }
+	//ç¦ç”¨å•ä¸ªCanvasçš„å°„çº¿æ£€æµ‹
+	private void DisableRaycasterForPage(Canvas canvas)
+	{
+		GraphicRaycaster raycaster = canvas.GetComponent<GraphicRaycaster>();
+		if (raycaster != null)
+		{
+			raycaster.enabled = false;
+		}
+	}
+
+	//å¯ç”¨å•ä¸ªCanvasçš„å°„çº¿æ£€æµ‹
+	private void EnableRaycasterForPage(Canvas canvas)
+	{
+		GraphicRaycaster raycaster = canvas.GetComponent<GraphicRaycaster>();
+		if (raycaster != null)
+		{
+			raycaster.enabled = true;
+		}
+	}
 }
