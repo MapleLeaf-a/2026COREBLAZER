@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
@@ -53,7 +54,7 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 
 			// 只有旧场景名和目标场景名都有效，才认为这次切换上下文可用。
 			HasValidContext = !string.IsNullOrWhiteSpace(PreviousSceneName)
-			                  && !string.IsNullOrWhiteSpace(TargetSceneName);
+							  && !string.IsNullOrWhiteSpace(TargetSceneName);
 		}
 
 		/// <summary>

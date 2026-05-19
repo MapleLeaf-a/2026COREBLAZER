@@ -141,6 +141,7 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 
 				// 需求核心：
 				// 用"上一个场景名"作为当前 RailMap2DAsset 的 nodeKey。
+				Debug.Log($"上一个场景名为{SceneTransitionContext.PreviousSceneName}");
 				return SceneTransitionContext.PreviousSceneName;
 			}
 
