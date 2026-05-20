@@ -1,16 +1,17 @@
-﻿using System;
+﻿using Events;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Assets.Scripts.OutsideDoorScene.OutsideManager.UI
 {
 	public abstract class WorldPlaceButton : MonoBehaviour
 	{
 		protected string actionName = "InteractMouse0";
-
 		private Camera mainCamera;
 
 		protected virtual void Start()
@@ -20,7 +21,7 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.UI
 
 		protected virtual void Update()
 		{
-			if (InputManager.instance.GetKeyDown(actionName) && CheckMouseClick())
+			if (InputManager.instance.GetKeyDown(actionName) && CheckMouseOn())
 			{
 				OnClick();
 			}
@@ -30,7 +31,7 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.UI
 		{
 		}
 
-		protected bool CheckMouseClick()
+		protected bool CheckMouseOn()
 		{
 			if (mainCamera == null) return false;
 
