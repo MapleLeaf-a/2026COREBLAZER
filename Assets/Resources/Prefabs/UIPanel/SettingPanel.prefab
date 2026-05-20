@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7986286848344586179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c0e2362acda2e448934432a893b9833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backMenuButton: {fileID: 6430380960912898584}
-  backGameButton: {fileID: 6928237560033671356}
+  backMenuButton: {fileID: 6928237560033671356}
+  backGameButton: {fileID: 6430380960912898584}
   volumnSlider: {fileID: 4542613455023565074}
 --- !u!1 &130556827030857837
 GameObject:
@@ -297,7 +297,7 @@ RectTransform:
   m_Father: {fileID: 5799350424393125731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 2097689951944142089}
   - component: {fileID: 6430380960912898584}
   m_Layer: 5
-  m_Name: BackMenuButton
+  m_Name: BackGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -463,10 +463,10 @@ RectTransform:
   - {fileID: 2726312628553942396}
   m_Father: {fileID: 1857788642352322938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 498.78024, y: -412.15845}
-  m_SizeDelta: {x: 997.5605, y: 134}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5104180760415413305
 CanvasRenderer:
@@ -582,8 +582,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8691418436716813378}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 6851331997110644534}
   - component: {fileID: 6928237560033671356}
   m_Layer: 5
-  m_Name: BackGameButton
+  m_Name: BackMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -734,10 +734,10 @@ RectTransform:
   - {fileID: 8309503052178610510}
   m_Father: {fileID: 1857788642352322938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 498.78024, y: -67}
-  m_SizeDelta: {x: 997.5605, y: 134}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 134}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4921405377080705013
 CanvasRenderer:

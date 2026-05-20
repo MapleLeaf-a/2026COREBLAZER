@@ -1,0 +1,1 @@
+直接把 zip 里的 45 张 PNG 全选拖进去，Texture Type 设为 Sprite (2D and UI)，然后再多选这些 sprite 一起拖到场景里，Unity 会自动让你保存一个 .anim 动画。

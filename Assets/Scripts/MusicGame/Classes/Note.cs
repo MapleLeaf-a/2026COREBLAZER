@@ -1,33 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Note : MonoBehaviour
 {
-    //Òô·ûÔË¶¯ËÙ¶È
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½Ù¶ï¿½
     private float speed;
 
-    [Header("ÅÐ¶¨Ìõ")]
+    [Header("ï¿½Ð¶ï¿½ï¿½ï¿½")]
     public GameObject bar;
 
-    //ÊÇ·ñÒÑ¾­³¬³öÅÐ¶¨Çø
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬")]
+    public SpriteRenderer image;
+
+    //ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½
     bool isOutOfJugdingZone = false;
-    //ÊÇ·ñÒÑ¾­ÅÐ¶Ï¹ý
+    //ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½Ð¶Ï¹ï¿½
     bool isJugded = false;
 
-    //Òô·ûÍ¼Æ¬
+    //ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
     SpriteRenderer spriteRenderer;
 
-    //ÒÆ¶¯²ßÂÔ
+    //ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½
     private IMovementStrategy movementStrategy;
 
-    //¶ÔÓ¦·½ÏòµÄÖáÏòµÄÖµ
+    //ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
     float p;
 
-    //bar¶ÔÓ¦·½ÏòµÄÖáÏòµÄÖµ
+    //barï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
     float barP;
 
-    //µ±Ç°ËùÔÚ¹ìµÀ
+    //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½
     BarJudger barJudger;
 
     NoteManager noteManager;
@@ -53,36 +57,37 @@ public class Note : MonoBehaviour
         IsOutOfScreen();
     }
 
-    public void Initialize(NoteManager noteManager, GameObject bar, IMovementStrategy dir, float speed)
+    public void Initialize(NoteManager noteManager, GameObject bar, IMovementStrategy dir, float speed, string type)
     {
         this.noteManager = noteManager;
         this.bar = bar;
         this.barJudger = bar.GetComponent<BarJudger>();
         movementStrategy = dir;
         this.speed = speed;
+        this.image.sprite = Resources.Load<Sprite>("Images/MusicGame/ï¿½ï¿½ï¿½ï¿½/" + type);
     }
 
 
-    //Òô·ûÒÆ¶¯
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
     void Move()
     {
         transform.Translate(speed * Time.deltaTime * movementStrategy.GetMoveDirV3());
         p = movementStrategy.GetPositionOnAxis(transform);
     }
 
-    //ÊÇ·ñÒÑ¾­Àë¿ªÁËÅÐ¶¨Çø
+    //ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ë¿ªï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½
     void IsOutOfJudgingZone()
     {
         if (p < barP - BarJudger.miss * speed)
         {
-            Debug.Log("Ôã¸â£¡");
-            barJudger.ShowText("Ôã¸â£¡", Color.red);
+            Debug.Log("ï¿½ï¿½â£¡");
+            barJudger.ShowText("ï¿½ï¿½â£¡", Color.red);
             isOutOfJugdingZone = true;
             DestroyNote();
 
-            ScoreManager.ScoreManagerInstance?.score.AddNoteCount(); //Ôö¼ÓÒô·û¼ÆÊý
-            ScoreManager.ScoreManagerInstance?.score.UpdateCurrentRate(); //¸üÐÂÄ¿Ç°µÄperfectÂÊ
-            ScoreManager.ScoreManagerInstance?.UpdateCurrentScoreText(); //¸üÐÂÎÄ±¾
+            ScoreManager.ScoreManagerInstance?.score.AddNoteCount(); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            ScoreManager.ScoreManagerInstance?.score.UpdateCurrentRate(); //ï¿½ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½perfectï¿½ï¿½
+            ScoreManager.ScoreManagerInstance?.UpdateCurrentScoreText(); //ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½
         }
     }
 
@@ -92,30 +97,30 @@ public class Note : MonoBehaviour
 
         float p = this.p;
 
-        if (baseP + this.speed * BarJudger.miss < p)  //»¹Î´µ½ÅÐ¶¨Çø
+        if (baseP + this.speed * BarJudger.miss < p)  //ï¿½ï¿½Î´ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½
         {
             return false;
         }
 
-        //ÅÐ¶¨ÇøÄÚµÄÊ±»úÅÐ¶¨
+        //ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Úµï¿½Ê±ï¿½ï¿½ï¿½Ð¶ï¿½
         if (baseP - speed * BarJudger.perfect < p && p < baseP + speed * BarJudger.perfect)
         {
-            barJudger.ShowText("ÔÞ£¡", Color.yellow);
-            ScoreManager.ScoreManagerInstance?.score.AddScore("ÔÞ£¡");
+            barJudger.ShowText("ï¿½Þ£ï¿½", Color.yellow);
+            ScoreManager.ScoreManagerInstance?.score.AddScore("ï¿½Þ£ï¿½");
         }
         else if (baseP - speed * BarJudger.good < p && p < baseP + speed * BarJudger.good)
         {
-            barJudger.ShowText("»¹ÐÐ£¡", Color.green);
-            ScoreManager.ScoreManagerInstance?.score.AddScore("»¹ÐÐ£¡");
+            barJudger.ShowText("ï¿½ï¿½ï¿½Ð£ï¿½", Color.green);
+            ScoreManager.ScoreManagerInstance?.score.AddScore("ï¿½ï¿½ï¿½Ð£ï¿½");
         }
         else if (baseP - speed * BarJudger.soso < p && p < baseP + speed * BarJudger.soso)
         {
-            barJudger.ShowText("Ò»°ã£¡", Color.cyan);
-            ScoreManager.ScoreManagerInstance?.score.AddScore("Ò»°ã£¡");
+            barJudger.ShowText("Ò»ï¿½ã£¡", Color.cyan);
+            ScoreManager.ScoreManagerInstance?.score.AddScore("Ò»ï¿½ã£¡");
         }
         else if (baseP - speed * BarJudger.miss < p && p < baseP + speed * BarJudger.miss)
         {
-            barJudger.ShowText("ÒÅº¶£¡", Color.red);
+            barJudger.ShowText("ï¿½Åºï¿½ï¿½ï¿½", Color.red);
         }
 
         DestroyNote();
@@ -133,8 +138,8 @@ public class Note : MonoBehaviour
     {
         Vector3 screenPos = mainCamera.WorldToScreenPoint(transform.position);
 
-        //¼ì²âÊÇ·ñ³¬³öÆÁÄ»±ß½ç£¨´ø»º³å£©
-        float buffer = 100f;  //³¬³öÆÁÄ»±ßÔµ100ÏñËØ¾ÍÏú»Ù
+        //ï¿½ï¿½ï¿½ï¿½Ç·ñ³¬³ï¿½ï¿½ï¿½Ä»ï¿½ß½ç£¨ï¿½ï¿½ï¿½ï¿½ï¿½å£©
+        float buffer = 100f;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ôµ100ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½ï¿½ï¿½
 
         if (screenPos.y < -buffer || screenPos.x < -buffer)
         {

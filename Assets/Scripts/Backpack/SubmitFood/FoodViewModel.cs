@@ -14,4 +14,17 @@ public class FoodViewModel : ViewModel<Food>
     { 
         
     }
+
+    public void UpdateFoods(FoodRecipe[] foodRecipes)
+    {
+        foodModel.Clear();
+
+        foreach (var item in foodRecipes)
+        {
+            if (item != null)
+            {
+                foodModel.AddItem(Foods.GetFood(item.id));
+            }
+        }
+    }
 }

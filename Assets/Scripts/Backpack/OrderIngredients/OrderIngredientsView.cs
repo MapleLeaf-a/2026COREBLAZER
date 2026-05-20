@@ -8,45 +8,45 @@ using UnityEngine.UI;
 
 public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
 {
-    [Header("×Ê½ð¶ÌÈ±»­²¼")]
+    [Header("ï¿½Ê½ï¿½ï¿½È±ï¿½ï¿½ï¿½ï¿½")]
     public Canvas ShortOfMoneyCanvas;
 
-    [Header("ÏêÇéÃæ°å")]
-    [Tooltip("Ãû³Æ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½")]
     public TextMeshProUGUI itemNameText;
-    [Tooltip("ÃèÊö")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½")]
     public TextMeshProUGUI itemDescribeText;
-    [Tooltip("Í¼±ê")]
+    [Tooltip("Í¼ï¿½ï¿½")]
     public Image itemIconImage;
-    [Tooltip("µ¥¼Û")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½")]
     public TextMeshProUGUI priceText;
-    [Tooltip("¹ÜÀí±ðµÄUIµÄÏÔÊ¾")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UIï¿½ï¿½ï¿½ï¿½Ê¾")]
     public GameObject otherUIs;
 
-    [Tooltip("¼ÆËã×Ü¼Û")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½")]
     public TotalPriceCaculator totalPriceCaculator;
 
-    [Tooltip("¹ºÂòµÄ°´Å¥")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½Ä°ï¿½Å¥")]
     public Button buyButton;
 
     int discountIndex = -1;
 
-    private float discountRate = 0.7f;
+    private float discountRate = 0.8f;
 
-    //ÒªÂòµÄÊýÁ¿
+    //Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     int buyCount;
 
     public OrderIngredientsViewModel orderIngredientsViewModel
     {
         get => viewModel as OrderIngredientsViewModel;
 
-        set => viewModel = value; //valueÊÇC#ÊôÐÔsetterÖÐµÄÉÏÏÂÎÄ¹Ø¼ü×Ö,´ú±í¸³Öµ²Ù×÷´«ÈëµÄÖµ
+        set => viewModel = value; //valueï¿½ï¿½C#ï¿½ï¿½ï¿½ï¿½setterï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹Ø¼ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
     }
     public virtual void InitBackpackView(OrderIngredientsModel orderIngredientsModel)
     {
         if (capacity <= 0 || itemsPerPage <= 0)
         {
-            throw new UnityException("±³°ü³õÊ¼»¯³ö´í£¡");
+            throw new UnityException("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
         capacity = orderIngredientsModel.Capacity;
         this.orderIngredientsViewModel = new OrderIngredientsViewModel(orderIngredientsModel, itemsPerPage);
@@ -56,11 +56,11 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
     {
         switch (e.PropertyName)
         {
-            case nameof(orderIngredientsViewModel.CurrentPageItems):      //VMÖÐ´ËÒ³ÎïÆ·Ë¢ÐÂÊ±
-                RefreshItems(); //VË¢ÐÂÎïÆ·ÁÐ±í
+            case nameof(orderIngredientsViewModel.CurrentPageItems):      //VMï¿½Ð´ï¿½Ò³ï¿½ï¿½Æ·Ë¢ï¿½ï¿½Ê±
+                RefreshItems(); //VË¢ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Ð±ï¿½
                 break;
-            case nameof(orderIngredientsViewModel.SelectedItem): //VMÖÐÑ¡ÖÐµÄÎïÆ·Ë¢ÐÂÊ±
-                RefreshDetail();                         //VË¢ÐÂÏêÇéÃæ°å
+            case nameof(orderIngredientsViewModel.SelectedItem): //VMï¿½ï¿½Ñ¡ï¿½Ðµï¿½ï¿½ï¿½Æ·Ë¢ï¿½ï¿½Ê±
+                RefreshDetail();                         //VË¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 RefreshItems();
                 break;
             case nameof(orderIngredientsViewModel.DiscountIndex):
@@ -71,7 +71,7 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
         }
     }
 
-    //Ë¢ÐÂÎïÆ·ÁÐ±í
+    //Ë¢ï¿½ï¿½ï¿½ï¿½Æ·ï¿½Ð±ï¿½
     void RefreshItems()
     {
         FoodMaterial[] items = orderIngredientsViewModel.CurrentPageItems;
@@ -82,7 +82,7 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
                 bool isSelected = (orderIngredientsViewModel.SelectedItem == items[i]);
                 slots[i].SetUp(items[i], orderIngredientsViewModel.GetSprite(items[i].spritePath), i, isSelected);
             }
-            else //²»°üº¬ÔÚitemsÀïµÄÇå³ý²ÛÎ»µÄÏÔÊ¾Ð§¹û
+            else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½itemsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ê¾Ð§ï¿½ï¿½
             {
                 slots[i].Clear();
             }
@@ -130,15 +130,9 @@ public class OrderIngredientsView : View<FoodMaterial, OrderIngredientsUIItem>
         FoodMaterial[] items = orderIngredientsViewModel.CurrentPageItems;
         bool isSelected = (orderIngredientsViewModel.SelectedItem == items[discountIndex]);
         slots[discountIndex].SetUp(items[discountIndex], orderIngredientsViewModel.GetSprite(items[discountIndex].spritePath), discountIndex, isSelected, true);
-        RefreshDiscountDetail();
     }
 
-    public void RefreshDiscountDetail()
-    { 
-        
-    }
-
-    //Ë¢ÐÂËùÓÐUI
+    //Ë¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UI
     public override void RefreshUI()
     {
         RefreshItems();

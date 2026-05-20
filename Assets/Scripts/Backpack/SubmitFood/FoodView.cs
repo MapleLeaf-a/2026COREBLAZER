@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FoodView : View<Food, FoodUIItem>
 {
+
     public FoodViewModel foodViewModel
     { 
         get => viewModel as FoodViewModel;
@@ -14,12 +15,16 @@ public class FoodView : View<Food, FoodUIItem>
     {
         if (capacity <= 0 || itemsPerPage <= 0)
         {
-            throw new UnityException("±³°ü³õÊ¼»¯³ö´í£¡");
+            throw new UnityException("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
         capacity = foodModel.Capacity;
         this.foodViewModel = new FoodViewModel(foodModel, itemsPerPage);
     }
 
+    public void UpdateFoods(FoodRecipe[] foodRecipes)
+    {
+        foodViewModel.UpdateFoods(foodRecipes);
+    }
 
 
     public override void RefreshUI()
@@ -32,7 +37,7 @@ public class FoodView : View<Food, FoodUIItem>
                 bool isSelected = (foodViewModel.SelectedItem == items[i]);
                 slots[i].SetUp(items[i], foodViewModel.GetSprite(items[i].foodRecipe.spritePath), i, isSelected);
             }
-            else //²»°üº¬ÔÚitemsÀïµÄÇå³ý²ÛÎ»µÄÏÔÊ¾Ð§¹û
+            else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½itemsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ê¾Ð§ï¿½ï¿½
             {
                 slots[i].Clear();
             }
@@ -44,33 +49,33 @@ public class FoodView : View<Food, FoodUIItem>
         
     }
 
-    //ÍÏ×§Ïà¹Ø(ÓÉDrag Handlerµ÷ÓÃ,ÕâÖÖÉè¼ÆÊ¹µÃÊÓÍ¼ºÍÍÏ×§Âß¼­·ÖÀë)
+    //ï¿½ï¿½×§ï¿½ï¿½ï¿½(ï¿½ï¿½Drag Handlerï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½×§ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½)
     private int draggingIndex = -1;
     public override void OnDragStart(int index)
     {
-        draggingIndex = index;  //¼ÇÂ¼¿ªÊ¼ÍÏ×§µÄ²ÛÎ»
+        draggingIndex = index;  //ï¿½ï¿½Â¼ï¿½ï¿½Ê¼ï¿½ï¿½×§ï¿½Ä²ï¿½Î»
 
-        sourceView = this; //¼ÇÂ¼Ô´Í·ÊÇ×Ô¼º
+        sourceView = this; //ï¿½ï¿½Â¼Ô´Í·ï¿½ï¿½ï¿½Ô¼ï¿½
 
-        Debug.Log($"ÍÏ×§¿ªÊ¼: Ë÷Òý={index}, Ô´±³°ü={name}");
+        Debug.Log($"ï¿½ï¿½×§ï¿½ï¿½Ê¼: ï¿½ï¿½ï¿½ï¿½={index}, Ô´ï¿½ï¿½ï¿½ï¿½={name}");
     }
 
     public override void OnDragEnd()
     {
-        draggingIndex = -1; //ÍÏ×§½áÊøÇå¿Õ¼ÇÂ¼
+        draggingIndex = -1; //ï¿½ï¿½×§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Â¼
 
-        Debug.Log("ÍÏ×§½áÊø");
+        Debug.Log("ï¿½ï¿½×§ï¿½ï¿½ï¿½ï¿½");
     }
 
     public override void OnDrop(int targetIndex)
     {
         if (DragState<Food, FoodUIItem>.FromIndex == -1)
         {
-            return; //Èç¹ûÃ»ÓÐÕýÔÚÍÏ×§µÄÎïÆ·,·µ»Ø
+            return; //ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×§ï¿½ï¿½ï¿½ï¿½Æ·,ï¿½ï¿½ï¿½ï¿½
         }
 
-        //²»¿ÉÒÆ¶¯µ½´Ë±³°ü
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Ë±ï¿½ï¿½ï¿½
 
-        DragState<Food, FoodUIItem>.Reset();  //Çå¿ÕÍÏ×§×´Ì¬
+        DragState<Food, FoodUIItem>.Reset();  //ï¿½ï¿½ï¿½ï¿½ï¿½×§×´Ì¬
     }
 }

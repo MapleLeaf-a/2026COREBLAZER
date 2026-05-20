@@ -9,13 +9,18 @@ State	ID	Name	State Group			Notes
 	1631528850	In_Menu	Menu_Status			
 	2967546505	In_Game	Menu_Status			
 	748895195	None	BUFF			
-	144697359	OutDoor	Scene			
 	251412225	Shop	Scene			
 	445985471	Dig	Scene			
+	589459207	Bedroom_Daytime	Scene			
 	748895195	None	Scene			
+	1440285448	Bedroom_Night	Scene			
 	2169636208	Restaurant	Scene			
 	3188984297	Fishing	Scene			
 	3558471344	MusicGame	Scene			
+	3705726509	Title	Scene			
+	3981151828	OutDoor_2	Scene			
+	3981151829	OutDoor_3	Scene			
+	3981151831	OutDoor_1	Scene			
 	748895195	None	Date			
 	2043358088	Day3	Date			
 	2043358089	Day2	Date			

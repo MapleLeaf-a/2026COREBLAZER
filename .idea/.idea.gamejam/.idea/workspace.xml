@@ -4,7 +4,987 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a68ed68-ffba-47f2-8a48-749f40bee222" name="更改" comment="" />
+    <list default="true" id="8a68ed68-ffba-47f2-8a48-749f40bee222" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/说明.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/说明.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00000.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00003.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00004.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00005.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00006.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00007.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00007.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00008.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00008.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00009.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00009.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00010.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00010.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00011.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00011.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00012.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00012.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00013.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00013.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00014.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00014.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00015.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00015.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00016.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00016.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00017.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00017.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00018.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00018.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00019.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00019.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00020.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00020.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00021.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00021.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00022.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00022.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00023.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00023.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00024.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00025.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00025.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00026.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00026.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00027.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00027.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00028.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00028.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00029.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00029.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00030.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00030.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00031.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00031.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00032.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00032.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00033.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00033.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00034.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00034.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00035.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00035.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00036.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00036.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00037.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00037.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00038.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00038.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00039.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00039.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00040.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00040.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00041.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00041.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00042.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00042.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00043.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00043.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00044.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/音叉周围声波/frame_00044.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00000.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00003.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00004.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00005.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00006.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00007.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00007.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00008.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00008.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00009.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00009.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00010.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00010.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00011.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00011.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00012.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00012.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00013.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00013.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00014.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00014.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00015.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00015.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00016.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00016.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00017.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00017.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00018.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00018.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00019.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00019.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00020.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00020.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00021.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00021.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00022.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00022.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00023.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00023.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00024.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00025.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00025.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00026.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00026.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00027.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00027.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00028.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00028.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00029.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00029.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00030.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00030.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00031.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00031.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00032.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00032.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00033.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00033.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00034.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00034.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00035.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00035.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00036.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00036.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00037.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00037.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00038.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00038.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00039.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00039.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00040.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00040.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00041.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00041.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00042.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00042.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00043.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00043.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00044.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波1/frame_00044.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00000.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00003.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00004.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00005.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00006.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00007.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00007.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00008.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00008.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00009.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00009.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00010.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00010.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00011.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00011.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00012.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00012.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00013.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00013.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00014.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00014.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00015.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00015.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00016.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00016.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00017.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00017.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00018.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00018.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00019.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00019.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00020.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00020.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00021.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00021.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00022.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00022.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00023.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00023.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00024.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00025.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00025.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00026.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00026.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00027.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00027.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00028.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00028.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00029.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00029.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00030.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00030.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00031.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00031.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00032.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00032.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00033.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00033.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00034.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00034.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00035.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00035.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00036.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00036.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00037.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00037.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00038.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00038.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00039.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00039.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00040.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00040.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00041.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00041.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00042.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00042.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00043.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00043.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00044.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波2/frame_00044.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00000.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00003.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00004.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00005.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00006.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00007.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00007.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00008.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00008.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00009.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00009.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00010.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00010.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00011.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00011.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00012.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00012.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00013.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00013.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00014.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00014.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00015.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00015.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00016.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00016.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00017.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00017.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00018.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00018.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00019.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00019.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00020.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00020.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00021.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00021.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00022.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00022.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00023.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00023.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00024.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00025.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00025.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00026.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00026.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00027.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00027.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00028.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00028.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00029.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00029.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00030.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00030.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00031.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00031.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00032.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00032.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00033.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00033.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00034.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00034.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00035.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00035.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00036.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00036.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00037.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00037.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00038.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00038.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00039.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00039.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00040.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00040.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00041.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00041.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00042.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00042.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00043.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00043.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00044.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波3/frame_00044.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00000.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00003.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00004.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00005.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00006.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00007.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00007.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00008.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00008.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00009.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00009.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00010.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00010.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00011.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00011.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00012.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00012.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00013.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00013.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00014.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00014.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00015.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00015.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00016.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00016.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00017.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00017.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00018.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00018.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00019.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00019.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00020.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00020.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00021.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00021.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00022.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00022.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00023.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00023.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00024.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00025.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00025.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00026.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00026.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00027.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00027.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00028.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00028.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00029.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00029.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00030.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00030.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00031.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00031.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00032.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00032.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00033.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00033.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00034.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00034.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00035.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00035.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00036.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00036.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00037.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00037.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00038.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00038.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00039.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00039.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00040.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00040.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00041.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00041.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00042.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00042.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00043.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00043.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00044.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波4/frame_00044.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00000.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00001.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00001.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00002.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00003.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00004.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00005.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00006.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00007.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00007.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00008.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00008.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00009.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00009.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00010.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00010.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00011.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00011.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00012.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00012.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00013.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00013.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00014.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00014.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00015.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00015.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00016.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00016.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00017.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00017.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00018.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00018.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00019.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00019.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00020.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00020.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00021.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00021.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00022.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00022.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00023.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00023.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00024.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00024.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00025.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00025.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00026.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00026.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00027.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00027.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00028.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00028.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00029.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00029.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00030.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00030.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00031.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00031.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00032.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00032.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00033.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00033.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00034.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00034.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00035.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00035.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00036.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00036.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00037.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00037.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00038.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00038.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00039.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00039.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00040.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00040.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00041.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00041.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00042.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00042.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00043.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00043.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00044.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/声波/（任意）食材声波5/frame_00044.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/教程，第一次进时放，点击进入下一张，点完结束.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/教程，第一次进时放，点击进入下一张，点完结束/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/教程，第一次进时放，点击进入下一张，点完结束/1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/教程，第一次进时放，点击进入下一张，点完结束/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/教程，第一次进时放，点击进入下一张，点完结束/2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/教程，第一次进时放，点击进入下一张，点完结束/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/教程，第一次进时放，点击进入下一张，点完结束/3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/极光贝.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/极光贝.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/淘砂根.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/淘砂根.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/盐虫兑.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/盐虫兑.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/背景.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/背景.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/裂壳芽菜-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/裂壳芽菜-1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/音叉.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/音叉.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/（永远在介绍员下一个图层）介绍员对话框.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/挖掘小游戏/小游戏说明/素材/（永远在介绍员下一个图层）介绍员对话框.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/动画.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/动画/视频.renderTexture" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/动画/视频.renderTexture.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/动画/轻炙霓辉握步骤动画.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/动画/轻炙霓辉握步骤动画.mp4.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/台面.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/台面/1前景.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/台面/1前景.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/台面/21寿司台面.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/台面/21寿司台面.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/台面/3背景.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/台面/3背景.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/台面/临时水池台面.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/台面/临时水池台面.PNG.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/切取.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/切取.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/加冰.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/加冰.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/去杂.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/去杂.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/去皮.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/去皮.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/捏饭团.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/捏饭团.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/摇晃.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/摇晃.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/放食材.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/放食材.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/清洗.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/清洗.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/炙烤.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/炙烤.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/腌制.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/音符/腌制.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/价格牌.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/价格牌.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/确认.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/确认.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/词条.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/词条.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/词条ui参考图.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/词条ui参考图.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/词条ui透明底参考图.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/词条ui透明底参考图.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/词条牌-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/词条牌-1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/词条牌.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/词条牌.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/返回.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/返回.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/重做.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/重做.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/食材圆牌.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/食材圆牌.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/食物名字牌.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/食物名字牌.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/食物底座.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/食物底座.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/黑色框底.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/编辑词条ui/黑色框底.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/刺球蟹.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/刺球蟹.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/极光贝.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/极光贝.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/泡泡糖海龙.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/泡泡糖海龙.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/淘砂根.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/淘砂根.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/玻壳海胆.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/玻壳海胆.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/盐蜕.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/盐蜕.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/绿茶.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/绿茶.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/裂壳芽菜-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/裂壳芽菜-1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/轻炙霓辉握.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/轻炙霓辉握.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/店面.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/店面.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/1主厨QQ人.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/1主厨QQ人.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/2喜爱反应.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/2喜爱反应.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/2无语反应.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/2无语反应.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/2生气反应.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/2生气反应.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/2难过反应.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/2难过反应.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/3前景.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/3前景.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/4预计赚钱背景.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/4预计赚钱背景.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/5设置.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/5设置.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/6台面大盘子（装菜的.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/6台面大盘子（装菜的.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/7餐桌.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/7餐桌.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/8食客1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/8食客1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/8食客2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/8食客2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/8食客3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/8食客3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/8食客4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/8食客4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/9背景.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/9背景.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/整体示意.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/整体示意.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/钱实体.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/交付界面/钱实体.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/提示框UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/提示框UI/提示框BG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/提示框UI/提示框BG.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/提示框UI/菜量不足.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/提示框UI/菜量不足.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/提示框UI/资金不足.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/提示框UI/资金不足.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/提示框UI/食材不足.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Images/提示框UI/食材不足.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pause/Close/CloseCanvasWithoutButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pause/Close/CloseCanvasWithoutButton.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Wwise/Footstep.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Wwise/MouseAudioManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/10/1018709867.wem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/11/115994408.wem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/21/217228489.wem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/30/308916219.wem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/43/437800495.wem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/51/519953146.wem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/58/58475913.wem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/61/619707527.wem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/74/746026685.wem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/85/855275216.wem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/97/97162020.wem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Wwise/ScriptableObjects/GameParameter.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Wwise/ScriptableObjects/GameParameter/0D99679D-6FC5-4CE9-884F-3EEF13956791.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Wwise/ScriptableObjects/GameParameter/0D99679D-6FC5-4CE9-884F-3EEF13956791.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Wwise/ScriptableObjects/GameParameter/1FC714B8-C812-435C-A80D-FA0E8CAEAE18.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Wwise/ScriptableObjects/GameParameter/1FC714B8-C812-435C-A80D-FA0E8CAEAE18.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Wwise/ScriptableObjects/GameParameter/3A6C49DB-0CA6-4619-8E49-C7912197DFE9.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Wwise/ScriptableObjects/GameParameter/3A6C49DB-0CA6-4619-8E49-C7912197DFE9.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.gamejam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.gamejam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Character/frame_00000.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Character/frame_00000.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Character/frame_00001.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Character/frame_00001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Character/frame_00002.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Character/frame_00002.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Character/frame_00003.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Character/frame_00003.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Character/idle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Character/idle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/TuningFork.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/DigGame/TuningFork.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/1当前选中食材价格牌.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/1当前选中食材价格牌.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/2当前页面圆点.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/2当前页面圆点.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/3价签.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/3价签.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/4当前选中食材.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/4当前选中食材.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/5冰柜主体.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/5冰柜主体.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/冰柜角标.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/冰柜角标.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/单个价签.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/单个价签.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/单个圆点.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/单个圆点.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/左箭头.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Freezer/左箭头.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/5左上楼.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/5左上楼.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/6右上楼.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/6右上楼.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/8左今日菜单图标.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/8左今日菜单图标.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/出门.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/出门.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/右今日菜单图标.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/右今日菜单图标.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/进入厨房.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/进入厨房.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/遮黑效果底图.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Hall/UI/遮黑效果底图.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/InteractiveUI/GoTo.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/InteractiveUI/GoTo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/InteractiveUI/PauseButton.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/InteractiveUI/PauseButton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/InteractiveUI/drop.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/InteractiveUI/drop.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/InteractiveUI/home.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/InteractiveUI/home.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/1当前箭头.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/1当前箭头.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/2QUIT.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/2QUIT.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/3SETTINGS.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/3SETTINGS.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/4START.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/4START.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/5背景.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/5背景.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/Setting/1返回主界面.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/Setting/1返回主界面.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/Setting/2返回游戏.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/Setting/2返回游戏.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/Setting/3音量调节滑块.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/Setting/3音量调节滑块.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/Setting/4背景.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MainMenu/Setting/4背景.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/10音符判定区底图.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/10音符判定区底图.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/1完成度百分数与暂停底图.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/1完成度百分数与暂停底图.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/2完成对勾.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/2完成对勾.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/3小进度条.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/3小进度条.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/4未做或做完的菜底图.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/4未做或做完的菜底图.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/5当前在做的菜底图.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/5当前在做的菜底图.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/6当前预计至少获得钱数底图.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/6当前预计至少获得钱数底图.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/8音符判定点.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/8音符判定点.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/9音符底图.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/9音符底图.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/10光芒.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/10光芒.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/11背景.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/11背景.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/1剩余时间牌.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/1剩余时间牌.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/2海浪音符.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/2海浪音符.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/3按键条.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/3按键条.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/4捕鱼进度条.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/4捕鱼进度条.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/5当前鱼背景.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/5当前鱼背景.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/6号角.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/6号角.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/7设置.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/7设置.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/8退出.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/8退出.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/9上下黑边.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/9上下黑边.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/整体示意.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/MusicGame/钓鱼小游戏/整体示意.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/Fish/1钓鱼小游戏进入图标.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/Fish/1钓鱼小游戏进入图标.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/Fish/2盐滩小游戏进入图标.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/Fish/2盐滩小游戏进入图标.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/Fish/3上下黑条.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/Fish/3上下黑条.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/Fish/4前景.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/Fish/4前景.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/Fish/5背景.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/Fish/5背景.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/10上下黑条.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/10上下黑条.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/11飞船车.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/11飞船车.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/12前景.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/12前景.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/13中景1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/13中景1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/14中景2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/14中景2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/15后景.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/15后景.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/1方向箭头UI.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/1方向箭头UI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/2天数底图UI.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/2天数底图UI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/3地图底图UI.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/3地图底图UI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/4 无人机UI.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/4 无人机UI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/5电量UI底图.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/5电量UI底图.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/6当前左右资金UI.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/6当前左右资金UI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/7当前播放音乐UI.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/7当前播放音乐UI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/8小地图底图UI.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/8小地图底图UI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/9设置和回顾按键.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_1/9设置和回顾按键.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/10褶口囊泡.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/10褶口囊泡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/11星沫囊泡框选框.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/11星沫囊泡框选框.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/12星沫囊泡.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/12星沫囊泡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/13孢铃框选框.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/13孢铃框选框.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/14孢铃.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/14孢铃.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/15轨灯椒框选.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/15轨灯椒框选.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/16轨灯椒.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/16轨灯椒.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/17光.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/17光.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/18背景图.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/18背景图.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/1上下黑条.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/1上下黑条.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/2烛芯菇框选框.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/2烛芯菇框选框.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/3纱膜菌框选框.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/3纱膜菌框选框.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/4纱膜菌和烛芯菇.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/4纱膜菌和烛芯菇.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/5地面.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/5地面.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/6蜜焰菌框选框.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/6蜜焰菌框选框.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/7蜜焰菌.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/7蜜焰菌.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/8前景.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/8前景.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/9褶口囊泡框选框.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/OutsideDoor/OutsideDoor_2/9褶口囊泡框选框.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/4当前选中食材.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/4当前选中食材.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/10.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/11.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/12.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/13.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/13.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/14.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/14.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/15.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/15.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/16.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/17.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/17.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/18.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/18.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/19.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/19.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/20.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/20.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/8.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/9.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Entry/9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/PriceIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/PriceIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Recipe.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Recipe.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Soup.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Soup.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Sushi.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Sushi.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Water.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/Water.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/fish.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/fish.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/kazuha.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/kazuha.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/seaweed.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/seaweed.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/单个圆点.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/单个圆点.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/团叶果母.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/团叶果母.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/明太子.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/明太子.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/星沫囊泡.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/星沫囊泡.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/星环鳗鱼.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/星环鳗鱼.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/白潮果.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/白潮果.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/砂盐.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/砂盐.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/米饭.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/米饭.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/花蜜酱.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/花蜜酱.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/贝汤亮油.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/贝汤亮油.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/霓辉鳍鱼.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Recipes/霓辉鳍鱼.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00000.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00000.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00001.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00002.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00002.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00003.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00003.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00004.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00004.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00005.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00005.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00006.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00006.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00007.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00007.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00008.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00008.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00009.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00009.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00010.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00010.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00011.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00011.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00012.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00012.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00013.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00013.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00014.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00014.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00015.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00015.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00016.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00016.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00017.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Scan/frame_00017.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Walk/frame_00000.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Walk/frame_00000.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Walk/frame_00001.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Walk/frame_00001.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Walk/frame_00002.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Walk/frame_00002.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Walk/frame_00003.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Walk/frame_00003.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Walk/frame_00004.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Walk/frame_00004.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Walk/frame_00005.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Robot/Walk/frame_00005.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/10采购点洛洛.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/10采购点洛洛.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/11店面后面.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/11店面后面.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/1打折标.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/1打折标.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/1采购点白边.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/1采购点白边.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/2退出按键.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/2退出按键.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/3购买按键.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/3购买按键.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/4售货框前挡板.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/4售货框前挡板.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/5当前选中物品底图.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/5当前选中物品底图.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/6售货框后挡板.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/6售货框后挡板.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/7被选中商品.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/7被选中商品.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/8未被选中商品.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/8未被选中商品.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/9店面前面.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/9店面前面.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/室外采购处位置.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/室外采购处位置.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/整体示意.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/整体示意.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/整体示意2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/Store/采购点/整体示意2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/guest.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/SubmitFood/guest.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/UAV/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/UAV/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/UAV/2 无人机背包主体.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/UAV/2 无人机背包主体.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/UAV/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/UAV/2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/UAV/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/UAV/3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/UAV/翻页.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/UAV/翻页.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/10今日预计营业额.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/10今日预计营业额.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/11盈利额显示板.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/11盈利额显示板.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/12下部背景版.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/12下部背景版.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/13菜牌.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/13菜牌.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/14返回键UI.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/14返回键UI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/15介绍UI.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/15介绍UI.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/16使用食材背景板.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/16使用食材背景板.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/16单个圆点.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/16单个圆点.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/17菜名与价格展示牌.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/17菜名与价格展示牌.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/18上部背景板.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/18上部背景板.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/19底部背景板.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/19底部背景板.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/1黑边.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/1黑边.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/2翻页.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/2翻页.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/3装饰条带.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/3装饰条带.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/4食客头像框4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/4食客头像框4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/5食客头像框3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/5食客头像框3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/6食客头像框2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/6食客头像框2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/7食客头像框1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/7食客头像框1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/8花束.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/8花束.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/9确认与重置菜单.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/9确认与重置菜单.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/食客.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Images/今日菜单UI/食客.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/MusicGame/LoogNote.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/MusicGame/LoogNote.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/MusicGame/Note.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/MusicGame/Note.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIPanel/SettingPanel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIPanel/SettingPanel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIs/AllRecipesUIItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIs/AllRecipesUIItem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIs/Description.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIs/Description.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIs/FoodUIItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIs/FoodUIItem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIs/GuestFoodUIItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIs/GuestFoodUIItem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIs/IngredientUIItem Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIs/IngredientUIItem Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIs/StoreIngredientUIItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UIs/StoreIngredientUIItem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sim/思源宋体SourceHanSerifCN-Light SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sim/思源宋体SourceHanSerifCN-Light SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Sim/思源宋体SourceHanSerifCN-SemiBold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Sim/思源宋体SourceHanSerifCN-SemiBold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backpack/Classes/OrderIngredientsUIItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backpack/Classes/OrderIngredientsUIItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backpack/OrderIngredients/OrderIngredientsView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backpack/OrderIngredients/OrderIngredientsView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backpack/Recipe/AllRecipes/AllRecipesView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backpack/Recipe/AllRecipes/AllRecipesView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backpack/SubmitFood/FoodView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backpack/SubmitFood/FoodView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backpack/SubmitFood/FoodViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backpack/SubmitFood/FoodViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backpack/SubmitFood/GuestFoodView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backpack/SubmitFood/GuestFoodView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backpack/TestBackpack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Backpack/TestBackpack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MusicGame/Classes/Note.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MusicGame/Classes/Note.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MusicGame/NoteManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MusicGame/NoteManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RunningStatics/Food/FoodRecipes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RunningStatics/Food/FoodRecipes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RunningStatics/Food/Foods.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RunningStatics/Food/Foods.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Init.bnk" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Init.bnk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Init.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Init.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Init.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Init.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Main.bnk" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Main.bnk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Main.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Main.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Main.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Main.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/PluginInfo.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/PluginInfo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Wwise_IDs.h" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Wwise_IDs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Sprites/EmojiOne.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/BrowserIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/BrowserIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/BrowserIcons/GraphNode_CollapseAll.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/BrowserIcons/GraphNode_CollapseAll.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/BrowserIcons/GraphNode_ExpandAll.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/BrowserIcons/GraphNode_ExpandAll.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/acoustictexture_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/acoustictexture_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/auxbus_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/auxbus_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/blank.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/blank.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/bus_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/bus_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/event_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/event_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/folder_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/folder_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/gameparameter_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/gameparameter_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/physical_folder_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/physical_folder_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/soundbank_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/soundbank_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/state_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/state_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/stategroup_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/stategroup_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/switch_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/switch_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/switchgroup_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/switchgroup_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/trigger_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/trigger_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/workunit_nor.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/workunit_nor.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/wproj.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/API/Editor/WwiseWindows/TreeViewIcons/wproj.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/Gizmos/WwiseAudioSpeaker.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/Gizmos/WwiseAudioSpeaker.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Wwise/Gizmos/wwise_white_on_gray.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Wwise/Gizmos/wwise_white_on_gray.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/整体示意.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/整体示意.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,9 +1012,60 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/MainGameWindow.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/unity project/gamejam/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/MainGameWindow.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/Classes/OrderIngredientsUIItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/Classes/OrderIngredientsUIItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/OrderIngredients/OrderIngredientsView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/OrderIngredients/OrderIngredientsView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/Recipe/AllRecipes/AllRecipesView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/Recipe/AllRecipes/AllRecipesView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/SubmitFood/FoodView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/SubmitFood/FoodView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/SubmitFood/FoodViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/SubmitFood/FoodViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/SubmitFood/GuestFoodView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/SubmitFood/GuestFoodView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/TestBackpack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/TestBackpack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/MusicGame/Classes/Note.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/MusicGame/Classes/Note.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/MusicGame/NoteManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/MusicGame/NoteManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/Manager/DTO/OutsideEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/Manager/DTO/OutsideEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/Manager/Power/OutsideDoorCharacterPowerManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/Manager/Power/OutsideDoorCharacterPowerManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/GoOutsideButton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/GoOutsideButton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/OutsideUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/OutsideUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/OutsideUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/OutsideUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/PowerSlider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/PowerSlider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/RunningStatics/Food/FoodRecipes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/RunningStatics/Food/FoodRecipes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/RunningStatics/Food/Foods.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/RunningStatics/Food/Foods.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Scene/ScreenFader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Scene/ScreenFader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Tools/Common/MonoSingleton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Tools/Common/MonoSingleton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Tools/SlideInjector/ProjectFlowInjector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Tools/SlideInjector/ProjectFlowInjector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Tools/Unity/SceneManager/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Tools/Unity/SceneManager/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/UI/SettingPanelManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/UI/SettingPanelManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/10.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Wwise/ScriptableObjects/GameParameter/0D99679D-6FC5-4CE9-884F-3EEF13956791.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -53,8 +1084,9 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "TempMembers",
+    "git-widget-placeholder": "正在合并 TempMembers",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -130,6 +1162,7 @@
       <updated>1779155118709</updated>
       <workItem from="1779155121435" duration="14000" />
       <workItem from="1779235901282" duration="75000" />
+      <workItem from="1779252253068" duration="849000" />
     </task>
     <task id="LOCAL-00001" summary="神秘素材合并问题解决">
       <option name="closed" value="true" />
@@ -147,7 +1180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779235969085</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="音效文件">
+      <option name="closed" value="true" />
+      <created>1779252576692</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1779252576692</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,7 +1229,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="神秘素材合并问题解决" />
     <MESSAGE value="合并主分支" />
-    <option name="LAST_COMMIT_MESSAGE" value="合并主分支" />
+    <MESSAGE value="音效文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="音效文件" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

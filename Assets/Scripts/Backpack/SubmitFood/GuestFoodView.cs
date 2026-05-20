@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GuestFoodView : View<Food, FoodUIItem>
 {
+
+    public Canvas SubmitFoodCanvas;
+
     public GuestFoodViewModel guestFoodViewModel
     { 
         get => viewModel as GuestFoodViewModel;
@@ -14,7 +17,7 @@ public class GuestFoodView : View<Food, FoodUIItem>
     {
         if (capacity <= 0 || itemsPerPage <= 0)
         {
-            throw new UnityException("±³°ü³õÊ¼»¯³ö´í£¡");
+            throw new UnityException("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
         capacity = guestFoodModel.Capacity;
         this.guestFoodViewModel = new GuestFoodViewModel(guestFoodModel, itemsPerPage);
@@ -30,7 +33,7 @@ public class GuestFoodView : View<Food, FoodUIItem>
                 bool isSelected = (guestFoodViewModel.SelectedItem == items[i]);
                 slots[i].SetUp(items[i], guestFoodViewModel.GetSprite(items[i].foodRecipe.spritePath), i, isSelected);
             }
-            else //²»°üº¬ÔÚitemsÀïµÄÇå³ý²ÛÎ»µÄÏÔÊ¾Ð§¹û
+            else //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½itemsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ê¾Ð§ï¿½ï¿½
             {
                 slots[i].Clear();
             }
@@ -42,7 +45,7 @@ public class GuestFoodView : View<Food, FoodUIItem>
         
     }
 
-    //ÍÏ×§Ïà¹Ø(ÓÉDrag Handlerµ÷ÓÃ,ÕâÖÖÉè¼ÆÊ¹µÃÊÓÍ¼ºÍÍÏ×§Âß¼­·ÖÀë)
+    //ï¿½ï¿½×§ï¿½ï¿½ï¿½(ï¿½ï¿½Drag Handlerï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½×§ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½)
     private int draggingIndex = -1;
     public override void OnDragStart(int index)
     {
@@ -58,16 +61,16 @@ public class GuestFoodView : View<Food, FoodUIItem>
     {
         if (DragState<Food, FoodUIItem>.FromIndex == -1)
         {
-            return; //Èç¹ûÃ»ÓÐÕýÔÚÍÏ×§µÄÎïÆ·,·µ»Ø
+            return; //ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×§ï¿½ï¿½ï¿½ï¿½Æ·,ï¿½ï¿½ï¿½ï¿½
         }
 
-        if (DragState<Food, FoodUIItem>.SourceView == this) //ÈôÊÇÍ¬Ò»¸ö±³°ü
+        if (DragState<Food, FoodUIItem>.SourceView == this) //ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         {
-            //Í¬Ò»±³°üÄÚ²»¿ÉÒÆ¶¯
+            //Í¬Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
         }
         else if (DragState<Food, FoodUIItem>.SourceView as FoodView != null) 
         {
-            //³¢ÊÔÒÆ¶¯,×¢ÒâÊÇ´ÓÔ´±³°üµ½Ä¿Ç°±³°ü
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½,×¢ï¿½ï¿½ï¿½Ç´ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½ï¿½ï¿½
             var v = DragState<Food, FoodUIItem>.SourceView as FoodView;
             int fromIndex = DragState<Food, FoodUIItem>.FromIndex;
             guestFoodViewModel.AddItemAt(v.foodViewModel.GetItemAt(fromIndex), targetIndex);
@@ -77,12 +80,17 @@ public class GuestFoodView : View<Food, FoodUIItem>
 
             if (success)
             {
-                //Ë¢ÐÂÁ½¸ö±³°üµÄÒ³Ãæ
+                //Ë¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
                 DragState<Food, FoodUIItem>.SourceView.RefreshUI();
                 RefreshUI();
+
+                if (v.foodViewModel.Count == 0)
+                {
+                    SubmitFoodCanvas.gameObject.SetActive(false);
+                }
             }
         }
 
-        DragState<Food, FoodUIItem>.Reset();  //Çå¿ÕÍÏ×§×´Ì¬
+        DragState<Food, FoodUIItem>.Reset();  //ï¿½ï¿½ï¿½ï¿½ï¿½×§×´Ì¬
     }
 }

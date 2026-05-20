@@ -5,21 +5,21 @@ using UnityEngine;
 
 public static class Foods
 {
-    //Ê³Æ×id -> Ê³Îï µÄÓ³Éä
+    //Ê³ï¿½ï¿½id -> Ê³ï¿½ï¿½ ï¿½ï¿½Ó³ï¿½ï¿½
     private static Dictionary<string, Food> foods;
 
     static Foods()
     { 
         foods = new Dictionary<string, Food>() {
             { "step_004", new Food(FoodRecipes.LookUpFoodRecipe("step_004"))},
-            { "step_009", new Food(FoodRecipes.LookUpFoodRecipe("step_009"))},
-            { "step_010", new Food(FoodRecipes.LookUpFoodRecipe("step_010"))},    
+            //{ "step_009", new Food(FoodRecipes.LookUpFoodRecipe("step_009"))},
+            //{ "step_010", new Food(FoodRecipes.LookUpFoodRecipe("step_010"))},    
             { "step_011", new Food(FoodRecipes.LookUpFoodRecipe("step_011"))},    
         };
     }
 
     /// <summary>
-    /// Ê³Æ×id
+    /// Ê³ï¿½ï¿½id
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
@@ -30,7 +30,7 @@ public static class Foods
 
 
     /// <summary>
-    /// Ê³Æ×id£¬·µ»Ø²ËÆ·µÄ´ÊÌõ,¶ÔÓ¦µÄÊ³²ÄË÷Òý -> ´ÊÌõÃû
+    /// Ê³ï¿½ï¿½idï¿½ï¿½ï¿½ï¿½ï¿½Ø²ï¿½Æ·ï¿½Ä´ï¿½ï¿½ï¿½,ï¿½ï¿½Ó¦ï¿½ï¿½Ê³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>

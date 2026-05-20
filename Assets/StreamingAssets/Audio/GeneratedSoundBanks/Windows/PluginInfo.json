@@ -4,11 +4,25 @@
   "BasePlatform": "Windows",
   "PluginLibs": [
    {
+    "LibName": "Wwise Silence",
+    "LibId": "6619138",
+    "Type": "Source",
+    "DLL": "AkSilenceGenerator",
+    "StaticLib": "AkSilenceSource"
+   },
+   {
     "LibName": "Wwise Matrix Reverb",
     "LibId": "7536643",
     "Type": "Effect",
     "DLL": "AkMatrixReverb",
     "StaticLib": "AkMatrixReverbFX"
+   },
+   {
+    "LibName": "Wwise Tremolo",
+    "LibId": "8585219",
+    "Type": "Effect",
+    "DLL": "AkTremolo",
+    "StaticLib": "AkTremoloFX"
    },
    {
     "LibName": "System",
@@ -21,6 +35,6 @@
     "Type": "AudioDevice"
    }
   ],
-  "FileHash": "{DB72216A-A588-6D16-11D7-E0544479EA85}"
+  "FileHash": "{5ACD9E8C-40E1-918E-B88D-5BB4E5EAA90C}"
  }
 }
