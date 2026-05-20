@@ -35,11 +35,17 @@ namespace Assets.Scripts.Tools.SlideInjector
 			//场景流程管理
 			GameSceneManager.Instance.Init();
 
+			//角色管理器
+			CharacterManager.Instance.Init();
+
 			//户外UI管理注册
 			OutsideUIPanelManager.Instance.Init();
 
 			//户外能量注册
 			OutsideDoorCharacterPowerManager.Instance.Init();
+
+			//户外天数注册
+			DaysManager.Instance.Init();
 		}
 	}
 }
