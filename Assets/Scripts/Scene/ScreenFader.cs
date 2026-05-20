@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GameScene
 {
@@ -52,17 +53,26 @@ namespace GameScene
 		/// </summary>
 		private CanvasGroup canvasGroup;
 
+		/// <summary>
+		/// 当前对象上的 Image 组件。
+		/// Image.raycastTarget 为 true 时，这张图片会参与 UI 点击检测。
+		/// 即使 CanvasGroup.alpha 为 0，只要 raycastTarget 为 true，仍然会阻挡点击。
+		/// </summary>
+		private Image fadeImage;
+
 		private void Awake()
 		{
 			canvasGroup = GetComponent<CanvasGroup>();
+			fadeImage = GetComponent<Image>();
 
 			// 当前场景刚加载时，直接设置黑幕初始透明度。
 			// startAlpha 默认为 1，因此场景刚加载出来会先保持黑屏。
 			canvasGroup.alpha = startAlpha;
 
-			// 黑幕可见时阻挡点击。
-			// 这样可以避免玩家在黑屏过程中误点按钮或误触发交互。
-			canvasGroup.blocksRaycasts = startAlpha > 0f;
+			// 根据初始透明度设置射线阻挡状态。
+			// 黑幕可见时阻挡点击，避免玩家在黑屏过程中误点按钮。
+			// 黑幕透明时释放点击，允许玩家操作 UI。
+			SetRaycastBlockState(startAlpha > 0f);
 		}
 
 		private IEnumerator Start()
@@ -114,12 +124,13 @@ namespace GameScene
 
 			// 黑幕动画播放期间阻挡点击。
 			// 这能防止玩家在切场景过程中继续操作 UI。
-			canvasGroup.blocksRaycasts = true;
+			SetRaycastBlockState(true);
 
 			if (duration <= 0f)
 			{
 				canvasGroup.alpha = targetAlpha;
-				canvasGroup.blocksRaycasts = targetAlpha > 0f;
+				// 立即完成时，根据目标透明度设置射线状态。
+				SetRaycastBlockState(targetAlpha > 0f);
 				yield break;
 			}
 
@@ -142,9 +153,35 @@ namespace GameScene
 
 			canvasGroup.alpha = targetAlpha;
 
-			// 黑幕完全透明后，不再阻挡点击。
-			// 黑幕不透明时，继续阻挡点击。
-			canvasGroup.blocksRaycasts = targetAlpha > 0f;
+			// 关键修复点：
+			// 黑幕完全透明后，必须释放点击。
+			// 包括 blocksRaycasts、interactable、raycastTarget 三个属性。
+			SetRaycastBlockState(targetAlpha > 0f);
+		}
+
+		/// <summary>
+		/// 设置黑幕 UI 是否阻挡点击。
+		///
+		/// 需要同时控制三个属性才能彻底放行或阻挡 UI 射线：
+		/// 1. CanvasGroup.blocksRaycasts：控制整个 CanvasGroup 是否阻挡射线。
+		/// 2. CanvasGroup.interactable：控制 CanvasGroup 是否可交互。
+		/// 3. Image.raycastTarget：控制 Image 自身是否参与射线检测。
+		///
+		/// 只要其中任何一个为 true，UI 射线就会被拦截。
+		/// </summary>
+		/// <param name="shouldBlock">
+		/// true 表示阻挡点击（黑屏可见时）。
+		/// false 表示放行点击（黑屏透明时）。
+		/// </param>
+		private void SetRaycastBlockState(bool shouldBlock)
+		{
+			canvasGroup.blocksRaycasts = shouldBlock;
+			canvasGroup.interactable = shouldBlock;
+
+			if (fadeImage != null)
+			{
+				fadeImage.raycastTarget = shouldBlock;
+			}
 		}
 	}
 }
