@@ -108,8 +108,12 @@ public class NoteManager : MonoBehaviour
             over = true;
             ScoreManager.ScoreManagerInstance?.score.ComputeFinalRate();
             canvas.gameObject.SetActive(false);
-            SubmitCanvas.gameObject.SetActive(true);
-            TestBackpack.instance.foodView.UpdateFoods(TestBackpack.instance.todaysRecipeView.todaysRecipeViewModel.CurrentPageItems);
+
+            if (trackCount == 1)
+            {
+                SubmitCanvas.gameObject.SetActive(true);
+                TestBackpack.instance.foodView.UpdateFoods(TestBackpack.instance.todaysRecipeView.todaysRecipeViewModel.CurrentPageItems);
+            }
         }
     }
 

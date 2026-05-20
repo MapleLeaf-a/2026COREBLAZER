@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class ItemToBeExcavated : MonoBehaviour
 {
     //存放可以在此游戏中被获取的食材的ID
-    private static readonly string[] foodMaterialIDs = { "103", "102" };
+    private static readonly string[] foodMaterialIDs = { "step_007", "step_017", "step_013", "step_018", "step_013" };
 
     [Header("食物图标的Sprite组件")]
     public Image foodIcon;
@@ -19,11 +19,14 @@ public class ItemToBeExcavated : MonoBehaviour
     //被埋的食材
     private FoodMaterial foodMaterial;
 
+    string foodId;
+
     private void Start()
     {
         foodIcon.enabled = false;
 
-        foodMaterial = FoodMaterials.LookUpFoodMaterial(foodMaterialIDs[Random.Range(0, foodMaterialIDs.Length)]);
+        foodId = foodMaterialIDs[Random.Range(0, foodMaterialIDs.Length)];
+        foodMaterial = FoodMaterials.LookUpFoodMaterial(foodId);
 
         foodIcon.sprite = SpriteStatic.GetSprite(foodMaterial.spritePath);
         foodIcon.SetNativeSize();
@@ -33,6 +36,7 @@ public class ItemToBeExcavated : MonoBehaviour
     { 
         foodIcon.enabled = true;
         Invoke(nameof(DestroyGO), 1f);
+        TestBackpack.instance.UAVBackpackView.backpackViewModel.AddItem(new Statics.Classes.BagItem(FoodMaterials.LookUpFoodMaterial(foodId), 1));
     }
 
     public void PlayLoopAnimation()
