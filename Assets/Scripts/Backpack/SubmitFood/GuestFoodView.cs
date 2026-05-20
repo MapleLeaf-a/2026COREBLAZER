@@ -87,6 +87,7 @@ public class GuestFoodView : View<Food, FoodUIItem>
                 if (v.foodViewModel.Count == 0)
                 {
                     SubmitFoodCanvas.gameObject.SetActive(false);
+                    InputManager.instance.SetContext(InputContext.CHARACTER);
                 }
             }
         }

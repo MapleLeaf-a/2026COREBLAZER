@@ -111,6 +111,7 @@ public class NoteManager : MonoBehaviour
 
             if (trackCount == 1)
             {
+                MusicGame_AudioPlayer.instance.PauseMusic();
                 SubmitCanvas.gameObject.SetActive(true);
                 TestBackpack.instance.foodView.UpdateFoods(TestBackpack.instance.todaysRecipeView.todaysRecipeViewModel.CurrentPageItems);
             }

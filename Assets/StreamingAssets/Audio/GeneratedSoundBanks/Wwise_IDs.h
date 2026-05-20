@@ -34,6 +34,7 @@ namespace AK
         static const AkUniqueID PLAY_JIGUANGBEI = 457897357U;
         static const AkUniqueID PLAY_KASHINOMAI = 1965924116U;
         static const AkUniqueID PLAY_LIEKEYACAI = 3447903719U;
+        static const AkUniqueID PLAY_MOUSE_DOWN = 2213858122U;
         static const AkUniqueID PLAY_MOUSE_ENTER = 1614456320U;
         static const AkUniqueID PLAY_MOUSE_UP = 472383433U;
         static const AkUniqueID PLAY_MOUSE_UP_SETPLATE = 3367649344U;
@@ -50,7 +51,9 @@ namespace AK
         static const AkUniqueID PLAY_TSUKIYOCHOU = 2907769111U;
         static const AkUniqueID PLAY_TUNINGFORK = 3405073909U;
         static const AkUniqueID PLAY_WINDOW_CLOSE = 4244658871U;
+        static const AkUniqueID PLAY_WINDOW_CLOSE_UNIVERSAL = 4060910113U;
         static const AkUniqueID PLAY_WINDOW_OPEN = 4135004417U;
+        static const AkUniqueID PLAY_WINDOW_OPEN_UNIVERSAL = 937577791U;
         static const AkUniqueID PLAY_YANTUI = 2196800424U;
         static const AkUniqueID PLAY_YOIMATSURINOKAZE = 3572638966U;
         static const AkUniqueID RESUME = 953277036U;
