@@ -234,7 +234,8 @@ public sealed partial class RailWalker2D : MonoBehaviour
 		}
 
 		isAutoNodeMoving = true;
-		currentMoveSpeed = 0f;
+		// 直接使用 moveSpeed，跳过加速阶段，让点击立刻生效。
+		currentMoveSpeed = moveSpeed;
 
 		BeginAutoMoveLeg(0);
 
