@@ -14,11 +14,13 @@ namespace Assets.Scripts.Tools.SlideInjector
 		public void OnEnable()
 		{
 			OutsideUI.Instance.Close();
+			Debug.Log("进入室内关闭户外UI");
 		}
 
 		public void OnDisable()
 		{
 			OutsideUI.Instance.Open();
+			Debug.Log("进入室外开启户外UI");
 		}
 
 		public void Awake()

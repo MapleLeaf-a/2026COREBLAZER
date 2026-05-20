@@ -85,6 +85,7 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.UI
 			}
 
 			slider.value = Mathf.Clamp(eventData.currentCharacterPower, 0f, maxValue);
+			Debug.Log($"Power降低！Current Value :{slider.value}");
 		}
 	}
 }

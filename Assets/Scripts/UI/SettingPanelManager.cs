@@ -1,5 +1,8 @@
+using Assets.Scripts.OutsideDoorScene.OutsideManager.UI;
+using Events;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace MainMenu
@@ -59,13 +62,26 @@ namespace MainMenu
 		/// </summary>
 		public Slider VolumnSlider => volumnSlider;
 
-		private void Awake()
+		private void OnEnable()
 		{
 			// 验证引用
 			ValidateReferences();
 
 			// 设置按钮点击事件
 			SetupButtonListeners();
+		}
+
+		private void OnDisable()
+		{
+			if (backMenuButton != null)
+			{
+				backMenuButton.onClick.RemoveListener(HandleBackMenuButtonClicked);
+			}
+
+			if (backGameButton != null)
+			{
+				backGameButton.onClick.RemoveListener(HandleBackGameButtonClicked);
+			}
 		}
 
 		/// <summary>
@@ -118,6 +134,16 @@ namespace MainMenu
 			else
 			{
 				// 默认行为：关闭设置面板
+				if (SceneManager.GetActiveScene().name == "MainMenu")
+				{
+					Debug.Log("已经在主界面");
+				}
+				else
+				{
+					Debug.Log("切换回主界面");
+					EventBus.Publish(new SceneTransitionRequestEvent("MainMenu", null, 0.35f));
+					OutsideUI.Instance.Close();
+				}
 				Hide();
 			}
 		}
@@ -134,7 +160,6 @@ namespace MainMenu
 			}
 			else
 			{
-				// 默认行为：关闭设置面板
 				Hide();
 			}
 		}

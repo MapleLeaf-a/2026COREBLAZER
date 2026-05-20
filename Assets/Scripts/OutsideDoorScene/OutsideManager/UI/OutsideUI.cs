@@ -30,13 +30,11 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.UI
 		{
 			DontDestroyOnLoad(this);
 			SceneManager.sceneLoaded += OnSceneLoaded;
-			this.Open();
 		}
 
 		public void OnDisable()
 		{
 			SceneManager.sceneLoaded -= OnSceneLoaded;
-			this.Close();
 		}
 
 		/// <summary>
