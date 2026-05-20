@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 625383597}
   - component: {fileID: 625383600}
   - component: {fileID: 625383599}
+  - component: {fileID: 625383601}
   m_Layer: 0
   m_Name: FishGameButton
   m_TagString: Untagged
@@ -349,12 +350,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625383596}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -19.2, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.834524, y: 102.48285, z: 1.0538704}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1801549315}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &625383599
 MonoBehaviour:
@@ -419,6 +420,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.267783, y: 5.9580607}
   m_EdgeRadius: 0
+--- !u!114 &625383601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625383596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c399451376554c848e190e76bfbcb173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionName: FishGame
+  canInteract: 1
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1801549316}
+        m_TargetAssemblyTypeName: Assets.Scripts.OutsideDoorScene.FishGame.BeachGameController,
+          Assembly-CSharp
+        m_MethodName: OnClickFishGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &678390176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,6 +1390,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1801549314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1801549315}
+  - component: {fileID: 1801549316}
+  m_Layer: 0
+  m_Name: GamePanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1801549315
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801549314}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.834524, y: -121.682846, z: -1.0538704}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 625383598}
+  - {fileID: 1806559772}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1801549316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801549314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3820d578e6573654b8b7fba88a26556d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1806559770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,6 +1448,7 @@ GameObject:
   - component: {fileID: 1806559771}
   - component: {fileID: 1806559774}
   - component: {fileID: 1806559773}
+  - component: {fileID: 1806559775}
   m_Layer: 0
   m_Name: BeachGameButton
   m_TagString: Untagged
@@ -1438,12 +1516,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806559770}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: -48.7, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.434525, y: 72.98285, z: 1.0538704}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1801549315}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1806559773
 MonoBehaviour:
@@ -1508,6 +1586,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.2521186, y: 4.996166}
   m_EdgeRadius: 0
+--- !u!114 &1806559775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806559770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c399451376554c848e190e76bfbcb173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionName: BeachGame
+  canInteract: 1
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1801549316}
+        m_TargetAssemblyTypeName: Assets.Scripts.OutsideDoorScene.FishGame.BeachGameController,
+          Assembly-CSharp
+        m_MethodName: OnClickBeachGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1973136086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,8 +1730,7 @@ SceneRoots:
   - {fileID: 1210677313}
   - {fileID: 1991146246}
   - {fileID: 1539204325}
-  - {fileID: 625383598}
-  - {fileID: 1806559772}
+  - {fileID: 1801549315}
   - {fileID: 1103603673}
   - {fileID: 1252468554}
   - {fileID: 273775912}
