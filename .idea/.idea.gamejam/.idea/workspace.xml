@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8a68ed68-ffba-47f2-8a48-749f40bee222" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.gamejam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.gamejam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Path/Runtime/RailWalker2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Path/Runtime/RailWalker2D.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGameWindow.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGameWindow.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/InteractionPoint2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/InteractionPoint2D.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/PlayerInteractionDetector2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/PlayerInteractionDetector2D.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +37,11 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/Prefabs/UIPanel/PackagePanel.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/Prefabs/UIPanel/PackagePanel.prefab.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/MainGameWindow.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/Recipe/AllRecipes/AllRecipesView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/InteractionPoint2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/PlayerInteractionDetector2D.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/10.meta" root0="FORCE_HIGHLIGHTING" />
@@ -138,6 +144,7 @@
       <workItem from="1779155121435" duration="14000" />
       <workItem from="1779235901282" duration="75000" />
       <workItem from="1779252253068" duration="1325000" />
+      <workItem from="1779276958312" duration="399000" />
     </task>
     <task id="LOCAL-00001" summary="神秘素材合并问题解决">
       <option name="closed" value="true" />

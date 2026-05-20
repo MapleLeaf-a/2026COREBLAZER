@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,227 +7,234 @@ using static UnityEditor.Profiling.HierarchyFrameDataView;
 
 public class AllRecipesView : RecipesView
 {
-    public AllRecipesViewModel allRecipesViewModel
-    {
-        get => viewModel as AllRecipesViewModel;
+	public AllRecipesViewModel allRecipesViewModel
+	{
+		get => viewModel as AllRecipesViewModel;
 
-        set => viewModel = value; //value��C#����setter�е������Ĺؼ���,����ֵ���������ֵ
-    }
+		set => viewModel = value; //value��C#����setter�е������Ĺؼ���,����ֵ���������ֵ
+	}
 
-    public virtual void InitBackpackView(AllRecipesModel recipesModel)
-    {
-        if (capacity <= 0 || itemsPerPage <= 0)
-        {
-            throw new UnityException("������ʼ������");
-        }
-        capacity = recipesModel.Capacity;
-        this.recipesViewModel = new AllRecipesViewModel(recipesModel, itemsPerPage);
-    }
+	public virtual void InitBackpackView(AllRecipesModel recipesModel)
+	{
+		if (capacity <= 0 || itemsPerPage <= 0)
+		{
+			throw new UnityException("������ʼ������");
+		}
+		capacity = recipesModel.Capacity;
+		this.recipesViewModel = new AllRecipesViewModel(recipesModel, itemsPerPage);
+	}
 
-    protected void OnEnable()
-    {
-        allRecipesViewModel.OnShowTip += OnShowTip;
-    }
+	protected void OnEnable()
+	{
+		allRecipesViewModel.OnShowTip += OnShowTip;
+	}
 
-    protected void OnDisable()
-    {
-        allRecipesViewModel.OnShowTip -= OnShowTip;
-    }
+	protected void OnDisable()
+	{
+		allRecipesViewModel.OnShowTip -= OnShowTip;
+	}
 
-    [Header("�������")]
-    [Tooltip("����")]
-    public TextMeshProUGUI itemNameText;
-    [Tooltip("�۸�")]
-    public TextMeshProUGUI itemPriceText;
-    [Tooltip("ͼ��")]
-    public Image itemIconImage;
-    [Tooltip("�۸�ͼ��")]
-    public Image priceIconImage;
-    [Tooltip("ʳ��չʾ������")]
-    public Transform ingredientsParent;
-    [Tooltip("����ʳ�����Ԥ����")]
-    public GameObject ingredientUIItemPrefab;
-    [Tooltip("����ԭ���ϵ���ʾ�ı�")]
-    public TextMeshProUGUI noIngredientPrompt;
-    [Tooltip("���ò��״�����ť")]
-    public Button editEntryButton;
-    [Tooltip("���ô����Ļ���")]
-    public Canvas editEntryCanvas;
+	[Header("�������")]
+	[Tooltip("����")]
+	public TextMeshProUGUI itemNameText;
 
-    [Header("��ʾԭ���ϲ���Ļ���")]
-    public Canvas IngredientsNotEnoughCanvas;
+	[Tooltip("�۸�")]
+	public TextMeshProUGUI itemPriceText;
 
-    //���һ��ѡ���ʳ�׵�ID
-    private string lastSelectedItemId = "-1";
+	[Tooltip("ͼ��")]
+	public Image itemIconImage;
 
-    //ʳ��չʾ��ʵ���б�
-    private Queue<IngredientUIItem> ingredientItems = new Queue<IngredientUIItem>();
+	[Tooltip("�۸�ͼ��")]
+	public Image priceIconImage;
 
+	[Tooltip("ʳ��չʾ������")]
+	public Transform ingredientsParent;
 
-    private void OnShowTip(TipType type)
-    {
-        switch (type)
-        {
-            case TipType.ShowCanvas:
-                IngredientsNotEnoughCanvas.gameObject.SetActive(true);
-                break;
-        }
-    }
+	[Tooltip("����ʳ�����Ԥ����")]
+	public GameObject ingredientUIItemPrefab;
 
+	[Tooltip("����ԭ���ϵ���ʾ�ı�")]
+	public TextMeshProUGUI noIngredientPrompt;
 
-    protected override void BindOtherButtons()
-    {
-        editEntryButton.onClick.AddListener(() => ActivateEditEntryCanvas(allRecipesViewModel.SelectedItem));
-    }
+	[Tooltip("���ò��״�����ť")]
+	public Button editEntryButton;
 
-    private void ActivateEditEntryCanvas(FoodRecipe foodRecipe)
-    {
-        editEntryCanvas.gameObject.SetActive(true);
-        editEntryCanvas.GetComponent<EditEntry>().RefreshDetail(foodRecipe);
-    }
+	[Tooltip("���ô����Ļ���")]
+	public Canvas editEntryCanvas;
 
-    protected override void RefreshDetail()
-    {
-        FoodRecipe item = allRecipesViewModel.SelectedItem;
-        if (item != null)
-        {
-            itemIconImage.enabled = true;
-            itemNameText.enabled = true;
-            itemPriceText.enabled = true;
-            priceIconImage.enabled = true;
-            
-            if (item.ingredients.Count != 0) editEntryButton.gameObject.SetActive(true);  //�����ԭ����,����Ա༭����
-            else editEntryButton.gameObject.SetActive(false);
+	[Header("��ʾԭ���ϲ���Ļ���")]
+	public Canvas IngredientsNotEnoughCanvas;
 
-            itemIconImage.sprite = allRecipesViewModel.GetSprite(item.spritePath);
-            itemIconImage.SetNativeSize();
-            itemIconImage.transform.localScale = new Vector3(2f, 2f, 2f);
-            itemNameText.text = item.name;
-            itemPriceText.text = item.basePrice.ToString();
+	//���һ��ѡ���ʳ�׵�ID
+	private string lastSelectedItemId = "-1";
 
-            RefreshIngredients(item);
-        }
-        else
-        {
-            itemIconImage.enabled = false;
-            itemNameText.enabled = false;
-            itemPriceText.enabled = false;
-            priceIconImage.enabled = false;
-            noIngredientPrompt.enabled = false;
-            editEntryButton.gameObject.SetActive(false);
+	//ʳ��չʾ��ʵ���б�
+	private Queue<IngredientUIItem> ingredientItems = new Queue<IngredientUIItem>();
 
-            ClearIngredients();
-            lastSelectedItemId = "-1";
-        }
-    }
+	private void OnShowTip(TipType type)
+	{
+		switch (type)
+		{
+			case TipType.ShowCanvas:
+				IngredientsNotEnoughCanvas.gameObject.SetActive(true);
+				break;
+		}
+	}
 
-    /// <summary>
-    /// ˢ��ʳ���б�
-    /// </summary>
-    private void RefreshIngredients(FoodRecipe item)
-    {
-        //ѡ��ͬһ������,������
-        if (lastSelectedItemId == item.id)
-            return;
+	protected override void BindOtherButtons()
+	{
+		editEntryButton.onClick.AddListener(() => ActivateEditEntryCanvas(allRecipesViewModel.SelectedItem));
+	}
 
-        lastSelectedItemId = item.id;
+	private void ActivateEditEntryCanvas(FoodRecipe foodRecipe)
+	{
+		editEntryCanvas.gameObject.SetActive(true);
+		editEntryCanvas.GetComponent<EditEntry>().RefreshDetail(foodRecipe);
+	}
 
-        //���������ʾ
-        ClearIngredients();
+	protected override void RefreshDetail()
+	{
+		FoodRecipe item = allRecipesViewModel.SelectedItem;
+		if (item != null)
+		{
+			itemIconImage.enabled = true;
+			itemNameText.enabled = true;
+			itemPriceText.enabled = true;
+			priceIconImage.enabled = true;
 
-        Dictionary<string, int> ingredients = item.ingredients;
+			if (item.ingredients.Count != 0) editEntryButton.gameObject.SetActive(true);  //�����ԭ����,����Ա༭����
+			else editEntryButton.gameObject.SetActive(false);
 
-        //ʳ���б�Ϊ��
-        if (ingredients == null || ingredients.Count == 0)
-        {
-            noIngredientPrompt.enabled = true;
-        }
-        else
-        {
-            noIngredientPrompt.enabled = false;
-            foreach ((string ingredientId, int quantity) in ingredients)
-            {
-                CreateIngredientItem(ingredientId, quantity);
-            }
-        }
-    }
+			itemIconImage.sprite = allRecipesViewModel.GetSprite(item.spritePath);
+			itemIconImage.SetNativeSize();
+			itemIconImage.transform.localScale = new Vector3(2f, 2f, 2f);
+			itemNameText.text = item.name;
+			itemPriceText.text = item.basePrice.ToString();
 
-    /// <summary>
-    /// ��������ʳ�Ķ���
-    /// </summary>
-    /// <param name="ingredientId"></param>
-    private void CreateIngredientItem(string ingredientId, int quantity)
-    {
-        GameObject ingredientObject = Instantiate(ingredientUIItemPrefab, ingredientsParent);
+			RefreshIngredients(item);
+		}
+		else
+		{
+			itemIconImage.enabled = false;
+			itemNameText.enabled = false;
+			itemPriceText.enabled = false;
+			priceIconImage.enabled = false;
+			noIngredientPrompt.enabled = false;
+			editEntryButton.gameObject.SetActive(false);
 
-        IngredientUIItem ingredient = ingredientObject.GetComponent<IngredientUIItem>();
-        string path = FoodMaterials.LookUpFoodMaterial(ingredientId).spritePath;
-        ingredient.SetUp(allRecipesViewModel.GetSprite(path), quantity);
+			ClearIngredients();
+			lastSelectedItemId = "-1";
+		}
+	}
 
-        ingredientItems.Enqueue(ingredient);
-    }
+	/// <summary>
+	/// ˢ��ʳ���б�
+	/// </summary>
+	private void RefreshIngredients(FoodRecipe item)
+	{
+		//ѡ��ͬһ������,������
+		if (lastSelectedItemId == item.id)
+			return;
 
-    /// <summary>
-    /// ���ʳ����ʾ
-    /// </summary>
-    private void ClearIngredients()
-    {
-        while (ingredientItems.Count != 0)
-        {
-            var item = ingredientItems.Dequeue();
+		lastSelectedItemId = item.id;
 
-            item.Clear();
-            Destroy(item.gameObject);
-        }
-    }
+		//���������ʾ
+		ClearIngredients();
 
-    //��ק���(��Drag Handler����,�������ʹ����ͼ����ק�߼�����)
-    private int draggingIndex = -1;
-    public override void OnDragStart(int index)
-    {
-        draggingIndex = index;  //��¼��ʼ��ק�Ĳ�λ
+		Dictionary<string, int> ingredients = item.ingredients;
 
-        sourceView = this; //��¼Դͷ���Լ�
+		//ʳ���б�Ϊ��
+		if (ingredients == null || ingredients.Count == 0)
+		{
+			noIngredientPrompt.enabled = true;
+		}
+		else
+		{
+			noIngredientPrompt.enabled = false;
+			foreach ((string ingredientId, int quantity) in ingredients)
+			{
+				CreateIngredientItem(ingredientId, quantity);
+			}
+		}
+	}
 
-        Debug.Log($"��ק��ʼ: ����={index}, Դ����={name}");
-    }
+	/// <summary>
+	/// ��������ʳ�Ķ���
+	/// </summary>
+	/// <param name="ingredientId"></param>
+	private void CreateIngredientItem(string ingredientId, int quantity)
+	{
+		GameObject ingredientObject = Instantiate(ingredientUIItemPrefab, ingredientsParent);
 
-    public override void OnDragEnd()
-    {
-        draggingIndex = -1; //��ק������ռ�¼
+		IngredientUIItem ingredient = ingredientObject.GetComponent<IngredientUIItem>();
+		string path = FoodMaterials.LookUpFoodMaterial(ingredientId).spritePath;
+		ingredient.SetUp(allRecipesViewModel.GetSprite(path), quantity);
 
-        Debug.Log("��ק����");
-    }
+		ingredientItems.Enqueue(ingredient);
+	}
 
-    public override void OnDrop(int targetIndex)
-    {
-        if (DragState<FoodRecipe, RecipesUIItem>.FromIndex == -1)
-        {
-            return; //���û��������ק����Ʒ,����
-        }
+	/// <summary>
+	/// ���ʳ����ʾ
+	/// </summary>
+	private void ClearIngredients()
+	{
+		while (ingredientItems.Count != 0)
+		{
+			var item = ingredientItems.Dequeue();
 
-        if (DragState<FoodRecipe, RecipesUIItem>.SourceView == this) //����ͬһ������
-        {
-            //ȫ��ʳ��ͬһ�����ڲ����ƶ�
-        }
-        else if (DragState<FoodRecipe, RecipesUIItem>.SourceView as TodaysRecipeView != null) //�ǽ��ղ��ױ���
-        {
-            //�����ƶ�,ע���Ǵ�Դ������Ŀǰ����
-            var v = DragState<FoodRecipe, RecipesUIItem>.SourceView as TodaysRecipeView;
-            int fromIndex = DragState<FoodRecipe, RecipesUIItem>.FromIndex;
-            bool success = v.todaysRecipeViewModel.RemoveRecipeAndReturnIngredients(fromIndex);
+			item.Clear();
+			Destroy(item.gameObject);
+		}
+	}
 
-            if (success)
-            {
-                v.todaysRecipeViewModel.Organize();
-                v.todaysRecipeViewModel.CaculateRespectedTurnover();
+	//��ק���(��Drag Handler����,�������ʹ����ͼ����ק�߼�����)
+	private int draggingIndex = -1;
 
-               //ˢ������������ҳ��
-               DragState<FoodRecipe, RecipesUIItem>.SourceView.RefreshUI();
-                RefreshUI();
-            }
-        }
+	public override void OnDragStart(int index)
+	{
+		draggingIndex = index;  //��¼��ʼ��ק�Ĳ�λ
 
-        DragState<FoodRecipe, RecipesUIItem>.Reset();  //�����ק״̬
-    }
+		sourceView = this; //��¼Դͷ���Լ�
+
+		Debug.Log($"��ק��ʼ: ����={index}, Դ����={name}");
+	}
+
+	public override void OnDragEnd()
+	{
+		draggingIndex = -1; //��ק������ռ�¼
+
+		Debug.Log("��ק����");
+	}
+
+	public override void OnDrop(int targetIndex)
+	{
+		if (DragState<FoodRecipe, RecipesUIItem>.FromIndex == -1)
+		{
+			return; //���û��������ק����Ʒ,����
+		}
+
+		if (DragState<FoodRecipe, RecipesUIItem>.SourceView == this) //����ͬһ������
+		{
+			//ȫ��ʳ��ͬһ�����ڲ����ƶ�
+		}
+		else if (DragState<FoodRecipe, RecipesUIItem>.SourceView as TodaysRecipeView != null) //�ǽ��ղ��ױ���
+		{
+			//�����ƶ�,ע���Ǵ�Դ������Ŀǰ����
+			var v = DragState<FoodRecipe, RecipesUIItem>.SourceView as TodaysRecipeView;
+			int fromIndex = DragState<FoodRecipe, RecipesUIItem>.FromIndex;
+			bool success = v.todaysRecipeViewModel.RemoveRecipeAndReturnIngredients(fromIndex);
+
+			if (success)
+			{
+				v.todaysRecipeViewModel.Organize();
+				v.todaysRecipeViewModel.CaculateRespectedTurnover();
+
+				//ˢ������������ҳ��
+				DragState<FoodRecipe, RecipesUIItem>.SourceView.RefreshUI();
+				RefreshUI();
+			}
+		}
+
+		DragState<FoodRecipe, RecipesUIItem>.Reset();  //�����ק״̬
+	}
 }

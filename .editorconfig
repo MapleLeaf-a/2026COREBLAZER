@@ -1,0 +1,20 @@
+# root = true 表示当前 .editorconfig 是项目级根配置。
+# 编辑器查找配置时，不再继续向父级目录寻找别的 .editorconfig。
+root = true
+
+# [*.cs] 表示这条规则只作用于 C# 源码文件。
+# Unity 脚本通常都是 .cs 文件，所以这里优先保证中文注释、中文字符串不乱码。
+[*.cs]
+
+# charset 用来指定文件保存编码。
+# utf-8-bom 表示使用 UTF-8 编码，并在文件开头加入 BOM 标记。
+# 这样 Visual Studio 和 Rider 都更容易稳定识别中文。
+charset = utf-8-bom
+
+# end_of_line 用来指定换行符。
+# crlf 是 Windows 常用换行符，可以减少 VS/Rider/Git 之间的换行差异。
+end_of_line = crlf
+
+# insert_final_newline 表示保存文件时，文件末尾保留一个换行。
+# 这是很多代码工具和 Git Diff 更喜欢的格式。
+insert_final_newline = true
