@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a68ed68-ffba-47f2-8a48-749f40bee222" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/InteractionPoint2D.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/InteractionPoint2D.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/PlayerInteractionDetector2D.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/PlayerInteractionDetector2D.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.gamejam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.gamejam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Robot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Player/Robot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/WorldPlaceButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/WorldPlaceButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Path/Runtime/RailWalker2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Path/Runtime/RailWalker2D.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -126,11 +126,23 @@ public sealed class OutsideDoorCharacterController : MonoBehaviour
 	{
 		ReadOldInput();
 
-		UpdateFacingByInput(cachedHorizontalInput);
+		// 默认使用玩家键盘输入更新朝向和动画。
+		float visualHorizontalInput = cachedHorizontalInput;
+		float visualVerticalInput = cachedVerticalInput;
+
+		// 自动移动期间，改用 RailWalker2D 提供的自动移动方向。
+		// 这样即使玩家没有按键，角色也能正常翻转朝向和播放移动表现。
+		if (railWalker != null && railWalker.IsAutoNodeMoving)
+		{
+			visualHorizontalInput = railWalker.CurrentAutoMoveHorizontalAxis;
+			visualVerticalInput = 0f;
+		}
+
+		UpdateFacingByInput(visualHorizontalInput);
 
 		UpdateRobotProceduralAnimation(
-			cachedHorizontalInput,
-			cachedVerticalInput);
+			visualHorizontalInput,
+			visualVerticalInput);
 
 		UpdateScanInput();
 	}

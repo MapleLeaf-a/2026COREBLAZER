@@ -280,6 +280,8 @@ GameObject:
   m_Component:
   - component: {fileID: 625383598}
   - component: {fileID: 625383597}
+  - component: {fileID: 625383600}
+  - component: {fileID: 625383599}
   m_Layer: 0
   m_Name: FishGameButton
   m_TagString: Untagged
@@ -354,6 +356,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &625383599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625383596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023fd0d8ba5cfde4bbf99282fbbeec93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeKey: Node_2
+  railMapOverride: {fileID: 11400000, guid: 4f3612006f4cecd45a276bad60ab5472, type: 2}
+  targetWalker: {fileID: 0}
+  autoFindWalkerWhenMissing: 1
+  ignoreClickWhenPointerOverUI: 1
+  logClickDebug: 1
+--- !u!61 &625383600
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625383596}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -3.812914, y: -5.111929}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 67.94666, y: 38.219997}
+    newSize: {x: 67.94666, y: 38.219997}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.267783, y: 5.9580607}
+  m_EdgeRadius: 0
 --- !u!1 &678390176
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1369,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1806559772}
   - component: {fileID: 1806559771}
+  - component: {fileID: 1806559774}
+  - component: {fileID: 1806559773}
   m_Layer: 0
   m_Name: BeachGameButton
   m_TagString: Untagged
@@ -1378,6 +1445,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1806559773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806559770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023fd0d8ba5cfde4bbf99282fbbeec93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeKey: BeachGame
+  railMapOverride: {fileID: 11400000, guid: d4cb61bb33963034f8db770ad8a2064d, type: 2}
+  targetWalker: {fileID: 0}
+  autoFindWalkerWhenMissing: 1
+  ignoreClickWhenPointerOverUI: 1
+  logClickDebug: 1
+--- !u!61 &1806559774
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806559770}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.2103722, y: -13.381475}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 67.94666, y: 38.219997}
+    newSize: {x: 67.94666, y: 38.219997}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.2521186, y: 4.996166}
+  m_EdgeRadius: 0
 --- !u!1 &1973136086
 GameObject:
   m_ObjectHideFlags: 0

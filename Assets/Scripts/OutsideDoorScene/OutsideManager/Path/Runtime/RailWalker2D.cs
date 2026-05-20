@@ -5,7 +5,7 @@ using UnityEngine;
 /// 它根据 RailMap2DAsset 的烘焙路径点移动角色。
 /// </summary>
 [DisallowMultipleComponent]
-public sealed class RailWalker2D : MonoBehaviour
+public sealed partial class RailWalker2D : MonoBehaviour
 {
 	[Header("Rail Data")]
 	[SerializeField]
@@ -243,10 +243,52 @@ public sealed class RailWalker2D : MonoBehaviour
 
 	public void TickMove(float horizontalAxis, float verticalAxis, float deltaTime)
 	{
+		// 自动移动期间，如果玩家主动输入方向，就取消自动移动。
+		// horizontalAxis：
+		// 横向输入，通常来自 A/D 或左右方向键。
+		// verticalAxis：
+		// 纵向输入，通常来自 W/S 或上下方向键。
+		// deltaTime：
+		// 当前物理帧时间，一般由 Time.fixedDeltaTime 传入。
+		if (IsAutoNodeMoving)
+		{
+			// Mathf.Abs：
+			// 取绝对值，用来判断输入强度是否超过死区。
+			// 死区：
+			// 用来过滤手柄摇杆、键盘输入系统或浮点误差造成的极小输入值。
+			bool hasManualHorizontalInput = Mathf.Abs(horizontalAxis) > horizontalDeadZone;
+			bool hasManualVerticalInput = Mathf.Abs(verticalAxis) > verticalDeadZone;
+
+			if (hasManualHorizontalInput || hasManualVerticalInput)
+			{
+				// 玩家按了移动键，说明希望重新接管角色。
+				// 这里取消自动移动，然后继续执行下面的正常键盘移动逻辑。
+				CancelAutoNodeMovement();
+			}
+			else
+			{
+				// 玩家没有输入时，继续执行自动移动。
+				// return 的作用是避免同一帧同时执行自动移动和键盘移动。
+				TickAutoNodeMovement(deltaTime);
+				return;
+			}
+		}
+
+		// 正常键盘移动逻辑保持不变。
+		// verticalChoice：
+		// 根据纵向输入解析上分支、下分支或无分支选择。
 		RailExitChoice2D verticalChoice = ReadVerticalChoice(verticalAxis);
+
+		// horizontalSign：
+		// 根据横向输入解析移动方向。
+		// 1 表示向右，-1 表示向左，0 表示没有横向移动。
 		int horizontalSign = ReadHorizontalSign(horizontalAxis);
 
+		// 缓存上下分支输入。
+		// 这样玩家可以在接近分叉点前提前按上或按下。
 		TickBranchInputBuffer(verticalChoice, deltaTime);
+
+		// 沿当前 Segment 执行正常键盘移动。
 		MoveAlongCurrentSegment(horizontalSign, deltaTime);
 	}
 
