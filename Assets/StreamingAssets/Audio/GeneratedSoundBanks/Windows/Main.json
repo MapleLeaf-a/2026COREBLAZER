@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{6F9A392E-1F44-4D50-B5C0-D3F8BDCF7557}",
     "Language": "SFX",
-    "Hash": "{34A6333F-8F37-B522-4CAA-9F9CA7A671A2}",
+    "Hash": "{DD460849-821A-1763-B279-4326F4D41B46}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
     "ShortName": "Main",
     "Path": "Main.bnk",
@@ -37,7 +37,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Drone_Transport.wav",
-      "CachePath": "EF/{EF57B1B7-8DE5-AFC1-D566-2C3C2A915C91}.wem"
+      "CachePath": "F4/{F4F07800-9D90-842C-3C52-B0B79247BDA0}.wem"
      },
      {
       "Id": "17817323",
@@ -61,7 +61,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Move_Outdoor.wav",
-      "CachePath": "4F/{4F6DBA9F-BB0A-3C85-95CF-606BBA4355C8}.wem"
+      "CachePath": "0D/{0D801DA6-02DF-1C9F-ABAD-68D058FA5015}.wem"
      },
      {
       "Id": "41652233",
@@ -86,7 +86,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Pause.wav",
-      "CachePath": "C7/{C722067E-9443-81F1-A365-2B5EE89AF1E6}.wem"
+      "CachePath": "53/{53FA303C-6AEC-09D2-F42D-840DEF5CA4F4}.wem"
      },
      {
       "Id": "72840991",
@@ -120,7 +120,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Wave2.wav",
-      "CachePath": "A7/{A7C70423-1D23-8563-BC35-00DA1E7C3F51}.wem"
+      "CachePath": "B0/{B09315AF-F349-82DF-83A4-056972D66DF6}.wem"
      },
      {
       "Id": "138176378",
@@ -209,7 +209,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Mouse_Enter.wav",
-      "CachePath": "4B/{4B0BFD33-4AA1-5676-BB29-24F4FD26E711}.wem"
+      "CachePath": "EA/{EA522308-B319-5793-AC0C-D0C6F947448B}.wem"
      },
      {
       "Id": "250552231",
@@ -282,7 +282,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Drone_Open.wav",
-      "CachePath": "88/{8898EF2B-739C-6F58-5C89-9365191905E6}.wem"
+      "CachePath": "46/{4613AC59-FC72-3AD4-5214-6E5FB19114E6}.wem"
      },
      {
       "Id": "332433085",
@@ -290,7 +290,15 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Wave1.wav",
-      "CachePath": "04/{04B44FD5-0C58-0AD2-15B9-87E8C3478C47}.wem"
+      "CachePath": "D2/{D26DAAEB-C043-57BF-32E4-F4AFFE63F94F}.wem"
+     },
+     {
+      "Id": "357820598",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Window_Close_Universal.wav",
+      "CachePath": "38/{38C7D502-9C9E-2452-9C1F-C2206E88691B}.wem"
      },
      {
       "Id": "398942382",
@@ -326,6 +334,14 @@
       "CachePath": "20/{20ABEC8C-CCE3-70A6-0C09-88DD4EF776AB}.wem"
      },
      {
+      "Id": "476099994",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "confirm2.wav",
+      "CachePath": "1F/{1F42F575-9664-172C-5B1F-18B489222A97}.wem"
+     },
+     {
       "Id": "484823536",
       "Language": "SFX",
       "Streaming": "false",
@@ -347,7 +363,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Buy.wav",
-      "CachePath": "2B/{2BF938FA-5495-3779-66B1-07CC049B55D2}.wem"
+      "CachePath": "25/{25FDEE57-41D0-A068-2B7D-7FA0F325F3D9}.wem"
      },
      {
       "Id": "519953146",
@@ -367,6 +383,14 @@
       "CachePath": "F9/{F981F0F4-FD78-C689-C32C-7639B88F6154}.wem"
      },
      {
+      "Id": "525037869",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Mouse_Down.wav",
+      "CachePath": "AF/{AF463CEF-A08A-DF2D-CB02-8AA456F278D1}.wem"
+     },
+     {
       "Id": "551139137",
       "Language": "SFX",
       "Streaming": "false",
@@ -375,12 +399,20 @@
       "CachePath": "AA/{AAFA8D07-6201-6716-BDD2-C5EFED761906}.wem"
      },
      {
+      "Id": "569798152",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Window_Open_Universal.wav",
+      "CachePath": "F9/{F959B7BB-2DBD-48B0-924A-0C2FD604A306}.wem"
+     },
+     {
       "Id": "608645579",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "wave3.wav",
-      "CachePath": "7A/{7A6CF5A3-FFCC-4945-5F3E-B6A9C52DE2C7}.wem"
+      "CachePath": "4D/{4D6E40C3-62EC-DD7C-FF21-1DA53592EBC9}.wem"
      },
      {
       "Id": "619707527",
@@ -454,7 +486,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Cancel.wav",
-      "CachePath": "7A/{7AE0A865-129A-64AF-0C74-A1B302C40F6A}.wem"
+      "CachePath": "DC/{DC9C476B-E216-E517-1B03-23F98262E903}.wem"
      },
      {
       "Id": "800244347",
@@ -487,7 +519,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Cancel.wav",
-      "CachePath": "F8/{F82102C9-2959-1403-156E-09D6506B5C5F}.wem"
+      "CachePath": "0F/{0F3F85AA-7AB5-3890-8C76-C91BB96C00BF}.wem"
      },
      {
       "Id": "899250504",
@@ -563,14 +595,6 @@
       "CachePath": "9F/{9F661A12-5681-B15D-975F-F37130705AF9}.wem"
      },
      {
-      "Id": "1041422428",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "Confirm.wav",
-      "CachePath": "5A/{5ACC8C74-57AE-CC6B-A0B3-C660FAD1323D}.wem"
-     },
-     {
       "Id": "1050366963",
       "Language": "SFX",
       "Streaming": "false",
@@ -584,7 +608,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Fish_Splash.wav",
-      "CachePath": "4A/{4A16D1BC-483A-B3D5-E7FC-78A8916FD2B4}.wem"
+      "CachePath": "10/{109BB1C0-EF99-88B2-CE30-EC3F9614CBD4}.wem"
      }
     ],
     "Plugins": {
@@ -660,8 +684,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Other\\MusicGame_Pause",
       "GUID": "{03395C22-208E-4BBB-8662-74ACBC2D0F49}",
       "DurationType": "OneShot",
-      "DurationMin": "2",
-      "DurationMax": "2",
+      "DurationMin": "0.46771",
+      "DurationMax": "0.46771",
       "MediaRefs": [
        {
         "Id": "61159122"
@@ -688,8 +712,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Other\\Pause",
       "GUID": "{9E4936F2-D0FA-40E9-830B-07856A445068}",
       "DurationType": "OneShot",
-      "DurationMin": "2",
-      "DurationMax": "2",
+      "DurationMin": "0.46771",
+      "DurationMax": "0.46771",
       "MediaRefs": [
        {
         "Id": "61159122"
@@ -720,6 +744,19 @@
        }
       ],
       "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "1926883983",
+         "Id": "3981151828",
+         "GUID": "{E5BB5F1B-0243-4AB9-B8FA-DA867789377D}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "58475913"
+         }
+        ]
+       },
        {
         "SwitchValue": {
          "GroupType": "State",
@@ -811,8 +848,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Buy",
       "GUID": "{703B1FE2-5D8E-4901-963B-BF3E26DEC603}",
       "DurationType": "OneShot",
-      "DurationMin": "2.012875",
-      "DurationMax": "2.012875",
+      "DurationMin": "1.01341",
+      "DurationMax": "1.01341",
       "MediaRefs": [
        {
         "Id": "511880628"
@@ -825,8 +862,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Cancel",
       "GUID": "{5E525C45-D612-4F48-8E5B-667D508FE0D4}",
       "DurationType": "OneShot",
-      "DurationMin": "1.3443667",
-      "DurationMax": "1.3443667",
+      "DurationMin": "0.2438",
+      "DurationMax": "0.2438",
       "MediaRefs": [
        {
         "Id": "769937516"
@@ -839,11 +876,11 @@
       "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Confirm",
       "GUID": "{D248A6F9-F45E-435D-953F-4ADC5FAC40DF}",
       "DurationType": "OneShot",
-      "DurationMin": "1.5312709",
-      "DurationMax": "1.5312709",
+      "DurationMin": "1.1071042",
+      "DurationMax": "1.1071042",
       "MediaRefs": [
        {
-        "Id": "1041422428"
+        "Id": "476099994"
        }
       ]
      },
@@ -887,8 +924,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Drone_Open",
       "GUID": "{79C05DFF-A42C-467B-B479-4A870F39DD68}",
       "DurationType": "OneShot",
-      "DurationMin": "0.71873",
-      "DurationMax": "0.71873",
+      "DurationMin": "0.8299",
+      "DurationMax": "0.8299",
       "MediaRefs": [
        {
         "Id": "330082897"
@@ -901,8 +938,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Drone_Transport",
       "GUID": "{C8ACC01E-7D25-42CA-9ED7-E75BA2562F80}",
       "DurationType": "OneShot",
-      "DurationMin": "2.3144166",
-      "DurationMax": "2.3144166",
+      "DurationMin": "0.99794",
+      "DurationMax": "0.99794",
       "MediaRefs": [
        {
         "Id": "14135905"
@@ -939,8 +976,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Fish_Splash",
       "GUID": "{FE7D9C34-B9F3-4859-8F8C-E7A51714D6C5}",
       "DurationType": "OneShot",
-      "DurationMin": "2.16275",
-      "DurationMax": "2.16275",
+      "DurationMin": "0.98062",
+      "DurationMax": "0.98062",
       "MediaRefs": [
        {
         "Id": "1061155655"
@@ -1011,7 +1048,8 @@
          "GroupType": "Switch",
          "GroupId": "1866025847",
          "Id": "2195636714",
-         "GUID": "{34746DE0-F3C1-401D-8C79-07298B46CEED}"
+         "GUID": "{34746DE0-F3C1-401D-8C79-07298B46CEED}",
+         "Default": "true"
         },
         "MediaRefs": [
          {
@@ -1063,8 +1101,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\GamePlay\\Play_Horn",
       "GUID": "{E54925A3-0C36-4A19-826E-8BF87A1C1DB4}",
       "DurationType": "OneShot",
-      "DurationMin": "4.180542",
-      "DurationMax": "5.5541873",
+      "DurationMin": "2.96058",
+      "DurationMax": "4.22029",
       "MediaRefs": [
        {
         "Id": "117979988"
@@ -1143,13 +1181,27 @@
       ]
      },
      {
+      "Id": "2213858122",
+      "Name": "Play_Mouse_Down",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Mouse_Down",
+      "GUID": "{6F225242-C5A8-40A8-BCEB-B43E34469463}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.05775",
+      "DurationMax": "0.05775",
+      "MediaRefs": [
+       {
+        "Id": "525037869"
+       }
+      ]
+     },
+     {
       "Id": "1614456320",
       "Name": "Play_Mouse_Enter",
       "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Mouse_Enter",
       "GUID": "{063DFB5B-0D3D-402D-A412-CBC73F2D659B}",
       "DurationType": "OneShot",
-      "DurationMin": "1.1710625",
-      "DurationMax": "1.1710625",
+      "DurationMin": "0.06787",
+      "DurationMax": "0.06787",
       "MediaRefs": [
        {
         "Id": "239336339"
@@ -1199,8 +1251,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Move_Outdoor",
       "GUID": "{93C15A90-D327-4C50-AAA8-4A51DEBB58BB}",
       "DurationType": "OneShot",
-      "DurationMin": "1.4122708",
-      "DurationMax": "1.4122708",
+      "DurationMin": "0.44861",
+      "DurationMax": "0.44861",
       "MediaRefs": [
        {
         "Id": "28352071"
@@ -1564,11 +1616,25 @@
       "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Window_Close",
       "GUID": "{D1DAECFD-C48D-4E4D-86C4-A435B7D7D93E}",
       "DurationType": "OneShot",
-      "DurationMin": "0.49528",
-      "DurationMax": "0.49528",
+      "DurationMin": "0.37683",
+      "DurationMax": "0.37683",
       "MediaRefs": [
        {
         "Id": "871199543"
+       }
+      ]
+     },
+     {
+      "Id": "4060910113",
+      "Name": "Play_Window_Close_Universal",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Window_Close_Universal",
+      "GUID": "{FC417802-4357-4373-B722-90936CFD3487}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.4319583",
+      "DurationMax": "1.4319583",
+      "MediaRefs": [
+       {
+        "Id": "357820598"
        }
       ]
      },
@@ -1583,6 +1649,20 @@
       "MediaRefs": [
        {
         "Id": "1029893972"
+       }
+      ]
+     },
+     {
+      "Id": "937577791",
+      "Name": "Play_Window_Open_Universal",
+      "ObjectPath": "\\Events\\Default Work Unit\\UI\\Play_Window_Open_Universal",
+      "GUID": "{2B67DDD5-B5ED-4436-A124-B6630CA58BCE}",
+      "DurationType": "OneShot",
+      "DurationMin": "1.2185416",
+      "DurationMax": "1.2185416",
+      "MediaRefs": [
+       {
+        "Id": "569798152"
        }
       ]
      },
@@ -1631,8 +1711,8 @@
       "ObjectPath": "\\Events\\Default Work Unit\\Other\\Resume",
       "GUID": "{3CE53033-9C3F-40F4-A913-36A192DA7780}",
       "DurationType": "OneShot",
-      "DurationMin": "1.3443667",
-      "DurationMax": "1.3443667",
+      "DurationMin": "0.2438",
+      "DurationMax": "0.2438",
       "MediaRefs": [
        {
         "Id": "769937516"
@@ -1825,6 +1905,6 @@
     ]
    }
   ],
-  "FileHash": "{F5547924-DF39-770D-D900-E0C8B0FDB593}"
+  "FileHash": "{7AAB7EFC-43EA-E1EE-C580-BFDB62026295}"
  }
 }
