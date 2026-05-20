@@ -1339,7 +1339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d984089396cae4babf5d6dc803b806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenFader: {fileID: 0}
+  screenFader: {fileID: 1280379203}
   defaultExitFadeInDuration: 0.35
 --- !u!4 &1371673951
 Transform:
