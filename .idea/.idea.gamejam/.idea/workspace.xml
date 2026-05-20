@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8a68ed68-ffba-47f2-8a48-749f40bee222" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.gamejam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.gamejam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainGameWindow.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainGameWindow.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/InteractionPoint2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/InteractionPoint2D.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/PlayerInteractionDetector2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/OutsideDoorScene/OutsideManager/Interactive/PlayerInteractionDetector2D.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +45,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Wwise/ScriptableObjects/GameParameter/0D99679D-6FC5-4CE9-884F-3EEF13956791.asset" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="SWEA" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -145,6 +144,7 @@
       <workItem from="1779235901282" duration="75000" />
       <workItem from="1779252253068" duration="1325000" />
       <workItem from="1779276958312" duration="399000" />
+      <workItem from="1779277646167" duration="332000" />
     </task>
     <task id="LOCAL-00001" summary="神秘素材合并问题解决">
       <option name="closed" value="true" />

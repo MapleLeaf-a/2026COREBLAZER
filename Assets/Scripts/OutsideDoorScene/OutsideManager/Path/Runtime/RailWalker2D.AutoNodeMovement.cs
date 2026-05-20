@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -37,6 +37,18 @@ public sealed partial class RailWalker2D : MonoBehaviour
 	/// </summary>
 	[SerializeField]
 	private bool logAutoNodeMovementDebug = true;
+
+	/// <summary>
+	/// 自动节点移动结束事件。
+	///
+	/// 参数 1 (bool)：
+	/// true 表示正常到达目标节点。
+	/// false 表示被取消或失败。
+	///
+	/// 参数 2 (int)：
+	/// 本次自动移动的目标节点 ID。
+	/// </summary>
+	public event System.Action<bool, int> AutoNodeMovementFinished;
 
 	/// <summary>
 	/// 当前是否正在自动移动到目标节点。
@@ -148,7 +160,13 @@ public sealed partial class RailWalker2D : MonoBehaviour
 
 		if (railMap == null)
 		{
-			LogAutoNodeMovementWarning("RailMap2DAsset 为空，无法根据 nodeKey 自动移动。");
+			LogAutoNodeMovementWarning("RailMap2DAsset 为空，无法根据 nodeKey 自动移动。请确保 RailWalker2D 的 RailMap 已设置。");
+			return false;
+		}
+
+		if (currentSegmentId < 0)
+		{
+			LogAutoNodeMovementWarning($"currentSegmentId 为 {currentSegmentId}，RailWalker2D 尚未初始化。");
 			return false;
 		}
 
@@ -172,7 +190,7 @@ public sealed partial class RailWalker2D : MonoBehaviour
 	/// </summary>
 	public void CancelAutoNodeMovement()
 	{
-		StopAutoNodeMovement(false, false);
+		StopAutoNodeMovement(false, false, true);
 	}
 
 	/// <summary>
@@ -189,7 +207,11 @@ public sealed partial class RailWalker2D : MonoBehaviour
 	/// </returns>
 	private bool TryAutoMoveToNode(int targetNodeId)
 	{
-		CancelAutoNodeMovement();
+		// 新点击请求覆盖旧自动移动时，静默停止旧移动，避免旧失败事件干扰新交互。
+		if (isAutoNodeMoving)
+		{
+			StopAutoNodeMovement(false, false, false);
+		}
 
 		autoMoveTargetNodeId = targetNodeId;
 
@@ -203,6 +225,11 @@ public sealed partial class RailWalker2D : MonoBehaviour
 		{
 			SnapToCurrentSegment();
 			LogAutoNodeMovement($"角色已经位于目标节点附近。targetNodeId={targetNodeId}");
+
+			// 不需要移动也视为已经到达，方便点击脚本继续检查碰撞重合。
+			AutoNodeMovementFinished?.Invoke(true, targetNodeId);
+
+			autoMoveTargetNodeId = -1;
 			return true;
 		}
 
@@ -239,7 +266,7 @@ public sealed partial class RailWalker2D : MonoBehaviour
 
 		if (autoMoveLegIndex < 0 || autoMoveLegIndex >= autoMoveLegs.Count)
 		{
-			StopAutoNodeMovement(true, true);
+			StopAutoNodeMovement(true, true, true);
 			return;
 		}
 
@@ -248,7 +275,7 @@ public sealed partial class RailWalker2D : MonoBehaviour
 		if (!railMap.TryGetSegment(leg.segmentId, out RailSegment2D segment))
 		{
 			LogAutoNodeMovementWarning($"自动移动失败，Segment 不存在。segmentId={leg.segmentId}");
-			StopAutoNodeMovement(false, false);
+			StopAutoNodeMovement(false, false, true);
 			return;
 		}
 
@@ -257,7 +284,7 @@ public sealed partial class RailWalker2D : MonoBehaviour
 		if (!IsSegmentUsable(segment))
 		{
 			LogAutoNodeMovementWarning($"自动移动失败，Segment 不可用。segmentId={leg.segmentId}");
-			StopAutoNodeMovement(false, false);
+			StopAutoNodeMovement(false, false, true);
 			return;
 		}
 
@@ -428,9 +455,9 @@ public sealed partial class RailWalker2D : MonoBehaviour
 		distanceByNode[startNodeId] = 0f;
 
 		while (TrySelectUnvisitedNodeWithSmallestDistance(
-			       distanceByNode,
-			       visitedNodes,
-			       out int currentNodeId))
+				   distanceByNode,
+				   visitedNodes,
+				   out int currentNodeId))
 		{
 			if (currentNodeId == targetNodeId)
 			{
@@ -568,7 +595,7 @@ public sealed partial class RailWalker2D : MonoBehaviour
 			float nextDistance = currentDistance + segment.Length;
 
 			if (distanceByNode.TryGetValue(nextNodeId, out float oldDistance) &&
-			    nextDistance >= oldDistance)
+				nextDistance >= oldDistance)
 			{
 				continue;
 			}
@@ -659,9 +686,9 @@ public sealed partial class RailWalker2D : MonoBehaviour
 			int toNodeId = nodePath[i];
 
 			if (!TryFindShortestSegmentBetweenNodes(
-				    fromNodeId,
-				    toNodeId,
-				    out RailSegment2D segment))
+					fromNodeId,
+					toNodeId,
+					out RailSegment2D segment))
 			{
 				return false;
 			}
@@ -786,7 +813,7 @@ public sealed partial class RailWalker2D : MonoBehaviour
 
 		if (nextLegIndex >= autoMoveLegs.Count)
 		{
-			StopAutoNodeMovement(true, false);
+			StopAutoNodeMovement(true, false, true);
 			return;
 		}
 
@@ -835,10 +862,19 @@ public sealed partial class RailWalker2D : MonoBehaviour
 	/// true 表示停止时把角色吸附到当前 Segment 对应位置。
 	/// false 表示不额外吸附。
 	/// </param>
+	/// <param name="notify">
+	/// notify：
+	/// true 表示触发 AutoNodeMovementFinished 事件。
+	/// false 表示静默停止，不触发事件。
+	/// 新请求覆盖旧请求时应传 false，避免旧事件干扰新交互。
+	/// </param>
 	private void StopAutoNodeMovement(
 		bool reachedTarget,
-		bool snapToCurrentRail)
+		bool snapToCurrentRail,
+		bool notify)
 	{
+		int finishedTargetNodeId = autoMoveTargetNodeId;
+
 		isAutoNodeMoving = false;
 		autoMoveLegIndex = -1;
 		autoMoveTargetNodeId = -1;
@@ -849,6 +885,11 @@ public sealed partial class RailWalker2D : MonoBehaviour
 		if (snapToCurrentRail)
 		{
 			SnapToCurrentSegment();
+		}
+
+		if (notify)
+		{
+			AutoNodeMovementFinished?.Invoke(reachedTarget, finishedTargetNodeId);
 		}
 
 		if (reachedTarget)

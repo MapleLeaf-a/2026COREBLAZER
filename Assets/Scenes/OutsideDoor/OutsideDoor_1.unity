@@ -183,6 +183,8 @@ GameObject:
   - component: {fileID: 50877119}
   - component: {fileID: 50877118}
   - component: {fileID: 50877117}
+  - component: {fileID: 50877121}
+  - component: {fileID: 50877120}
   m_Layer: 0
   m_Name: SceneExit_To_OutsideDoor_2
   m_TagString: Untagged
@@ -270,6 +272,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &50877120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50877116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023fd0d8ba5cfde4bbf99282fbbeec93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeKey: OutsideDoor_2
+  railMapOverride: {fileID: 11400000, guid: 0a9d921ef1d63d045adc53c8c921b4ea, type: 2}
+  targetWalker: {fileID: 0}
+  autoFindWalkerWhenMissing: 1
+  playerCollider: {fileID: 0}
+  overlapWaitTimeout: 1
+  ignoreClickWhenPointerOverUI: 1
+  logClickDebug: 1
+--- !u!114 &50877121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50877116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c399451376554c848e190e76bfbcb173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionName: Interaction Point
+  canInteract: 1
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &132693176
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +320,8 @@ GameObject:
   - component: {fileID: 132693179}
   - component: {fileID: 132693178}
   - component: {fileID: 132693177}
+  - component: {fileID: 132693181}
+  - component: {fileID: 132693180}
   m_Layer: 0
   m_Name: SceneExit_To_Fish
   m_TagString: Untagged
@@ -368,6 +409,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &132693180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132693176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023fd0d8ba5cfde4bbf99282fbbeec93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeKey: Fish
+  railMapOverride: {fileID: 11400000, guid: 0a9d921ef1d63d045adc53c8c921b4ea, type: 2}
+  targetWalker: {fileID: 0}
+  autoFindWalkerWhenMissing: 1
+  playerCollider: {fileID: 0}
+  overlapWaitTimeout: 1
+  ignoreClickWhenPointerOverUI: 1
+  logClickDebug: 1
+--- !u!114 &132693181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132693176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c399451376554c848e190e76bfbcb173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionName: Interaction Point
+  canInteract: 1
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &156457747
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +749,7 @@ MonoBehaviour:
   nodes:
   - nodeId: 0
     displayName: Node_0
-    nodeKey: MainScene
+    nodeKey: Node_0
     position: {x: -469.0738, y: -169.16559}
     leftExitSegmentId: -1
     rightExitSegmentId: -1
@@ -737,8 +815,26 @@ MonoBehaviour:
     exitRules: []
   - nodeId: 3
     displayName: Node_3
+    nodeKey: MainScene
+    position: {x: 314.3, y: -66.04336}
+    leftExitSegmentId: -1
+    rightExitSegmentId: -1
+    upExitSegmentId: -1
+    downExitSegmentId: -1
+    autoExitSegmentId: -1
+    exitRules:
+    - fromSegmentId: 2
+      choice: 2
+      targetSegmentId: 4
+      priority: 0
+    - fromSegmentId: 4
+      choice: 1
+      targetSegmentId: 2
+      priority: 0
+  - nodeId: 4
+    displayName: Node_4
     nodeKey: Outside2
-    position: {x: 443.285, y: -66.04336}
+    position: {x: 459.25323, y: -68.52225}
     leftExitSegmentId: -1
     rightExitSegmentId: -1
     upExitSegmentId: -1
@@ -837,40 +933,81 @@ MonoBehaviour:
     sampleCount: 32
     bakedPoints:
     - {x: -231.77008, y: -186.6914}
-    - {x: -203.8357, y: -176.96552}
-    - {x: -176.56818, y: -167.7233}
-    - {x: -149.94498, y: -158.95479}
-    - {x: -123.94351, y: -150.6501}
-    - {x: -98.5412, y: -142.79922}
-    - {x: -73.7155, y: -135.39226}
-    - {x: -49.44384, y: -128.41925}
-    - {x: -25.703661, y: -121.87024}
-    - {x: -2.472396, y: -115.73529}
-    - {x: 20.272522, y: -110.00447}
-    - {x: 42.55365, y: -104.66783}
-    - {x: 64.39356, y: -99.71544}
-    - {x: 85.81481, y: -95.13732}
-    - {x: 106.83998, y: -90.92355}
-    - {x: 127.49162, y: -87.064186}
-    - {x: 147.7923, y: -83.549286}
-    - {x: 167.76459, y: -80.368904}
-    - {x: 187.43103, y: -77.51309}
-    - {x: 206.81421, y: -74.97191}
-    - {x: 225.93668, y: -72.73541}
-    - {x: 244.82101, y: -70.79365}
-    - {x: 263.48978, y: -69.136696}
-    - {x: 281.9655, y: -67.754585}
-    - {x: 300.27084, y: -66.63739}
-    - {x: 318.42825, y: -65.77516}
-    - {x: 336.46036, y: -65.15796}
-    - {x: 354.38974, y: -64.77583}
-    - {x: 372.2389, y: -64.618835}
-    - {x: 390.03046, y: -64.67705}
-    - {x: 407.78693, y: -64.94049}
-    - {x: 425.53094, y: -65.39925}
-    - {x: 443.285, y: -66.04336}
-  nextNodeId: 4
-  nextSegmentId: 4
+    - {x: -204.2057, y: -176.96552}
+    - {x: -178.01675, y: -167.7233}
+    - {x: -153.13339, y: -158.95479}
+    - {x: -129.48584, y: -150.6501}
+    - {x: -107.00426, y: -142.79922}
+    - {x: -85.618904, y: -135.39226}
+    - {x: -65.25993, y: -128.41925}
+    - {x: -45.85757, y: -121.87024}
+    - {x: -27.342005, y: -115.73529}
+    - {x: -9.643436, y: -110.00447}
+    - {x: 7.307927, y: -104.66783}
+    - {x: 23.581894, y: -99.71544}
+    - {x: 39.24826, y: -95.13732}
+    - {x: 54.37684, y: -90.92355}
+    - {x: 69.037415, y: -87.064186}
+    - {x: 83.29979, y: -83.549286}
+    - {x: 97.23377, y: -80.368904}
+    - {x: 110.90915, y: -77.51309}
+    - {x: 124.39574, y: -74.97191}
+    - {x: 137.76334, y: -72.73541}
+    - {x: 151.08173, y: -70.79365}
+    - {x: 164.42072, y: -69.136696}
+    - {x: 177.85013, y: -67.754585}
+    - {x: 191.43973, y: -66.63739}
+    - {x: 205.25935, y: -65.77516}
+    - {x: 219.37875, y: -65.15796}
+    - {x: 233.86778, y: -64.77583}
+    - {x: 248.79622, y: -64.618835}
+    - {x: 264.23386, y: -64.67705}
+    - {x: 280.2505, y: -64.94049}
+    - {x: 296.91592, y: -65.39925}
+    - {x: 314.3, y: -66.04336}
+  - segmentId: 4
+    displayName: Segment_4
+    startNodeId: 3
+    endNodeId: 4
+    startHandleOffset: {x: 48.31775, y: -0.8262965}
+    endHandleOffset: {x: -48.31775, y: 0.8262965}
+    sampleCount: 32
+    bakedPoints:
+    - {x: 314.3, y: -66.04336}
+    - {x: 318.82977, y: -66.12082}
+    - {x: 323.3596, y: -66.19829}
+    - {x: 327.88934, y: -66.27576}
+    - {x: 332.41913, y: -66.35322}
+    - {x: 336.94894, y: -66.43068}
+    - {x: 341.47873, y: -66.50815}
+    - {x: 346.00854, y: -66.58562}
+    - {x: 350.5383, y: -66.663086}
+    - {x: 355.0681, y: -66.74055}
+    - {x: 359.59787, y: -66.81801}
+    - {x: 364.12766, y: -66.89548}
+    - {x: 368.65747, y: -66.972946}
+    - {x: 373.18723, y: -67.05041}
+    - {x: 377.717, y: -67.12788}
+    - {x: 382.24683, y: -67.20534}
+    - {x: 386.7766, y: -67.28281}
+    - {x: 391.3064, y: -67.36027}
+    - {x: 395.8362, y: -67.43774}
+    - {x: 400.36597, y: -67.5152}
+    - {x: 404.89575, y: -67.59267}
+    - {x: 409.42554, y: -67.67013}
+    - {x: 413.95532, y: -67.74759}
+    - {x: 418.48514, y: -67.82506}
+    - {x: 423.0149, y: -67.90253}
+    - {x: 427.54474, y: -67.979996}
+    - {x: 432.07452, y: -68.05746}
+    - {x: 436.60428, y: -68.13492}
+    - {x: 441.1341, y: -68.21239}
+    - {x: 445.66388, y: -68.289856}
+    - {x: 450.19363, y: -68.36732}
+    - {x: 454.72345, y: -68.44478}
+    - {x: 459.25323, y: -68.52225}
+  nextNodeId: 5
+  nextSegmentId: 5
 --- !u!4 &834750955
 Transform:
   m_ObjectHideFlags: 0
@@ -1360,6 +1497,8 @@ GameObject:
   - component: {fileID: 1509630635}
   - component: {fileID: 1509630634}
   - component: {fileID: 1509630633}
+  - component: {fileID: 1509630637}
+  - component: {fileID: 1509630636}
   m_Layer: 0
   m_Name: SceneExit_To_MainGameWindow
   m_TagString: Untagged
@@ -1383,7 +1522,7 @@ MonoBehaviour:
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  requiredDirection: 1
+  requiredDirection: 3
   minMoveDistance: 0.01
   directionDotThreshold: 0.65
   exitFadeInDuration: 0.35
@@ -1441,12 +1580,49 @@ Transform:
   m_GameObject: {fileID: 1509630632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -491, y: -147, z: -1.9154737}
+  m_LocalPosition: {x: 293, y: -41, z: -1.9154737}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1509630636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509630632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023fd0d8ba5cfde4bbf99282fbbeec93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeKey: MainGameWindow
+  railMapOverride: {fileID: 11400000, guid: 0a9d921ef1d63d045adc53c8c921b4ea, type: 2}
+  targetWalker: {fileID: 0}
+  autoFindWalkerWhenMissing: 1
+  playerCollider: {fileID: 0}
+  overlapWaitTimeout: 1
+  ignoreClickWhenPointerOverUI: 1
+  logClickDebug: 1
+--- !u!114 &1509630637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509630632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c399451376554c848e190e76bfbcb173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionName: Interaction Point
+  canInteract: 1
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1589360458
 GameObject:
   m_ObjectHideFlags: 0

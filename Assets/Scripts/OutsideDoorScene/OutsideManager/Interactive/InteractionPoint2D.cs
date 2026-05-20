@@ -104,4 +104,21 @@ public sealed class InteractionPoint2D : MonoBehaviour
 		onInteract?.Invoke();
 		Debug.Log("点击交互");
 	}
+
+	/// <summary>
+	/// 从 RailNodeClickMoveTarget2D 的点击自动移动流程触发交互。
+	///
+	/// 作用：
+	/// RailNodeClickMoveTarget2D 在自动移动完成并且碰撞盒重合后，
+	/// 调用这个方法触发交互。
+	///
+	/// <param name="interactor">
+	/// 发起交互的对象，一般是 Player。
+	/// </param>
+	/// </summary>
+	public void TriggerInteractionFromClickMove(GameObject interactor)
+	{
+		// 复用已有的 Interact 方法，不新写第二套交互逻辑。
+		Interact(interactor);
+	}
 }
