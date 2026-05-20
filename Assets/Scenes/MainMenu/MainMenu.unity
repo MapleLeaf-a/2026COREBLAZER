@@ -1667,7 +1667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bb22a10bbca5cd4b8cc6dbfb251a67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicGamePlayer:
+  MusicPlayer:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 4b94b12b28c553c4f9f6431764f57af2, type: 2}

@@ -15,17 +15,10 @@ public class TuningFork : MonoBehaviour
     public SetRemainingCountsText text;
     private int count = 5; //一共可挖次数
 
-
-    [Header("声纹播放")]
-    public Animation voicePrintAnimation;
-
     private RectTransform rectTransform;
 
     private void Start()
     {
-        voicePrintAnimation.Play();
-        voicePrintAnimation.wrapMode = WrapMode.Loop;
-
         rectTransform = GetComponent<RectTransform>();
 
         UpdateCountText();

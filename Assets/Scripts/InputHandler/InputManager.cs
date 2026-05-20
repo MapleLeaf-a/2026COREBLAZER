@@ -59,8 +59,8 @@ public class InputManager : MonoBehaviour
         AddMapping("InteractMouse0", KeyCode.Mouse0, InputContext.CHARACTER);
 
         //ÍÚ¾ò¶ÔÓ¦°´¼ü
-        AddMapping("Dig", KeyCode.Mouse0, InputContext.DIGGAME);
-        AddMapping("Detect", KeyCode.Mouse1, InputContext.DIGGAME);
+        AddMapping("Dig", KeyCode.Mouse1, InputContext.DIGGAME);
+        AddMapping("Detect", KeyCode.Mouse0, InputContext.DIGGAME);
     }
     
     /// <summary>

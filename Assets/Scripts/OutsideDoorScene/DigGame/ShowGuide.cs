@@ -9,20 +9,29 @@ public class ShowGuide : MonoBehaviour
     public Button button;
     [Tooltip("教程游戏物体")]
     public GameObject guide;
-    
+
+    private bool isProcessing = false;
+
     void Start()
     {
         button.onClick.AddListener(Display);    
-        guide.SetActive(false);
+        guide.SetActive(true);
     }
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !isProcessing)
+        {
+            guide.gameObject.SetActive(false);
+        }
     }
 
     private void Display()
     {
+        if (isProcessing) return;
+
+        isProcessing = true;
+
         if (guide.activeSelf == false)
         {
             guide.SetActive(true);
@@ -31,5 +40,7 @@ public class ShowGuide : MonoBehaviour
         {
             guide.SetActive(false);
         }
+
+        isProcessing = false;
     }
 }
