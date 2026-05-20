@@ -1,5 +1,6 @@
 ﻿using Arch.Tools;
 using Assets.Scripts.OutsideDoorScene.OutsideManager.Manager;
+using Assets.Scripts.Tools.Common;
 using Assets.Scripts.Tools.Unity;
 using Events;
 using System;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 {
-	public class OutsideDoorCharacterPowerManager : Singleton<OutsideDoorCharacterPowerManager>
+	public class OutsideDoorCharacterPowerManager : MonoSingleton<OutsideDoorCharacterPowerManager>
 	{
 		public bool IsOutsideDoor = false;
 
@@ -17,10 +18,15 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 		private const float LimitTime = 3;
 		private float timer = 0;
 
-		public override void OnInit()
+		public void OnEnable()
 		{
 			EventBus.Subscribe<GoToOutsideEvent>(a => OnReadyGoOut(a));
 			EventBus.Subscribe<ResetCharacterPowerEvent>(a => ResetPower(a));
+		}
+		public void OnDisable()
+		{
+			EventBus.Unsubscribe<GoToOutsideEvent>(a => OnReadyGoOut(a));
+			EventBus.Unsubscribe<ResetCharacterPowerEvent>(a => ResetPower(a));
 		}
 
 		public void OnReadyGoOut(in GoToOutsideEvent goToOutsideEvent)
@@ -41,7 +47,7 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 			// 因为 LoadScene 之后，当前激活场景会变成新场景，旧场景名就取不到了。
 			SceneTransitionContext.RecordTransition(goToOutsideEvent.targetSceneName);
 
-			var sceneChangeRequest = new SceneLoadRequestEvent(requestId: "default", loadMode: GameSceneLoadMode.Single, targetSceneName: goToOutsideEvent.targetSceneName);
+			var sceneChangeRequest = new SceneTransitionRequestEvent(goToOutsideEvent.targetSceneName, null, 0.35f);
 
 			try
 			{

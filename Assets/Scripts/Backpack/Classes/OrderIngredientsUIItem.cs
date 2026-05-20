@@ -6,15 +6,15 @@ using UnityEngine.UI;
 
 public class OrderIngredientsUIItem : GenericSlot<FoodMaterial>
 {
-    ////ÎïÆ·Í¼Ïñ
+    ////ï¿½ï¿½Æ·Í¼ï¿½ï¿½
     //public Image itemImage;
-    ////Ñ¡ÖÐÏÔÊ¾
+    ////Ñ¡ï¿½ï¿½ï¿½ï¿½Ê¾
     //public Image selectedImage;
 
-    //±³¾°Í¼Ïñ
+    //ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
     public Image bgImage;
 
-    //´òÕÛÍ¼Ïñ
+    //ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
     public Image discountImage;
 
     public void SetUp(FoodMaterial item, Sprite image, int index, bool isSelected, bool isDiscounted)

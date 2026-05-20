@@ -320,7 +320,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterResourcePath: Prefabs/Player/Robot
-  currentSceneRailMap: {fileID: 11400000, guid: d4cb61bb33963034f8db770ad8a2064d, type: 2}
+  currentSceneRailMap: {fileID: 11400000, guid: d4cb61bb33963034f8db770ad8a2064d,
+    type: 2}
   defaultSpawnNodeKey: OutsideDoor_1
   fallbackWorldPosition: {x: 0, y: 0}
   defaultFacingSign: 1
@@ -1339,7 +1340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37d984089396cae4babf5d6dc803b806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenFader: {fileID: 0}
+  screenFader: {fileID: 1280379203}
   defaultExitFadeInDuration: 0.35
 --- !u!4 &1371673951
 Transform:
@@ -1469,7 +1470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6f91e220a91bc45a06135905a4ea2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitializationSettings: {fileID: 11400000, guid: b60d8211f2f10e94d9ee3794066754a0, type: 2}
+  InitializationSettings: {fileID: 11400000, guid: b60d8211f2f10e94d9ee3794066754a0,
+    type: 2}
   basePath: 
   language: 
   defaultPoolSize: 0

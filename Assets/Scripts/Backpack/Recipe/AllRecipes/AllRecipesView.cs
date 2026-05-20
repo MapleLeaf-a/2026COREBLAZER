@@ -11,14 +11,14 @@ public class AllRecipesView : RecipesView
     {
         get => viewModel as AllRecipesViewModel;
 
-        set => viewModel = value; //valueÊÇC#ÊôÐÔsetterÖÐµÄÉÏÏÂÎÄ¹Ø¼ü×Ö,´ú±í¸³Öµ²Ù×÷´«ÈëµÄÖµ
+        set => viewModel = value; //valueï¿½ï¿½C#ï¿½ï¿½ï¿½ï¿½setterï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹Ø¼ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
     }
 
     public virtual void InitBackpackView(AllRecipesModel recipesModel)
     {
         if (capacity <= 0 || itemsPerPage <= 0)
         {
-            throw new UnityException("±³°ü³õÊ¼»¯³ö´í£¡");
+            throw new UnityException("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
         capacity = recipesModel.Capacity;
         this.recipesViewModel = new AllRecipesViewModel(recipesModel, itemsPerPage);
@@ -34,33 +34,33 @@ public class AllRecipesView : RecipesView
         allRecipesViewModel.OnShowTip -= OnShowTip;
     }
 
-    [Header("ÏêÇéÃæ°å")]
-    [Tooltip("Ãû³Æ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½")]
     public TextMeshProUGUI itemNameText;
-    [Tooltip("¼Û¸ñ")]
+    [Tooltip("ï¿½Û¸ï¿½")]
     public TextMeshProUGUI itemPriceText;
-    [Tooltip("Í¼±ê")]
+    [Tooltip("Í¼ï¿½ï¿½")]
     public Image itemIconImage;
-    [Tooltip("¼Û¸ñÍ¼±ê")]
+    [Tooltip("ï¿½Û¸ï¿½Í¼ï¿½ï¿½")]
     public Image priceIconImage;
-    [Tooltip("Ê³²ÄÕ¹Ê¾¸¸ÎïÌå")]
+    [Tooltip("Ê³ï¿½ï¿½Õ¹Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public Transform ingredientsParent;
-    [Tooltip("µ¥¸öÊ³²ÄÎï¼þÔ¤ÖÆÌå")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½Ê³ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½")]
     public GameObject ingredientUIItemPrefab;
-    [Tooltip("ÎÞÐèÔ­²ÄÁÏµÄÌáÊ¾ÎÄ±¾")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½Ê¾ï¿½Ä±ï¿½")]
     public TextMeshProUGUI noIngredientPrompt;
-    [Tooltip("ÉèÖÃ²ËÆ×´ÊÌõ°´Å¥")]
+    [Tooltip("ï¿½ï¿½ï¿½Ã²ï¿½ï¿½×´ï¿½ï¿½ï¿½ï¿½ï¿½Å¥")]
     public Button editEntryButton;
-    [Tooltip("ÉèÖÃ´ÊÌõµÄ»­²¼")]
+    [Tooltip("ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½")]
     public Canvas editEntryCanvas;
 
-    [Header("ÌáÊ¾Ô­²ÄÁÏ²»×ãµÄ»­²¼")]
+    [Header("ï¿½ï¿½Ê¾Ô­ï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½")]
     public Canvas IngredientsNotEnoughCanvas;
 
-    //×îºóÒ»´ÎÑ¡ÔñµÄÊ³Æ×µÄID
+    //ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ê³ï¿½×µï¿½ID
     private string lastSelectedItemId = "-1";
 
-    //Ê³²ÄÕ¹Ê¾µÄÊµÀýÁÐ±í
+    //Ê³ï¿½ï¿½Õ¹Ê¾ï¿½ï¿½Êµï¿½ï¿½ï¿½Ð±ï¿½
     private Queue<IngredientUIItem> ingredientItems = new Queue<IngredientUIItem>();
 
 
@@ -96,7 +96,7 @@ public class AllRecipesView : RecipesView
             itemPriceText.enabled = true;
             priceIconImage.enabled = true;
             
-            if (item.ingredients.Count != 0) editEntryButton.gameObject.SetActive(true);  //Èç¹ûÓÐÔ­²ÄÁÏ,Ôò¿ÉÒÔ±à¼­´ÊÌõ
+            if (item.ingredients.Count != 0) editEntryButton.gameObject.SetActive(true);  //ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ô±à¼­ï¿½ï¿½ï¿½ï¿½
             else editEntryButton.gameObject.SetActive(false);
 
             itemIconImage.sprite = allRecipesViewModel.GetSprite(item.spritePath);
@@ -122,22 +122,22 @@ public class AllRecipesView : RecipesView
     }
 
     /// <summary>
-    /// Ë¢ÐÂÊ³²ÄÁÐ±í
+    /// Ë¢ï¿½ï¿½Ê³ï¿½ï¿½ï¿½Ð±ï¿½
     /// </summary>
     private void RefreshIngredients(FoodRecipe item)
     {
-        //Ñ¡ÖÐÍ¬Ò»¸ö²ËÆ×,²»¸üÐÂ
+        //Ñ¡ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (lastSelectedItemId == item.id)
             return;
 
         lastSelectedItemId = item.id;
 
-        //Çå¿ÕÏÖÓÐÏÔÊ¾
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
         ClearIngredients();
 
         Dictionary<string, int> ingredients = item.ingredients;
 
-        //Ê³²ÄÁÐ±íÎª¿Õ
+        //Ê³ï¿½ï¿½ï¿½Ð±ï¿½Îªï¿½ï¿½
         if (ingredients == null || ingredients.Count == 0)
         {
             noIngredientPrompt.enabled = true;
@@ -153,7 +153,7 @@ public class AllRecipesView : RecipesView
     }
 
     /// <summary>
-    /// ´´½¨µ¥¸öÊ³²Ä¶ÔÏó
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê³ï¿½Ä¶ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="ingredientId"></param>
     private void CreateIngredientItem(string ingredientId, int quantity)
@@ -168,7 +168,7 @@ public class AllRecipesView : RecipesView
     }
 
     /// <summary>
-    /// Çå¿ÕÊ³²ÄÏÔÊ¾
+    /// ï¿½ï¿½ï¿½Ê³ï¿½ï¿½ï¿½ï¿½Ê¾
     /// </summary>
     private void ClearIngredients()
     {
@@ -181,38 +181,38 @@ public class AllRecipesView : RecipesView
         }
     }
 
-    //ÍÏ×§Ïà¹Ø(ÓÉDrag Handlerµ÷ÓÃ,ÕâÖÖÉè¼ÆÊ¹µÃÊÓÍ¼ºÍÍÏ×§Âß¼­·ÖÀë)
+    //ï¿½ï¿½×§ï¿½ï¿½ï¿½(ï¿½ï¿½Drag Handlerï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½×§ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½)
     private int draggingIndex = -1;
     public override void OnDragStart(int index)
     {
-        draggingIndex = index;  //¼ÇÂ¼¿ªÊ¼ÍÏ×§µÄ²ÛÎ»
+        draggingIndex = index;  //ï¿½ï¿½Â¼ï¿½ï¿½Ê¼ï¿½ï¿½×§ï¿½Ä²ï¿½Î»
 
-        sourceView = this; //¼ÇÂ¼Ô´Í·ÊÇ×Ô¼º
+        sourceView = this; //ï¿½ï¿½Â¼Ô´Í·ï¿½ï¿½ï¿½Ô¼ï¿½
 
-        Debug.Log($"ÍÏ×§¿ªÊ¼: Ë÷Òý={index}, Ô´±³°ü={name}");
+        Debug.Log($"ï¿½ï¿½×§ï¿½ï¿½Ê¼: ï¿½ï¿½ï¿½ï¿½={index}, Ô´ï¿½ï¿½ï¿½ï¿½={name}");
     }
 
     public override void OnDragEnd()
     {
-        draggingIndex = -1; //ÍÏ×§½áÊøÇå¿Õ¼ÇÂ¼
+        draggingIndex = -1; //ï¿½ï¿½×§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Â¼
 
-        Debug.Log("ÍÏ×§½áÊø");
+        Debug.Log("ï¿½ï¿½×§ï¿½ï¿½ï¿½ï¿½");
     }
 
     public override void OnDrop(int targetIndex)
     {
         if (DragState<FoodRecipe, RecipesUIItem>.FromIndex == -1)
         {
-            return; //Èç¹ûÃ»ÓÐÕýÔÚÍÏ×§µÄÎïÆ·,·µ»Ø
+            return; //ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×§ï¿½ï¿½ï¿½ï¿½Æ·,ï¿½ï¿½ï¿½ï¿½
         }
 
-        if (DragState<FoodRecipe, RecipesUIItem>.SourceView == this) //ÈôÊÇÍ¬Ò»¸ö±³°ü
+        if (DragState<FoodRecipe, RecipesUIItem>.SourceView == this) //ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         {
-            //È«²¿Ê³Æ×Í¬Ò»±³°üÄÚ²»¿ÉÒÆ¶¯
+            //È«ï¿½ï¿½Ê³ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
         }
-        else if (DragState<FoodRecipe, RecipesUIItem>.SourceView as TodaysRecipeView != null) //ÊÇ½ñÈÕ²ËÆ×±³°ü
+        else if (DragState<FoodRecipe, RecipesUIItem>.SourceView as TodaysRecipeView != null) //ï¿½Ç½ï¿½ï¿½Õ²ï¿½ï¿½×±ï¿½ï¿½ï¿½
         {
-            //³¢ÊÔÒÆ¶¯,×¢ÒâÊÇ´ÓÔ´±³°üµ½Ä¿Ç°±³°ü
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½,×¢ï¿½ï¿½ï¿½Ç´ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½ï¿½ï¿½
             var v = DragState<FoodRecipe, RecipesUIItem>.SourceView as TodaysRecipeView;
             int fromIndex = DragState<FoodRecipe, RecipesUIItem>.FromIndex;
             bool success = v.todaysRecipeViewModel.RemoveRecipeAndReturnIngredients(fromIndex);
@@ -222,12 +222,12 @@ public class AllRecipesView : RecipesView
                 v.todaysRecipeViewModel.Organize();
                 v.todaysRecipeViewModel.CaculateRespectedTurnover();
 
-               //Ë¢ÐÂÁ½¸ö±³°üµÄÒ³Ãæ
+               //Ë¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½
                DragState<FoodRecipe, RecipesUIItem>.SourceView.RefreshUI();
                 RefreshUI();
             }
         }
 
-        DragState<FoodRecipe, RecipesUIItem>.Reset();  //Çå¿ÕÍÏ×§×´Ì¬
+        DragState<FoodRecipe, RecipesUIItem>.Reset();  //ï¿½ï¿½ï¿½ï¿½ï¿½×§×´Ì¬
     }
 }
