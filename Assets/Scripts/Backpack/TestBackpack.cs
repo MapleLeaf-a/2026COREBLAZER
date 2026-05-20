@@ -47,6 +47,8 @@ public class TestBackpack : MonoBehaviour
             Destroy(gameObject);
         }
 
+        DontDestroyOnLoad(gameObject);
+
         FoodMaterial material = FoodMaterials.LookUpFoodMaterial("step_005");
         BagItem bagItem = new BagItem(material, 1);
         BagItem bagItem3 = new BagItem(material, 1);
