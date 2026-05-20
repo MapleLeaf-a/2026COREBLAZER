@@ -76,14 +76,20 @@ public sealed class RailNodeClickMoveTarget2D : MonoBehaviour
 	[Header("Click")]
 
 	/// <summary>
-	/// 鼠标点在 UI 上时是否忽略本次点击。
-	/// true 可以避免点击背包、按钮等 UI 时误触场景中的节点碰撞体。
+	/// 是否在鼠标位于 UI 上时忽略点击。
 	///
-	/// 注意：如果场景中有其他 Collider2D 或 Event Trigger 对象，
-	/// 可能会导致误判。如果点击不生效，尝试设为 false。
+	/// 当前默认关闭，因为 EventSystem.IsPointerOverGameObject() 可能误判。
+	/// 如果需要防止点击穿透 UI，可在 Inspector 中手动开启。
 	/// </summary>
 	[SerializeField]
 	private bool ignoreClickWhenPointerOverUI = false;
+
+	/// <summary>
+	/// 点击时是否立刻检查碰撞重合。
+	/// true 表示点击后立即检测一次重合，如果已经重合则直接触发交互。
+	/// </summary>
+	[SerializeField]
+	private bool checkOverlapOnClickImmediately = true;
 
 	/// <summary>
 	/// 是否打印点击移动日志。
@@ -209,6 +215,14 @@ public sealed class RailNodeClickMoveTarget2D : MonoBehaviour
 		if (railMapOverride != null)
 		{
 			targetWalker.ResetMapData(railMapOverride);
+		}
+
+		// 点击时立即检查碰撞重合
+		if (checkOverlapOnClickImmediately && IsPlayerOverlappingTarget())
+		{
+			LogClick("点击时 Player 已与目标碰撞盒重合，直接触发交互。");
+			TriggerInteractionPoint();
+			return true;
 		}
 
 		// 先设置等待状态，再调用 TryAutoMoveToNodeKey。
