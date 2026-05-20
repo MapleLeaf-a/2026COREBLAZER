@@ -1,4 +1,4 @@
-using Assets.Scripts.OutsideDoorScene.OutsideManager.UI;
+﻿using Assets.Scripts.OutsideDoorScene.OutsideManager.UI;
 using Events;
 using System;
 using UnityEngine;
@@ -62,7 +62,9 @@ namespace MainMenu
 		/// </summary>
 		public Slider VolumnSlider => volumnSlider;
 
-		private void OnEnable()
+		private bool isFlag = true;
+
+		public void Awake()
 		{
 			// 验证引用
 			ValidateReferences();
@@ -71,17 +73,27 @@ namespace MainMenu
 			SetupButtonListeners();
 		}
 
-		private void OnDisable()
+		private void OnEnable()
 		{
+			if (isFlag)
+			{
+				return;
+			}
 			if (backMenuButton != null)
 			{
-				backMenuButton.onClick.RemoveListener(HandleBackMenuButtonClicked);
+				backMenuButton.onClick.AddListener(HandleBackMenuButtonClicked);
 			}
 
 			if (backGameButton != null)
 			{
-				backGameButton.onClick.RemoveListener(HandleBackGameButtonClicked);
+				backGameButton.onClick.AddListener(HandleBackGameButtonClicked);
 			}
+		}
+
+		private void OnDisable()
+		{
+			SetupButtonListeners();
+			isFlag = false;
 		}
 
 		/// <summary>
