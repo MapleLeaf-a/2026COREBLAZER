@@ -13,12 +13,16 @@ namespace Assets.Scripts.Tools.SlideInjector
 	{
 		public void OnEnable()
 		{
+			if (OutsideUI.Instance == null)
+				return;
 			OutsideUI.Instance.Close();
 			Debug.Log("进入室内关闭户外UI");
 		}
 
 		public void OnDisable()
 		{
+			if (OutsideUI.Instance == null)
+				return;
 			OutsideUI.Instance.Open();
 			Debug.Log("进入室外开启户外UI");
 		}

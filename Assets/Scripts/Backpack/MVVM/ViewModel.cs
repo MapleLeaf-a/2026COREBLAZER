@@ -9,16 +9,16 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
 {
     public Model<T> model;
 
-    //µ±Ç°Ò³Êý
+    //ï¿½ï¿½Ç°Ò³ï¿½ï¿½
     protected int currentPage = 0;
-    //×ÜÒ³Êý
+    //ï¿½ï¿½Ò³ï¿½ï¿½
     protected int totalPages;
-    //Ã¿Ò³º¬ÓÐµÄÔªËØÊýÁ¿
+    //Ã¿Ò³ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     protected int itemsPerPage;
-    //µ±Ç°Ò³Ñ¡ÖÐµÄÎïÆ·ÔÚµ±Ç°Ò³µÄindex
+    //ï¿½ï¿½Ç°Ò³Ñ¡ï¿½Ðµï¿½ï¿½ï¿½Æ·ï¿½Úµï¿½Ç°Ò³ï¿½ï¿½index
     protected int selectecIndex = -1;
 
-    ////stringµ½SpriteµÄÓ³Éä,ÓÃÓÚ¶ÁÈ¡Ã¿¸öitemµÄÍ¼Æ¬
+    ////stringï¿½ï¿½Spriteï¿½ï¿½Ó³ï¿½ï¿½,ï¿½ï¿½ï¿½Ú¶ï¿½È¡Ã¿ï¿½ï¿½itemï¿½ï¿½Í¼Æ¬
     //protected Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
 
     public ViewModel(Model<T> model, int itemsPerPage)
@@ -31,7 +31,7 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
     }
 
     /// <summary>
-    /// »ñÈ¡µ±Ç°Ò³µÄËùÓÐÎïÆ·
+    /// ï¿½ï¿½È¡ï¿½ï¿½Ç°Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·
     /// </summary>
     /// <returns></returns>
     public T[] CurrentPageItems
@@ -46,12 +46,12 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
     }
 
     /// <summary>
-    /// ·ÇnullÎïÆ·µÄÊýÁ¿
+    /// ï¿½ï¿½nullï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     public int Count => model.Count;
 
     /// <summary>
-    /// µ±Ç°Ñ¡ÖÐµÄÎïÆ·
+    /// ï¿½ï¿½Ç°Ñ¡ï¿½Ðµï¿½ï¿½ï¿½Æ·
     /// </summary>
     public T SelectedItem
     {
@@ -65,33 +65,33 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
     }
 
     /// <summary>
-    /// µ±Ç°Ñ¡ÖÐµÄÎïÆ·ÔÚµ±Ç°Ò³µÄË÷Òý
+    /// ï¿½ï¿½Ç°Ñ¡ï¿½Ðµï¿½ï¿½ï¿½Æ·ï¿½Úµï¿½Ç°Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     public int SelectedIndex => selectecIndex;
 
     /// <summary>
-    /// µ±Ç°Ò³µÄ±àºÅ(´ÓÒ»¿ªÊ¼)
+    /// ï¿½ï¿½Ç°Ò³ï¿½Ä±ï¿½ï¿½(ï¿½ï¿½Ò»ï¿½ï¿½Ê¼)
     /// </summary>
     public int CurrentPageNumber => currentPage + 1;
 
     /// <summary>
-    /// ×ÜÒ³Êý
+    /// ï¿½ï¿½Ò³ï¿½ï¿½
     /// </summary>
     public int TotalPages => totalPages;
 
     /// <summary>
-    /// Ìí¼ÓÎïÆ·
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·
     /// </summary>
     public virtual void AddItem(T bagItem)
     {
-        if (model.AddItem(bagItem)) //ÈôÌí¼Ó³É¹¦
+        if (model.AddItem(bagItem)) //ï¿½ï¿½ï¿½ï¿½ï¿½Ó³É¹ï¿½
         {
             OnPropertyChanged(nameof(CurrentPageItems));
         }
     }
 
     /// <summary>
-    /// ÔÚÖ¸¶¨¾ø¶ÔÎ»ÖÃÌí¼ÓÎïÆ·
+    /// ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·
     /// </summary>
     /// <param name="bagItem"></param>
     /// <param name="index"></param>
@@ -105,14 +105,14 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
     }
 
     /// <summary>
-    /// É¾³ýµ±Ç°Ò³indexµÄÎïÆ·
+    /// É¾ï¿½ï¿½ï¿½ï¿½Ç°Ò³indexï¿½ï¿½ï¿½ï¿½Æ·
     /// </summary>
     /// <param name="itemIndexInCurrentPage"></param>
     /// <param name="quantity"></param>
     public virtual bool RemoveItemAt(int itemIndexInCurrentPage)
     {
         int indexInBackpack = currentPage * totalPages + itemIndexInCurrentPage;
-        if (model.RemoveItemAt(indexInBackpack)) //ÈôÉ¾³ý³É¹¦
+        if (model.RemoveItemAt(indexInBackpack)) //ï¿½ï¿½É¾ï¿½ï¿½ï¿½É¹ï¿½
         {
             OnPropertyChanged(nameof(CurrentPageItems));
             OnPropertyChanged(nameof(SelectedItem));
@@ -122,7 +122,7 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
     }
 
     /// <summary>
-    /// Ñ¡ÔñÎïÆ·
+    /// Ñ¡ï¿½ï¿½ï¿½ï¿½Æ·
     /// </summary>
     public virtual T SelectItem(int index)
     {
@@ -137,7 +137,7 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
     }
 
     /// <summary>
-    /// »ñÈ¡µ±Ç°Ò³Ö¸¶¨indexµÄÎïÆ·
+    /// ï¿½ï¿½È¡ï¿½ï¿½Ç°Ò³Ö¸ï¿½ï¿½indexï¿½ï¿½ï¿½ï¿½Æ·
     /// </summary>
     /// <returns></returns>
     public virtual T GetItemAt(int index)
@@ -146,11 +146,11 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
     }
 
     /// <summary>
-    /// ³¢ÊÔÒÆ¶¯ÎïÆ·(Í¬Ò»Ò³ÄÚ)
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½Æ·(Í¬Ò»Ò³ï¿½ï¿½)
     /// </summary>
     /// <param name="from"></param>
     /// <param name="to"></param>
-    /// <returns>ÊÇ·ñ³É¹¦</returns>
+    /// <returns>ï¿½Ç·ï¿½É¹ï¿½</returns>
     public virtual bool TryMoveItem(int from, int to)
     {
         T fromItem = GetItemAt(from);
@@ -166,11 +166,11 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
     }
 
     /// <summary>
-    /// ³¢ÊÔÏòÁíÒ»±³°üÒÆ¶¯ÎïÆ·
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½Æ·
     /// </summary>
     /// <param name="anotherBackpack"></param>
-    /// <param name="fromInCurrent">±¾Ò³index</param>
-    /// <param name="toInTarget">Ä¿±ê±³°üµÄÄÇÒ³µÄindex</param>
+    /// <param name="fromInCurrent">ï¿½ï¿½Ò³index</param>
+    /// <param name="toInTarget">Ä¿ï¿½ê±³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½index</param>
     /// <returns></returns>
     public virtual bool TryTransferTo(ViewModel<T> anotherBackpack, int fromInCurrent, int toInTarget)
     {
@@ -186,12 +186,12 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
         {
             anotherBackpack.AddItemAt(fromItem, toInTarget);
         }
-        else //·Ç¿ÕÈÏÎª²»¿ÉÒÆ¶¯
+        else //ï¿½Ç¿ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
         {
             return false;
         }
 
-        RemoveItemAt(fromInCurrent); //¶ÔÇ°Á½ÖÖÇé¿öµÄÔ­±³°üµÄ¸üÐÂ
+        RemoveItemAt(fromInCurrent); //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½
 
         return true;
     }
@@ -204,23 +204,23 @@ public class ViewModel<T> : INotifyPropertyChanged where T : class
         OnPropertyChanged(nameof(SelectedItem));
     }
 
-    //ÊµÏÖ½Ó¿Ú,MVVMµÄºËÐÄ½Ó¿Ú,ÔÚÊôÐÔ±ä»¯ºóÍ¨ÖªUI¸üÐÂ
+    //Êµï¿½Ö½Ó¿ï¿½,MVVMï¿½Äºï¿½ï¿½Ä½Ó¿ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ä»¯ï¿½ï¿½Í¨ÖªUIï¿½ï¿½ï¿½ï¿½
     public event PropertyChangedEventHandler PropertyChanged;
 
-    protected void OnPropertyChanged([CallerMemberName] string propertyName = null) //[CallerMemberName] ±àÒëÆ÷ÌØÐÔ,±àÒëÊ±×Ô¶¯»ñÈ¡²¢Ìî³äµ÷ÓÃÕßµÄÊôÐÔÃû
+    protected void OnPropertyChanged([CallerMemberName] string propertyName = null) //[CallerMemberName] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ô¶ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
     /// <summary>
-    /// ³õÊ¼»¯×ÖµäµÄÍ¼Æ¬
+    /// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Öµï¿½ï¿½Í¼Æ¬
     /// </summary>
     protected virtual void InitDictionarySprites()
     { 
         
     }
 
-    //¸øspritesÔö¼Ó¼üÖµ¶Ô
+    //ï¿½ï¿½spritesï¿½ï¿½ï¿½Ó¼ï¿½Öµï¿½ï¿½
     protected void AddPairToSprites(string path)
     {
         SpriteStatic.AddPairToSprites(path);
