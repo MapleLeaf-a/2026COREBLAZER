@@ -611,6 +611,7 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   overlapWaitTimeout: 1
   ignoreClickWhenPointerOverUI: 1
+  checkOverlapOnClickImmediately: 1
   logClickDebug: 1
 --- !u!1 &554887526
 GameObject:
@@ -2284,6 +2285,8 @@ GameObject:
   - component: {fileID: 1761641216}
   - component: {fileID: 1761641215}
   - component: {fileID: 1761641214}
+  - component: {fileID: 1761641218}
+  - component: {fileID: 1761641217}
   m_Layer: 0
   m_Name: SceneExit_To_OutsideDoor_1
   m_TagString: Untagged
@@ -2365,12 +2368,50 @@ Transform:
   m_GameObject: {fileID: 1761641213}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -309, y: -11, z: -1.9154737}
+  m_LocalPosition: {x: -290.7, y: -11, z: -1.9154737}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1761641217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761641213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 023fd0d8ba5cfde4bbf99282fbbeec93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeKey: OutsideDoor_1
+  railMapOverride: {fileID: 11400000, guid: d4cb61bb33963034f8db770ad8a2064d, type: 2}
+  targetWalker: {fileID: 0}
+  autoFindWalkerWhenMissing: 1
+  playerCollider: {fileID: 0}
+  overlapWaitTimeout: 1
+  ignoreClickWhenPointerOverUI: 0
+  checkOverlapOnClickImmediately: 1
+  logClickDebug: 1
+--- !u!114 &1761641218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761641213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c399451376554c848e190e76bfbcb173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionName: Interaction Point
+  canInteract: 1
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1836213490
 GameObject:
   m_ObjectHideFlags: 0
