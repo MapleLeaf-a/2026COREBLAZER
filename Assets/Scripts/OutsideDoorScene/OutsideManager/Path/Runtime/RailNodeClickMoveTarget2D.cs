@@ -78,9 +78,12 @@ public sealed class RailNodeClickMoveTarget2D : MonoBehaviour
 	/// <summary>
 	/// 鼠标点在 UI 上时是否忽略本次点击。
 	/// true 可以避免点击背包、按钮等 UI 时误触场景中的节点碰撞体。
+	///
+	/// 注意：如果场景中有其他 Collider2D 或 Event Trigger 对象，
+	/// 可能会导致误判。如果点击不生效，尝试设为 false。
 	/// </summary>
 	[SerializeField]
-	private bool ignoreClickWhenPointerOverUI = true;
+	private bool ignoreClickWhenPointerOverUI = false;
 
 	/// <summary>
 	/// 是否打印点击移动日志。
@@ -144,7 +147,16 @@ public sealed class RailNodeClickMoveTarget2D : MonoBehaviour
 	{
 		if (ShouldIgnoreClick())
 		{
+			if (logClickDebug)
+			{
+				Debug.Log($"[RailNodeClickMoveTarget2D] 点击被忽略：鼠标在 UI 上", this);
+			}
 			return;
+		}
+
+		if (logClickDebug)
+		{
+			Debug.Log($"[RailNodeClickMoveTarget2D] 检测到点击，开始处理", this);
 		}
 
 		TryRequestAutoMoveAndInteraction();
@@ -161,7 +173,7 @@ public sealed class RailNodeClickMoveTarget2D : MonoBehaviour
 
 		if (targetWalker == null || targetCollider == null || interactionPoint == null || playerCollider == null)
 		{
-			LogClickWarning("点击自动移动交互配置不完整。");
+			LogClickWarning($"点击自动移动交互配置不完整。targetWalker={targetWalker != null}, targetCollider={targetCollider != null}, interactionPoint={interactionPoint != null}, playerCollider={playerCollider != null}");
 			return false;
 		}
 
@@ -184,7 +196,7 @@ public sealed class RailNodeClickMoveTarget2D : MonoBehaviour
 		// 检查 targetWalker 是否已初始化（currentSegmentId 应 >= 0）
 		if (targetWalker.CurrentSegmentId < 0)
 		{
-			LogClickWarning("RailWalker2D 尚未初始化（CurrentSegmentId < 0）。请确保 CreatePlayerEvent 已触发。");
+			LogClickWarning($"RailWalker2D 尚未初始化（CurrentSegmentId={targetWalker.CurrentSegmentId}）。请确保 CreatePlayerEvent 已触发。");
 			return false;
 		}
 
@@ -206,6 +218,11 @@ public sealed class RailNodeClickMoveTarget2D : MonoBehaviour
 		waitingForOverlap = false;
 		pendingTargetNodeId = targetNode.nodeId;
 		overlapWaitTimer = 0f;
+
+		if (logClickDebug)
+		{
+			Debug.Log($"[RailNodeClickMoveTarget2D] 尝试自动移动到节点：{targetNode.nodeKey} (nodeId={targetNode.nodeId})", this);
+		}
 
 		bool started = targetWalker.TryAutoMoveToNodeKey(targetNode.nodeKey);
 
@@ -334,7 +351,16 @@ public sealed class RailNodeClickMoveTarget2D : MonoBehaviour
 			return false;
 		}
 
-		return EventSystem.current.IsPointerOverGameObject();
+		// 检查鼠标是否在 UI 元素上
+		// 注意：这会检测所有 EventSystem 对象，包括 UI 和带有 Event Trigger 的对象
+		bool isOverUI = EventSystem.current.IsPointerOverGameObject();
+
+		if (isOverUI && logClickDebug)
+		{
+			Debug.Log($"[RailNodeClickMoveTarget2D] 鼠标在 UI 上，忽略点击", this);
+		}
+
+		return isOverUI;
 	}
 
 	private void ClearPendingInteraction()
