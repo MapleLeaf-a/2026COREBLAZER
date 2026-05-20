@@ -1,9 +1,12 @@
+using StaticTemplates.MusicGame;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BarJudger : MonoBehaviour
 {
+    public PopupImage popupImage;
+
     //ÅÐ¶¨Ê±¼ä
     public const float perfect = 0.04f; //<40ms
     public const float good = 0.08f; //<80ms
@@ -64,6 +67,14 @@ public class BarJudger : MonoBehaviour
                     ScoreManager.ScoreManagerInstance?.score.UpdateCurrentRate();
                     ScoreManager.ScoreManagerInstance?.UpdateCurrentScoreText();
                     noteManager.AddBarIndex(trackIndex);
+
+                    if (trackCount == 4)
+                    {
+                        string id = TrackGenerator.index2id[Random.Range(0, TrackGenerator.index2id.Count)];
+                        FoodMaterial foodMaterial = FoodMaterials.LookUpFoodMaterial(id);
+                        TestBackpack.instance.UAVBackpackView.backpackViewModel.AddItem(new Statics.Classes.BagItem(foodMaterial, 1));
+                        popupImage.Show(SpriteStatic.GetSprite(foodMaterial.spritePath));
+                    }
                 }
             }
         }

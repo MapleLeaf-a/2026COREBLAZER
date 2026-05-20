@@ -32,9 +32,61 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scenes/MainGameWindow.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/unity project/gamejam/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/MainGameWindow.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/OutsideDoor/OutsideDoor_2.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/Classes/OrderIngredientsUIItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/Classes/OrderIngredientsUIItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/OrderIngredients/OrderIngredientsView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/OrderIngredients/OrderIngredientsView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/Recipe/AllRecipes/AllRecipesView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/Recipe/AllRecipes/AllRecipesView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/SubmitFood/FoodView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/SubmitFood/FoodView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/SubmitFood/FoodViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/SubmitFood/FoodViewModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/SubmitFood/GuestFoodView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/SubmitFood/GuestFoodView.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/TestBackpack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Backpack/TestBackpack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/MusicGame/Classes/Note.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/MusicGame/Classes/Note.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/MusicGame/NoteManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/MusicGame/NoteManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/Manager/DTO/OutsideEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/Manager/DTO/OutsideEvent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/Manager/Power/OutsideDoorCharacterPowerManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/Manager/Power/OutsideDoorCharacterPowerManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/GoOutsideButton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/GoOutsideButton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/OutsideUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/OutsideUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/OutsideUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/OutsideUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/PowerSlider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/OutsideDoorScene/OutsideManager/UI/PowerSlider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/RunningStatics/Food/FoodRecipes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/RunningStatics/Food/FoodRecipes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/RunningStatics/Food/Foods.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/RunningStatics/Food/Foods.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Scene/ScreenFader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Scene/ScreenFader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Tools/Common/MonoSingleton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Tools/Common/MonoSingleton.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Tools/SlideInjector/ProjectFlowInjector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Tools/SlideInjector/ProjectFlowInjector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Tools/Unity/SceneManager/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/Tools/Unity/SceneManager/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/UI/SettingPanelManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Assets/Scripts/UI/SettingPanelManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/10.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/StreamingAssets/Audio/GeneratedSoundBanks/Windows/Media/58/58475913.wem.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Wwise/ScriptableObjects/GameParameter/0D99679D-6FC5-4CE9-884F-3EEF13956791.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/Packages/packages-lock.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -49,21 +101,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "TempMembers",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;TempMembers&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="附加到 Unity 编辑器.附加到 Unity 编辑器">
     <configuration name="启动 Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\unity\2022.3.55f1c1\Editor\Unity.exe" />
@@ -130,6 +183,7 @@
       <updated>1779155118709</updated>
       <workItem from="1779155121435" duration="14000" />
       <workItem from="1779235901282" duration="75000" />
+      <workItem from="1779252253068" duration="1325000" />
     </task>
     <task id="LOCAL-00001" summary="神秘素材合并问题解决">
       <option name="closed" value="true" />
@@ -147,7 +201,23 @@
       <option name="project" value="LOCAL" />
       <updated>1779235969085</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="音效文件">
+      <option name="closed" value="true" />
+      <created>1779252576692</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1779252576692</updated>
+    </task>
+    <task id="LOCAL-00004" summary="合并提交？">
+      <option name="closed" value="true" />
+      <created>1779253185973</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1779253185973</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,7 +258,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="神秘素材合并问题解决" />
     <MESSAGE value="合并主分支" />
-    <option name="LAST_COMMIT_MESSAGE" value="合并主分支" />
+    <MESSAGE value="音效文件" />
+    <MESSAGE value="合并提交？" />
+    <option name="LAST_COMMIT_MESSAGE" value="合并提交？" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

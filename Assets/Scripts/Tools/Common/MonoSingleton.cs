@@ -111,11 +111,8 @@ namespace Assets.Scripts.Tools.Common
 			{
 				m_instance = this as T;
 
-				if (DontDestroyOnLoad)
-				{
-					// 让当前 GameObject 在切换场景时不被 Unity 自动销毁。
-					UnityEngine.Object.DontDestroyOnLoad(gameObject);
-				}
+				// 让当前 GameObject 在切换场景时不被 Unity 自动销毁。
+				UnityEngine.Object.DontDestroyOnLoad(gameObject);
 				return;
 			}
 

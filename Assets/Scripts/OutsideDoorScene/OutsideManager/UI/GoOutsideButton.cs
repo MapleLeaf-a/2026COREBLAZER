@@ -14,7 +14,7 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.UI
 		public override void OnClick()
 		{
 			Debug.Log("场景切换按钮触发");
-			EventBus.Publish(new SceneTransitionRequestEvent("OutsideDoor_1", null, 0.35f));
+			EventBus.Publish(new GoToOutsideEvent() { targetSceneName = "OutsideDoor_1" });
 		}
 	}
 }

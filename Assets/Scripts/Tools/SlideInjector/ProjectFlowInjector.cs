@@ -13,12 +13,18 @@ namespace Assets.Scripts.Tools.SlideInjector
 	{
 		public void OnEnable()
 		{
+			if (OutsideUI.Instance == null)
+				return;
 			OutsideUI.Instance.Close();
+			Debug.Log("进入室内关闭户外UI");
 		}
 
 		public void OnDisable()
 		{
+			if (OutsideUI.Instance == null)
+				return;
 			OutsideUI.Instance.Open();
+			Debug.Log("进入室外开启户外UI");
 		}
 
 		public void Awake()
@@ -29,11 +35,17 @@ namespace Assets.Scripts.Tools.SlideInjector
 			//场景流程管理
 			GameSceneManager.Instance.Init();
 
+			//角色管理器
+			CharacterManager.Instance.Init();
+
 			//户外UI管理注册
 			OutsideUIPanelManager.Instance.Init();
 
 			//户外能量注册
 			OutsideDoorCharacterPowerManager.Instance.Init();
+
+			//户外天数注册
+			DaysManager.Instance.Init();
 		}
 	}
 }

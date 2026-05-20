@@ -128,4 +128,47 @@ namespace Assets.Scripts.OutsideDoorScene.OutsideManager.Manager
 	public struct OpenPowerUseUpTipsEvent
 	{
 	}
+
+	// ========== Days System Events ==========
+
+	/// <summary>
+	/// 推进天数事件。
+	///
+	/// 作用：
+	/// 由外部系统发布，通知 DaysManager 当前天数加 1。
+	/// 通常在每天结束、玩家休息、或完成每日目标时触发。
+	/// </summary>
+	public struct AdvanceDayEvent
+	{
+	}
+
+	/// <summary>
+	/// 重置天数事件。
+	///
+	/// 作用：
+	/// 由外部系统发布，通知 DaysManager 将天数重置为初始值。
+	/// 通常在新游戏开始、存档清除、或调试时触发。
+	/// </summary>
+	public struct ResetDaysEvent
+	{
+	}
+
+	/// <summary>
+	/// 同步天数 UI 事件。
+	///
+	/// 作用：
+	/// 由 DaysManager 发布，通知 UI 层更新天数显示。
+	/// 每当天数变化时，DaysManager 会发布此事件。
+	/// UI 层订阅此事件即可获取最新天数。
+	/// </summary>
+	public struct SyncDaysDisplay
+	{
+		/// <summary>
+		/// 当前天数。
+		///
+		/// 作用：
+		/// UI 层读取此字段来更新天数文字或图标。
+		/// </summary>
+		public int currentDay;
+	}
 }
