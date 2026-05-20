@@ -1,64 +1,163 @@
 Event	ID	Name			Wwise Object Path	Notes
 	172809449	Play_high_tech2			\Default Work Unit\BGM\音游BGM\Play_high_tech2	
+	457897357	Play_JiGuangBei			\Default Work Unit\UI\Play_JiGuangBei	
 	472383433	Play_Mouse_Up			\Default Work Unit\UI\Play_Mouse_Up	
 	475124431	Stop_Music_MusicGame			\Default Work Unit\BGM\音游BGM\Stop_Music_MusicGame	
 	484422930	Play_Music_Scene			\Default Work Unit\BGM\Play_Music_Scene	
+	859929402	Play_TaoShaGen			\Default Work Unit\UI\Play_TaoShaGen	
 	953277036	Resume			\Default Work Unit\Other\Resume	
 	980541865	Play_Drone_Close			\Default Work Unit\UI\Play_Drone_Close	
+	1094013591	Play_Scene_SaltFlats			\Default Work Unit\BGM\Play_Scene_SaltFlats	
 	1241429455	Play_nipponkaika			\Default Work Unit\BGM\音游BGM\Play_nipponkaika	
+	1351875428	Play_Cancel			\Default Work Unit\UI\Play_Cancel	
+	1598528330	Play_Fish_Splash			\Default Work Unit\UI\Play_Fish_Splash	
+	1602358412	Play_FootStep			\Default Work Unit\GamePlay\Play_FootStep	
+	1614456320	Play_Mouse_Enter			\Default Work Unit\UI\Play_Mouse_Enter	
 	1965924116	Play_kashinomai			\Default Work Unit\BGM\音游BGM\Play_kashinomai	
 	1974567931	Play_Drone_Open			\Default Work Unit\UI\Play_Drone_Open	
+	2196800424	Play_YanTui			\Default Work Unit\UI\Play_YanTui	
 	2243961743	Play_ezokoiuta			\Default Work Unit\BGM\音游BGM\Play_ezokoiuta	
+	2488320222	Play_Drone_Transport			\Default Work Unit\UI\Play_Drone_Transport	
+	2824767826	Play_Buy			\Default Work Unit\UI\Play_Buy	
 	2897856806	MusicGame_Resume			\Default Work Unit\Other\MusicGame_Resume	
 	2907769111	Play_tsukiyochou			\Default Work Unit\BGM\音游BGM\Play_tsukiyochou	
+	2956245481	Play_Horn			\Default Work Unit\GamePlay\Play_Horn	
 	3092587493	Pause			\Default Work Unit\Other\Pause	
+	3092915530	Play_Dig			\Default Work Unit\GamePlay\Play_Dig	
+	3094107954	Play_Scene_forest			\Default Work Unit\BGM\Play_Scene_forest	
 	3187507146	Play_test			\Default Work Unit\Play_test	
+	3367649344	Play_Mouse_Up_SetPlate			\Default Work Unit\UI\Play_Mouse_Up_SetPlate	
+	3405073909	Play_TuningFork			\Default Work Unit\GamePlay\Play_TuningFork	
+	3447903719	Play_LieKeYaCai			\Default Work Unit\UI\Play_LieKeYaCai	
 	3572638966	Play_yoimatsurinokaze			\Default Work Unit\BGM\音游BGM\Play_yoimatsurinokaze	
+	3620929515	Play_Amb_Scene			\Default Work Unit\Ambient\Play_Amb_Scene	
+	3744514662	Play_BaiChaoGuo			\Default Work Unit\UI\Play_BaiChaoGuo	
 	3951695210	Play_shihashinanai			\Default Work Unit\BGM\音游BGM\Play_shihashinanai	
 	3956123227	Mouse_Down_InGame			\Default Work Unit\UI\Mouse_Down_InGame	
 	4059570743	MusicGame_Pause			\Default Work Unit\Other\MusicGame_Pause	
 	4135004417	Play_Window_Open			\Default Work Unit\UI\Play_Window_Open	
 	4136017490	Play_Confirm			\Default Work Unit\UI\Play_Confirm	
+	4151724828	Play_StartBusiness			\Default Work Unit\UI\Play_StartBusiness	
+	4187566904	Play_Move_Outdoor			\Default Work Unit\UI\Play_Move_Outdoor	
+	4237978833	Play_Move_Restaurant			\Default Work Unit\UI\Play_Move_Restaurant	
 	4244658871	Play_Window_Close			\Default Work Unit\UI\Play_Window_Close	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1283602703	TuningFork_Status			\Default Work Unit\TuningFork_Status	
+	1866025847	Footstep			\Default Work Unit\Footstep	
+
+Switch	ID	Name	Switch Group			Notes
+	1578581236	FirstHit	TuningFork_Status			
+	1654635552	SubsequentHits	TuningFork_Status			
+	803837735	Sand	Footstep			
+	2058049674	Wood	Footstep			
+	2195636714	Dirt	Footstep			
 
 State Group	ID	Name			Wwise Object Path	Notes
 	938816221	Menu_Status			\Default Work Unit\Menu_Status	
-	1612179606	BUFF			\Default Work Unit\BUFF	
 	1926883983	Scene			\Default Work Unit\Scene	
 
 State	ID	Name	State Group			Notes
 	748895195	None	Menu_Status			
 	1631528850	In_Menu	Menu_Status			
 	2967546505	In_Game	Menu_Status			
-	748895195	None	BUFF			
-	144697359	OutDoor	Scene			
 	251412225	Shop	Scene			
 	445985471	Dig	Scene			
+	589459207	Bedroom_Daytime	Scene			
 	748895195	None	Scene			
+	1440285448	Bedroom_Night	Scene			
 	2169636208	Restaurant	Scene			
 	3188984297	Fishing	Scene			
 	3558471344	MusicGame	Scene			
+	3705726509	Title	Scene			
+	3981151828	OutDoor_2	Scene			
+	3981151829	OutDoor_3	Scene			
+	3981151831	OutDoor_1	Scene			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1461787379	Distance_To_Interference			\Default Work Unit\Distance_To_Interference	
+
+Effect plug-ins	ID	Name	Type				Notes
+	258996526	Boomerang (Custom)	Wwise Tremolo			
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	164848254	Silence	Wwise Silence		\Containers\Default Work Unit\BGM\场景BGM\卧室夜晚\Silence_3‘2s\Silence	
+	234831115	Silence	Wwise Silence		\Containers\Default Work Unit\BGM\场景BGM\Fishing\Silence_3‘2s\Silence	
+	359777644	Silence	Wwise Silence		\Containers\Default Work Unit\BGM\场景BGM\Outdoor\Silence_3‘2s\Silence	
+	434448741	Silence	Wwise Silence		\Containers\Default Work Unit\BGM\场景BGM\餐厅\Silence_3‘2s\Silence	
+	1061123552	Silence	Wwise Silence		\Containers\Default Work Unit\BGM\场景BGM\卧室白天\Silence_3‘2s\Silence	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	3680761	Mouse_Up_SetPlate3	.cache\5A\{5A7FF0C7-FBED-DA31-66A5-672CDE4304AF}.wem		\Containers\Default Work Unit\UI\Mouse_Up_SetPlate\Mouse_Up_SetPlate3		299256
 	13117330	宵祭りの風	.cache\7F\{7F7C772B-6106-3DFE-1EA3-06534BE2B91B}.wem		\Containers\Default Work Unit\BGM\音游BGM\宵祭りの風		42741744
+	14135905	Drone_Transport	.cache\EF\{EF57B1B7-8DE5-AFC1-D566-2C3C2A915C91}.wem		\Containers\Default Work Unit\UI\Drone_Transport		444464
+	17817323	LieKeYaCai	.cache\99\{99B5161D-FB85-CBFA-B180-3653A46E3A68}.wem		\Containers\Default Work Unit\UI\挖掘小游戏\LieKeYaCai		188632
+	19169281	FootStep_Sand_1	.cache\A1\{A1560B5A-1F1D-6E1E-D8AE-E9A54255480D}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Sand\FootStep_Sand_1		225072
+	28352071	Move_Outdoor	.cache\4F\{4F6DBA9F-BB0A-3C85-95CF-606BBA4355C8}.wem		\Containers\Default Work Unit\UI\Move_Outdoor		271252
 	41652233	志は死なない	.cache\23\{232A464C-C489-409A-AE0D-6CBDCA5314C2}.wem		\Containers\Default Work Unit\BGM\音游BGM\志は死なない		49920144
-	100810506	ezokoiuta	.cache\6E\{6E0A4C46-3FA2-C0FF-60BA-FD1F9FF3EC87}.wem		\Containers\Default Work Unit\BGM\音游BGM\ezokoiuta		19716932
+	61159122	Pause	.cache\C7\{C722067E-9443-81F1-A365-2B5EE89AF1E6}.wem		\Containers\Default Work Unit\UI\Pause		384096
+	72840991	Dig5	.cache\32\{325F7E12-DAB1-6918-F41E-190E81BD913D}.wem		\Containers\Default Work Unit\GamePlay\Dig\Dig5		254352
+	117979988	Wave2	.cache\A7\{A7C70423-1D23-8563-BC35-00DA1E7C3F51}.wem		\Containers\Default Work Unit\Ambient\Wave\Wave2		706760
+	138176378	FootStep_Dirt_3	.cache\50\{5077B6A6-D0A6-87F9-BB5F-9568D06D5F0F}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Dirt\FootStep_Dirt_3		225168
+	150326030	Dig1	.cache\A0\{A0F37153-83BB-4923-0B69-6B4D9E22E6C2}.wem		\Containers\Default Work Unit\GamePlay\Dig\Dig1		234108
+	162543979	Move_Restaurant	.cache\5A\{5A79D319-7B09-0520-9308-BE77482B9B43}.wem		\Containers\Default Work Unit\UI\Move_Restaurant		536440
+	171886846	Mouse_Up_SetPlate2	.cache\99\{99486C49-B135-FA97-6360-7F98C81BFB2D}.wem		\Containers\Default Work Unit\UI\Mouse_Up_SetPlate\Mouse_Up_SetPlate2		299604
+	185769657	JiGuangBei	.cache\4D\{4D142C49-D16E-EEA4-F35E-F63323D6C19B}.wem		\Containers\Default Work Unit\UI\挖掘小游戏\JiGuangBei		138700
+	188502897	Drone_Close	.cache\88\{8872104D-2ACC-9EAC-8CD4-84325E04BC2B}.wem		\Containers\Default Work Unit\UI\Drone_Close		75452
+	216712018	TuningFork	.cache\F0\{F0B648AF-1EED-9F76-8A4C-861CD59A352E}.wem		\Containers\Default Work Unit\GamePlay\TuningFork		1153304
+	217224762	TuningFork_RingOut	.cache\F0\{F031268E-4A51-13A9-CA31-20B3644A5FC4}.wem		\Containers\Default Work Unit\GamePlay\TuningFork_Ringout\TuningFork_RingOut		1519764
+	223177538	ezokoiuta	.cache\9E\{9EBEA2B3-5D3E-A556-C8A9-7A1C56DD7024}.wem		\Containers\Default Work Unit\BGM\音游BGM\ezokoiuta		23984804
+	239336339	Mouse_Enter	.cache\4B\{4B0BFD33-4AA1-5676-BB29-24F4FD26E711}.wem		\Containers\Default Work Unit\UI\Mouse_Enter		224940
 	250552231	CountDown	.cache\80\{80351021-BF27-0143-FB5B-33AAB003C6BC}.wem		\Containers\Default Work Unit\UI\CountDown		593292
+	263461963	FootStep_Wood_5	.cache\74\{74B04C58-B564-F631-1909-99AC8156FC81}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Wood\FootStep_Wood_5		223008
+	271857255	Horn	.cache\C6\{C6B1BF3C-4B0B-F885-ADD3-2BD53DCCC83A}.wem		\Containers\Default Work Unit\GamePlay\Horn		444004
+	273583709	FootStep_Dirt_5	.cache\F5\{F5FB838E-CC62-46C6-117A-C0A28E3FC46A}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Dirt\FootStep_Dirt_5		219488
+	293724513	StartBusiness	.cache\CF\{CFD2285D-8A07-73AE-E495-E602B10319C4}.wem		\Containers\Default Work Unit\UI\StartBusiness		381000
+	295143473	FootStep_Wood_4	.cache\7D\{7DAAE4FD-0934-69FA-D3AB-630F3B9937AE}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Wood\FootStep_Wood_4		221508
+	295177214	YanTui	.cache\E1\{E12BD0A3-D18F-7D85-F962-0647192450E9}.wem		\Containers\Default Work Unit\UI\挖掘小游戏\YanTui		146696
 	330082897	Drone_Open	.cache\88\{8898EF2B-739C-6F58-5C89-9365191905E6}.wem		\Containers\Default Work Unit\UI\Drone_Open		138092
+	332433085	Wave1	.cache\04\{04B44FD5-0C58-0AD2-15B9-87E8C3478C47}.wem		\Containers\Default Work Unit\Ambient\Wave\Wave1		970500
+	398942382	Dig3	.cache\DE\{DE43D0D6-034C-FE31-9550-46DC4D88658C}.wem		\Containers\Default Work Unit\GamePlay\Dig\Dig3		241944
+	425179649	tamhe16	.cache\7C\{7CB1C61B-B2E4-4FFC-2FD3-DF52302B72AE}.wem		\Containers\Default Work Unit\BGM\场景BGM\Outdoor\tamhe16		37011208
 	457653704	Mouse_Down_InGame	.cache\20\{20ABEC8C-CCE3-70A6-0C09-88DD4EF776AB}.wem		\Containers\Default Work Unit\UI\Mouse_Down_InGame		18776
-	491541190	sakaba	.cache\12\{1237F6A2-DDC2-820E-DFEC-02B03391E39A}.wem		\Containers\Default Work Unit\BGM\场景BGM\sakaba\sakaba		22890920
+	484823536	FootStep_Sand_3	.cache\9A\{9AC2298B-6FA1-6547-651F-C8DED15266D2}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Sand\FootStep_Sand_3		243116
+	497718266	FootStep_Dirt_4	.cache\28\{28A2770B-5543-ADF5-3DBF-613EF7D1FBF6}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Dirt\FootStep_Dirt_4		218016
+	511880628	Buy	.cache\2B\{2BF938FA-5495-3779-66B1-07CC049B55D2}.wem		\Containers\Default Work Unit\UI\Buy		386568
 	522635378	high-tech2	.cache\F9\{F981F0F4-FD78-C689-C32C-7639B88F6154}.wem		\Containers\Default Work Unit\BGM\音游BGM\high-tech2		31224744
-	534040236	tosyositu	.cache\F8\{F83ED5AF-1BFC-B506-7A37-8EA954471FD1}.wem		\Containers\Default Work Unit\BGM\场景BGM\tosyositu\tosyositu		37925224
-	604483754	Drone_Close	.cache\2D\{2D1832B0-68CE-44D9-6F92-70353FC44C4F}.wem		\Containers\Default Work Unit\UI\Drone_Close		56036
+	551139137	FootStep_Dirt_1	.cache\AA\{AAFA8D07-6201-6716-BDD2-C5EFED761906}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Dirt\FootStep_Dirt_1		214952
+	608645579	wave3	.cache\7A\{7A6CF5A3-FFCC-4945-5F3E-B6A9C52DE2C7}.wem		\Containers\Default Work Unit\Ambient\Wave\wave3		860744
+	634997748	FootStep_Sand_2	.cache\F7\{F77EAD09-3AD1-E688-4C15-BF9E94FCD087}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Sand\FootStep_Sand_2		252672
 	639919688	Mouse_Up	.cache\7B\{7B4F2D31-E934-2E20-7C4B-CE2DF690BE4A}.wem		\Containers\Default Work Unit\UI\Mouse_Up		25032
-	769937516	Cancel	.cache\06\{06E1E2E4-A8B5-0DCF-BE41-C3FF796EB936}.wem		\Containers\Default Work Unit\UI\Cancel		267536
-	830230883	syuwa2	.cache\19\{1976ECB7-87F0-C93B-D34B-ADBA05838637}.wem		\Containers\Default Work Unit\BGM\场景BGM\syuwa2\syuwa2		16488936
-	831280016	gisikiwo	.cache\6C\{6CCD9AAF-7F68-17E6-9B88-5512A0E95810}.wem		\Containers\Default Work Unit\BGM\场景BGM\gisikiwo\gisikiwo		21586920
+	671636252	BaiChaoGuo	.cache\D8\{D84CDBA9-83A6-EC87-13F3-603E3B21B042}.wem		\Containers\Default Work Unit\UI\挖掘小游戏\BaiChaoGuo		130536
+	673045010	FootStep_Sand_4	.cache\18\{18AF07DC-08AA-D5D7-016C-1D61FB6C4F90}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Sand\FootStep_Sand_4		235388
+	680113913	Mouse_Up_SetPlate1	.cache\33\{33591173-F54F-E41B-4EF6-A98F5143ED64}.wem		\Containers\Default Work Unit\UI\Mouse_Up_SetPlate\Mouse_Up_SetPlate1		311544
+	754346326	TaoShaGen	.cache\91\{91CB3C4B-D2B0-6E18-A189-65BA6B6A815C}.wem		\Containers\Default Work Unit\UI\挖掘小游戏\TaoShaGen		205348
+	769937516	Cancel	.cache\7A\{7AE0A865-129A-64AF-0C74-A1B302C40F6A}.wem		\Containers\Default Work Unit\UI\Cancel		258216
+	800244347	FootStep_Sand_5	.cache\C6\{C6221851-6BBD-F4EA-02A0-DF582D0FA8E1}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Sand\FootStep_Sand_5		220516
+	850830215	Mouse_Up_SetPlate4	.cache\37\{37A63CCD-B4E8-8E35-AC45-804782443D17}.wem		\Containers\Default Work Unit\UI\Mouse_Up_SetPlate\Mouse_Up_SetPlate4		311828
 	871199543	Window_Close	.cache\F8\{F82102C9-2959-1403-156E-09D6506B5C5F}.wem		\Containers\Default Work Unit\UI\Window_Close		95188
 	899250504	月夜蝶～君ヲ想フ～	.cache\72\{7203B338-CC09-99C0-A96C-95BBE85C9505}.wem		\Containers\Default Work Unit\BGM\音游BGM\月夜蝶～君ヲ想フ～		26265792
+	912044148	FootStep_Wood_1	.cache\8B\{8B099DB8-5AA8-6FBE-9CBB-2E7EA206644E}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Wood\FootStep_Wood_1		225648
 	916806784	test	.cache\1D\{1DAD5592-D056-EA3D-8649-C2FBA99A28C5}.wem		\Containers\Default Work Unit\test		886268
+	959019713	FootStep_Dirt_2	.cache\D8\{D80B75EC-AF48-E7E6-02DF-4181173F71C1}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Dirt\FootStep_Dirt_2		216300
+	975441854	FootStep_Wood_2	.cache\2B\{2BD27472-ED69-4E68-A548-6F948684ECCF}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Wood\FootStep_Wood_2		224084
 	1029893972	Window_Open	.cache\63\{63E49873-9ED6-B951-DCE3-E9E8712DB256}.wem		\Containers\Default Work Unit\UI\Window_Open		98648
+	1032033606	FootStep_Wood_3	.cache\0C\{0CA1073B-A415-73C4-D86C-43CFE8EAE0E8}.wem		\Containers\Default Work Unit\GamePlay\FootStep\Wood\FootStep_Wood_3		224512
 	1035644058	華志の舞	.cache\9F\{9F661A12-5681-B15D-975F-F37130705AF9}.wem		\Containers\Default Work Unit\BGM\音游BGM\華志の舞		42440812
 	1041422428	Confirm	.cache\5A\{5ACC8C74-57AE-CC6B-A0B3-C660FAD1323D}.wem		\Containers\Default Work Unit\UI\Confirm		294100
 	1050366963	日本開花	.cache\5D\{5D1980D7-E928-C090-F436-A554A065F258}.wem		\Containers\Default Work Unit\BGM\音游BGM\日本開花		42134176
+	1061155655	Fish_Splash	.cache\4A\{4A16D1BC-483A-B3D5-E7FC-78A8916FD2B4}.wem		\Containers\Default Work Unit\UI\Fish_Splash		415344
+
+Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
+	58475913	Amb_Outdoor	.cache\0B\{0B7C8340-8982-8CAF-1A3A-51B953C993D7}.wem	58475913.wem	\Containers\Default Work Unit\Ambient\Amb_Scene\Amb_Outdoor	
+	97162020	gisikiwo	.cache\0C\{0C24835A-4686-21F5-38F7-8ACD0D01C31F}.wem	97162020.wem	\Containers\Default Work Unit\BGM\场景BGM\gisikiwo	
+	115994408	Coastal	.cache\73\{73ED10E6-A00C-C91D-E4F9-E9E81AF4EA4C}.wem	115994408.wem	\Containers\Default Work Unit\Ambient\Amb_Scene\Coastal	
+	217228489	undersea	.cache\1D\{1D484C49-5B44-D745-4684-C9A94062D95E}.wem	217228489.wem	\Containers\Default Work Unit\BGM\场景BGM\Fishing\undersea	
+	308916219	282_BPM118	.cache\DE\{DE7576DA-C672-35B6-910C-4E39381E448A}.wem	308916219.wem	\Containers\Default Work Unit\BGM\场景BGM\餐厅\282_BPM118	
+	437800495	WaterFall	.cache\2A\{2A6879FA-10E4-7B74-5DDE-ECADF4A79F12}.wem	437800495.wem	\Containers\Default Work Unit\Ambient\Amb_Scene\WaterFall	
+	519953146	M08_Piano_short_BPM65	.cache\FA\{FAB4E2AC-1A22-7ACC-1D37-C6E3546DABF5}.wem	519953146.wem	\Containers\Default Work Unit\BGM\场景BGM\卧室白天\M08_Piano_short_BPM65	
+	619707527	Fireplace	.cache\AA\{AAD24B16-F754-5375-4AE5-7E464CF28293}.wem	619707527.wem	\Containers\Default Work Unit\Ambient\Amb_Scene\Fireplace	
+	746026685	siori	.cache\6D\{6DD057C5-CAAE-EB23-39C8-5932ED0CC28D}.wem	746026685.wem	\Containers\Default Work Unit\BGM\场景BGM\siori	
+	855275216	(shop)n104	.cache\17\{174A65EB-2F2A-ED3D-519B-A7D760F5072E}.wem	855275216.wem	\Containers\Default Work Unit\BGM\场景BGM\(shop)n104	
+	1018709867	M08_MusicBox_short_BPM65	.cache\1D\{1D972B80-CEBF-8B65-2527-CB2F01511FDF}.wem	1018709867.wem	\Containers\Default Work Unit\BGM\场景BGM\卧室夜晚\M08_MusicBox_short_BPM65	
 

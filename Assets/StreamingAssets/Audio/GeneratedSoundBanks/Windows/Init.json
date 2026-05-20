@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{CF99D334-566F-6046-0026-EF6CD2D310E2}",
+    "Hash": "{D0F414F5-5082-D197-DC81-966AC926FFF4}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -111,10 +111,22 @@
       "GUID": "{F72E0659-4346-4E1C-A1B1-DAB46A05101E}"
      },
      {
+      "Id": "1461787379",
+      "Name": "Distance_To_Interference",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Distance_To_Interference",
+      "GUID": "{2ED15976-4297-4D58-86FB-579190CC113D}"
+     },
+     {
       "Id": "1564184899",
       "Name": "sfx_volume",
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\sfx_volume",
       "GUID": "{1FC714B8-C812-435C-A80D-FA0E8CAEAE18}"
+     },
+     {
+      "Id": "1889859258",
+      "Name": "Distance_Mouse_To_Item",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Distance_Mouse_To_Item",
+      "GUID": "{59E66405-1494-4D24-ACBD-DD88088C253E}"
      },
      {
       "Id": "2648548617",
@@ -213,12 +225,6 @@
       "GUID": "{2954B20A-130F-41D0-BCD0-8E1A6C46819D}",
       "States": [
        {
-        "Id": "144697359",
-        "Name": "OutDoor",
-        "ObjectPath": "\\States\\Default Work Unit\\Scene\\OutDoor",
-        "GUID": "{7BF7DC72-1B0A-4DB7-BEBD-7E7D7D5404C9}"
-       },
-       {
         "Id": "251412225",
         "Name": "Shop",
         "ObjectPath": "\\States\\Default Work Unit\\Scene\\Shop",
@@ -231,10 +237,22 @@
         "GUID": "{822EADF3-F2A6-4B14-80ED-9BB2C3803F19}"
        },
        {
+        "Id": "589459207",
+        "Name": "Bedroom_Daytime",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\Bedroom_Daytime",
+        "GUID": "{09825F94-3174-4602-ABA3-B4DAB1EC2CAB}"
+       },
+       {
         "Id": "748895195",
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\Scene\\None",
         "GUID": "{69A54E2F-E029-44BB-8E19-C9D6E0054845}"
+       },
+       {
+        "Id": "1440285448",
+        "Name": "Bedroom_Night",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\Bedroom_Night",
+        "GUID": "{0057C663-37AC-4DDF-BCF5-840E998634B6}"
        },
        {
         "Id": "2169636208",
@@ -253,6 +271,30 @@
         "Name": "MusicGame",
         "ObjectPath": "\\States\\Default Work Unit\\Scene\\MusicGame",
         "GUID": "{13C51477-DD30-4676-B2A4-F6BBA4403431}"
+       },
+       {
+        "Id": "3705726509",
+        "Name": "Title",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\Title",
+        "GUID": "{4DF87B94-16A6-450C-9CAC-22C567E2F09B}"
+       },
+       {
+        "Id": "3981151828",
+        "Name": "OutDoor_2",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\OutDoor_2",
+        "GUID": "{E5BB5F1B-0243-4AB9-B8FA-DA867789377D}"
+       },
+       {
+        "Id": "3981151829",
+        "Name": "OutDoor_3",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\OutDoor_3",
+        "GUID": "{967721C3-33B4-4BE7-9F8B-51A3A9485753}"
+       },
+       {
+        "Id": "3981151831",
+        "Name": "OutDoor_1",
+        "ObjectPath": "\\States\\Default Work Unit\\Scene\\OutDoor_1",
+        "GUID": "{7BF7DC72-1B0A-4DB7-BEBD-7E7D7D5404C9}"
        }
       ]
      },
@@ -309,6 +351,54 @@
         "Name": "Day4",
         "ObjectPath": "\\States\\Default Work Unit\\Date\\Day4",
         "GUID": "{5997CF05-C857-412D-BF51-6B5DE4C44DAC}"
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "1283602703",
+      "Name": "TuningFork_Status",
+      "ObjectPath": "\\Switches\\Default Work Unit\\TuningFork_Status",
+      "GUID": "{C717D16A-EE05-4817-B1A2-450FE6A96D82}",
+      "Switches": [
+       {
+        "Id": "1578581236",
+        "Name": "FirstHit",
+        "ObjectPath": "\\Switches\\Default Work Unit\\TuningFork_Status\\FirstHit",
+        "GUID": "{5B0DFDC9-79C2-47C1-98FE-6DA06D36B487}"
+       },
+       {
+        "Id": "1654635552",
+        "Name": "SubsequentHits",
+        "ObjectPath": "\\Switches\\Default Work Unit\\TuningFork_Status\\SubsequentHits",
+        "GUID": "{0DFA6EF6-0FF4-4623-A17C-BEEE94213FB2}"
+       }
+      ]
+     },
+     {
+      "Id": "1866025847",
+      "Name": "Footstep",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Footstep",
+      "GUID": "{8D371DF6-2FD9-4E0D-98CB-AD4E956D47D1}",
+      "Switches": [
+       {
+        "Id": "803837735",
+        "Name": "Sand",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Footstep\\Sand",
+        "GUID": "{26DF1A6F-B0F7-416B-A954-D99DBDF3FA3A}"
+       },
+       {
+        "Id": "2058049674",
+        "Name": "Wood",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Footstep\\Wood",
+        "GUID": "{3E9C9197-A23A-4CE9-9583-FF8374B7A0DE}"
+       },
+       {
+        "Id": "2195636714",
+        "Name": "Dirt",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Footstep\\Dirt",
+        "GUID": "{34746DE0-F3C1-401D-8C79-07298B46CEED}"
        }
       ]
      }
@@ -792,6 +882,6 @@
     ]
    }
   ],
-  "FileHash": "{6C87F18D-ABAA-E079-C787-22AEADD8E70B}"
+  "FileHash": "{2F35955E-F003-ABAB-D8C0-CF46F501F073}"
  }
 }
