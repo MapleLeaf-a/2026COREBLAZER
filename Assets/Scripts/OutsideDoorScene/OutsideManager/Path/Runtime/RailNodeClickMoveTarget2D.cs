@@ -151,15 +151,6 @@ public sealed class RailNodeClickMoveTarget2D : MonoBehaviour
 
 	private void OnMouseDown()
 	{
-		if (ShouldIgnoreClick())
-		{
-			if (logClickDebug)
-			{
-				Debug.Log($"[RailNodeClickMoveTarget2D] 点击被忽略：鼠标在 UI 上", this);
-			}
-			return;
-		}
-
 		if (logClickDebug)
 		{
 			Debug.Log($"[RailNodeClickMoveTarget2D] 检测到点击，开始处理", this);
