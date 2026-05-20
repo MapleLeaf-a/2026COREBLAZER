@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a68ed68-ffba-47f2-8a48-749f40bee222" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.gamejam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.gamejam/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="8a68ed68-ffba-47f2-8a48-749f40bee222" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,17 +13,17 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="TempMembers" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "avaw23112"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;avaw23112&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/MapleLeaf-a/2026COREBLAZER&quot;,
@@ -34,11 +32,9 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/MainGameWindow.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/unity project/gamejam/Assets/Scenes/MainGameWindow.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/unity project/gamejam/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -58,7 +54,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "TempMembers",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -133,6 +129,7 @@
       <option name="presentableId" value="Default" />
       <updated>1779155118709</updated>
       <workItem from="1779155121435" duration="14000" />
+      <workItem from="1779235901282" duration="75000" />
     </task>
     <task id="LOCAL-00001" summary="神秘素材合并问题解决">
       <option name="closed" value="true" />
@@ -142,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779161904585</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="合并主分支">
+      <option name="closed" value="true" />
+      <created>1779235969085</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1779235969085</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +172,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="TempMembers" />
                       </list>
                     </value>
                   </entry>
@@ -182,7 +187,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="神秘素材合并问题解决" />
-    <option name="LAST_COMMIT_MESSAGE" value="神秘素材合并问题解决" />
+    <MESSAGE value="合并主分支" />
+    <option name="LAST_COMMIT_MESSAGE" value="合并主分支" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
