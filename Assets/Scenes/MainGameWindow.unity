@@ -12120,7 +12120,7 @@ MonoBehaviour:
   itemsPerPage: 8
   contentsParent: {fileID: 1639825641}
   slotPrefab: {fileID: 126456444157263312, guid: 6966ed398def1af48b81717d54161de7, type: 3}
-  SubmitFoodCanvas: {fileID: 0}
+  SubmitFoodCanvas: {fileID: 1165937295}
 --- !u!1 &1640461691
 GameObject:
   m_ObjectHideFlags: 0
