@@ -5,33 +5,33 @@ using UnityEngine.UI;
 
 public class Note : MonoBehaviour
 {
-    //�����˶��ٶ�
+    //音符运动速度
     private float speed;
 
-    [Header("�ж���")]
+    [Header("判定条")]
     public GameObject bar;
 
-    [Header("��������ͼƬ")]
+    [Header("音符种类图片")]
     public SpriteRenderer image;
 
-    //�Ƿ��Ѿ������ж���
+    //是否已经超出判定区
     bool isOutOfJugdingZone = false;
-    //�Ƿ��Ѿ��жϹ�
+    //是否已经判断过
     bool isJugded = false;
 
-    //����ͼƬ
+    //音符图片
     SpriteRenderer spriteRenderer;
 
-    //�ƶ�����
+    //移动策略
     private IMovementStrategy movementStrategy;
 
-    //��Ӧ����������ֵ
+    //对应方向的轴向的值
     float p;
 
-    //bar��Ӧ����������ֵ
+    //bar对应方向的轴向的值
     float barP;
 
-    //��ǰ���ڹ��
+    //当前所在轨道
     BarJudger barJudger;
 
     NoteManager noteManager;
@@ -64,63 +64,63 @@ public class Note : MonoBehaviour
         this.barJudger = bar.GetComponent<BarJudger>();
         movementStrategy = dir;
         this.speed = speed;
-        this.image.sprite = Resources.Load<Sprite>("Images/MusicGame/����/" + type);
+        this.image.sprite = Resources.Load<Sprite>("Images/MusicGame/音符/" + type);
     }
 
 
-    //�����ƶ�
+    //音符移动
     void Move()
     {
         transform.Translate(speed * Time.deltaTime * movementStrategy.GetMoveDirV3());
         p = movementStrategy.GetPositionOnAxis(transform);
     }
 
-    //�Ƿ��Ѿ��뿪���ж���
+    //是否已经离开了判定区
     void IsOutOfJudgingZone()
     {
         if (p < barP - BarJudger.miss * speed)
         {
-            Debug.Log("��⣡");
-            barJudger.ShowText("��⣡", Color.red);
+            Debug.Log("糟糕！");
+            barJudger.ShowText("糟糕！", Color.red);
             isOutOfJugdingZone = true;
             DestroyNote();
 
-            ScoreManager.ScoreManagerInstance?.score.AddNoteCount(); //������������
-            ScoreManager.ScoreManagerInstance?.score.UpdateCurrentRate(); //����Ŀǰ��perfect��
-            ScoreManager.ScoreManagerInstance?.UpdateCurrentScoreText(); //�����ı�
+            ScoreManager.ScoreManagerInstance?.score.AddNoteCount(); //增加音符计数
+            ScoreManager.ScoreManagerInstance?.score.UpdateCurrentRate(); //更新目前的perfect率
+            ScoreManager.ScoreManagerInstance?.UpdateCurrentScoreText(); //更新文本
         }
     }
 
     public bool JudgeTime()
-    { 
+    {
         float baseP = barP;
 
         float p = this.p;
 
-        if (baseP + this.speed * BarJudger.miss < p)  //��δ���ж���
+        if (baseP + this.speed * BarJudger.miss < p)  //还未到判定区
         {
             return false;
         }
 
-        //�ж����ڵ�ʱ���ж�
+        //判定区内的时机判定
         if (baseP - speed * BarJudger.perfect < p && p < baseP + speed * BarJudger.perfect)
         {
-            barJudger.ShowText("�ޣ�", Color.yellow);
-            ScoreManager.ScoreManagerInstance?.score.AddScore("�ޣ�");
+            barJudger.ShowText("赞！", Color.yellow);
+            ScoreManager.ScoreManagerInstance?.score.AddScore("赞！");
         }
         else if (baseP - speed * BarJudger.good < p && p < baseP + speed * BarJudger.good)
         {
-            barJudger.ShowText("���У�", Color.green);
-            ScoreManager.ScoreManagerInstance?.score.AddScore("���У�");
+            barJudger.ShowText("还行！", Color.green);
+            ScoreManager.ScoreManagerInstance?.score.AddScore("还行！");
         }
         else if (baseP - speed * BarJudger.soso < p && p < baseP + speed * BarJudger.soso)
         {
-            barJudger.ShowText("һ�㣡", Color.cyan);
-            ScoreManager.ScoreManagerInstance?.score.AddScore("һ�㣡");
+            barJudger.ShowText("一般！", Color.cyan);
+            ScoreManager.ScoreManagerInstance?.score.AddScore("一般！");
         }
         else if (baseP - speed * BarJudger.miss < p && p < baseP + speed * BarJudger.miss)
         {
-            barJudger.ShowText("�ź���", Color.red);
+            barJudger.ShowText("遗憾！", Color.red);
         }
 
         DestroyNote();
@@ -138,13 +138,13 @@ public class Note : MonoBehaviour
     {
         Vector3 screenPos = mainCamera.WorldToScreenPoint(transform.position);
 
-        //����Ƿ񳬳���Ļ�߽磨�����壩
-        float buffer = 100f;  //������Ļ��Ե100���ؾ�����
+        //检测是否超出屏幕边界（带缓冲）
+        float buffer = 100f;  //超出屏幕边缘100像素就销毁
 
         if (screenPos.y < -buffer || screenPos.x < -buffer)
         {
             Destroy(gameObject);
-         
+
             noteManager.ClearIndex();
         }
     }
